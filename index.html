@@ -14,21 +14,29 @@
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
-body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.75;font-size:15px;-webkit-font-smoothing:antialiased}
+body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
 .pager{position:sticky;top:0;z-index:999;background:var(--ink);color:#fff;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px;padding:8px 12px;font-family:var(--hei);font-size:13px}
 .pager .brand{color:#aaa;margin-right:6px;white-space:nowrap}
 .pager a{color:#fff;text-decoration:none;padding:4px 12px;border-radius:3px;background:#333;font-weight:700;white-space:nowrap}
 .pager a:hover{background:var(--red)}
 @media(max-width:720px){.pager{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.pager a{padding:4px 10px;font-size:12px}}
-.page{max-width:1000px;margin:24px auto;background:var(--paper);box-shadow:0 4px 40px rgba(0,0,0,.18)}
-.page-head{border-bottom:3px double var(--ink);padding:20px 36px 14px;text-align:center;background:#fffdf7}
+.page{max-width:760px;margin:24px auto;background:var(--paper);box-shadow:0 4px 40px rgba(0,0,0,.18)}
+.page-head{border-bottom:3px double var(--ink);padding:24px 36px 16px;text-align:center;background:#fffdf7}
 .page-head .kicker{font-size:11px;letter-spacing:.3em;color:var(--ink-3)}
-.page-head h1{font-size:2.4em;font-weight:900;letter-spacing:.06em;font-family:var(--hei)}
+.page-head h1{font-size:2.2em;font-weight:900;letter-spacing:.06em;font-family:var(--hei)}
 .page-head h1 .accent{color:var(--red)}
 .page-head .page-no{font-size:12px;color:var(--ink-3);margin-top:2px}
-.page-body{padding:26px 36px 40px}
-.columns{column-count:2;column-gap:32px;column-rule:1px solid var(--line)}
-@media(max-width:720px){.columns{column-count:1}.page-body{padding:18px 16px}.page-head{padding:16px 14px}}
+.page-body{padding:28px 40px 48px;max-width:720px;margin:0 auto}
+/* 单栏通栏阅读：PC 不做左右分栏，视线自上而下顺读 */
+.columns{max-width:680px;margin:0 auto}
+/* 视频大图：单栏下可容纳更宽的封面 */
+.video a.thumb img{width:100%;height:auto;display:block}
+@media(max-width:720px){
+  .page{margin:0 auto;box-shadow:none}
+  .page-body{padding:20px 16px 32px}
+  .page-head{padding:16px 14px}
+  body{font-size:15px;line-height:1.75}
+}
 .headline-block{break-inside:avoid;margin-bottom:24px}
 .headline-flag{display:inline-block;background:var(--red);color:#fff;font-family:var(--hei);font-weight:800;font-size:11px;letter-spacing:.15em;padding:3px 12px;margin-bottom:8px}
 .headline-block h2{font-size:2em;font-weight:900;line-height:1.3;font-family:var(--hei);margin-bottom:6px}
