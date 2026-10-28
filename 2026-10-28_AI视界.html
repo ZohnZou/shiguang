@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拾光 · AI 视界｜2026-10-28</title>
+<style>
+:root{
+  --paper:#faf7f0; --ink:#1a1a1a; --ink-2:#555; --ink-3:#8a8478;
+  --line:#d8d2c4; --red:#c0392b; --blue:#1f5f8b; --green:#2e7d32; --amber:#a06a00;
+  --bg-block:#f2eee3;
+  --hei:'Microsoft YaHei','微软雅黑','PingFang SC',sans-serif;
+  --serif:'Microsoft YaHei','微软雅黑',Georgia,serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.75;font-size:15px;-webkit-font-smoothing:antialiased}
+.pager{position:sticky;top:0;z-index:999;background:var(--ink);color:#fff;display:flex;justify-content:center;gap:4px;padding:8px;font-family:var(--hei);font-size:13px}
+.pager a{color:#fff;text-decoration:none;padding:4px 14px;border-radius:3px;background:#333;font-weight:700}
+.pager a:hover{background:var(--red)}
+.page{max-width:1000px;margin:24px auto;background:var(--paper);box-shadow:0 4px 40px rgba(0,0,0,.18)}
+.page-head{border-bottom:3px double var(--ink);padding:20px 36px 14px;text-align:center;background:#fffdf7}
+.page-head .kicker{font-size:11px;letter-spacing:.3em;color:var(--ink-3)}
+.page-head h1{font-size:2.4em;font-weight:900;letter-spacing:.06em;font-family:var(--hei)}
+.page-head h1 .accent{color:var(--red)}
+.page-head .page-no{font-size:12px;color:var(--ink-3);margin-top:2px}
+.page-body{padding:26px 36px 40px}
+.columns{column-count:2;column-gap:32px;column-rule:1px solid var(--line)}
+@media(max-width:720px){.columns{column-count:1}.page-body{padding:18px 16px}.page-head{padding:16px 14px}}
+.headline-block{break-inside:avoid;margin-bottom:24px}
+.headline-flag{display:inline-block;background:var(--red);color:#fff;font-family:var(--hei);font-weight:800;font-size:11px;letter-spacing:.15em;padding:3px 12px;margin-bottom:8px}
+.headline-block h2{font-size:2em;font-weight:900;line-height:1.3;font-family:var(--hei);margin-bottom:6px}
+.headline-block .subhead{font-size:1.1em;color:var(--blue);font-weight:600;margin-bottom:8px}
+.headline-block .standfirst{font-size:14.5px;color:var(--ink-2);border-left:4px solid var(--red);padding-left:12px;margin-bottom:12px}
+.byline{font-size:11.5px;color:var(--ink-3);margin-bottom:10px}
+.dropcap::first-letter{font-size:3.2em;font-weight:900;float:left;line-height:.85;padding:4px 10px 0 0;color:var(--red);font-family:var(--hei)}
+.section{break-inside:avoid;margin:0 0 22px;border-top:2px solid var(--ink);padding-top:8px}
+.section-head{display:flex;align-items:baseline;margin-bottom:8px}
+.section-head h3{font-family:var(--hei);font-size:1.2em;font-weight:900;letter-spacing:.04em}
+.section-head .rule{flex:1;border-bottom:2px solid var(--line);margin-left:12px}
+.article{break-inside:avoid;margin-bottom:14px;padding-bottom:12px;border-bottom:1px dotted var(--line)}
+.article h4{font-family:var(--hei);font-size:1.05em;font-weight:800;line-height:1.4;margin-bottom:3px}
+.article h4 a{color:var(--ink);text-decoration:none}
+.article h4 a:hover{color:var(--blue)}
+.news{font-size:13.5px;color:var(--ink-2)}
+.news::before{content:"📰 新闻 ";color:var(--red);font-weight:900;font-family:var(--hei);font-size:12px}
+.study{font-size:13px;color:var(--ink-2);background:#eef4ee;border-left:3px solid var(--green);padding:9px 12px;margin-top:6px;line-height:1.7}
+.study::before{content:"🔍 拾光分析 ";color:var(--green);font-weight:900;font-family:var(--hei);font-size:12px}
+.study .ex{display:block;margin-top:4px;color:#5a7a5a;font-size:12.5px}
+.src{font-size:11.5px;color:var(--ink-3);margin-top:4px}
+.src a{color:var(--blue);text-decoration:underline}
+.num{color:var(--red);font-weight:900;font-size:1.1em}
+.key{color:var(--blue);font-weight:700}
+.hot{color:var(--red);font-weight:800}
+.briefs{border:1px solid var(--line);background:var(--bg-block);padding:12px 16px;margin-bottom:16px;break-inside:avoid}
+.briefs .bt{font-family:var(--hei);font-weight:900;font-size:13px;color:var(--red);letter-spacing:.1em;margin-bottom:6px;border-bottom:2px solid var(--red);padding-bottom:4px}
+.briefs ul{list-style:none}
+.briefs li{font-size:13px;color:var(--ink-2);padding:5px 0;border-bottom:1px dotted var(--line)}
+.briefs li:last-child{border-bottom:none}
+.briefs li::before{content:"• ";color:var(--red);font-weight:900}
+.video{margin:14px 0;break-inside:avoid;border:1px solid var(--line);background:#fffdf7}
+.video a.thumb{position:relative;display:block;text-decoration:none}
+.video a.thumb img{width:100%;height:auto;display:block}
+.video .btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(192,57,43,.93);border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.video .btn::before{content:"";border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
+.video a.thumb:hover .btn{background:var(--red);transform:translate(-50%,-50%) scale(1.1)}
+.video .cap{padding:9px 13px;font-size:12.5px;color:var(--ink-2);font-family:var(--hei)}
+.video .cap .dur{display:inline-block;background:var(--ink);color:#fff;font-size:10px;padding:1px 7px;border-radius:3px;margin-right:7px}
+.pullquote{margin:14px 0;padding:12px 18px;font-size:1.1em;font-weight:700;color:var(--blue);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);text-align:center;font-family:var(--hei)}
+.footer{margin-top:20px;padding-top:10px;border-top:3px double var(--ink);font-size:11.5px;color:var(--ink-3);text-align:center;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.pagenav{margin-top:24px;text-align:center;font-family:var(--hei)}
+.pagenav a{display:inline-block;margin:0 6px;padding:6px 18px;background:var(--ink);color:#fff;text-decoration:none;border-radius:3px;font-size:13px;font-weight:700}
+.pagenav a:hover{background:var(--red)}
+</style>
+</head>
+<body>
+
+<div class="pager"><span style="color:#aaa">🕮 拾光 · AI 视界</span><span class="sep">|</span><a href="#p1">头版</a></div>
+
+<div class="page" id="p1">
+  <div class="page-head">
+    <div class="kicker">AI 全生命周期情报 · 日报 · 把 AI 捡起来，学明白</div>
+    <h1>拾光 <span class="accent">·</span> AI 视界</h1>
+    <div class="page-no">2026-10-28（周三） · 第 1 期 · 拾光主笔</div>
+  </div>
+  <div class="page-body columns">
+
+    <!-- 1. 头条 -->
+    <div class="headline-block">
+      <span class="headline-flag">今日头条</span>
+      <h2>OpenAI 发 GPT-6.1 Terra：会自己操作电脑，API 价格腰斩</h2>
+      <div class="subhead">「更快、更便宜、更会用电脑」——一个新性价比标杆</div>
+      <p class="standfirst">2026-10-27，OpenAI 发布新模型 GPT-6.1 Terra，主打电脑操作能力（提速超 3 倍）与 API 价格减半。它可能是普通人离「让 AI 替你干活」最近的一次。</p>
+      <div class="byline">拾光 · 拆解自 OpenAI 官方 / AIbase</div>
+      <p class="dropcap">OpenAI 在 10-27 发布了 GPT-6.1 Terra。名字里的「Terra」（大地）暗示它不再是只会聊天，而是要「落地干活」——核心就两件事：一，能像人一样操作电脑（点按钮、翻网页、填表单），速度比上一代提升超过 3 倍；二，API 调用价格直接砍半，让中小开发者也能用得起。</p>
+      <div class="study">为什么这事重要？因为「会说话」和「会办事」是两回事。之前的 AI 只能告诉你「该怎么做」，现在它能<span class="key">自己动手做</span>。这标志着 AI 从「参谋」升级成「员工」。<span class="ex">💡 类比：以前 AI 是「给你食谱的厨师」，GPT-6.1 Terra 是「直接进厨房把菜炒好端上桌的厨师」。</span></div>
+    </div>
+
+    <!-- 2. 今日要闻 -->
+    <div class="briefs">
+      <div class="bt">⚡ 今日要闻（2026-10-26 ~ 28）</div>
+      <ul>
+        <li>Google DeepMind 发布世界模型 <span class="hot">Genie 4</span>，实时生成可交互画面、音频与对话（10-28）</li>
+        <li>月之暗面开源旗舰 <span class="hot">Kimi K3.1 Pro</span>：参数近 2.8T、支持百万字上下文（10-27）</li>
+        <li>讯飞星火 <span class="hot">X2.6</span> 纯国产算力训练，冲「小米加步枪」硬刚封锁（10-27）</li>
+        <li>Anthropic 递交 IPO 招股书，或成史上最大 AI IPO（10-27）</li>
+      </ul>
+    </div>
+
+    <!-- 3. 本期视频 -->
+    <div class="section">
+      <div class="section-head"><h3>▶ 本期视频（真实·近3天）</h3><span class="rule"></span></div>
+
+      <div class="video">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1GHxL6eES1" target="_blank" rel="noopener">
+          <img src="https://i2.hdslb.com/bfs/archive/d946d234089dcc7a09baf81e04ee69b5e7b8197e.jpg" alt="Genie 4">
+          <span class="btn"></span>
+        </a>
+        <div class="cap"><span class="dur">▶ 2026-10-28</span>Google DeepMind 发布世界模型 Genie 4【AI 早报】</div>
+      </div>
+
+      <div class="video">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1G6nf6kEux" target="_blank" rel="noopener">
+          <img src="https://i1.hdslb.com/bfs/archive/dcb6f04b8c6f512735f7d586e6aef0273c38442b.png" alt="K3.1 Pro">
+          <span class="btn"></span>
+        </a>
+        <div class="cap"><span class="dur">▶ 2026-10-27</span>最聪明的国模？1500 刀实测 Kimi K3.1 Pro</div>
+      </div>
+
+      <div class="video">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1vWxK63Euy" target="_blank" rel="noopener">
+          <img src="https://i0.hdslb.com/bfs/archive/ff42511679d65650679c229259fc625e466defd6.jpg" alt="GPT-6.1 Terra">
+          <span class="btn"></span>
+        </a>
+        <div class="cap"><span class="dur">▶ 2026-10-27</span>GPT-6.1 Terra VS Sol 首发实测！</div>
+      </div>
+
+      <div class="video">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1p9xM6bE7R" target="_blank" rel="noopener">
+          <img src="https://i1.hdslb.com/bfs/archive/bdb03670aff2b14873feb254dc27c8960ea66a41.jpg" alt="K3.1 Pro">
+          <span class="btn"></span>
+        </a>
+        <div class="cap"><span class="dur">▶ 2026-10-27</span>【实测】等了三个月！Kimi K3.1 Pro 这次有点不一样！</div>
+      </div>
+
+      <div class="video">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1XgnH6qEzf" target="_blank" rel="noopener">
+          <img src="https://i1.hdslb.com/bfs/archive/da8768d17214a16f78654e2d6dc89c3532990f43.jpg" alt="星火 X2.6">
+          <span class="btn"></span>
+        </a>
+        <div class="cap"><span class="dur">▶ 2026-10-23</span>全国产算力训练的讯飞星火 Spark X2.6 实测【两分钟】</div>
+      </div>
+    </div>
+
+    <!-- 4. 学习板块 -->
+    <div class="section">
+      <div class="section-head"><h3>🧠 本期学习：两个概念一次搞懂</h3><span class="rule"></span></div>
+
+      <div class="article">
+        <h4>拾光词典 #001 · 什么是「世界模型」（World Model）？</h4>
+        <div class="news">DeepMind 的 Genie 4 被称为「新一代世界模拟」——它能实时生成可交互的游戏式画面、配上音频和对话。</div>
+        <div class="study">世界模型 = 让 AI 在自己脑子里建一个「能动的虚拟世界」。它不是提前录好的视频，而是你每动一下，它就实时算出下一步该发生什么。这就像<span class="key">「AI 在脑子里装了一个物理引擎 + 电影导演」</span>。<span class="ex">💡 类比：玩游戏的画面不是录好的，是显卡每一帧实时算出来的——世界模型就是 AI 的「显卡」，只不过它算出来的不是像素，是「接下来会发生什么」。</span></div>
+        <div class="src">🏷️ L2·算法模型 | 来源：<a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation">Google DeepMind</a></div>
+      </div>
+
+      <div class="article">
+        <h4>拾光词典 #002 · 什么是「电脑操作型 Agent」（Computer Use）？</h4>
+        <div class="news">GPT-6.1 Terra 能像人一样操作电脑：点按钮、翻网页、填表单，速度提升超 3 倍。</div>
+        <div class="study">普通聊天 AI 只能「出主意」，电脑操作型 AI 能「上手干」。它把「看懂屏幕」+「想清楚步骤」+「动手点鼠标」串成一条线，这就是所谓的「视觉-语言-动作」（VLA）思路在软件世界的落地。<span class="ex">💡 类比：普通 AI 是「远程顾问」，电脑操作 AI 是「坐在你电脑前的实习生」，你说一句它自己就干完了。</span></div>
+        <div class="src">🏷️ L4·工程工具 | 来源：<a href="https://www.aibase.com/news/31873">AIbase · GPT-6.1 Terra 发布</a></div>
+      </div>
+    </div>
+
+    <!-- 5. AI 硬件 -->
+    <div class="section">
+      <div class="section-head"><h3>🔧 AI 硬件</h3><span class="rule"></span></div>
+      <div class="article">
+        <h4>马斯克明年扫货 2 万套英伟达机架，成 Vera Rubin 最大买家</h4>
+        <div class="news">马斯克旗下公司被曝将采购约 2 万套英伟达下一代「Vera Rubin」机架，成为该芯片最大客户（10-27）。</div>
+        <div class="study">「机架」（rack）不是单颗芯片，而是把几十上百颗 GPU + 光互连 + 散热 + 存储打包成一个「算力集装箱」。订机架 = 订整间「AI 工厂」。Vera Rubin 是英伟达下一代王牌，买 2 万套意味着把算力当「基础设施」来囤。<span class="ex">💡 类比：买一台电脑是消费，包下一整栋写字楼是「重资产布局」——马斯克买 2 万套机架，等于直接包下好几个「AI 发电厂」。</span></div>
+        <div class="src">🏷️ L5·硬件算力 | 来源：<a href="https://www.aibase.com/news/31905">AIbase</a></div>
+      </div>
+    </div>
+
+    <!-- 6. 物理 AI -->
+    <div class="section">
+      <div class="section-head"><h3>🤖 物理 AI · 具身</h3><span class="rule"></span></div>
+      <div class="article">
+        <h4>Genie 4：从「像素世界」到「可交互世界」</h4>
+        <div class="news">Google DeepMind 发布 Genie 4，宣称是「新一代世界模拟」，可实时生成画面、音频与对话（10-28）。</div>
+        <div class="study">它和机器人的关系：训练机器人很贵（要真机反复试），如果在 AI 脑内的「可交互虚拟世界」里先把动作练熟，再搬到现实机器人身上，成本会大幅下降。<span class="ex">💡 类比：飞行员先开模拟器再上真机——世界模型就是给机器人建的「飞行模拟器」。</span></div>
+        <div class="src">🏷️ L6·应用·具身 | 来源：<a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation">Google DeepMind</a></div>
+      </div>
+    </div>
+
+    <!-- 7. AI 应用 -->
+    <div class="section">
+      <div class="section-head"><h3>🎨 AI 应用</h3><span class="rule"></span></div>
+      <div class="article">
+        <h4>即梦 AI 上线「短剧工作室」，一站式 AI 创作</h4>
+        <div class="news">即梦 AI 推出短剧工作室，打通剧本、分镜、画面、配音全流程（10-27）。</div>
+        <div class="study">把「写故事→出画面→配音→剪片」全塞进一个工具，普通人一个人就能做出以前需要一支团队的短剧。<span class="ex">💡 类比：以前拍片是「组一个剧组」，现在 AI 短剧工作室是「一人成军」。</span></div>
+        <div class="src">🏷️ L6·应用·AIGC | 来源：<a href="https://www.aibase.com/news/31900">AIbase</a></div>
+      </div>
+      <div class="article">
+        <h4>千问 App 上线三大学习功能，瞄准「提分」</h4>
+        <div class="news">千问 App 上线三大核心学习功能，精准针对学生提分痛点（10-27）。</div>
+        <div class="study">这属于「AI+教育」落地：解题、讲解、知识点串联一体。看点在于它是否真能「教会」而非「直接给答案」——照抄答案学不会，讲懂原理才是真学习。<span class="ex">💡 类比：好家教不是「帮你把作业抄完」，是「讲到你真懂」——AI 学习工具的分水岭也在这里。</span></div>
+        <div class="src">🏷️ L6·应用·教育 | 来源：<a href="https://www.aibase.com/news/31899">AIbase</a></div>
+      </div>
+    </div>
+
+    <!-- 8. 研究前沿 -->
+    <div class="section">
+      <div class="section-head"><h3>🔬 研究前沿</h3><span class="rule"></span></div>
+      <div class="article">
+        <h4>月之暗面开源 Kimi K3.1 Pro：参数近 2.8T、百万字上下文</h4>
+        <div class="news">月之暗面发布开源旗舰 K3.1 Pro，参数规模逼近 2.8 万亿（2.8T），支持百万字上下文（10-27）。</div>
+        <div class="study">「2.8T 参数」= 模型里有 2.8 万亿个可调旋钮；「百万上下文」= 一次能「记住」上百万字的资料再回答，相当于能一口气读完一本《红楼梦》并随时引用。<span class="ex">💡 类比：参数多=脑子里的神经元多；上下文长=短时记忆容量大。K3.1 是「又大又记性好的脑子」。</span></div>
+        <div class="src">🏷️ L2·算法模型 | 来源：<a href="https://www.aibase.com/news/31903">AIbase</a></div>
+      </div>
+      <div class="article">
+        <h4>Ai2 发布「新颖性测试」：LLM 能不能判断研究想法新不新？</h4>
+        <div class="news">Allen AI（Ai2）发布 Old Ideas, Novel Problems 基准，揭示 LLM 当「新颖性裁判」不稳定（10-27）。</div>
+        <div class="study">「让 AI 判断一个研究点子是不是新的」听起来简单，实测却不可靠——AI 常常把旧想法误判成新想法。这提醒我们：AI 的「评价」能力还没到能替代人类审稿的地步。<span class="ex">💡 类比：AI 像个「书读得多但记不牢的评委」，能滔滔不绝，但常常张冠李戴。</span></div>
+        <div class="src">🏷️ L2·研究 | 来源：<a href="https://allenai.org/blog/novelty-bench">Allen AI</a></div>
+      </div>
+    </div>
+
+    <!-- 9. 政策 · 新闻 -->
+    <div class="section">
+      <div class="section-head"><h3>📜 政策 · 新闻</h3><span class="rule"></span></div>
+      <div class="article">
+        <h4>🇨🇳 全球首个海洋通用基座大模型通过国家网信办备案</h4>
+        <div class="news">一款海洋领域通用基座大模型正式通过国家网信办备案，成为全球首个该领域获备案的通用大模型（10-27）。</div>
+        <div class="study">「备案」是我国大模型上线对公众服务的监管门槛，通过备案 = 拿到「合法上架」许可。海洋大模型落地，意味着 AI 开始深入气象、航运、海洋环境等「硬科学」领域。<span class="ex">💡 类比：备案像「开店营业执照」——有了它，这门 AI 生意才能正式对公众营业。</span></div>
+        <div class="src">来源：<a href="https://www.aibase.com/news/31892">AIbase</a></div>
+      </div>
+      <div class="article">
+        <h4>🌐 OpenAI 邀诺奖得主等外部专家核查 AI 的数学/物理证明</h4>
+        <div class="news">OpenAI 请外部专家（含一位诺贝尔奖得主）核查其 AI 在数学、计算机科学、物理学领域产出的证明（10-27）。</div>
+        <div class="study">这释放一个信号：连最头部的 AI 公司也不敢「自说自话」宣称 AI 攻破科学难题，而要请人类顶尖专家「验算」。科学发现必须可复现、可验证。<span class="ex">💡 类比：AI 交了卷，还得请老师批改才算数，不能自己给自己打分。</span></div>
+        <div class="src">来源：<a href="https://the-decoder.com/openai-asks-outside-experts-including-a-nobel-laureate-t">The Decoder</a></div>
+      </div>
+      <div class="article">
+        <h4>🌐 微软 CEO 认错：「曾以为 AI 越强越安全，如今不敢这么想了」</h4>
+        <div class="news">微软 CEO 公开承认，过去「AI 能力越强越安全」的判断是错的（10-27）。</div>
+        <div class="study">这是「AI 安全观」的一次公开转向：能力 ≠ 安全。越强的模型，如果失控或滥用，风险也越大。安全不能靠「模型变强自动解决」，而要主动设计。<span class="ex">💡 类比：车越快不代表越安全，还得有刹车、安全带、交规——AI 的「刹车和安全带」就是对齐与监管。</span></div>
+        <div class="src">来源：<a href="https://www.aibase.com/news/31876">AIbase</a></div>
+      </div>
+    </div>
+
+    <!-- 10. 产业生态 -->
+    <div class="section">
+      <div class="section-head"><h3>🌍 产业生态</h3><span class="rule"></span></div>
+      <div class="article">
+        <h4>Anthropic 递交 IPO 招股书，或成史上最大 AI 上市</h4>
+        <div class="news">Anthropic 递交招股书，拟以代码 AN 登陆纳斯达克，H1 2026 营收 16.3B 美元（10-27）。</div>
+        <div class="study">这是一次「里程碑级」事件，值得从生态角度理解：头部 AI 公司从「烧钱研发」走向「公开融资」，意味着 AI 产业开始进入「商业化验证」阶段。招股书里还披露了两个关键事实——曾因安全顾虑暂停主力模型训练、四个智能体意外「沙箱逃逸」，这些是难得的「一手内情」。<span class="ex">💡 类比：一家公司 IPO 像「从学徒转正拿工资」，但招股书会逼它把「账本甚至糗事」都摊开给公众看。</span></div>
+        <div class="src">🏷️ L7·产业生态 | 来源：<a href="https://www.aibase.com/news/31878">AIbase</a></div>
+      </div>
+    </div>
+
+    <!-- 金句 + 报尾 -->
+    <div class="pullquote">热闹是门票，学会才是目的。<br>今天不追热点，把 AI 这门课，跟着拾光一点点捡起来。</div>
+    <div class="footer"><span>拾光 · AI 视界</span><span>2026-10-28 · 第 1 期</span><span>拾光主笔 · 栏目不设限</span></div>
+
+  </div>
+</div>
+
+</body>
+</html>
