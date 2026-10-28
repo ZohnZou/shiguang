@@ -11,40 +11,54 @@
   --hei:'Microsoft YaHei','微软雅黑','PingFang SC',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
-html{-webkit-text-size-adjust:100%}
-body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.75;font-size:15px;-webkit-font-smoothing:antialiased}
-.page{max-width:760px;margin:32px auto;background:var(--paper);box-shadow:0 4px 40px rgba(0,0,0,.18)}
-.page-head{border-bottom:3px double var(--ink);padding:28px 36px 20px;text-align:center;background:#fffdf7}
+html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
+body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased}
+.page{max-width:760px;margin:32px auto;background:var(--paper);box-shadow:0 4px 40px rgba(0,0,0,.18);overflow:hidden}
+.page-head{border-bottom:3px double var(--ink);padding:30px 36px 22px;text-align:center;background:#fffdf7}
 .page-head .kicker{font-size:11px;letter-spacing:.3em;color:var(--ink-3)}
-.page-head h1{font-size:clamp(1.6em, 7vw, 2.2em);font-weight:900;letter-spacing:.06em}
+.page-head h1{font-size:clamp(1.8em, 8vw, 2.4em);font-weight:900;letter-spacing:.06em}
 .page-head h1 .accent{color:var(--red)}
-.page-head .sub{font-size:13px;color:var(--ink-2);margin-top:6px}
-.head-band{background:var(--ink);color:#fff;text-align:center;padding:10px;font-weight:700;font-size:14px;letter-spacing:.1em}
-.timeline{position:relative;padding:30px 36px 40px}
-.timeline::before{content:"";position:absolute;left:60px;top:0;bottom:0;width:2px;background:var(--line)}
-.item{position:relative;padding:0 0 26px 90px}
-.item::before{content:"";position:absolute;left:53px;top:6px;width:16px;height:16px;background:var(--red);border-radius:50%;border:3px solid var(--paper)}
-.item .date{font-size:12px;color:var(--red);font-weight:800;letter-spacing:.1em}
-.item .title{font-size:1.15em;font-weight:900;margin:2px 0 4px}
-.item .title a{color:var(--ink);text-decoration:none}
-.item .title a:hover{color:var(--blue)}
-.item .desc{font-size:13.5px;color:var(--ink-2)}
-.item .tag{display:inline-block;background:#f2eee3;border:1px solid var(--line);font-size:11px;color:var(--ink-2);padding:1px 8px;border-radius:3px;margin-right:6px;margin-top:4px}
-.footer{margin-top:8px;padding-top:12px;border-top:3px double var(--ink);font-size:11.5px;color:var(--ink-3);text-align:center}
-.footer a{color:var(--blue)}
+.page-head .sub{font-size:14px;color:var(--ink-2);margin-top:8px}
+
+/* 引导提示条 */
+.hint{background:#fdf3e3;border-bottom:1px solid var(--line);padding:12px 24px;text-align:center;font-size:13.5px;color:var(--ink-2)}
+.hint .arrow{color:var(--red);font-weight:900;animation:bob 1.5s infinite}
+@keyframes bob{0%,100%{transform:translateY(0)}50%{transform:translateY(3px)}}
+
+/* 期次列表 */
+.list{padding:24px 28px 32px}
+.issue-card{
+  display:block;text-decoration:none;color:inherit;
+  border:2px solid var(--line);border-radius:10px;
+  padding:20px 22px;margin-bottom:18px;background:#fffdf7;
+  transition:all .18s ease;box-shadow:0 2px 8px rgba(0,0,0,.05);
+}
+.issue-card:hover{border-color:var(--red);box-shadow:0 6px 20px rgba(192,57,43,.15);transform:translateY(-2px)}
+.issue-card .issue-date{font-size:12px;color:var(--red);font-weight:800;letter-spacing:.08em}
+.issue-card .issue-title{font-size:1.35em;font-weight:900;margin:6px 0 6px;color:var(--ink)}
+.issue-card .issue-desc{font-size:13.5px;color:var(--ink-2);line-height:1.7}
+.issue-card .issue-tags{margin-top:12px}
+.issue-card .tag{display:inline-block;background:#f2eee3;border:1px solid var(--line);font-size:11px;color:var(--ink-2);padding:2px 9px;border-radius:3px;margin-right:6px;margin-bottom:4px}
+.issue-card .read-more{display:inline-block;margin-top:14px;background:var(--red);color:#fff;font-weight:800;font-size:13px;padding:8px 18px;border-radius:6px;letter-spacing:.05em}
+.issue-card:hover .read-more{background:var(--ink)}
+
+/* 最新一期高亮卡 */
+.issue-card.latest{border-color:var(--red)}
+.issue-card.latest::after{content:""}
+
+.footer{margin-top:8px;padding:14px 20px;border-top:3px double var(--ink);font-size:12px;color:var(--ink-3);text-align:center}
+.footer a{color:var(--blue);font-weight:700;text-decoration:none;border-bottom:1px solid var(--blue)}
+
 @media(max-width:720px){
   .page{margin:0;min-height:100vh}
-  .page-head{padding:20px 16px 14px}
+  .page-head{padding:22px 16px 16px}
   .page-head .kicker{letter-spacing:.15em;font-size:10px}
-  .page-head .sub{font-size:12px}
-  .head-band{font-size:13px;padding:9px}
-  .timeline{padding:22px 16px 28px}
-  .timeline::before{left:22px}
-  .item{padding:0 0 22px 46px}
-  .item::before{left:15px;width:14px;height:14px;top:5px}
-  .item .title{font-size:1.05em}
-  .item .desc{font-size:13px}
-  .footer{font-size:11px;padding:10px 12px}
+  .page-head .sub{font-size:13px}
+  .hint{padding:10px 16px;font-size:13px}
+  .list{padding:18px 14px 24px}
+  .issue-card{padding:16px 16px}
+  .issue-card .issue-title{font-size:1.2em}
+  .issue-card .issue-desc{font-size:13px}
 }
 </style>
 </head>
@@ -55,17 +69,25 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.75
     <h1>拾光 <span class="accent">·</span> AI 视界</h1>
     <div class="sub">把 AI 捡起来，学明白 · 每期一份电子报纸</div>
   </div>
-  <div class="head-band">📚 往期时间线</div>
-  <div class="timeline">
 
-    <div class="item">
-      <div class="date">2026-10-28 · 第 1 期</div>
-      <div class="title"><a href="2026-10-28_AI视界.html">首刊：GPT-6.1 Terra 会自己操作电脑了</a></div>
-      <div class="desc">头条 GPT-6.1 Terra 发布；Genie 4 世界模型、Kimi K3.1 Pro、讯飞星火 X2.6 实测；海洋大模型备案、Anthropic IPO 深度解读。</div>
-      <span class="tag">🔍 拾光分析</span><span class="tag">📖 拾光词典 #001-002</span><span class="tag">▶ 5 条视频</span>
-    </div>
+  <div class="hint">👇 点击任意一期，打开完整报纸 <span class="arrow">↓</span></div>
+
+  <div class="list">
+
+    <a class="issue-card latest" href="2026-10-28_AI视界.html">
+      <div class="issue-date">2026-10-28 · 第 1 期 · 最新</div>
+      <div class="issue-title">首刊：GPT-6.1 Terra 会自己操作电脑了</div>
+      <div class="issue-desc">头条 GPT-6.1 Terra 发布；Genie 4 世界模型、Kimi K3.1 Pro、讯飞星火 X2.6 实测；海洋大模型备案、Anthropic IPO 深度解读。</div>
+      <div class="issue-tags">
+        <span class="tag">🔍 拾光分析</span>
+        <span class="tag">📖 拾光词典 #001-002</span>
+        <span class="tag">▶ 5 条视频</span>
+      </div>
+      <span class="read-more">📖 阅读本期 →</span>
+    </a>
 
   </div>
+
   <div class="footer">拾光 · AI 视界 · 拾光主笔 · <a href="2026-10-28_AI视界.html">最新一期</a></div>
 </div>
 </body>
