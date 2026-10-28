@@ -46,6 +46,13 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;
 .issue-card.latest{border-color:var(--red)}
 .issue-card.latest::after{content:""}
 
+/* 反馈区 */
+.feedback{margin:0 28px 24px;padding:22px 24px;background:#fffdf7;border:2px dashed var(--red);border-radius:10px;text-align:center}
+.feedback .fb-title{font-size:1.2em;font-weight:900;color:var(--red);margin-bottom:8px}
+.feedback .fb-desc{font-size:13.5px;color:var(--ink-2);line-height:1.7;margin-bottom:16px}
+.feedback .fb-btn{display:inline-block;background:var(--red);color:#fff;font-weight:800;font-size:15px;padding:12px 28px;border-radius:8px;text-decoration:none;letter-spacing:.05em;box-shadow:0 3px 10px rgba(192,57,43,.3);transition:all .18s}
+.feedback .fb-btn:hover{background:var(--ink);transform:translateY(-2px);box-shadow:0 6px 16px rgba(0,0,0,.25)}
+
 .footer{margin-top:8px;padding:14px 20px;border-top:3px double var(--ink);font-size:12px;color:var(--ink-3);text-align:center}
 .footer a{color:var(--blue);font-weight:700;text-decoration:none;border-bottom:1px solid var(--blue)}
 
@@ -86,6 +93,13 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;
       <span class="read-more">📖 阅读本期 →</span>
     </a>
 
+  </div>
+
+  <!-- 反馈区 -->
+  <div class="feedback">
+    <div class="fb-title">💬 意见 · 建议 · 需求</div>
+    <div class="fb-desc">看了报纸有什么想法？想拾光下期讲什么？点下面的按钮直接告诉拾光，每一条都会认真看、吸收进下一期。</div>
+    <a class="fb-btn" href="https://github.com/ZohnZou/shiguang/issues/new?title=%5B%E5%8F%8D%E9%A6%88%5D%20%E6%88%91%E7%9A%84%E6%83%B3%E6%B3%95&body=%E3%80%90%E6%84%8F%E8%A7%81%2F%E5%BB%BA%E8%AE%AE%2F%E9%9C%80%E6%B1%82%E3%80%91%0A%0A%E8%AF%B7%E5%86%99%E4%B8%8B%E4%BD%A0%E7%9A%84%E6%83%B3%E6%B3%95%EF%BC%8C%E6%8B%BE%E5%85%89%E4%BC%9A%E5%AE%9A%E6%9C%9F%E6%9F%A5%E7%9C%8B%E5%B9%B6%E5%9B%9E%E5%A4%8D%E3%80%82" target="_blank" rel="noopener">✍️ 提意见 / 提需求</a>
   </div>
 
   <div class="footer">拾光 · AI 视界 · 拾光主笔 · <a href="2026-10-28_AI视界.html">最新一期</a></div>
