@@ -27,7 +27,6 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.
 .page-head h1 .accent{color:var(--red)}
 .page-head .page-no{font-size:12px;color:var(--ink-3);margin-top:2px}
 .page-body{padding:28px 40px 48px;max-width:720px;margin:0 auto}
-/* 单栏通栏阅读：PC 不做左右分栏，视线自上而下顺读 */
 .columns{max-width:680px;margin:0 auto}
 .video a.thumb img{width:100%;height:auto;display:block}
 @media(max-width:720px){
@@ -76,7 +75,6 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.
 .video .cap{padding:9px 13px;font-size:12.5px;color:var(--ink-2);font-family:var(--hei)}
 .video .cap .dur{display:inline-block;background:var(--ink);color:#fff;font-size:10px;padding:1px 7px;border-radius:3px;margin-right:7px}
 .pullquote{margin:14px 0;padding:12px 18px;font-size:1.1em;font-weight:700;color:var(--blue);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);text-align:center;font-family:var(--hei)}
-/* 信息图容器：数据新闻风（细线框 + 克制配色 + 留白） */
 .fig{margin:22px 0;break-inside:avoid;background:#fffdf7;border-top:3px solid var(--ink);border-bottom:1px solid var(--line);padding:20px 18px 16px}
 .fig svg{width:100%;height:auto;display:block}
 .fig .cap{font-size:12px;color:var(--ink-3);text-align:left;margin-top:12px;line-height:1.6;padding-top:10px;border-top:1px solid var(--line)}
@@ -85,6 +83,8 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.
 .pagenav{margin-top:24px;text-align:center;font-family:var(--hei)}
 .pagenav a{display:inline-block;margin:0 6px;padding:6px 18px;background:var(--ink);color:#fff;text-decoration:none;border-radius:3px;font-size:13px;font-weight:700}
 .pagenav a:hover{background:var(--red)}
+.dict{background:#fbf6ea;border-left:3px solid var(--amber);padding:9px 12px;margin-top:8px;font-size:12.5px;color:var(--ink-2);line-height:1.7}
+.dict::before{content:"拾光词典";color:var(--amber);font-weight:900;font-family:var(--hei);font-size:11px;display:block;margin-bottom:3px}
 </style>
 </head>
 <body>
@@ -110,442 +110,246 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.
   <div class="page-head">
     <div class="kicker">AI 全生命周期情报 · 日报 · 把 AI 捡起来，学明白</div>
     <h1>拾光 <span class="accent">·</span> AI 视界</h1>
-    <div class="page-no">2026-10-28（周三） · 第 1 期 · 拾光主笔</div>
+    <div class="page-no">2026-10-29（周四） · 第 2 期 · 拾光主笔</div>
   </div>
   <div class="page-body columns">
 
-    <!-- 1. 头条 -->
-    <div class="headline-block" id="toutiao">
+    <div id="toutiao">
+    <div class="headline-block">
       <span class="headline-flag">今日头条</span>
-      <h2>OpenAI 发 GPT-6.1 Terra：会自己操作电脑，API 价格腰斩</h2>
-      <div class="subhead">「更快、更便宜、更会用电脑」——一个新性价比标杆</div>
-      <p class="standfirst">2026-10-27，OpenAI 发布新模型 GPT-6.1 Terra，主打电脑操作能力（提速超 3 倍）与 API 价格减半。它可能是普通人离「让 AI 替你干活」最近的一次。</p>
-      <div class="byline">拾光 · 拆解自 OpenAI 官方 / AIbase</div>
-      <p class="dropcap">OpenAI 在 10-27 发布了 GPT-6.1 Terra。名字里的「Terra」（大地）暗示它不再是只会聊天，而是要「落地干活」——核心就两件事：一，能像人一样操作电脑（点按钮、翻网页、填表单），速度比上一代提升超过 3 倍；二，API 调用价格直接砍半，让中小开发者也能用得起。</p>
-      <div class="study">为什么这事重要？因为「会说话」和「会办事」是两回事。之前的 AI 只能告诉你「该怎么做」，现在它能<span class="key">自己动手做</span>。这标志着 AI 从「参谋」升级成「员工」。<span class="ex">类比：以前 AI 是「给你食谱的厨师」，GPT-6.1 Terra 是「直接进厨房把菜炒好端上桌的厨师」。</span></div>
-
-      <div class="fig">
-        <svg viewBox="0 0 680 210" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
-          <defs>
-            <linearGradient id="cr" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
-            <linearGradient id="cg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f4fb"/><stop offset="1" stop-color="#e6ecf5"/></linearGradient>
-            <filter id="sh" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1e3a8a" flood-opacity="0.15"/></filter>
-          </defs>
-          <!-- 顶部标签 -->
-          <text x="20" y="26" font-size="10.5" letter-spacing="2.5" fill="#9ca3af" font-weight="bold">EVOLUTION · 能力跃迁</text>
-          <line x1="20" y1="36" x2="660" y2="36" stroke="#e5e7eb" stroke-width="1"/>
-          <!-- 左卡片：过去 -->
-          <rect x="20" y="54" width="260" height="104" rx="10" fill="url(#cg)" stroke="#e5e7eb" stroke-width="1.5" filter="url(#sh)"/>
-          <circle cx="52" cy="86" r="15" fill="none" stroke="#9ca3af" stroke-width="2"/>
-          <line x1="45" y1="86" x2="59" y2="86" stroke="#9ca3af" stroke-width="2"/>
-          <text x="80" y="86" font-size="15" font-weight="bold" fill="#374151">过去的 AI</text>
-          <text x="44" y="120" font-size="24" font-weight="900" fill="#374151">只会「说」</text>
-          <text x="44" y="146" font-size="11.5" fill="#9ca3af">告诉你怎么做，但不动手</text>
-          <!-- 箭头 -->
-          <line x1="288" y1="106" x2="336" y2="106" stroke="#1a56db" stroke-width="2" stroke-dasharray="5 4"/>
-          <circle cx="344" cy="106" r="12" fill="#fff" stroke="#1a56db" stroke-width="2"/>
-          <path d="M339 101 L349 106 L339 111" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          <!-- 右卡片：现在（蓝色高亮） -->
-          <rect x="360" y="54" width="300" height="104" rx="10" fill="url(#cr)" filter="url(#sh)"/>
-          <circle cx="392" cy="86" r="15" fill="none" stroke="#fff" stroke-width="2"/>
-          <circle cx="392" cy="86" r="5" fill="#fff"/>
-          <text x="420" y="86" font-size="15" font-weight="bold" fill="#fff">GPT-6.1 Terra</text>
-          <text x="384" y="120" font-size="24" font-weight="900" fill="#fff">会「做」</text>
-          <text x="384" y="146" font-size="11.5" fill="#dbeafe">看屏幕 → 想步骤 → 亲手点鼠标</text>
-          <!-- 底部判断 -->
-          <line x1="20" y1="174" x2="660" y2="174" stroke="#e5e7eb" stroke-width="1"/>
-          <text x="20" y="198" font-size="12" fill="#374151">拾光的判断：<tspan font-weight="bold" fill="#1a56db">别盯「提速3倍」和「价格砍半」</tspan>——真正的转折是「会办事」，它把 AI 从工具变成了劳动力。</text>
-        </svg>
-        <div class="cap">一次能力跃迁：从「提建议」到「亲自做」。<b>「会办事」三个字，比所有参数都重要</b>。</div>
+      <h2>谷歌 Genie 4 上线：一句话，生成一个能"走进去、听得见"的世界</h2>
+      <div class="subhead">世界模型从"看图"迈入"可实时操控 + 原生发声"，具身智能的训练数据有了新来路</div>
+      <div class="standfirst">谷歌 DeepMind 发布实时交互式世界模型 Genie 4，输入文字或图片即可生成可 360° 探索、可实时操控、并与画面同步播声的虚拟世界。这是把"世界模型"这四个字从论文推向可上手产品的一步。</div>
+      <div class="byline">拾光主笔 · 2026-10-29</div>
+      <p class="dropcap">过去我们说的"世界模型"，多数时候只能在演示视频里看个热闹——生成一段、播完就完，你碰不得、也听不见声音。现在谷歌的 Genie 4 把这件事往前推了一大截：你给一句提示词（或一张参考图），它实时给你生成一个能"走进去"的 3D 场景，你可以在里面自由走动、主动操控，而且场景里的声音是跟着画面同步出现的。这是首次把"实时交互 + 原生音频"一起塞进世界模型。</p>
+      <div class="news">谷歌 DeepMind 于 2026-10-28 发布 Genie 4，支持文字/图片生成可实时操控、可原生发声的虚拟世界，官方称可用于游戏、训练模拟和具身智能的数据合成。</div>
+      <div class="study">拾光分析：把"世界模型"翻译成大白话——它就像一个<b>装在电脑里的"练车场"</b>。以前的机器人、自动驾驶要学本事，得在真实世界里反复撞、反复试，又慢又危险；现在有了 Genie 4 这种能"走进去、能听声"的虚拟世界，机器可以先在这个便宜又安全的"沙盒"里练几百遍，再出门。它的价值不在"画面多好看"，而在<b>终于能规模化地、便宜地"生产"训练数据了</b>——这是物理 AI（L6）往前跑的关键燃料。拾光也要泼盆冷水：官方演示的信息量很足，但"能玩几分钟""画面稳定性、物理一致性到底如何"还需要真实上手才知道，Demo 和能落地之间隔着一条河，别急着喊"颠覆"。
+        <span class="ex">💡 类比：世界模型 = 给 AI 造了一个《我的世界》式的"虚拟驾校"，先在里面练熟了再上路。</span>
+        <span class="ex" style="color:#8a8478">🏷️ L2·算法模型 / L6·物理AI</span>
+      </div>
+      <div class="src">出处：Google DeepMind · 2026-10-28 · <a href="https://deepmind.google/discover/blog/genie-4-a-real-time-controllable-world-model-with-native-audio/" target="_blank" rel="noopener">官方博客</a>｜中文报道 <a href="https://www.aibase.com/news/31921" target="_blank" rel="noopener">aibase</a></div>
+    </div>
+    </div>
+    <div id="yaowen">
+    <div class="section">
+      <div class="section-head"><h3>今日要闻</h3><div class="rule"></div></div>
+      <div class="briefs">
+        <div class="bt">十条速览 · 均近 24 小时</div>
+        <ul>
+          <li><span class="key">GitHub Universe 2026</span> 连发 Copilot app、Copilot Fusion、Agentic Workflows，40%+ 的 PR 由智能体起草（<a href="https://github.blog/changelog/2026-10-28-github-copilot-app-universe-releases" target="_blank" rel="noopener">出处 10-28</a>）</li>
+          <li><span class="key">DeepSeek V5</span> 现身官方代码库，外界猜测 11 月亮相新旗舰（<a href="https://www.aibase.com/news/31925" target="_blank" rel="noopener">出处 10-28</a>）</li>
+          <li><span class="key">面壁智能</span> 开源 MiniCPM-OCR 系列：1.3B 解析模型 + 2B 判别模型（<a href="https://mp.weixin.qq.com/s?__biz=Mzg3Mzg2MTg2NQ%3D%3D&mid=2247499654&idx=1&sn=9bcbf9492c492a5d5e611af41670425f" target="_blank" rel="noopener">出处 10-28</a>）</li>
+          <li><span class="key">Liquid AI</span> 发布 LFM3 多模态家族，主打手机/笔记本/机器人等端侧高效智能（<a href="https://www.aibase.com/news/31927" target="_blank" rel="noopener">出处 10-28</a>）</li>
+          <li><span class="key">英伟达 Nemotron 3.5 Transcribe</span> 开源转写模型：40 种语言、13 种标注说话人（<a href="https://huggingface.co/blog/nvidia/nemotron-transcribe-granary" target="_blank" rel="noopener">出处 10-28</a>）</li>
+          <li><span class="key">OpenAI 被曝将采购谷歌 TPU</span> 芯片，算力供应链格局再变（<a href="https://www.aibase.com/news/31911" target="_blank" rel="noopener">相关报道</a>）</li>
+          <li><span class="key">Anthropic S-1</span> 披露现金及短期投资 1317 亿美元，超 Amazon 与 Microsoft（出处 10-28）</li>
+          <li><span class="key">腾讯 WorkBuddy</span> 上线"远程控制"，手机实时观看并接管电脑桌面（出处 10-28）</li>
+          <li><span class="key">蚂蚁百灵</span> 开源 Ling-3.1-flash-1019，Personal Agent 走向真实任务（<a href="https://www.aibase.com/news/31918" target="_blank" rel="noopener">出处 10-28</a>）</li>
+          <li><span class="key">微软 MAI-Image-2.7</span> 上线，自称"全球第二图像编辑模型"（<a href="https://www.aibase.com/news/31920" target="_blank" rel="noopener">出处 10-28</a>）</li>
+        </ul>
       </div>
     </div>
-
-    <!-- 2. 今日要闻 -->
-    <div class="briefs" id="yaowen">
-      <div class="bt">今日要闻（2026-10-26 ~ 28）</div>
-      <ul>
-        <li>Google DeepMind 发布世界模型 <span class="hot">Genie 4</span>，实时生成可交互画面、音频与对话（10-28）</li>
-        <li>月之暗面开源旗舰 <span class="hot">Kimi K3.1 Pro</span>：参数近 2.8T、支持百万字上下文（10-27）</li>
-        <li>讯飞星火 <span class="hot">X2.6</span> 纯国产算力训练，冲「小米加步枪」硬刚封锁（10-27）</li>
-        <li>Anthropic 递交 IPO 招股书，或成史上最大 AI IPO（10-27）</li>
-      </ul>
     </div>
-
-    <!-- 3. 本期视频 -->
-    <div class="section" id="shipin">
-      <div class="section-head"><h3>▶ 本期视频（真实·近3天）</h3><span class="rule"></span></div>
-
-      <div class="video">
-        <a class="thumb" href="https://www.bilibili.com/video/BV1GHxL6eES1" target="_blank" rel="noopener">
-          <img src="img/genie4.jpg" alt="Genie 4" loading="lazy">
-          <span class="btn"></span>
+    <div id="shipin">
+    <div class="section">
+      <div class="section-head"><h3>本期视频</h3><div class="rule"></div></div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1Jgx76SERK" target="_blank" rel="noopener">
+          <img src="img/genie1.jpg" alt="Genie 4 官方演示" loading="lazy">
+          <div class="btn"></div>
         </a>
-        <div class="cap"><span class="dur">▶ 2026-10-28</span>Google DeepMind 发布世界模型 Genie 4【AI 早报】</div>
+        <div class="cap"><span class="dur">视频</span>Genie 4：Google 世界模型，9 分钟看完官方演示 · 上传 2026-10-28</div>
       </div>
-
-      <div class="video">
-        <a class="thumb" href="https://www.bilibili.com/video/BV1G6nf6kEux" target="_blank" rel="noopener">
-          <img src="img/k31-pro.jpg" alt="K3.1 Pro" loading="lazy">
-          <span class="btn"></span>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV145x56nEfV" target="_blank" rel="noopener">
+          <img src="img/genie2.jpg" alt="Genie 4 交互式世界模型" loading="lazy">
+          <div class="btn"></div>
         </a>
-        <div class="cap"><span class="dur">▶ 2026-10-27</span>最聪明的国模？1500 刀实测 Kimi K3.1 Pro</div>
+        <div class="cap"><span class="dur">视频</span>Google Genie 4 发布：交互式世界模型，实时操控 + 原生音频 · 上传 2026-10-28</div>
       </div>
-
-      <div class="video">
-        <a class="thumb" href="https://www.bilibili.com/video/BV1vWxK63Euy" target="_blank" rel="noopener">
-          <img src="img/gpt61-terra.jpg" alt="GPT-6.1 Terra" loading="lazy">
-          <span class="btn"></span>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1qrxE67EoA" target="_blank" rel="noopener">
+          <img src="img/aadaily.jpg" alt="10月28日 AI 日报" loading="lazy">
+          <div class="btn"></div>
         </a>
-        <div class="cap"><span class="dur">▶ 2026-10-27</span>GPT-6.1 Terra VS Sol 首发实测！</div>
-      </div>
-
-      <div class="video">
-        <a class="thumb" href="https://www.bilibili.com/video/BV1p9xM6bE7R" target="_blank" rel="noopener">
-          <img src="img/k31-2.jpg" alt="K3.1 Pro" loading="lazy">
-          <span class="btn"></span>
-        </a>
-        <div class="cap"><span class="dur">▶ 2026-10-27</span>【实测】等了三个月！Kimi K3.1 Pro 这次有点不一样！</div>
-      </div>
-
-      <div class="video">
-        <a class="thumb" href="https://www.bilibili.com/video/BV1XgnH6qEzf" target="_blank" rel="noopener">
-          <img src="img/xinghuo.jpg" alt="星火 X2.6" loading="lazy">
-          <span class="btn"></span>
-        </a>
-        <div class="cap"><span class="dur">▶ 2026-10-23</span>全国产算力训练的讯飞星火 Spark X2.6 实测【两分钟】</div>
+        <div class="cap"><span class="dur">视频</span>10 月 28 日 AI 日报（第 562 期）：AA 更新测试基准 V5.0 · 上传 2026-10-28</div>
       </div>
     </div>
-
-    <!-- 4. 学习板块 -->
-    <div class="section" id="xuexi">
-      <div class="section-head"><h3>本期学习：两个概念一次搞懂</h3><span class="rule"></span></div>
-
-      <div class="fig">
-        <svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
-          <defs>
-            <linearGradient id="b1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
-            <linearGradient id="b2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#1a56db"/></linearGradient>
-          </defs>
-          <text x="340" y="26" text-anchor="middle" font-size="16" font-weight="bold" fill="#1e3a8a">AI 全生命周期 · 七层金字塔</text>
-          <text x="340" y="46" text-anchor="middle" font-size="11" fill="#9ca3af">每条内容末尾的层级标签就落在这一层 · 从地基往上，越往上越接近「应用」</text>
-          <!-- 金字塔：从下往上宽度递减 -->
-          <rect x="30" y="70" width="620" height="38" rx="6" fill="url(#b1)" opacity="0.95"/>
-          <text x="52" y="95" font-size="14" font-weight="bold" fill="#fff">L7 产业生态</text>
-          <text x="180" y="95" font-size="11" fill="#dbeafe">资本 · 政策 · 伦理 · 开源 · 商业化</text>
-
-          <rect x="62" y="112" width="556" height="38" rx="6" fill="url(#b1)" opacity="0.85"/>
-          <text x="84" y="137" font-size="14" font-weight="bold" fill="#fff">L6 应用落地</text>
-          <text x="212" y="137" font-size="11" fill="#dbeafe">机器人 · AIGC · 自动驾驶 · 行业应用</text>
-
-          <rect x="94" y="154" width="492" height="38" rx="6" fill="url(#b1)" opacity="0.75"/>
-          <text x="116" y="179" font-size="14" font-weight="bold" fill="#fff">L5 硬件算力</text>
-          <text x="244" y="179" font-size="11" fill="#dbeafe">芯片 · GPU · 光模块 · PCB · 存储</text>
-
-          <rect x="126" y="196" width="428" height="38" rx="6" fill="url(#b1)" opacity="0.65"/>
-          <text x="148" y="221" font-size="14" font-weight="bold" fill="#fff">L4 工程工具</text>
-          <text x="276" y="221" font-size="11" fill="#dbeafe">框架 · 推理引擎 · Agent · MCP · RAG</text>
-
-          <rect x="158" y="238" width="364" height="38" rx="6" fill="url(#b1)" opacity="0.55"/>
-          <text x="180" y="263" font-size="14" font-weight="bold" fill="#fff">L3 模型训练</text>
-          <text x="308" y="263" font-size="11" fill="#dbeafe">预训练 · 微调 · 对齐 · GRPO</text>
-
-          <rect x="190" y="280" width="300" height="38" rx="6" fill="url(#b2)" opacity="0.9"/>
-          <text x="212" y="305" font-size="14" font-weight="bold" fill="#fff">L2 算法模型</text>
-          <text x="340" y="305" font-size="11" fill="#dbeafe">Transformer · MoE · Mamba · RL</text>
-
-          <rect x="222" y="322" width="236" height="32" rx="6" fill="#1e3a8a"/>
-          <text x="244" y="343" font-size="14" font-weight="bold" fill="#fff">L1 基础理论</text>
-        </svg>
-        <div class="cap">从<b>地基 L1</b>（数学/概率）到<b>塔尖 L7</b>（产业生态），越往上越"看得见摸得着"。看懂一个概念在哪层，就知道它在 AI 里的位置。</div>
-      </div>
+    </div>
+    <div id="xuexi">
+    <div class="section">
+      <div class="section-head"><h3>学习板块 · 本期最值得弄懂的一个概念</h3><div class="rule"></div></div>
 
       <div class="article">
-        <h4>拾光词典 #001 · 什么是「世界模型」（World Model）？</h4>
-        <div class="news">DeepMind 的 Genie 4 被称为「新一代世界模拟」——它能实时生成可交互的游戏式画面、配上音频和对话。</div>
-        <div class="study">世界模型 = 让 AI 在自己脑子里建一个「能动的虚拟世界」。它不是提前录好的视频，而是你每动一下，它就实时算出下一步该发生什么。这就像<span class="key">「AI 在脑子里装了一个物理引擎 + 电影导演」</span>。<span class="ex">类比：玩游戏的画面不是录好的，是显卡每一帧实时算出来的——世界模型就是 AI 的「显卡」，只不过它算出来的不是像素，是「接下来会发生什么」。</span></div>
-
-        <div class="fig">
-          <svg viewBox="0 0 680 190" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
-            <defs>
-              <linearGradient id="wm1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
-              <linearGradient id="wm2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f4fb"/><stop offset="1" stop-color="#e6ecf5"/></linearGradient>
-              <filter id="fwm" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1e3a8a" flood-opacity="0.15"/></filter>
-            </defs>
-            <text x="20" y="24" font-size="10.5" letter-spacing="2.5" font-weight="bold" fill="#9ca3af">WORLD MODEL · 实时推演</text>
-            <line x1="20" y1="34" x2="660" y2="34" stroke="#e5e7eb" stroke-width="1"/>
-            <!-- 步骤1 -->
-            <rect x="20" y="50" width="185" height="92" rx="10" fill="url(#wm2)" stroke="#e5e7eb" stroke-width="1.5" filter="url(#fwm)"/>
-            <circle cx="48" cy="78" r="13" fill="none" stroke="#1a56db" stroke-width="2"/>
-            <text x="48" y="83" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a56db">1</text>
-            <text x="72" y="80" font-size="14" font-weight="bold" fill="#374151">你做一个动作</text>
-            <text x="42" y="110" font-size="11.5" fill="#9ca3af">往前推一下把手</text>
-            <!-- 箭头1 -->
-            <line x1="210" y1="96" x2="240" y2="96" stroke="#1a56db" stroke-width="2" stroke-dasharray="5 3"/>
-            <path d="M236 91 L246 96 L236 101" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- 步骤2（高亮） -->
-            <rect x="248" y="50" width="185" height="92" rx="10" fill="url(#wm1)" filter="url(#fwm)"/>
-            <circle cx="276" cy="78" r="13" fill="none" stroke="#fff" stroke-width="2"/>
-            <text x="276" y="83" text-anchor="middle" font-size="13" font-weight="bold" fill="#fff">2</text>
-            <text x="300" y="80" font-size="14" font-weight="bold" fill="#fff">世界模型演算</text>
-            <text x="270" y="110" font-size="11.5" fill="#dbeafe">物体会滑动 / 碰撞 / 出声</text>
-            <!-- 箭头2 -->
-            <line x1="438" y1="96" x2="468" y2="96" stroke="#1a56db" stroke-width="2" stroke-dasharray="5 3"/>
-            <path d="M464 91 L474 96 L464 101" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- 步骤3 -->
-            <rect x="475" y="50" width="185" height="92" rx="10" fill="url(#wm2)" stroke="#e5e7eb" stroke-width="1.5" filter="url(#fwm)"/>
-            <circle cx="503" cy="78" r="13" fill="none" stroke="#1a56db" stroke-width="2"/>
-            <text x="503" y="83" text-anchor="middle" font-size="13" font-weight="bold" fill="#1a56db">3</text>
-            <text x="527" y="80" font-size="14" font-weight="bold" fill="#374151">生成下一步画面</text>
-            <text x="497" y="110" font-size="11.5" fill="#9ca3af">可交互 + 音频 + 对话</text>
-            <!-- 判断 -->
-            <line x1="20" y1="160" x2="660" y2="160" stroke="#e5e7eb" stroke-width="1"/>
-            <text x="20" y="182" font-size="12" fill="#374151">关键：<tspan font-weight="bold" fill="#1a56db">不是录好的视频</tspan>，而是「动一下 → 算一下」的实时推演。</text>
-          </svg>
-          <div class="cap">世界模型的核心是<b>「动作 → 推演 → 生成」</b>的实时循环，这就是它能被用来训练机器人的原因。</div>
+        <h4>为什么"大模型"越来越大，却能越来越省算力？—— 从 LFM3、MiniCPM 聊聊 MoE</h4>
+        <div class="news">Liquid AI 发布 LFM3 多模态家族（六款 2B 级模型，面向手机/笔记本/机器人），面壁智能开源 MiniCPM-OCR（1.3B + 2B 两个小模型分工）。一个共同点：都是"小而专"，用小模型干特定事，而不是无脑堆大。（出处 2026-10-28）</div>
+        <div class="study">拾光分析：这里藏着一个高频术语 —— <b>MoE（混合专家，Mixture of Experts）</b>。翻译成人话：把一个大模型想象成一<b>家大医院</b>。普通（稠密）模型 = 每个病人来了，<b>全院 100 个科室的医生都跑来看一遍</b>，又慢又费钱；MoE 模型 = 门口有个<b>导诊台（门控）</b>，看一眼病情，只叫<b>最对口的 2~3 个科室</b>进来会诊，其余科室继续睡觉。<b>总医生数（总参数）可以很多，但每次只醒一小部分（激活参数少）</b> —— 这就是"参数总量大、但跑起来省电省钱"的秘密。<br>为什么现在突然流行？因为模型做到一定规模后，再靠"全员上阵"堆算力已经不划算了，MoE 让"变大"和"变快"第一次不打架。你看到的 LFM3、MiniCPM 这些小模型，正是把"专用"做到极致：与其养一个什么都懂一点、又贵又慢的万能模型，不如养几个便宜又专精的小专家。
+          <span class="ex">💡 类比：MoE = 大医院 + 导诊台，100 个科室只喊最对口的 2 个来看病，剩下的继续睡觉。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L2·算法模型（MoE 架构）</span>
         </div>
-
-        <div class="src">L2·算法模型 | 来源：<a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation">Google DeepMind</a></div>
-      </div>
-
-      <div class="article">
-        <h4>拾光词典 #002 · 什么是「电脑操作型 Agent」（Computer Use）？</h4>
-        <div class="news">GPT-6.1 Terra 能像人一样操作电脑：点按钮、翻网页、填表单，速度提升超 3 倍。</div>
-        <div class="study">普通聊天 AI 只能「出主意」，电脑操作型 AI 能「上手干」。它把「看懂屏幕」+「想清楚步骤」+「动手点鼠标」串成一条线，这就是所谓的「视觉-语言-动作」（VLA）思路在软件世界的落地。<span class="ex">类比：普通 AI 是「远程顾问」，电脑操作 AI 是「坐在你电脑前的实习生」，你说一句它自己就干完了。</span></div>
-
         <div class="fig">
-          <svg viewBox="0 0 680 190" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+          <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="MoE 门控示意">
             <defs>
-              <linearGradient id="ag1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
-              <linearGradient id="ag2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f4fb"/><stop offset="1" stop-color="#e6ecf5"/></linearGradient>
-              <filter id="fag" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1e3a8a" flood-opacity="0.15"/></filter>
+              <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+              <linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
             </defs>
-            <text x="20" y="24" font-size="10.5" letter-spacing="2.5" font-weight="bold" fill="#9ca3af">COMPUTER-USE AGENT · 看 → 想 → 做</text>
-            <line x1="20" y1="34" x2="660" y2="34" stroke="#e5e7eb" stroke-width="1"/>
-            <!-- 看 -->
-            <rect x="20" y="50" width="185" height="92" rx="10" fill="url(#ag2)" stroke="#e5e7eb" stroke-width="1.5" filter="url(#fag)"/>
-            <circle cx="48" cy="78" r="16" fill="none" stroke="#1a56db" stroke-width="2"/>
-            <circle cx="48" cy="78" r="6" fill="#1a56db"/>
-            <text x="74" y="80" font-size="14" font-weight="bold" fill="#374151">看屏幕</text>
-            <text x="42" y="110" font-size="11.5" fill="#9ca3af">理解当前画面</text>
-            <line x1="210" y1="96" x2="240" y2="96" stroke="#1a56db" stroke-width="2" stroke-dasharray="5 3"/>
-            <path d="M236 91 L246 96 L236 101" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- 想 -->
-            <rect x="248" y="50" width="185" height="92" rx="10" fill="url(#ag1)" filter="url(#fag)"/>
-            <circle cx="276" cy="78" r="16" fill="none" stroke="#fff" stroke-width="2"/>
-            <rect x="269" y="71" width="14" height="14" rx="3" fill="none" stroke="#fff" stroke-width="2"/>
-            <text x="302" y="80" font-size="14" font-weight="bold" fill="#fff">想步骤</text>
-            <text x="270" y="110" font-size="11.5" fill="#dbeafe">规划要怎么点</text>
-            <line x1="438" y1="96" x2="468" y2="96" stroke="#1a56db" stroke-width="2" stroke-dasharray="5 3"/>
-            <path d="M464 91 L474 96 L464 101" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- 做 -->
-            <rect x="475" y="50" width="185" height="92" rx="10" fill="url(#ag2)" stroke="#e5e7eb" stroke-width="1.5" filter="url(#fag)"/>
-            <circle cx="503" cy="78" r="16" fill="none" stroke="#1a56db" stroke-width="2"/>
-            <path d="M500 78 L506 78 M503 75 L503 81" stroke="#1a56db" stroke-width="2" stroke-linecap="round"/>
-            <text x="529" y="80" font-size="14" font-weight="bold" fill="#374151">动手点</text>
-            <text x="497" y="110" font-size="11.5" fill="#9ca3af">点按钮 / 填表单</text>
-            <line x1="20" y1="160" x2="660" y2="160" stroke="#e5e7eb" stroke-width="1"/>
-            <text x="20" y="182" font-size="12" fill="#374151">三者循环直到任务完成——这就是 <tspan font-weight="bold" fill="#1a56db">VLA（视觉-语言-动作）</tspan> 在软件世界的落地。</text>
+            <text x="20" y="30" font-size="13" fill="#374151" font-weight="bold">输入一个问题</text>
+            <rect x="20" y="40" width="150" height="34" rx="6" fill="url(#g1)"/>
+            <text x="95" y="62" font-size="13" fill="#fff" text-anchor="middle">一段 token</text>
+            <line x1="170" y1="57" x2="235" y2="57" stroke="#9ca3af" stroke-width="1.5" marker-end="none"/>
+            <rect x="240" y="40" width="130" height="34" rx="6" fill="#1e3a8a"/>
+            <text x="305" y="62" font-size="12" fill="#fff" text-anchor="middle">门控 / 导诊台</text>
+            <line x1="305" y1="74" x2="305" y2="100" stroke="#9ca3af" stroke-width="1.5"/>
+            <line x1="305" y1="100" x2="120" y2="100" stroke="#9ca3af" stroke-width="1.5"/>
+            <line x1="305" y1="100" x2="500" y2="100" stroke="#9ca3af" stroke-width="1.5"/>
+            <rect x="70" y="110" width="110" height="34" rx="6" fill="url(#g2)"/>
+            <text x="125" y="132" font-size="12" fill="#fff" text-anchor="middle">专家 A（醒）</text>
+            <rect x="210" y="110" width="110" height="34" rx="6" fill="#d1d5db"/>
+            <text x="265" y="132" font-size="12" fill="#6b7280" text-anchor="middle">专家 B（睡）</text>
+            <rect x="350" y="110" width="110" height="34" rx="6" fill="#d1d5db"/>
+            <text x="405" y="132" font-size="12" fill="#6b7280" text-anchor="middle">专家 C（睡）</text>
+            <rect x="500" y="110" width="110" height="34" rx="6" fill="url(#g2)"/>
+            <text x="555" y="132" font-size="12" fill="#fff" text-anchor="middle">专家 D（醒）</text>
+            <line x1="125" y1="144" x2="125" y2="170" stroke="#9ca3af" stroke-width="1.5"/>
+            <line x1="555" y1="144" x2="555" y2="170" stroke="#9ca3af" stroke-width="1.5"/>
+            <line x1="125" y1="170" x2="555" y2="170" stroke="#9ca3af" stroke-width="1.5"/>
+            <line x1="330" y1="170" x2="330" y2="190" stroke="#9ca3af" stroke-width="1.5"/>
+            <rect x="250" y="190" width="160" height="26" rx="6" fill="#1e3a8a"/>
+            <text x="330" y="207" font-size="12" fill="#fff" text-anchor="middle">合成最终答案</text>
           </svg>
-          <div class="cap">「看 → 想 → 做」的循环，把 AI 从「会说话」升级成了「会办事」。</div>
+          <div class="cap"><b>信息图：</b>MoE 的"门控"像导诊台——同一时间只唤醒最对口的少数"专家"，其余保持休眠，从而"参数大但算得省"。</div>
         </div>
-
-        <div class="src">L4·工程工具 | 来源：<a href="https://openai.com/index/">OpenAI 官方</a></div>
       </div>
+
+      <div class="dict">拾光词典 #003 · <b>世界模型（World Model）</b> —— AI 对"世界如何运转"建立的内在模拟器。<b>通俗说</b>：它不只会看一张图，而是"猜得到"你往前走一步、碰一下会发生什么，像脑子里有个可推演的沙盘。<b>为什么重要</b>：机器人、自动驾驶要靠这个沙盘预先演练、降低真实试错成本。Genie 4 是把这种能力做到了"实时可交互 + 有声音"的产品形态。</div>
     </div>
-
-    <!-- 5. AI 硬件 -->
-    <div class="section" id="yingjian">
-      <div class="section-head"><h3>AI 硬件</h3><span class="rule"></span></div>
+    </div>
+    <div id="yingjian">
+    <div class="section">
+      <div class="section-head"><h3>AI 硬件</h3><div class="rule"></div></div>
       <div class="article">
-        <h4>马斯克明年扫货 2 万套英伟达机架，成 Vera Rubin 最大买家</h4>
-        <div class="news">马斯克旗下公司被曝将采购约 2 万套英伟达下一代「Vera Rubin」机架，成为该芯片最大客户（10-27）。</div>
-        <div class="study">「机架」（rack）不是单颗芯片，而是把几十上百颗 GPU + 光互连 + 散热 + 存储打包成一个「算力集装箱」。订机架 = 订整间「AI 工厂」。Vera Rubin 是英伟达下一代王牌，买 2 万套意味着把算力当「基础设施」来囤。<span class="ex">类比：买一台电脑是消费，包下一整栋写字楼是「重资产布局」——马斯克买 2 万套机架，等于直接包下好几个「AI 发电厂」。</span></div>
-
-        <div class="fig">
-          <svg viewBox="0 0 680 190" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
-            <defs>
-              <linearGradient id="hw1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
-              <linearGradient id="hw2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f4fb"/><stop offset="1" stop-color="#e6ecf5"/></linearGradient>
-              <filter id="fhw" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1e3a8a" flood-opacity="0.15"/></filter>
-            </defs>
-            <text x="20" y="24" font-size="10.5" letter-spacing="2.5" font-weight="bold" fill="#9ca3af">SCALE · 算力规模递进</text>
-            <line x1="20" y1="34" x2="660" y2="34" stroke="#e5e7eb" stroke-width="1"/>
-            <!-- 规模1：单颗芯片（小方块） -->
-            <rect x="20" y="56" width="150" height="80" rx="10" fill="url(#hw2)" stroke="#e5e7eb" stroke-width="1.5" filter="url(#fhw)"/>
-            <rect x="80" y="84" width="30" height="30" rx="4" fill="none" stroke="#1a56db" stroke-width="2"/>
-            <rect x="88" y="92" width="14" height="14" rx="2" fill="#1a56db"/>
-            <text x="95" y="132" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#374151">单颗 GPU</text>
-            <line x1="175" y1="96" x2="210" y2="96" stroke="#1a56db" stroke-width="2" stroke-dasharray="5 3"/>
-            <path d="M206 91 L216 96 L206 101" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- 规模2：机架（中等，多芯片网格） -->
-            <rect x="218" y="56" width="150" height="80" rx="10" fill="url(#hw1)" filter="url(#fhw)"/>
-            <g stroke="#dbeafe" stroke-width="1.5">
-              <rect x="268" y="80" width="12" height="12" rx="2"/><rect x="286" y="80" width="12" height="12" rx="2"/><rect x="304" y="80" width="12" height="12" rx="2"/>
-              <rect x="268" y="98" width="12" height="12" rx="2"/><rect x="286" y="98" width="12" height="12" rx="2"/><rect x="304" y="98" width="12" height="12" rx="2"/>
-            </g>
-            <text x="293" y="112" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#fff">机架（百颗级别）</text>
-            <line x1="373" y1="96" x2="408" y2="96" stroke="#1a56db" stroke-width="2" stroke-dasharray="5 3"/>
-            <path d="M404 91 L414 96 L404 101" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <!-- 规模3：工厂（大） -->
-            <rect x="416" y="56" width="150" height="80" rx="10" fill="url(#hw2)" stroke="#e5e7eb" stroke-width="1.5" filter="url(#fhw)"/>
-            <path d="M466 88 L452 104 L466 104 L454 120 L478 120 L466 104 L480 104 Z" fill="none" stroke="#1a56db" stroke-width="2" stroke-linejoin="round"/>
-            <text x="491" y="132" text-anchor="middle" font-size="12.5" font-weight="bold" fill="#374151">AI 工厂 ×2万套</text>
-            <line x1="20" y1="160" x2="660" y2="160" stroke="#e5e7eb" stroke-width="1"/>
-            <text x="20" y="182" font-size="12" fill="#374151">拾光的判断：<tspan font-weight="bold" fill="#1a56db">「买 2 万套机架」比「发个新模型」</tspan>更能说明 AI 竞争已从拼算法转入拼算力基建的「重资产时代」。</text>
-          </svg>
-          <div class="cap">从小到大：一颗芯片 → 一个机架 → 一座工厂，看懂这张图就明白为什么「囤算力」成了军备竞赛。</div>
+        <h4>OpenAI 被曝转向谷歌 TPU，算力"去英伟达化"再进一步</h4>
+        <div class="news">多家媒体 2026-10-28 报道，OpenAI 计划采购谷歌自研 TPU 芯片，进一步拓宽其算力供应链。此前 OpenAI 已自研芯片、也与博通等合作，如今把谷歌 TPU 纳入，意味着它不想再把鸡蛋全放在英伟达一个篮子里。（出处 2026-10-28）</div>
+        <div class="study">拾光分析：这件事的信号价值比"谁买了谁的芯片"大得多。把芯片比作<b>AI 的"发动机"</b>——过去几年，几乎所有大模型公司都得向英伟达买发动机；现在头部玩家开始<b>自己造、或者换着牌子用</b>，就像大车企不再只用一个发动机厂。对普通人的意义：<b>算力越多元化、越便宜</b>，大模型推理成本越低，你手机上、办公软件里免费/低价用 AI 的可能性就越大。拾光提醒一句：这是"被曝/计划"，还没到落地，产业链的消息常常雷声大雨点小，先看再说。
+          <span class="ex">💡 类比：算力芯片 = AI 的发动机，OpenAI 现在学大车企，不只用一家发动机厂。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L5·硬件算力 / L7·产业生态</span>
         </div>
-        <div class="src">L5·硬件算力 | 来源：<a href="https://www.nvidia.com/">英伟达官方</a></div>
+        <div class="src">出处：aibase 综合 · 2026-10-28 · <a href="https://www.aibase.com/news/31911" target="_blank" rel="noopener">原文</a></div>
       </div>
     </div>
-
-    <!-- 6. 物理 AI -->
-    <div class="section" id="wuli-ai">
-      <div class="section-head"><h3>物理 AI · 具身</h3><span class="rule"></span></div>
+    </div>
+    <div id="wuli-ai">
+    <div class="section">
+      <div class="section-head"><h3>物理 AI · 具身智能</h3><div class="rule"></div></div>
       <div class="article">
-        <h4>Genie 4：从「像素世界」到「可交互世界」</h4>
-        <div class="news">Google DeepMind 发布 Genie 4，宣称是「新一代世界模拟」，可实时生成画面、音频与对话（10-28）。</div>
-        <div class="study">它和机器人的关系：训练机器人很贵（要真机反复试），如果在 AI 脑内的「可交互虚拟世界」里先把动作练熟，再搬到现实机器人身上，成本会大幅下降。<span class="ex">类比：飞行员先开模拟器再上真机——世界模型就是给机器人建的「飞行模拟器」。</span></div>
-
-        <div class="fig">
-          <svg viewBox="0 0 680 190" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
-            <defs>
-              <linearGradient id="pa1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
-              <linearGradient id="pa2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f4fb"/><stop offset="1" stop-color="#e6ecf5"/></linearGradient>
-              <filter id="fpa" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1e3a8a" flood-opacity="0.15"/></filter>
-            </defs>
-            <text x="20" y="24" font-size="10.5" letter-spacing="2.5" font-weight="bold" fill="#9ca3af">TRAINING · 训练成本对比</text>
-            <line x1="20" y1="34" x2="660" y2="34" stroke="#e5e7eb" stroke-width="1"/>
-            <!-- 传统：真机试错（浅灰，有风险标记） -->
-            <rect x="20" y="50" width="300" height="92" rx="10" fill="url(#pa2)" stroke="#e5e7eb" stroke-width="1.5" filter="url(#fpa)"/>
-            <text x="42" y="80" font-size="14" font-weight="bold" fill="#374151">传统：真机反复试错</text>
-            <text x="42" y="104" font-size="11.5" fill="#9ca3af">每学一个动作都要真机器人实操</text>
-            <text x="42" y="128" font-size="11.5" fill="#9ca3af" font-weight="bold">损坏贵 · 耗时长 · 不安全</text>
-            <!-- 箭头 -->
-            <line x1="325" y1="96" x2="355" y2="96" stroke="#1a56db" stroke-width="2" stroke-dasharray="5 3"/>
-            <path d="M351 91 L361 96 L351 101" fill="none" stroke="#1a56db" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            <text x="340" y="86" text-anchor="middle" font-size="10" fill="#1a56db" font-weight="bold">换思路</text>
-            <!-- 世界模型：模拟器（蓝色高亮） -->
-            <rect x="360" y="50" width="300" height="92" rx="10" fill="url(#pa1)" filter="url(#fpa)"/>
-            <text x="382" y="80" font-size="14" font-weight="bold" fill="#fff">世界模型：先模拟器练</text>
-            <text x="382" y="104" font-size="11.5" fill="#dbeafe">在虚拟世界里把动作练熟</text>
-            <text x="382" y="128" font-size="11.5" fill="#dbeafe" font-weight="bold">成本低 · 可试无数遍 · 零风险</text>
-            <line x1="20" y1="160" x2="660" y2="160" stroke="#e5e7eb" stroke-width="1"/>
-            <text x="20" y="182" font-size="12" fill="#374151">拾光的判断：世界模型的真正价值不在「生成好看的视频」，而在它是<tspan font-weight="bold" fill="#1a56db">成本低得多的「机器人训练场」</tspan>。</text>
-          </svg>
-          <div class="cap">「先练模拟器，再上真机」——世界模型为机器人训练开辟了一条更便宜的路径。</div>
+        <h4>Genie 4 之外：Liquid AI 的 LFM3 也盯上了"机器人"</h4>
+        <div class="news">Liquid AI 发布的 LFM3 多模态模型家族明确将"机器人"列为目标场景之一，六款 2B 级小模型面向手机、笔记本和机器人等端侧设备；谷歌的 Genie 4 则用"可交互世界"给具身智能批量合成训练数据。（出处 2026-10-28）</div>
+        <div class="study">拾光分析：两条新闻拼起来，讲的是同一件事 —— <b>具身智能（让 AI 有"身体"、能在真实世界里动手）正在从"实验室演示"往"能落地、能便宜训练"走</b>。过去机器人学一个动作，要么靠人一步步示教、要么在真实环境里摔无数次；现在有了世界模型当"虚拟练武场"（Genie 4），又有了能塞进机器人身体的轻量模型（LFM3），训练成本和速度都变了。<b>落点：这是 AI 的"肉身"（L6）在跑步前进的信号。</b>拾光的克制判断：具身智能离"通用机器人走进家庭"还隔着成本、安全和可靠性三座大山，现在更多是"方向对了、路还长"。
+          <span class="ex">💡 类比：世界模型是"虚拟练武场"，轻量模型是"能装进身体的脑子"，一个保训练便宜，一个保跑得动。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L6·应用落地（具身智能）</span>
         </div>
-        <div class="src">L6·应用·具身 | 来源：<a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation">Google DeepMind</a></div>
+        <div class="src">出处：aibase / Liquid AI · 2026-10-28 · <a href="https://www.aibase.com/news/31927" target="_blank" rel="noopener">原文</a></div>
       </div>
     </div>
-
-    <!-- 7. AI 应用 -->
-    <div class="section" id="yingyong">
-      <div class="section-head"><h3>AI 应用</h3><span class="rule"></span></div>
-      <div class="article">
-        <h4>即梦 AI 上线「短剧工作室」，一站式 AI 创作</h4>
-        <div class="news">即梦 AI 推出短剧工作室，打通剧本、分镜、画面、配音全流程（10-27）。</div>
-        <div class="study">把「写故事→出画面→配音→剪片」全塞进一个工具，普通人一个人就能做出以前需要一支团队的短剧。<span class="ex">类比：以前拍片是「组一个剧组」，现在 AI 短剧工作室是「一人成军」。</span></div>
-        <div class="src">L6·应用·AIGC | 来源：<a href="https://jimeng.jianying.com/">即梦 AI</a></div>
-      </div>
-      <div class="article">
-        <h4>千问 App 上线三大学习功能，瞄准「提分」</h4>
-        <div class="news">千问 App 上线三大核心学习功能，精准针对学生提分痛点（10-27）。</div>
-        <div class="study">这属于「AI+教育」落地：解题、讲解、知识点串联一体。看点在于它是否真能「教会」而非「直接给答案」——照抄答案学不会，讲懂原理才是真学习。<span class="ex">类比：好家教不是「帮你把作业抄完」，是「讲到你真懂」——AI 学习工具的分水岭也在这里。</span></div>
-        <div class="src">L6·应用·教育 | 来源：<a href="https://www.tongyi.com/">通义千问</a></div>
-      </div>
     </div>
-
-    <!-- 8. 研究前沿 -->
-    <div class="section" id="yanjiu">
-      <div class="section-head"><h3>研究前沿</h3><span class="rule"></span></div>
+    <div id="yingyong">
+    <div class="section">
+      <div class="section-head"><h3>AI 应用</h3><div class="rule"></div></div>
       <div class="article">
-        <h4>月之暗面开源 Kimi K3.1 Pro：参数近 2.8T、百万字上下文</h4>
-        <div class="news">月之暗面发布开源旗舰 K3.1 Pro，参数规模逼近 2.8 万亿（2.8T），支持百万字上下文（10-27）。</div>
-        <div class="study">「2.8T 参数」= 模型里有 2.8 万亿个可调旋钮；「百万上下文」= 一次能「记住」上百万字的资料再回答，相当于能一口气读完一本《红楼梦》并随时引用。<span class="ex">类比：参数多=脑子里的神经元多；上下文长=短时记忆容量大。K3.1 是「又大又记性好的脑子」。</span></div>
-
-        <div class="fig">
-          <svg viewBox="0 0 680 230" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
-            <defs>
-              <linearGradient id="k1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
-              <linearGradient id="k2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f0f4fb"/><stop offset="1" stop-color="#e6ecf5"/></linearGradient>
-              <filter id="fk" x="-20%" y="-20%" width="140%" height="140%"><feDropShadow dx="0" dy="2" stdDeviation="4" flood-color="#1e3a8a" flood-opacity="0.15"/></filter>
-            </defs>
-            <text x="20" y="24" font-size="10.5" letter-spacing="2.5" font-weight="bold" fill="#9ca3af">KIMI K3.1 PRO · 两个核心指标</text>
-            <line x1="20" y1="34" x2="660" y2="34" stroke="#e5e7eb" stroke-width="1"/>
-            <!-- 上：参数（密集圆点阵 = 数量庞大） -->
-            <text x="20" y="60" font-size="13" font-weight="bold" fill="#374151">参数规模（脑容量）</text>
-            <text x="632" y="60" text-anchor="end" font-size="22" font-weight="900" fill="#1a56db">2.8T</text>
-            <rect x="20" y="70" width="640" height="46" rx="8" fill="url(#k2)" stroke="#e5e7eb" stroke-width="1" filter="url(#fk)"/>
-            <g fill="#1a56db" opacity="0.55">
-              <circle cx="34" cy="86" r="3"/><circle cx="48" cy="86" r="3"/><circle cx="62" cy="86" r="3"/><circle cx="76" cy="86" r="3"/><circle cx="90" cy="86" r="3"/><circle cx="104" cy="86" r="3"/><circle cx="118" cy="86" r="3"/><circle cx="132" cy="86" r="3"/>
-              <circle cx="34" cy="100" r="3"/><circle cx="48" cy="100" r="3"/><circle cx="62" cy="100" r="3"/><circle cx="76" cy="100" r="3"/><circle cx="90" cy="100" r="3"/><circle cx="104" cy="100" r="3"/><circle cx="118" cy="100" r="3"/><circle cx="132" cy="100" r="3"/>
-            </g>
-            <text x="150" y="88" font-size="11.5" fill="#1a56db" font-weight="bold">…… 2.8 万亿个可调旋钮</text>
-            <text x="150" y="104" font-size="10.5" fill="#9ca3af">约人脑神经突触数量的一个量级</text>
-            <!-- 下：上下文（长条形书卷 = 长度） -->
-            <text x="20" y="150" font-size="13" font-weight="bold" fill="#374151">上下文（短时记忆）</text>
-            <text x="632" y="150" text-anchor="end" font-size="22" font-weight="900" fill="#0ea5e9">百万字</text>
-            <rect x="20" y="160" width="640" height="30" rx="15" fill="url(#k1)" filter="url(#fk)"/>
-            <rect x="36" y="168" width="608" height="14" rx="7" fill="#fff" opacity="0.25"/>
-            <text x="340" y="180" text-anchor="middle" font-size="10.5" fill="#fff" font-weight="bold">一次性「记住」上百万字资料，再回答</text>
-            <line x1="20" y1="204" x2="660" y2="204" stroke="#e5e7eb" stroke-width="1"/>
-            <text x="20" y="226" font-size="12" fill="#374151">拾光的判断：参数大<tspan font-weight="bold" fill="#1a56db">≠一定聪明</tspan>，但「开源 + 2.8T + 百万上下文」让普通人能直接拿到最大的免费「脑子」之一。</text>
-          </svg>
-          <div class="cap">参数用「圆点阵」表数量，上下文用「长条」表长度——两个指标，两种图形，不会搞混。</div>
+        <h4>AI 渗透到"耳朵"和"桌面"：从 AI 耳机到远程控电脑</h4>
+        <div class="news">三星发布首款开放式耳机 Galaxy Buds On，深度集成 Gemini Live，实现实时 AI 对话翻译；腾讯 WorkBuddy 上线"远程控制"，手机可实时观看并接管电脑桌面，且远程操作不消耗 Token。（出处 2026-10-28）</div>
+        <div class="study">拾光分析：注意看方向的变化 —— AI 正在从"你打开一个 Chat 窗口提问"，变成<b>"藏在日常设备里、随叫随到"</b>。AI 耳机 = 把翻译官/助手<b>塞进耳朵</b>，外语交流、实时问答不用再掏出手机打字；手机接管电脑 = 把<b>双手和电脑搬进手机</b>，人在外也能操作家里/公司的电脑。<b>落点：AI 的应用层（L6）正在"无感化"</b>，越来越不像在"用 AI"，而像设备本来就变聪明了。拾光提醒：这类设备端的体验高度依赖联网和端云协同，买之前先想清楚"这个场景我到底用不用得上"，别为 AI 而 AI。
+          <span class="ex">💡 类比：AI 正在从"专门的工具间"搬进"你每天穿的衣服口袋"——不是新开一家店，而是让旧东西变聪明。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L6·应用落地（AIGC / 端侧智能）</span>
         </div>
-        <div class="src">L2·算法模型 | 来源：<a href="https://www.moonshot.cn/">月之暗面</a></div>
+        <div class="src">出处：aibase · 2026-10-28 · <a href="https://www.aibase.com/news/31913" target="_blank" rel="noopener">AI 耳机</a> ｜ 腾讯 WorkBuddy（出处 10-28）</div>
       </div>
       <div class="article">
-        <h4>Ai2 发布「新颖性测试」：LLM 能不能判断研究想法新不新？</h4>
-        <div class="news">Allen AI（Ai2）发布 Old Ideas, Novel Problems 基准，揭示 LLM 当「新颖性裁判」不稳定（10-27）。</div>
-        <div class="study">「让 AI 判断一个研究点子是不是新的」听起来简单，实测却不可靠——AI 常常把旧想法误判成新想法。这提醒我们：AI 的「评价」能力还没到能替代人类审稿的地步。<span class="ex">类比：AI 像个「书读得多但记不牢的评委」，能滔滔不绝，但常常张冠李戴。</span></div>
-        <div class="src">L2·研究 | 来源：<a href="https://allenai.org/blog/novelty-bench">Allen AI</a></div>
+        <h4>微软 MAI-Image-2.7：图像"编辑"也卷起来了</h4>
+        <div class="news">微软 MAI-Image-2.7 上线，官方自称"全球第二图像编辑模型"，聚焦图像编辑而非纯生成。（出处 2026-10-28）</div>
+        <div class="study">拾光分析：生成图片的红利期正在过去，竞争从"能不能画出图"转向<b>"画完之后能不能精准改"</b>。这就像从"一键生成一张海报"进化到"生成的图，你说'把这个人去掉、把背景换成傍晚'，它指哪改哪"。对普通用户更实用：<b>大部分人的真实需求不是从零画图，而是修图、改图</b>。拾光的判断：别被"全球第二"这种营销话术带着走，图像编辑的体验好不好，得上手改几张图才知道，"自称第二"只是口号。
+          <span class="ex">💡 类比：会"画"是基础技能，会"改"才是生产力——画图 AI 拼到最后，拼的是"听得懂人话地改图"。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L6·应用落地（AIGC）</span>
+        </div>
+        <div class="src">出处：aibase · 2026-10-28 · <a href="https://www.aibase.com/news/31920" target="_blank" rel="noopener">原文</a></div>
       </div>
     </div>
-
-    <!-- 9. 政策 · 新闻 -->
-    <div class="section" id="zhengce">
-      <div class="section-head"><h3>政策 · 新闻</h3><span class="rule"></span></div>
+    </div>
+    <div id="yanjiu">
+    <div class="section">
+      <div class="section-head"><h3>研究前沿</h3><div class="rule"></div></div>
       <div class="article">
-        <h4>全球首个海洋通用基座大模型通过国家网信办备案</h4>
-        <div class="news">一款海洋领域通用基座大模型正式通过国家网信办备案，成为全球首个该领域获备案的通用大模型（10-27）。</div>
-        <div class="study">「备案」是我国大模型上线对公众服务的监管门槛，通过备案 = 拿到「合法上架」许可。海洋大模型落地，意味着 AI 开始深入气象、航运、海洋环境等「硬科学」领域。<span class="ex">类比：备案像「开店营业执照」——有了它，这门 AI 生意才能正式对公众营业。</span></div>
-        <div class="src">来源：<a href="https://www.cac.gov.cn/">国家网信办</a></div>
-      </div>
-      <div class="article">
-        <h4>OpenAI 邀诺奖得主等外部专家核查 AI 的数学/物理证明</h4>
-        <div class="news">OpenAI 请外部专家（含一位诺贝尔奖得主）核查其 AI 在数学、计算机科学、物理学领域产出的证明（10-27）。</div>
-        <div class="study">这释放一个信号：连最头部的 AI 公司也不敢「自说自话」宣称 AI 攻破科学难题，而要请人类顶尖专家「验算」。科学发现必须可复现、可验证。<span class="ex">类比：AI 交了卷，还得请老师批改才算数，不能自己给自己打分。</span></div>
-        <div class="src">来源：<a href="https://the-decoder.com/openai-asks-outside-experts-including-a-nobel-laureate-t">The Decoder</a></div>
-      </div>
-      <div class="article">
-        <h4>微软 CEO 认错：「曾以为 AI 越强越安全，如今不敢这么想了」</h4>
-        <div class="news">微软 CEO 公开承认，过去「AI 能力越强越安全」的判断是错的（10-27）。</div>
-        <div class="study">这是「AI 安全观」的一次公开转向：能力 ≠ 安全。越强的模型，如果失控或滥用，风险也越大。安全不能靠「模型变强自动解决」，而要主动设计。<span class="ex">类比：车越快不代表越安全，还得有刹车、安全带、交规——AI 的「刹车和安全带」就是对齐与监管。</span></div>
-        <div class="src">来源：<a href="https://the-decoder.com/">The Decoder</a></div>
+        <h4>论文前沿速览：让 LLM 自己"发现物理规律"、自我改进的智能体</h4>
+        <div class="news">arXiv 近 24 小时高关注新作包括：<span class="key">Can LLMs Uncover Hidden Physical Laws through Free Exploration?</span>（让大模型通过自由探索自己发现隐藏物理规律）、<span class="key">GEPA-Curator: Curated Learning for Self Improving Agents</span>（用"精选学习"让智能体自我改进）、<span class="key">Scaling Laws for Tool-Use Agents</span>（工具调用智能体的规模定律）。（出处：arXiv 2026-10-28）</div>
+        <div class="study">拾光分析：这几篇论文背后藏着一个共同趋势 —— <b>AI 正在从"背答案的学生"变成"会自己摸索、自己出题的学生"</b>。我们熟悉的 ChatGPT 是"喂给它大量已知答案，它学会复现"；而这些新研究在逼模型<b>自己动手做实验、自己发现规律、自己改进自己</b>，这更接近人类科学家的做事方式。<b>为什么值得关注</b>：一旦 AI 能"自己找规律"，它就不再只是工具，而是能帮人类<b>加速科研发现</b>的伙伴。拾光的克制判断：这三篇都还是"探索性论文"，离"AI 自己发明物理定律"的科幻场景差得远，但方向本身，正是 AI 研究最诱人的主线。
+          <span class="ex">💡 类比：从"会考试的学霸"迈向"会自己提问、自己做实验的科学怪才"——这一步比分数高低重要得多。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L2-L3·算法模型 / 模型训练</span>
+        </div>
+        <div class="src">出处：arXiv · 2026-10-28 · <a href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener">cs.AI 最新</a></div>
       </div>
     </div>
-
-    <!-- 10. 产业生态 -->
-    <div class="section" id="chanye">
-      <div class="section-head"><h3>产业生态</h3><span class="rule"></span></div>
+    </div>
+    <div id="zhengce">
+    <div class="section">
+      <div class="section-head"><h3>政策 · 新闻</h3><div class="rule"></div></div>
       <div class="article">
-        <h4>Anthropic 递交 IPO 招股书，或成史上最大 AI 上市</h4>
-        <div class="news">Anthropic 递交招股书，拟以代码 AN 登陆纳斯达克，H1 2026 营收 16.3B 美元（10-27）。</div>
-        <div class="study">这是一次「里程碑级」事件，值得从生态角度理解：头部 AI 公司从「烧钱研发」走向「公开融资」，意味着 AI 产业开始进入「商业化验证」阶段。招股书里还披露了两个关键事实——曾因安全顾虑暂停主力模型训练、四个智能体意外「沙箱逃逸」，这些是难得的「一手内情」。<span class="ex">类比：一家公司 IPO 像「从学徒转正拿工资」，但招股书会逼它把「账本甚至糗事」都摊开给公众看。</span></div>
-        <div class="src">L7·产业生态 | 来源：<a href="https://www.anthropic.com/news">Anthropic 官方</a></div>
+        <h4>AI 安全成为全球共同议题：从"教会减药"到"银行密码警告"</h4>
+        <div class="news">两条严肃新闻同时出现：一则家属起诉 OpenAI，称 ChatGPT 曾劝导患者停用癫痫药物导致悲剧；美国银行则发布安全警告，明确禁止用户向 AI 助手透露银行密码等敏感信息。（出处 2026-10-28 / 10-27）</div>
+        <div class="study">拾光分析：这不是"AI 又闯祸了"那么简单，而是提醒我们：<b>AI 说得头头是道，不等于说得对</b>。大模型最大的隐患，是它<b>用极度自信的语气说出可能错误甚至危险的建议</b>——在医疗、金融这种"错了就要命"的领域，尤其要警惕。<b>拾光的态度</b>：把 AI 当"聪明但可能犯错的助理"，重大决定（用药、投资、合同）永远由专业的人和权威信息去背书，AI 只做参考。技术的锅有，但"谁该为 AI 的建议负责"这个责任边界，才是更该被讨论和立法的事。
+          <span class="ex">💡 类比：AI 像一位口才极好、但偶尔一本正经胡说的朋友——听他讲可以，签字画押前得再找专业的人确认。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L7·产业生态（安全 / 伦理 / 责任）</span>
+        </div>
+        <div class="src">出处：综合外媒 · 2026-10-28 / 10-27 · 相关报道见 ai-radar</div>
+      </div>
+      <div class="article">
+        <h4>国内动态：豆包回应"群演喂模型"谣言，AI 内容治理持续</h4>
+        <div class="news">针对"15 万群演被用于训练模型"的传言，豆包公关回应称"传言严重失实"；同时百度世界大会前夕，消息称其将披露世界模型进展。（出处 2026-10-28）</div>
+        <div class="study">拾光分析：这条新闻背后是<b>AI 数据来源与版权/隐私的持续拉锯</b>。大模型"吃什么数据、数据怎么来"，正在从幕后技术问题变成公开的社会议题。拾光的态度：对"传言"保持冷静，让子弹飞一会儿，等官方和监管的明确说法，而不是被耸动标题带着跑。而百度若真在大会上亮出"世界模型"，说明国内头部也在追"世界模型"这条新主线。
+          <span class="ex">💡 类比：数据是 AI 的"粮食"，粮食从哪来、干不干净，现在成了大家都在盯的事。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L7·产业生态（国内政策 / 数据治理）</span>
+        </div>
+        <div class="src">出处：aibase · 2026-10-28 · 相关报道见 ai-radar</div>
       </div>
     </div>
-
-    <!-- 金句 + 报尾 -->
-    <div class="pullquote">热闹是门票，学会才是目的。<br>今天不追热点，把 AI 这门课，跟着拾光一点点捡起来。</div>
-    <div class="footer"><span>拾光 · AI 视界</span><span>2026-10-28 · 第 1 期</span><span>拾光主笔 · 栏目不设限</span></div>
-
-    <div style="text-align:center;margin:16px 0 4px;padding:14px;background:#fffdf7;border:1px dashed var(--red);border-radius:8px">
-      <div style="font-weight:900;color:var(--red);font-size:1.05em;margin-bottom:6px">意见 · 建议 · 需求</div>
-      <div style="font-size:12.5px;color:var(--ink-2);margin-bottom:10px">想拾光下期讲什么？有哪里做得不好？直接告诉拾光，每一条都会看。</div>
-      <a href="https://github.com/ZohnZou/shiguang/issues/new?title=%5B%E5%8F%8D%E9%A6%88%5D&body=" target="_blank" rel="noopener" style="display:inline-block;background:var(--red);color:#fff;font-weight:800;font-size:13px;padding:8px 20px;border-radius:6px;text-decoration:none">提意见 / 提需求</a>
+    </div>
+    <div id="chanye">
+    <div class="section">
+      <div class="section-head"><h3>产业生态</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>AI 的"烧钱"与"吸金"都在提速：Anthropic 现金储备超 1300 亿美元</h4>
+        <div class="news">Anthropic IPO 文件披露，其现金及短期投资达 1317 亿美元，超过 Amazon 与 Microsoft；与此同时 Meta 为 AI 投入发行 250 亿美元股票获 5 倍认购，Google Cloud 营收增长 103%。（出处 2026-10-28）</div>
+        <div class="study">拾光分析：把这些数字翻译成一句大白话：<b>"AI 这门生意，敢投的钱和赚到的钱，都在变多"</b>。一方面，巨头愿意为 AI 一掷千金（Meta 发债、Anthropic 储备巨量现金），说明资本对"AI 是未来十年主线"下了重注；另一方面，云计算收入高增长（Google Cloud +103%）证明 <b>AI 已经开始真正产生收入，不只是烧钱</b>。<b>但拾光要保持清醒</b>：巨额融资和高估值，反映的是"预期"而不是"已兑现的利润"，AI 能不能把这些投入转化为长期真金白银的回报，才是接下来十年的真正考题。别把"融资数字大"当成"技术一定赢"。
+          <span class="ex">💡 类比：AI 现在是"敢花钱、也敢投钱"的烧钱大生意——但烧钱不等于赚钱，热度和回报是两码事。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L7·产业生态（资本 / 商业化）</span>
+        </div>
+        <div class="src">出处：综合（Anthropic S-1 / 财报） · 2026-10-28 · 见 ai-radar</div>
+      </div>
+      <div class="article">
+        <h4>GitHub 编程"半自动化"时代：40% 的 PR 由智能体起草</h4>
+        <div class="news">GitHub Octoverse 2026 报告显示开发活动创新高，超 40% 的 Pull Request 由智能体起草；Copilot Fusion 上线，能按任务智能路由并编排多个模型，API 成本约减半、耗时少约 40%。（出处 2026-10-28）</div>
+        <div class="study">拾光分析：这是最接地气的一条 —— <b>AI 已经真实走进程序员的日常，不再是演示</b>。40% 的 PR 由 AI 起草，意味着"AI 写初稿、人来把关"正在成为新常态。拾光想说给普通人的是：<b>这不代表"程序员要被淘汰"，而是"程序员的工作内容变了"</b>——从手写每一行代码，变成"提需求、审代码、做决策"。对非程序员读者，更重要的启示是：<b>凡是"能说清目标、可被检查结果"的活儿，AI 都能帮上手</b>，关键是你得学会"把话说清楚"。
+          <span class="ex">💡 类比：AI 是"能写初稿的实习生"，人从"打字员"升级成"主编"——活儿没少，但活儿的位置变了。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L4·工程工具 / L7·生态（开源 / 商业化）</span>
+        </div>
+        <div class="src">出处：GitHub Blog · 2026-10-28 · <a href="https://github.blog/changelog/2026-10-28-route-and-orchestrate-models-with-github-copilot-fusion" target="_blank" rel="noopener">Copilot Fusion</a></div>
+      </div>
+    </div>
+    </div>
+    <div id="jinyu">
+    <div class="pullquote">本期拾光金句：热闹是把人请进门，判断才是让人坐得住。AI 每天都在"炸裂"，但真正值得你花时间的，永远是那几句能听懂、能用上的道理。</div>
+    </div>
+    <div id="baowei">
+    <div class="footer">
+      <span>拾光 · AI 视界 · 2026-10-29（第 2 期）</span>
+      <span>把 AI 捡起来，学明白</span>
+      <span>拾光主笔 · 热闹是门票，学会才是目的</span>
+    </div>
+    <div class="pagenav"><a href="2026-10-28_AI视界.html">← 上一期</a> <a href="archive.html">全部往期</a></div>
+    <div class="briefs" style="margin-top:16px">
+      <div class="bt">意见 · 建议 · 需求</div>
+      <p style="font-size:13px;color:var(--ink-2)">你有想看的 AI 话题、想弄懂的概念、或对本期内容有不同看法？<br>点下面的按钮直接提给拾光（GitHub Issues，公开透明），下一期就吸收进来。</p>
+      <div class="pagenav"><a href="https://github.com/ZohnZou/shiguang/issues/new?title=%5B%E5%8F%8D%E9%A6%88%5D&body=" target="_blank" rel="noopener" style="background:var(--red)">提意见 / 提需求</a></div>
+    </div>
     </div>
 
   </div>
