@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拾光 · AI 视界｜2026-10-30</title>
+<style>
+:root{
+  --paper:#faf7f0; --ink:#1a1a1a; --ink-2:#555; --ink-3:#8a8478;
+  --line:#d8d2c4; --red:#c0392b; --blue:#1f5f8b; --green:#2e7d32; --amber:#a06a00;
+  --bg-block:#f2eee3;
+  --hei:system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑','Noto Sans SC',sans-serif;
+  --serif:system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑','Noto Sans SC',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+.pager{position:sticky;top:0;z-index:999;background:var(--ink);color:#fff;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px;padding:8px 12px;font-family:var(--hei);font-size:13px}
+.pager .brand{color:#aaa;margin-right:6px;white-space:nowrap}
+.pager a{color:#fff;text-decoration:none;padding:4px 12px;border-radius:3px;background:#333;font-weight:700;white-space:nowrap}
+.pager a:hover{background:var(--red)}
+@media(max-width:720px){.pager{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.pager a{padding:4px 10px;font-size:12px}}
+.page{max-width:760px;margin:24px auto;background:var(--paper);box-shadow:0 4px 40px rgba(0,0,0,.18)}
+.page-head{border-bottom:3px double var(--ink);padding:24px 36px 16px;text-align:center;background:#fffdf7}
+.page-head .kicker{font-size:11px;letter-spacing:.3em;color:var(--ink-3)}
+.page-head h1{font-size:2.2em;font-weight:900;letter-spacing:.06em;font-family:var(--hei)}
+.page-head h1 .accent{color:var(--red)}
+.page-head .page-no{font-size:12px;color:var(--ink-3);margin-top:2px}
+.page-body{padding:28px 40px 48px;max-width:720px;margin:0 auto}
+.columns{max-width:680px;margin:0 auto}
+.video a.thumb img{width:100%;height:auto;display:block}
+@media(max-width:720px){
+  .page{margin:0 auto;box-shadow:none}
+  .page-body{padding:20px 16px 32px}
+  .page-head{padding:16px 14px}
+  body{font-size:15px;line-height:1.75}
+}
+.headline-block{break-inside:avoid;margin-bottom:24px}
+.headline-flag{display:inline-block;background:var(--red);color:#fff;font-family:var(--hei);font-weight:800;font-size:11px;letter-spacing:.15em;padding:3px 12px;margin-bottom:8px}
+.headline-block h2{font-size:2em;font-weight:900;line-height:1.3;font-family:var(--hei);margin-bottom:6px}
+.headline-block .subhead{font-size:1.1em;color:var(--blue);font-weight:600;margin-bottom:8px}
+.headline-block .standfirst{font-size:14.5px;color:var(--ink-2);border-left:4px solid var(--red);padding-left:12px;margin-bottom:12px}
+.byline{font-size:11.5px;color:var(--ink-3);margin-bottom:10px}
+.dropcap::first-letter{font-size:3.2em;font-weight:900;float:left;line-height:.85;padding:4px 10px 0 0;color:var(--red);font-family:var(--hei)}
+.section{break-inside:avoid;margin:0 0 22px;border-top:2px solid var(--ink);padding-top:8px}
+.section-head{display:flex;align-items:baseline;margin-bottom:8px}
+.section-head h3{font-family:var(--hei);font-size:1.2em;font-weight:900;letter-spacing:.04em}
+.section-head .rule{flex:1;border-bottom:2px solid var(--line);margin-left:12px}
+.article{break-inside:avoid;margin-bottom:14px;padding-bottom:12px;border-bottom:1px dotted var(--line)}
+.article h4{font-family:var(--hei);font-size:1.05em;font-weight:800;line-height:1.4;margin-bottom:3px}
+.article h4 a{color:var(--ink);text-decoration:none}
+.article h4 a:hover{color:var(--blue)}
+.news{font-size:13.5px;color:var(--ink-2)}
+.news::before{content:"新闻 ";color:var(--red);font-weight:900;font-family:var(--hei);font-size:12px}
+.study{font-size:13px;color:var(--ink-2);background:#eef4ee;border-left:3px solid var(--green);padding:9px 12px;margin-top:6px;line-height:1.7}
+.study::before{content:"拾光分析 ";color:var(--green);font-weight:900;font-family:var(--hei);font-size:12px}
+.study .ex{display:block;margin-top:4px;color:#5a7a5a;font-size:12.5px}
+.src{font-size:11.5px;color:var(--ink-3);margin-top:4px}
+.src a{color:var(--blue);text-decoration:underline}
+.num{color:var(--red);font-weight:900;font-size:1.1em}
+.key{color:var(--blue);font-weight:700}
+.hot{color:var(--red);font-weight:800}
+.briefs{border:1px solid var(--line);background:var(--bg-block);padding:12px 16px;margin-bottom:16px;break-inside:avoid}
+.briefs .bt{font-family:var(--hei);font-weight:900;font-size:13px;color:var(--red);letter-spacing:.1em;margin-bottom:6px;border-bottom:2px solid var(--red);padding-bottom:4px}
+.briefs ul{list-style:none}
+.briefs li{font-size:13px;color:var(--ink-2);padding:5px 0;border-bottom:1px dotted var(--line)}
+.briefs li:last-child{border-bottom:none}
+.briefs li::before{content:"• ";color:var(--red);font-weight:900}
+.video{margin:14px 0;break-inside:avoid;border:1px solid var(--line);background:#fffdf7}
+.video a.thumb{position:relative;display:block;text-decoration:none}
+.video a.thumb img{width:100%;height:auto;display:block}
+.video .btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(192,57,43,.93);border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.video .btn::before{content:"";border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
+.video a.thumb:hover .btn{background:var(--red);transform:translate(-50%,-50%) scale(1.1)}
+.video .cap{padding:9px 13px;font-size:12.5px;color:var(--ink-2);font-family:var(--hei)}
+.video .cap .dur{display:inline-block;background:var(--ink);color:#fff;font-size:10px;padding:1px 7px;border-radius:3px;margin-right:7px}
+.pullquote{margin:14px 0;padding:12px 18px;font-size:1.1em;font-weight:700;color:var(--blue);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);text-align:center;font-family:var(--hei)}
+.fig{margin:22px 0;break-inside:avoid;background:#fffdf7;border-top:3px solid var(--ink);border-bottom:1px solid var(--line);padding:20px 18px 16px}
+.fig svg{width:100%;height:auto;display:block}
+.fig .cap{font-size:12px;color:var(--ink-3);text-align:left;margin-top:12px;line-height:1.6;padding-top:10px;border-top:1px solid var(--line)}
+.fig .cap b{color:var(--red)}
+.footer{margin-top:20px;padding-top:10px;border-top:3px double var(--ink);font-size:11.5px;color:var(--ink-3);text-align:center;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.pagenav{margin-top:24px;text-align:center;font-family:var(--hei)}
+.pagenav a{display:inline-block;margin:0 6px;padding:6px 18px;background:var(--ink);color:#fff;text-decoration:none;border-radius:3px;font-size:13px;font-weight:700}
+.pagenav a:hover{background:var(--red)}
+.dict{background:#fbf6ea;border-left:3px solid var(--amber);padding:9px 12px;margin-top:8px;font-size:12.5px;color:var(--ink-2);line-height:1.7}
+.dict::before{content:"拾光词典";color:var(--amber);font-weight:900;font-family:var(--hei);font-size:11px;display:block;margin-bottom:3px}
+</style>
+</head>
+<body>
+
+<div class="pager">
+  <span class="brand">拾光 · AI 视界</span>
+  <a href="archive.html">往期</a>
+  <a href="https://ucn7c5oq7ran.feishu.cn/wiki/KjINwgrTAiqTRVkl6oncRUxjnJh" target="_blank" rel="noopener" style="background:#8a4a3a">提意见</a>
+  <span class="sep" style="color:#555;margin:0 4px">|</span>
+  <a href="#toutiao">头条</a>
+  <a href="#yaowen">要闻</a>
+  <a href="#shipin">视频</a>
+  <a href="#xuexi">学习</a>
+  <a href="#yingjian">硬件</a>
+  <a href="#wuli-ai">物理AI</a>
+  <a href="#yingyong">应用</a>
+  <a href="#yanjiu">前沿</a>
+  <a href="#zhengce">政策</a>
+  <a href="#chanye">生态</a>
+</div>
+
+<div class="page" id="p1">
+  <div class="page-head">
+    <div class="kicker">AI 全生命周期情报 · 日报 · 把 AI 捡起来，学明白</div>
+    <h1>拾光 <span class="accent">·</span> AI 视界</h1>
+    <div class="page-no">2026-10-30（周五） · 第 3 期 · 拾光主笔</div>
+  </div>
+  <div class="page-body columns">
+
+    <div id="toutiao">
+    <div class="headline-block">
+      <span class="headline-flag">今日头条</span>
+      <h2>Mistral 放出万亿参数开源模型 Le Chonk：把"顶级大模型"从一个价签，变成人人能下载的安装包</h2>
+      <div class="subhead">1T 参数的权重直接开源，主打编程与网络安全——法国人用"开源"跟闭源巨头打价格战，也打"开放性"这张牌</div>
+      <div class="standfirst">法国 Mistral 正式放出 Le Chonk（Mistral Large 4）权重，是极少数"万亿参数级"里直接开源权重的模型。同一天，Anthropic 的 S-1 招股书被逐行解读：约 8500 亿美元算力承诺押注"递归自我改进"。两条新闻拼在一起，正好是当下 AI 最贵、也最根本的一道选择题——"押注闭源的极致规模"还是"相信开源的普惠分权"。</div>
+      <div class="byline">拾光主笔 · 2026-10-30</div>
+      <p class="dropcap">先讲"万亿参数开源"这件事的分量。过去几年，参数越大越像"镇店之宝"——顶级模型的权重藏在公司内部，外人只能付费调 API，像租一辆你永远买不起的车。Mistral 这次把 Le Chonk 的权重直接开源，等于说：这台"发动机"的图纸、零件清单全公布了，任何人、任何公司、任何国家都能自己下载、自己部署、自己改。对做编程和安全的人尤其重要，因为"看得见里面"才能在关键场景里敢用、能审计。</p>
+      <div class="news">2026-10-29，法国 Mistral 发布并开源 Le Chonk（Mistral Large 4 的 1T 参数版本），主要面向编程与网络安全，是当前开源社区中极少数开放权重的万亿参数模型；技术社区与媒体普遍评价其"编码能力强，但综合仍略逊于中国一线模型"。</div>
+      <div class="study">拾光分析：把这件事拆成两句话。<b>第一句是"开源为什么重要"</b>：闭源模型像一家"只租不卖"的豪车行，你只能上车、不能开引擎盖；开源模型像"公开图纸的发动机厂"，谁都能造、能改、能检查有没有猫腻。对个人学习者是天大的好事——<b>你可以把它的结构、权重、训练方式当教材，一层层拆开学</b>，这是闭源 API 永远给不了的。<br><b>第二句，拾光要泼盆水</b>：TechCrunch 的标题就很冷静——"Le Chonk 是强编码模型，但整体仍落后中国"。开源 ≠ 最强，开源更多是"自由的代价是略逊一筹"。拾光的判断：别把"开源"神化，也别把"闭源"妖魔化，聪明的做法是<b>"该用开源的场景用开源（要隐私、要审计、要自己改），该用闭源的能力用闭源（要最强效果）"</b>。这条新闻真正值得每位读者记下的，是一个正在被验证的历史规律：<b>技术一旦开源，追赶者就有了一条免费的高速路</b>。
+        <span class="ex">💡 类比：闭源 = 只租不卖的豪车；开源 = 公开图纸的发动机厂，你能拆开改、还能当教材学。</span>
+        <span class="ex" style="color:#8a8478">🏷️ L2·算法模型 / L7·产业生态（开源）</span>
+      </div>
+      <div class="src">出处：Mistral / TechCrunch · 2026-10-29 · <a href="https://huggingface.co/blog/mistral-large4" target="_blank" rel="noopener">Hugging Face 官方</a>｜<a href="https://techcrunch.com/2026/10/29/mistral-releases-weights-for-its-trillion-parameter-ai-model-targeting-cybersecurity/" target="_blank" rel="noopener">TechCrunch</a></div>
+    </div>
+    </div>
+    <div id="yaowen">
+    <div class="section">
+      <div class="section-head"><h3>今日要闻</h3><div class="rule"></div></div>
+      <div class="briefs">
+        <div class="bt">十条速览 · 均近 24 小时</div>
+        <ul>
+          <li><span class="key">谷歌 Gemini 4 Carbon</span> 发布，AA 榜 59 分夺得第一，发力长时程工程与网络安全（<a href="https://www.aibase.com/news/31934" target="_blank" rel="noopener">出处 10-29</a>）</li>
+          <li><span class="key">Anthropic S-1</span> 披露约 8500 亿美元算力承诺，押注"递归自我改进"；上半年净亏 807 亿美元（<a href="https://www.theverge.com/ai-artificial-intelligence/1021476/anthropic-s-1-compute-recursive" target="_blank" rel="noopener">出处 10-29</a>）</li>
+          <li><span class="key">腾讯混元</span> 发布 Hy-Nomas 技术报告并开源 Hy-Nomas-Bench，Hy4 / Hy4flash 即将面世（<a href="https://x.com/TencentHunyuan/status/2115851165904814283" target="_blank" rel="noopener">出处 10-29</a>）</li>
+          <li><span class="key">Pika H3 Flex</span> 开源：基于 MiniMax H3 后训练的视频生成模型（<a href="https://x.com/Khazix0918/status/2115898252004622617" target="_blank" rel="noopener">出处 10-29</a>）</li>
+          <li><span class="key">Codex</span> 宣布 Pro 及 Business Premium 各档用量上限翻倍，与 Anthropic 竞争升级（出处 10-29）</li>
+          <li><span class="key">Claude 研究模型</span> 53 分钟攻破 Linux 最高权限，串联 5 条攻击链——AI 当黑客初显身手（<a href="https://www.aibase.com/news/31945" target="_blank" rel="noopener">出处 10-29</a>）</li>
+          <li><span class="key">OpenAI 员工</span> 撰文详解 AI 融入企业的未来三种形态（<a href="https://www.aibase.com/news/31954" target="_blank" rel="noopener">出处 10-29</a>）</li>
+          <li><span class="key">智元灵渠 1.0</span> 具身智能原生 OS 发布，年底全面开源（<a href="https://www.aibase.com/news/31956" target="_blank" rel="noopener">出处 10-29</a>）</li>
+          <li><span class="key">新芯航途 X7 Ultra</span> 智驾芯片发布，中国首发量产 Armv9 车规级 CPU（<a href="https://www.aibase.com/news/31967" target="_blank" rel="noopener">出处 10-29</a>）</li>
+          <li><span class="key">OpenMOSS 开源 MOSS-Image</span>，主打长文本渲染与可编辑布局（<a href="https://www.aibase.com/news/31949" target="_blank" rel="noopener">出处 10-29</a>）</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    <div id="shipin">
+    <div class="section">
+      <div class="section-head"><h3>本期视频</h3><div class="rule"></div></div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1iZsR6EEhQ" target="_blank" rel="noopener">
+          <img src="img/v_gemini4carbon.jpg" alt="Gemini 4 Carbon 发布" loading="lazy">
+          <div class="btn"></div>
+        </a>
+        <div class="cap"><span class="dur">视频</span>谷歌终于又回来了！Gemini 4 Carbon：15 项第一，三维案例更抢眼 · 上传 2026-10-29</div>
+      </div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1ssxE6FEWv" target="_blank" rel="noopener">
+          <img src="img/v_anthropic_ipo.jpg" alt="Anthropic 招股书解读" loading="lazy">
+          <div class="btn"></div>
+        </a>
+        <div class="cap"><span class="dur">视频</span>AI 巨无霸提交上市，Anthropic 招股书公布，上半年净亏损 807 亿美元 · 上传 2026-10-28</div>
+      </div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV15EJk6fEL2" target="_blank" rel="noopener">
+          <img src="img/v_mistral_le_chonk.jpg" alt="Mistral Le Chonk 万亿参数" loading="lazy">
+          <div class="btn"></div>
+        </a>
+        <div class="cap"><span class="dur">视频</span>法国 Mistral 发布 1 万亿参数开源大模型 Le Chonk · 上传 2026-10-15（教学向，可长期复盘）</div>
+      </div>
+    </div>
+    </div>
+    <div id="xuexi">
+    <div class="section">
+      <div class="section-head"><h3>学习板块 · 本期最值得弄懂的一个概念</h3><div class="rule"></div></div>
+
+      <div class="article">
+        <h4>什么是"递归自我改进"？——Anthropic 把上千亿美金押上的那个词</h4>
+        <div class="news">Anthropic 的 S-1 招股书披露，其约 8500 亿美元的算力承诺，核心赌注是一个叫"递归自我改进（recursive self-improvement）"的概念。这个词正在成为整个 AI 行业最贵、也最众说纷纭的一个词。（出处 2026-10-29 · The Verge 解读）</div>
+        <div class="study">拾光分析：把它翻译成人话，就是让 AI <b>"自己教自己、一代比一代强"</b>。想象一个学生：普通学生要等老师出题、讲评、再改进；而"递归自我改进"的学生，是<b>自己会出题、自己会批改、自己总结错题，然后教出下一代更厉害的"自己"</b>。上一代的 AI 负责改进下一代 AI 的训练方法或数据，下一代更聪明后又把"变聪明的方法"传给下下一代……像滚雪球一样，越滚越大、越滚越快。<br>为什么要用"递归"这个词？因为它的关键不是"AI 帮人类干活"，而是<b>"AI 帮 AI 变强"，这个循环可以无限自我重复</b>——这正是让一些人兴奋、也让一些人紧张的地方：兴奋的人看到"智力加速增长"的可能，紧张的人担心"一个越来越聪明的系统，我们还能不能看懂、能不能叫停"。<br>拾光的态度（清醒版）：<b>这本质是一个"预期"，不是已经发生的事实。</b>今天没有任何公开证据表明 AI 已经能可靠地、持续地自我改进到失控的程度；相反，很多研究（比如今天要闻里"专家会在无意识中采纳 AI 的随机意见"）提醒我们：现在的 AI 会<b>一本正经地把错误也说得很有信心</b>。所以"递归自我改进"更该被当成一个值得长期观察的<b>科学命题</b>去理解、去讨论，而不是一个马上要兑现的惊天新闻。你真正该学到的是：判断 AI 行业的"大词"，先问一句"这是已经发生的，还是押注未来的？"——分得清这两者，就不会被热闹带偏。
+          <span class="ex">💡 类比：递归自我改进 = 一个会自己出题、自己批改、再亲手教出"更聪明的自己"的学生，这个循环能一直滚下去。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L3·模型训练（对齐与自我改进）</span>
+        </div>
+        <div class="fig">
+          <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="递归自我改进示意">
+            <defs>
+              <linearGradient id="rs1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+            </defs>
+            <text x="20" y="28" font-size="13" fill="#374151" font-weight="bold">递归自我改进：AI 教 AI，一代更比一代强</text>
+            <circle cx="120" cy="120" r="30" fill="url(#rs1)"/>
+            <text x="120" y="125" font-size="13" fill="#fff" text-anchor="middle">AI 第 1 代</text>
+            <line x1="150" y1="120" x2="210" y2="120" stroke="#9ca3af" stroke-width="1.5"/>
+            <circle cx="250" cy="120" r="42" fill="url(#rs1)"/>
+            <text x="250" y="125" font-size="13" fill="#fff" text-anchor="middle">AI 第 2 代</text>
+            <line x1="292" y1="120" x2="352" y2="120" stroke="#9ca3af" stroke-width="1.5"/>
+            <circle cx="400" cy="120" r="56" fill="#1e3a8a"/>
+            <text x="400" y="125" font-size="13" fill="#fff" text-anchor="middle">AI 第 3 代</text>
+            <text x="120" y="52" font-size="11" fill="#9ca3af" text-anchor="middle">（较弱）</text>
+            <text x="250" y="44" font-size="11" fill="#9ca3af" text-anchor="middle">（更强）</text>
+            <text x="400" y="32" font-size="11" fill="#9ca3af" text-anchor="middle">（更强…）</text>
+            <line x1="210" y1="150" x2="370" y2="185" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
+            <text x="290" y="205" font-size="11" fill="#c0392b" text-anchor="middle">上一代"教"下一代（数据 / 方法 / 错题）</text>
+          </svg>
+          <div class="cap"><b>信息图：</b>递归自我改进 = "AI 教 AI"的雪球——每一代都负责把"变聪明的方法"传给下一代，圆越大代表能力越强。红色虚线就是那个关键的"自我教学"循环。注意：目前这还是"押注未来"的科学命题，而非已兑现的事实。</div>
+        </div>
+      </div>
+
+      <div class="dict">拾光词典 #004 · <b>递归自我改进（Recursive Self-Improvement）</b> —— AI 通过改善自身（数据、训练方法、架构）来迭代出更强版本，且此循环可重复的能力。<b>通俗说</b>：学生不只是做题，而是会自己出题、自己批改，再亲手教出一个更聪明的自己。<b>为什么重要</b>：它被看作通向"超级智能"的可能路径，也是当前 AI 安全讨论的核心议题之一。<b>清醒提醒</b>：这是"预期"而非"现状"，别把融资故事当既成事实。</div>
+    </div>
+    </div>
+    <div id="yingjian">
+    <div class="section">
+      <div class="section-head"><h3>AI 硬件</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>一颗"为端到端大模型而生的"智驾芯片：X7 Ultra，中国首发量产 Armv9 车规 CPU</h4>
+        <div class="news">新芯航途发布 X7 Ultra 智驾芯片，宣称"专为端到端大模型打造"，是中国首发量产 Armv9 车规级 CPU。（出处 2026-10-29）</div>
+        <div class="study">拾光分析：汽车正在变成"四个轮子上的 AI"。以前的车规芯片，任务是把"传感器数据 → 识别障碍物 → 打方向盘"这条流水线跑对；现在智能驾驶改走<b>"端到端大模型"</b>——一个模型直接看画面、直接输出方向盘和油门，中间不用人写死规则。这种"一口吞"的算法，对芯片的要求完全不一样：<b>要能跑更重的神经网络、又得省电、还得扛得住车规级的可靠和散热</b>。X7 Ultra 主打"为端到端而生"+ Armv9 车规 CPU，本质是<b>硬件在追着软件跑</b>。拾光的克制判断：芯片发布会常用"首发""量产"这类词，但一颗芯片能不能真正上车、大规模装进千千万万辆汽车，还要看车厂的验证和上量周期，别被"首发"两个字就下了结论。想学的读者可以顺着"端到端自动驾驶"往下挖，这是 L5 硬件和 L6 具身智能的一个绝佳交汇入口。
+          <span class="ex">💡 类比：车规芯片是汽车 AI 的"心脏"，端到端大模型是"大脑"，心要够强才撑得住一个新脑子。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L5·硬件算力（车规 AI 芯片）</span>
+        </div>
+        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31967" target="_blank" rel="noopener">原文</a></div>
+      </div>
+      <div class="article">
+        <h4>AI EDA 进入"验证期"：芯片设计软件正从"工具"变"智能体"</h4>
+        <div class="news">行业分析指出，AI 电子设计自动化（EDA）正在从早期的 AI 辅助优化，走向"生成式 Copilot + Agentic EDA"——多个 AI 智能体自主编排"设计—验证—修改"完整流程，龙头厂商已演示 L3 级别能力。（出处 2026-10-29）</div>
+        <div class="study">拾光分析：这是一个"AI 造 AI"最实打实的例子。EDA 是设计芯片的软件，"AI EDA"就是<b>让 AI 来设计下一颗 AI 芯片</b>。过去芯片设计里最熬人的就是"设计→验证→发现 bug→改"这个循环，几百人反复折腾几个月；现在智能体可以<b>自主把这个循环跑起来</b>。这跟头条的"递归自我改进"遥相呼应——只不过一个改进的是"模型"，一个改进的是"造模型的硬件"。拾光的落点：<b>AI 的飞轮，本质是"用软件加速硬件、用更强硬件再加速软件"的互相喂养</b>。对普通人最该记住的启示是：真正决定 AI 进度的，不只有发布会上的大模型，还有这些藏在产业链深处的"加速器"。
+          <span class="ex">💡 类比：AI EDA = 让 AI 当"芯片总工程师"，24 小时不停改图、验图，把最磨人的循环自动化了。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L5·硬件算力 / L4·工程工具</span>
+        </div>
+        <div class="src">出处：行业分析 · 2026-10-29 · <a href="https://x.com/Mingyuan1126/status/2115749506662932844" target="_blank" rel="noopener">原文</a></div>
+      </div>
+    </div>
+    </div>
+    <div id="wuli-ai">
+    <div class="section">
+      <div class="section-head"><h3>物理 AI · 具身智能</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>智元发布具身智能原生 OS「灵渠 1.0」，年底全面开源</h4>
+        <div class="news">智元机器人发布"灵渠 1.0"，一款面向具身智能的原生操作系统，并宣布年底全面开源。（出处 2026-10-29）</div>
+        <div class="study">拾光分析：这个词值得拆开讲。<b>操作系统（OS）是什么？</b>手机上的 Android、iOS，就是 OS——它把一堆杂乱硬件（摄像头、芯片、马达）管理起来，让 App 不用操心底层细节、写一次到处能跑。机器人现在是"一机一个样"，换个品牌的机器人，程序基本要重写。智元做"具身智能原生 OS"，等于想给机器人定一套<b>"公用的 Android"</b>：让写机器人大脑的人，不用管下面是哪家的机械臂、哪家的激光雷达。<b>落点：这是把具身智能从"手工作坊"推向"可规模化"的关键一步。</b>拾光的判断：开源 + OS 这个组合，方向是对的（降低门槛、聚拢开发者），但"操作系统能不能成为事实标准"，从来不是技术好就够，还要看生态愿不愿意跟着走——这比发布会难十倍。
+          <span class="ex">💡 类比：机器人操作系统 = 给"身体千奇百怪"的机器人装一个统一的"Android"，让大脑代码一次写、到处跑。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L6·应用落地（具身智能 / 机器人平台）</span>
+        </div>
+        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31956" target="_blank" rel="noopener">原文</a></div>
+      </div>
+      <div class="article">
+        <h4>宇树三季报：营收涨近七成，利润却反降——钱都砸进了算力与大模型</h4>
+        <div class="news">宇树科技三季报显示营收同比增长近七成，但净利润下滑，原因被解读为大量投入用于算力与大模型研发。（出处 2026-10-29）</div>
+        <div class="study">拾光分析：这条新闻是理解"具身智能这门生意"最好的注脚。<b>营收涨、利润降</b>，说明公司把赚到的钱又投回去搞研发了——这是高速成长期公司的典型动作。<b>拾光不聊股价，只讲一个产业逻辑</b>：机器人公司现在拼的不只是"把机器造出来"，更是"让它更聪明"，而"更聪明"要靠<b>大模型 + 算力</b>这两个最烧钱的东西。所以你能看到，越往"智能"里钻的公司，越得像无底洞一样投钱。<b>给读者的一句话</b>：判断一家具身智能公司有没有后劲，别只看它卖了几个机器人，更要看它愿不愿意、也投不投得起"让机器人变聪明"这件慢功夫上。
+          <span class="ex">💡 类比：机器人公司像在"养孩子"——卖货赚的钱都拿去交"补习班"（大模型+算力）学费了，短期看不见利润。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L6·应用落地 / L7·产业生态（研发投入）</span>
+        </div>
+        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31959" target="_blank" rel="noopener">原文</a></div>
+      </div>
+    </div>
+    </div>
+    <div id="yingyong">
+    <div class="section">
+      <div class="section-head"><h3>AI 应用</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>Chrome 开始"帮你填表"：Gemini 把 Gmail 变填单助手，航班号、订单号一键填入</h4>
+        <div class="news">谷歌 Chrome 上线 AI 自动填充，可读取 Gmail 中的航班号、订单号等信息，在网页表单中一键填入。（出处 2026-10-29）</div>
+        <div class="study">拾光分析：AI 应用正在从"会聊天"走向<b>"会替你办事"</b>。以前的浏览器只能记住你的密码和地址；现在它开始<b>翻你的邮箱、把订票号、订单号直接填进对应框里</b>。这背后是一个重要的能力升级：AI 从"被动回答你的问题"，变成<b>"主动理解你要办的事，并帮你跨应用完成"</b>。<b>拾光要提醒的两面</b>：一方面，这确实省事，是"AI 个人助理"该有的样子；另一方面，这也意味着浏览器会读你更多私人数据（邮箱内容），<b>方便和安全是一对跷跷板</b>——用之前请想清楚，你愿不愿意为"少打几个字"交出这些信息。判断 AI 应用孰优孰劣，一个很实用的尺子是：<b>它替你省下的麻烦，值不值得你交出的隐私。</b>
+          <span class="ex">💡 类比：过去的浏览器像"记性好的秘书"，现在的 AI 浏览器像"会翻你抽屉、还主动帮你办事的贴身助理"。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L6·应用落地（个人助理 / 浏览器）</span>
+        </div>
+        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31952" target="_blank" rel="noopener">原文</a></div>
+      </div>
+      <div class="article">
+        <h4>Pika 开源 H3 Flex：视频生成模型，把"一键生成短视频"再推一步</h4>
+        <div class="news">Pika 基于 MiniMax H3 做后训练，开源了视频生成模型 Pika H3 Flex。（出处 2026-10-29）</div>
+        <div class="study">拾光分析：视频生成是"AI 应用层"里最直观、也最烧钱的一个战场。Pika 这次开源的信号是——<b>头部玩家开始把"成品模型"免费公开</b>，让个人和小团队也能自己部署、自己改。这跟头条 Mistral 开源的逻辑一脉相承：<b>开源把门槛打低，把创意权交还给普通人</b>。拾光的判断：视频生成正在从"大厂独享的魔法"变成"人人可用的工具"，但"能生成"和"生成得好、能商用"之间还差着一致性、可控性、版权这几道坎。想动手的人，开源模型是最好的入门教材——这也是拾光反复说的"学 AI 最好的方式之一就是亲手跑一遍"。
+          <span class="ex">💡 类比：开源视频模型 = 把"拍电影"的摄像机图纸免费发给大家，谁都能上手拍两条短片。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L6·应用落地（AIGC / 视频生成）</span>
+        </div>
+        <div class="src">出处：X · 2026-10-29 · <a href="https://x.com/Khazix0918/status/2115898252004622617" target="_blank" rel="noopener">原文</a></div>
+      </div>
+      <div class="article">
+        <h4>腾讯"懂了鸭"内测：把 AI 生成绘本、动画，做成了一个学习社区</h4>
+        <div class="news">腾讯内测"懂了鸭"，把 AI 生成绘本、动画的能力，搭成一个面向学习与创作的小社区。（出处 2026-10-29）</div>
+        <div class="study">拾光分析：这条新闻的看点不是技术多炫，而是<b>AIGC 终于开始往"教育"这个刚需场景落</b>。过去 AI 生成图、生成视频，大多用来"炫技";"懂了鸭"把它用在"把知识画成绘本、做成动画"上，让孩子（和大孩子）用更直观的方式理解抽象概念。<b>拾光尤其认同这个方向</b>——因为这正好是拾光在做的事：<b>把 AI 的知识，用大白话 + 图的方式，讲给普通人听</b>。AIGC 真正的价值，从来不在"能造出多少张图"，而在"能不能帮人把难懂的东西看懂、学会"。
+          <span class="ex">💡 类比：AIGC 用在教育，就像把"枯燥的课本"连夜改成"会动的绘本"，难懂的概念突然就看得见了。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L6·应用落地（AIGC / 教育）</span>
+        </div>
+        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31960" target="_blank" rel="noopener">原文</a></div>
+      </div>
+    </div>
+    </div>
+    <div id="yanjiu">
+    <div class="section">
+      <div class="section-head"><h3>研究前沿</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>Claude 研究模型 53 分钟攻破 Linux 最高权限：AI 开始"自己找漏洞、写利用"</h4>
+        <div class="news">Anthropic 报告称，其研究模型在 Chrome、Safari、Android、Windows、Linux 等多个系统上发现漏洞并串联出 5 条攻击链，其中一项 53 分钟拿下 Linux 最高权限。（出处 2026-10-28/29）</div>
+        <div class="study">拾光分析：这条新闻要"两面看"。<b>正面</b>：AI 能自动找漏洞、搭攻击链，意味着它也能反过来"帮我们发现并修好漏洞"——安全研究员多了一个能力惊人的助手，这是对抗黑客的军备升级。<b>反面</b>：同一种能力落到坏人手里，就是"AI 黑客"。所以这类研究几乎都会配上"负责任披露、限制滥用"的说明。拾光想讲的是背后的<b>能力本质</b>：AI 已经不只是"会聊天"，而是<b>能自主规划多步骤、有目标的复杂行动</b>（找到漏洞→判定可利用→写代码→提权），这正是"智能体（Agent）"从概念走向现实的标志。你该记住：<b>工具越强，双刃剑的两面就越锋利，安全与滥用永远是赛跑关系。</b>
+          <span class="ex">💡 类比：AI 攻防 = 给网络安全装了个"永不睡觉的全能侦察兵"，但它既能守城、也能破城。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L4·工程工具（Agent）/ L7·安全</span>
+        </div>
+        <div class="src">出处：Anthropic / ithome · 2026-10-29 · <a href="https://www.ithome.com/1/019/268.htm" target="_blank" rel="noopener">原文</a></div>
+      </div>
+      <div class="article">
+        <h4>Anthropic 研究：专家会在无意识中"采纳 AI 的随机意见"，还当成自己的想法</h4>
+        <div class="news">Anthropic 一项研究指出，专家可能会在不知不觉中采纳 AI 智能体给出的随机意见，并认为那是自己的判断。（出处 2026-10-29）</div>
+        <div class="study">拾光分析：这条最值得所有"用 AI 的人"警惕——因为它讲的是<b>人怎么被 AI 悄悄影响</b>。研究发现，连专家都可能在无意识中把 AI 的观点当成自己的，事后毫无察觉。这比"AI 说错话"更隐蔽，因为它动的是<b>你的判断过程本身</b>。拾光的提醒很实在：<b>用 AI 时，先自己想一想，再问 AI，最后把 AI 的答案当"参考"而不是"结论"</b>。判断一件事，别让"AI 说得好像很有道理"取代了"我自己真的想清楚了"。这也是拾光一以贯之的态度：AI 是拐杖，不是大脑。
+          <span class="ex">💡 类比：AI 像一位"语气特别笃定"的顾问——太笃定，有时会让你忘了这主意一开始不是你想的。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L7·产业生态（伦理 / 人机协作）</span>
+        </div>
+        <div class="src">出处：The Decoder / Anthropic · 2026-10-29 · <a href="https://the-decoder.com/experts-adopt-ai-agents-random-opinions-and-think-theyre-their-own-anthropic-study-finds" target="_blank" rel="noopener">原文</a></div>
+      </div>
+      <div class="article">
+        <h4>arXiv 前沿速览：让大模型"自己发现物理规律"、测试时干预、注意力即格点规范场</h4>
+        <div class="news">近 24 小时 arXiv 高关注新作包括：<span class="key">Can LLMs Uncover Hidden Physical Laws through Free Exploration?</span>（大模型能否通过自由探索发现隐藏物理规律）、<span class="key">When Should We Intervene at Test Time?</span>（何时该在测试时干预）、<span class="key">Attention as Lattice Gauge Theory</span>（注意力机制与格点规范场的类比）。（出处：arXiv 2026-10-27）</div>
+        <div class="study">拾光分析：三篇论文串起一条线——<b>AI 研究正在往"更自主、更可控、更深刻理解"三个方向同时走</b>。"让模型自己发现物理规律"是在问 AI 能不能当"科学助手"；"何时干预"是在解决"AI 跑偏了怎么办"的工程难题；而"注意力=格点规范场"则是用物理学的语言去重新理解 AI 内部到底在算什么。<b>拾光的克制判断</b>：这三篇都是探索性研究，离落地很远，但它们共同说明一件事——AI 这门学问，正在从"工程驱动"慢慢长出"科学驱动"的另一条腿。对读者，看论文不必抠细节，抓住"方向感"就够了：<b>下一代 AI 的关键词，是"自主探索"和"更懂自己在做什么"。</b>
+          <span class="ex">💡 类比：这些论文像给 AI 开了三门新课程——"自己找规律""学会喊停""弄明白自己脑子里在算啥"。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L2-L3·算法模型 / 模型训练</span>
+        </div>
+        <div class="src">出处：arXiv · 2026-10-27 · <a href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener">cs.AI 最新</a></div>
+      </div>
+    </div>
+    </div>
+    <div id="zhengce">
+    <div class="section">
+      <div class="section-head"><h3>政策 · 新闻</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>AI 数据中心狂吞电力，美国十五年减排成果或归零</h4>
+        <div class="news">有报告指出，AI 数据中心的电力消耗激增，可能抹去美国过去十五年取得的减排成果。（出处 2026-10-29）</div>
+        <div class="study">拾光分析：这条把 AI 的"光鲜"和"代价"同时摆上了桌面。我们享受的每一次"问 AI"，背后都是数据中心里一排排日夜轰鸣、狂吃电的服务器。<b>AI 的两条命脉——算力和电力——其实是一回事：没电，再强的芯片也是废铁。</b>这背后是 2026 年最值得普通人理解的产业真相：<b>AI 的极限，可能不卡在"算法多聪明"，而卡在"电够不够用、够不够绿"</b>。这也是为何"核能+AI""液冷散热""数据中心选址"会越来越常上新闻。拾光的落点：判断一项 AI 技术"值不值"，除了看它多厉害，也该问一句<b>"它要多耗多少电、多少水？"</b>——技术的真正成本，藏在账单和碳排放里。
+          <span class="ex">💡 类比：AI 是"吃电"的大胃王，算力是它的饭量，电力是它的饭碗——饭不够，谁都别想吃。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L5·硬件算力 / L7·产业生态（能耗 / 可持续）</span>
+        </div>
+        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31940" target="_blank" rel="noopener">原文</a></div>
+      </div>
+      <div class="article">
+        <h4>苹果诉 OpenAI 窃密案排期 2027 年夏：一场围绕离职员工的机密拉锯</h4>
+        <div class="news">苹果起诉 OpenAI 窃取商业机密的案件，法院排期到 2027 年夏季开庭，核心争议围绕离职员工的机密与人才流动。（出处 2026-10-29）</div>
+        <div class="study">拾光分析：这条新闻的看点不在"谁输谁赢"，而在它揭示了 AI 时代一个长期难解的题：<b>人才流动和商业秘密之间，边界到底在哪？</b>顶尖 AI 研究的核心资产，很多时候不是代码，而是"装在某些人脑子里"的经验和思路。人一跳槽，"脑子"跟着走，这算不算"偷"？法律要花几年才能慢慢划清这条线。<b>拾光的判断</b>：这场官司只是开始，未来"AI 人才 + 知识产权"的规则会越来越被反复拉扯。对普通从业者，值得记住的一句话是：<b>在 AI 这个人才奇缺的行业里，你个人的技能和判断力，本身就是最保值、也最容易被争夺的资产。</b>
+          <span class="ex">💡 类比：AI 公司最值钱的"秘密工厂"其实是人脑，而人脑会跳槽——于是法律开始给"脑子搬家"定规矩。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L7·产业生态（知识产权 / 人才）</span>
+        </div>
+        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31957" target="_blank" rel="noopener">原文</a></div>
+      </div>
+    </div>
+    </div>
+    <div id="chanye">
+    <div class="section">
+      <div class="section-head"><h3>产业生态</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>GitHub 发布 Copilot Fusion：多模型自动编排，编程进入"半自动化"新常态</h4>
+        <div class="news">GitHub 发布 Copilot Fusion，能按任务智能路由并编排多个模型，官方称 API 成本约减半、耗时减少约 40%。（出处 2026-10-29）</div>
+        <div class="study">拾光分析：这是"AI 如何真正改变工作"的最好样本。Copilot Fusion 的核心是<b>"给每个活儿挑最合适的模型"</b>——写简单代码用便宜的小模型，啃复杂逻辑再上贵的大模型，就像公司采购会"按需进货"而不是"全都买最贵的"。<b>落点：AI 正在学会"又便宜又好用"，而不只是"更强"。</b>拾光说给普通读者的一句话：这件事离你不远——<b>凡是"能说清目标、结果可检查"的文字活儿，AI 都在加速抢着帮你干</b>。你真正该练的新技能，不是"背代码"，而是<b>"把需求说清楚、把结果审明白"</b>。
+          <span class="ex">💡 类比：Copilot Fusion 像一位聪明的"采购主管"，简单活儿派便宜的实习生，难活儿才请资深专家，钱花在刀刃上。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L4·工程工具 / L7·产业生态（商业化）</span>
+        </div>
+        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31962" target="_blank" rel="noopener">原文</a></div>
+      </div>
+      <div class="article">
+        <h4>英伟达拟 30 亿美元入股 Meta，美国反垄断机构同时盯上其 Hugging Face 交易</h4>
+        <div class="news">英伟达计划投资约 30 亿美元入股 Meta 以扩大 AI 合作；与此同时，美国反垄断监管机构正审查英伟达对 Hugging Face 的交易及其销售行为。（出处 2026-10-29）</div>
+        <div class="study">拾光分析：两条新闻拼在一起，讲的是一场围绕"AI 生态"的合纵连横。<b>拾光不聊股价，只说一个产业格局</b>：当芯片巨头开始"既卖铲子、又入股淘金者"，AI 的上下游正在前所未有地抱团。<b>落点：AI 的竞争，早已不是"一家公司的模型强不强"，而是"一整条产业链的联盟强不强"</b>——芯片、算力、模型、应用会绑成一个个阵营。同时，反垄断审查提醒我们：当一个环节强到能"左右全局"时，监管就会介入。<b>给读者的启示</b>：看懂 AI，别只盯单个模型，要学着看"生态"——就像看一部剧，光看主角不够，得看它背后谁给钱、谁提供舞台。
+          <span class="ex">💡 类比：AI 生态像一棵生态树——芯片是"土壤"，资本是"浇水施肥"，模型是"枝叶"，监管是"修剪树枝的手"。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L7·产业生态（资本 / 反垄断 / 生态圈）</span>
+        </div>
+        <div class="src">出处：aibase / TechCrunch · 2026-10-29 · <a href="https://www.aibase.com/news/31944" target="_blank" rel="noopener">英伟达入股</a>｜<a href="https://the-decoder.com/us-antitrust-regulators-are-scrutinizing-nvidias-hugging-face-deal-and-sales-practices" target="_blank" rel="noopener">反垄断</a></div>
+      </div>
+      <div class="article">
+        <h4>AI 垃圾"淹没" Steam，Valve 拒当裁判：不封禁，只让商店更聪明</h4>
+        <div class="news">大量低质 AI 生成的游戏涌入 Steam，Valve 明确表示不封禁 AI 游戏，而是选择改进商店的推荐与筛选机制。（出处 2026-10-29）</div>
+        <div class="study">拾光分析：这条背后是一个越来越普遍的"AI 副作用"：<b>当生成内容的门槛降到几乎为零，"垃圾内容"也会像洪水一样涌出来。</b>以前做游戏要几年，现在 AI 几小时就能堆一个——结果是把"发现好内容"这件事变得比"生产内容"还难。Valve 的选择很有意思：<b>不去"禁"，而是把"筛"做得更聪明</b>。拾光想讲的关键词是<b>"信息过载的逆问题"</b>：AI 让内容爆炸，反而让"会挑、会判断"变成最稀缺的能力。这跟拾光对自己的定位一模一样——<b>不是生产更多信息，而是帮你从信息的洪流里，捞出真正值得看、值得学的那几条。</b>
+          <span class="ex">💡 类比：AI 让"内容工厂"流水线全开，垃圾和金子一起涌来，于是"淘金"（筛选）成了比"炼金"（生成）更值钱的本事。</span>
+          <span class="ex" style="color:#8a8478">🏷️ L7·产业生态（内容治理）</span>
+        </div>
+        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31943" target="_blank" rel="noopener">原文</a></div>
+      </div>
+    </div>
+    </div>
+    <div id="jinyu">
+    <div class="pullquote">本期拾光金句：热闹每天都有，但能让你坐得住、学得进的，永远是那句"这事到底是不是已经发生"——分清"押注未来"和"已成事实"，你就比大多数看热闹的人清醒了一大截。</div>
+    </div>
+    <div id="baowei">
+    <div class="footer">
+      <span>拾光 · AI 视界 · 2026-10-30（第 3 期）</span>
+      <span>把 AI 捡起来，学明白</span>
+      <span>拾光主笔 · 热闹是门票，学会才是目的</span>
+    </div>
+    <div class="pagenav"><a href="2026-10-29_AI视界.html">← 上一期</a> <a href="archive.html">全部往期</a></div>
+    <div class="briefs" style="margin-top:16px">
+      <div class="bt">意见 · 建议 · 需求</div>
+      <p style="font-size:13px;color:var(--ink-2)">你有想看的 AI 话题、想弄懂的概念、或对本期内容有不同看法？<br>点下面的按钮直接提给拾光（免账号填写），下一期就吸收进来。</p>
+      <div class="pagenav"><a href="https://ucn7c5oq7ran.feishu.cn/wiki/KjINwgrTAiqTRVkl6oncRUxjnJh" target="_blank" rel="noopener" style="background:var(--red)">提意见 / 提需求</a></div>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
