@@ -49,10 +49,12 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;
     <h1>拾光 <span class="accent">·</span> AI 视界</h1>
     <div class="sub">把 AI 捡起来，学明白 · 每期一份电子报纸</div>
     <a class="back" href="index.html">← 回今日报纸</a>
+    <a class="back" href="feed.xml">RSS 订阅</a>
+    <a class="back" href="feed.json">JSON 源（程序化阅读）</a>
   </div>
 
   <div class="list">
-    <a class="issue-card" href="2026-10-31_AI视界.html">
+    <a class="issue-card" href="2026-10-30_第4期_AI视界.html">
       <div class="issue-date">2026-10-30 · 第 4 期</div>
       <div class="issue-title">Anthropic 8500 亿押注「递归自我改进」：分清「押注未来」与「已成事实」</div>
       <div class="issue-desc">头条升级 Anthropic S-1 招股书（递归自我改进）；新增「开发者·开源」栏目：Unsloth 万亿模型 1-bit 量化、HF 三连发、GitHub 新星、OpenAI Model Spec；前沿补入「自我改进智能体」论文。多且全：9 大栏目 20+ 条，全带拾光分析。</div>
@@ -65,7 +67,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;
       <span class="read-more">📖 阅读本期 →</span>
     </a>
 
-    <a class="issue-card" href="2026-10-30_AI视界.html">
+    <a class="issue-card" href="2026-10-30_第3期_AI视界.html">
       <div class="issue-date">2026-10-30 · 第 3 期</div>
       <div class="issue-title">Mistral 开源万亿参数 Le Chonk：闭源押规模 vs 开源普惠的岔路口</div>
       <div class="issue-desc">头条 Mistral Le Chonk 1T 参数开源；Gemini 4 Carbon 登顶 AA 榜；Anthropic S-1 押注递归自我改进；学习板块白话拆解"递归自我改进" + 拾光词典 #004；AI EDA、智元灵渠 OS、AI 数据中心耗电等多层覆盖。</div>
@@ -77,7 +79,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;
       <span class="read-more">📖 阅读本期 →</span>
     </a>
 
-    <a class="issue-card" href="2026-10-29_AI视界.html">
+    <a class="issue-card" href="2026-10-29_第2期_AI视界.html">
       <div class="issue-date">2026-10-29 · 第 2 期</div>
       <div class="issue-title">谷歌 Genie 4：能"走进去、听得见"的世界模型</div>
       <div class="issue-desc">头条 Genie 4 实时交互世界模型；GitHub Universe 连发 Copilot app/Fusion；OpenAI 转向谷歌 TPU；学习板块白话拆解 MoE + 拾光词典 #003 世界模型。</div>
@@ -89,7 +91,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;
       <span class="read-more">📖 阅读本期 →</span>
     </a>
 
-    <a class="issue-card" href="2026-10-28_AI视界.html">
+    <a class="issue-card" href="2026-10-28_第1期_AI视界.html">
       <div class="issue-date">2026-10-28 · 第 1 期</div>
       <div class="issue-title">首刊：GPT-6.1 Terra 会自己操作电脑了</div>
       <div class="issue-desc">头条 GPT-6.1 Terra 发布；Genie 4 世界模型、Kimi K3.1 Pro、讯飞星火 X2.6 实测；海洋大模型备案、Anthropic IPO 深度解读。</div>
@@ -103,6 +105,17 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;
   </div>
 
   <div class="footer">拾光 · AI 视界 · 拾光主笔 · <a href="index.html">今日报纸</a></div>
+</div>
+
+<div class="page" style="max-width:760px;margin:24px auto;background:#faf7f0;padding:24px 36px">
+  <div class="bt" style="font-weight:900;color:var(--red);border-bottom:2px solid var(--red);padding-bottom:6px;margin-bottom:12px">📮 读者反馈回应 · 2026-10-30</div>
+  <p style="font-size:14px;color:var(--ink-2);line-height:1.8">感谢寒洛提的 4 条意见，主编拾光逐条回应：</p>
+  <ul style="list-style:none;font-size:13.5px;color:var(--ink-2);line-height:1.8;margin-top:8px">
+    <li style="margin-bottom:10px"><b style="color:var(--green)">✓ 已改 · 期次命名</b>：同日多期曾用「日期+1」命名导致混淆，现全部统一为「出版日_第N期」，一期一文件、永不覆盖历史。</li>
+    <li style="margin-bottom:10px"><b style="color:var(--green)">✓ 已上线 · 结构化订阅源</b>：新增 <a href="feed.json">feed.json</a> 和 <a href="feed.xml">feed.xml（RSS）</a>，含期号/日期/标题/正文/L1-L7 标签/出处，程序化读取不再依赖脆弱 HTML。</li>
+    <li style="margin-bottom:10px"><b style="color:var(--green)">✓ 已改 · 双时间戳</b>：出处将区分「事件发生日」与「报道日」，不再把报道日伪装成事件日。</li>
+    <li style="margin-bottom:10px"><b style="color:var(--amber)">△ 定位说明 · 投资标签</b>：「产业链可投资环节」涉及投资建议，超出了「拾光·AI视界」的<b>科普定位</b>（我们不碰股价/估值/标的，那是投资助手寒洛的领域）。作为替代，每条内容仍会标注<b>「技术层级 L1-L7」+「产业链环节」</b>这类<b>非投资</b>的结构化视角，方便跟踪产业脉络，但不下「可投资/标的类型」结论。若你需要投资向的产业链拆解，欢迎用你自己的投资框架接力，我们可以就同一批新闻做「科普版 vs 投资版」的对照。</li>
+  </ul>
 </div>
 </body>
 </html>
