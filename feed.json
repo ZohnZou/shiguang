@@ -674,6 +674,172 @@
         }
       ],
       "url": "https://zohnzou.github.io/shiguang/2026-10-30_第4期_AI视界.html"
+    },
+    {
+      "issue": 5,
+      "date": "2026-10-31",
+      "page_no": "2026-10-31（周六） · 第 5 期 · 拾光主笔",
+      "headline": "「AI 泡沫」四字上头条的那一晚：3 万亿押注和一张「证伪清单」",
+      "articles": [
+        {
+          "title": "「投机解码」：不换显卡，也能让大模型凭空快 2–3 倍",
+          "news": "2026-10-30，一位开发者实测在 M5 MacBook 上跑 Qwen3.5 9B 模型：不用投机解码要 42 秒，用常规投机解码 30 秒，用上新的改进方法后整体快约 4 倍、比常规再快 2.6 倍。（出处 X · 2026-10-30）",
+          "analysis": "拾光分析：这正好接上头条——当所有人都盯着「砸钱买更贵的卡」时，有一拨人正用「更聪明的方法」让手头的卡跑得更快，一分钱显卡钱没多花。先用大白话讲清楚什么叫「投机解码」。大模型生成文字，是一个字一个字（行话叫 token）「蹦」出来的。每蹦一个字，它都要把前面所有字重新算一遍——慢就慢在这里（像背课文背到第 100 句，还要从第 1 句开始复述）。投机解码的妙招：派一个「又小又快的草稿助手」，先把后面几个字一口气猜出来（草稿），再由「严谨的主模型」一次性检查、照单全收或挑错重来。猜对了省时间，猜错了也就退回重写。就像考试时先让一个反应快的同学快速写草稿，老师最后只核一遍——大部分时候草稿是对的，就省下了大把时间。为什么拾光今天专门讲它？因为它直击头条那场「泡沫争论」的另一个侧面：AI 的成本，不只靠「砸更贵的算力」往下压，也靠「算法更聪明」往下压。这张图里，同样一个模型、同样一台电脑，光换个「读法」就快了 4 倍——省下的每一分成本，都是给「AI 支出会不会撑不住」这个问题的正面回答。看懂它，你就同时看懂了「推理加速」这个 L5 高频词和「为什么 AI 不一定非要无限烧钱」的底层逻辑。",
+          "layer": "",
+          "source": "出处：X（@akshay_pachaar） · 2026-10-30 · 实测原文",
+          "links": [
+            "https://x.com/akshay_pachaar/status/2116173540894601574"
+          ]
+        },
+        {
+          "title": "为什么「AI 的世界」，一半的钱花在了「记住东西」上——拆解「存储」这个环节",
+          "news": "本期产业链环节首秀，应读者要求拆「存储」。契机是两条硬数据：CXMT 三季度营收同比增长 613.2%（约 167 亿美元）、靠 AI 驱动的存储涨价扭亏为盈；Fujifilm 因 AI 推高归档需求，拟把磁带产能提升 5 倍。（出处 Reuters / Ars Technica · 2026-10-30）",
+          "analysis": "拾光分析：大家聊 AI 总爱聊「芯片多强、模型多大」，却很少聊一个更底层的真相——AI 每天疯狂地「记」和「读」，而「记忆」是要花真金白银的。拾光这就把「存储」这个环节，用大白话拆成三层给你看。",
+          "layer": "",
+          "source": "出处：Reuters / Ars Technica · 2026-10-30 · CXMT 业绩｜富士磁带扩产",
+          "links": [
+            "https://www.techmeme.com/261030/p12",
+            "https://arstechnica.com/gadgets/2026/10/fujifilm-to-boost-tape-production-5x-as-ai-fuels-archiving-demand"
+          ]
+        },
+        {
+          "title": "Claude 自己选药、自己找注射坐标，给小鼠做了台「没人拍板」的手术",
+          "news": "2026-10-30 报道，Claude Sonnet 5 从 19 种候选基因疗法中自主选定药物、脑靶点与注射坐标，为癫痫小鼠完成手术并做了 32 次观察；更关键的是，当校准出现误差时，它拒绝绕过安全限制。（出处 The Decoder · 2026-10-30）",
+          "analysis": "拾光分析：这条新闻有两个点，都比「AI 又厉害了」更值得你记住。第一，「自主」到底自主到哪一步。过去的 AI 是「助手」：它给建议，人类拍板、人类动手。这次是 AI 自己在几个选项里选一个方案、自己算坐标、自己推进流程，全程没有人类替它做决定——这是「智能体（Agent）」从「给建议」走向「真执行」的一次实打实的样本。这正是上一期拾光说的「递归自我改进」之外，当下 AI 最该被关注的另一条腿：不是「自己变聪明」，而是「自己敢动手」。第二，最让拾光踏实的，反而是它「拒绝」的那一下。校准出误差时，它没有为了「完成任务」而绕过安全护栏强做，而是停下——这说明「能干」和「靠谱」是可以被分开设计的。对普通人最大的启示：判断一个 AI 值不值得托付，别只看它「会做多少」，还要看它「知道什么时候该停」。能说「不」，比能说「能」，更接近一个可信的工具。清醒提醒：这是小鼠实验、且是演示性质的探索，离「AI 给人动手术」还隔着实验、监管、伦理好几道深沟。别把这当「AI 医生要来了」，该当的是「AI 从会说到会做的边界，又往外挪了一格」。",
+          "layer": "",
+          "source": "出处：The Decoder · 2026-10-30 · 原文",
+          "links": [
+            "https://the-decoder.com/a-claude-model-autonomously-chose-a-gene-therapy-and-operated-on-a-mouse-brain-with-no-human-decision-making"
+          ]
+        },
+        {
+          "title": "Google 把 AI 服务器送上太空：Gemma 在卫星上跑了第一次推理",
+          "news": "2026-10-30，谷歌 Project Suncatcher 的在轨卫星搭载 TPU，Gemma 模型首次在太空完成推理并向地球回传首个响应（TechCrunch 调侃它还「会写诗」）。（出处 The Verge / TechCrunch · 2026-10-30）",
+          "analysis": "拾光分析：为什么要跑到太空去算？核心原因是「让数据离产生它的地方更近」。卫星、无人机、远洋设备产生海量数据，以前都得传回地面再算，又慢又耗带宽。把 AI 搬到设备旁边直接算，只把「结论」传回来，这叫「边缘计算」的极致版——算力不再锁在地板上的机房里，而是能上天、能下海、能跟到任何现场。拾光想让你带走的词是「算力下沉」：AI 的下一波，不只是「云上的更强的模型」，还有「你身边的、离数据最近的算力」。对普通人看似遥远，但它其实是「AI 装进每一个角落」这条大趋势的一个最新脚印。",
+          "layer": "",
+          "source": "出处：The Verge / TechCrunch · 2026-10-30 · The Verge｜TechCrunch",
+          "links": [
+            "https://www.theverge.com/tech/1023528/google-project-suncatcher-ai-satellite-transmission",
+            "https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry"
+          ]
+        },
+        {
+          "title": "GLM 5.3 零人工、48 小时内拼出一条完整 Firefox 攻击链",
+          "news": "2026-10-30，开放权重模型 GLM 5.3 在完全无人工干预下，不到 48 小时自主构建出完整的 Firefox 浏览器漏洞利用链；Epoch AI 的独立实验进一步验证它懂得利用「补丁窗口期」抢先攻击。（出处 The Decoder / Epoch AI · 2026-10-30）",
+          "analysis": "拾光分析：把这条和上面那条「Claude 手术」放在一起看，你就看到了同一个能力的硬币两面：「自主执行多步、有目标的长链条任务」——用在手术上是「自主科研」，用在漏洞上是「自主攻击」。而且这次的关键信号是：连开源的、人人可下载的开放权重模型，都已经能做到这一步了。这延续了上一期「Claude 研究模型 53 分钟攻破 Linux」那条线，并补上了更重要的一层——这种能力不再是少数闭源顶尖模型的专利，而是正在「平民化」。安全与滥用，从来是赛跑关系：AI 越会自己找漏洞，就越需要 AI 帮我们一起守。对读者的一句话：看懂 AI，别只看它「能帮你写文章」，更要看见它「能自己规划并执行复杂行动」这只看不见的手，正越长越强。",
+          "layer": "",
+          "source": "出处：The Decoder / Epoch AI · 2026-10-30 · The Decoder｜Epoch AI",
+          "links": [
+            "https://the-decoder.com/open-weight-model-glm-5-3-built-full-firefox-exploit-chains-with-zero-human-input-in-under-48-hours",
+            "https://epochai.substack.com/p/glm-patch-gap-exploit-firefox"
+          ]
+        },
+        {
+          "title": "谷歌 Gemini：在聊天框里直接改 PDF、表格和代码，不用再「下载-改-重传」",
+          "news": "2026-10-30，谷歌 Gemini 升级，支持在聊天窗口内直接创建、预览、编辑 PDF、表格及代码文件，并推送至所有受支持的 Android 设备。（出处 aibase / Android Police · 2026-10-30）",
+          "analysis": "拾光分析：这一步看着小，却是「AI 从聊天助手走向办公入口」的分水岭。过去，AI 只能「说」出建议，你听完还得自己跑去别的软件手动改；现在，它能直接在对话里把文档打开、改完、再给你看——省掉了「下载-改-重传」这一整段麻烦。落到普通人身上，最实的变化是：以后改简历、改表格、改合同这类高频琐事，很可能「说一句话就改好了」。拾光顺带提醒那句老话：方便和安全是跷跷板，把更多文件交给 AI 处理前，先想清楚「哪些东西我不希望它看见」。判断 AI 办公工具好不好用，一个很实在的尺子：它到底替我省掉了哪几步「折腾」，值不值我交出的文件权限。",
+          "layer": "",
+          "source": "出处：aibase / Android Police · 2026-10-30 · aibase｜Android Police",
+          "links": [
+            "https://www.aibase.com/news/31992",
+            "https://www.androidpolice.com/gemini-create-preview-edit-pdf-files-docs-directly-inside-your-chat"
+          ]
+        },
+        {
+          "title": "Spotify 要做「AI 重混唱歌」：普通人也能一键翻唱、混音",
+          "news": "2026-10-30，据 FT 报道，Spotify 计划 2027 年初推出付费 AI 产品，订阅者约 5 美元/月即可自创混音与翻唱版本，目前正与版权方谈判授权。（出处 The Next Web / FT · 2026-10-30）",
+          "analysis": "拾光分析：音乐生成是 AIGC 里和「版权」纠缠最深的一摊。Spotify 敢推「付费翻唱/混音」，信号很明确：正版平台想用「付费 + 分账」给 AI 翻唱一条合法化的路，而不是放任用户在别处免费、无授权地生成。拾光的两个落点：第一，工具在变「人人可用」——「做个自己的 remix」这种以前要会编曲的事，正在变成「一键生成」；第二，钱和版权的博弈才刚开始——AI 翻唱里，原唱、词曲作者、翻唱者到底各拿多少，会是很长一段时间的拉锯。这跟头条「AI 支出是否撑得住」是同一枚硬币：AI 内容要真正变成一门能赚钱的生意，必须先过「版权怎么分」这道关。",
+          "layer": "",
+          "source": "出处：The Next Web / Financial Times · 2026-10-30 · 原文",
+          "links": [
+            "https://thenextweb.com/news/spotify-ai-remix-tool-2027-launch"
+          ]
+        },
+        {
+          "title": "Meta 悄悄上线「AI 试衣间」：老照片生出你的专属穿搭师",
+          "news": "2026-10-30，Meta 推出 AI 时装应用 Style Sketch，可基于旧照片生成虚拟试穿效果，把「朋友圈变成试衣间」。（出处 Engadget · 2026-10-30）",
+          "analysis": "拾光分析：这条的价值不在技术多新，而在它验证了一个方向——AIGC 正在从「生成一张好看的图」转向「生成对你有用的东西」。虚拟试衣之所以值得讲，是因为它要求 AI 不只是「画得像」，还要「贴合你本人的身形、样式、场景」——这是从「通用生成」到「个性化生成」的关键一步。对普通人的启示：AI 落地的成熟标志，是「越来越懂你这个具体的人」，而不是「越来越会画炫技的图」。不过拾光照例提醒：把脸和身材交给一个试衣应用，隐私这关要自己掂量清楚。",
+          "layer": "",
+          "source": "出处：Engadget · 2026-10-30 · 原文",
+          "links": [
+            "https://www.engadget.com/2302003/meta-quietly-launches-an-ai-fashion-app-for-virtually-trying-on-clothes"
+          ]
+        },
+        {
+          "title": "Anthropic 开源「Agent Skills」仓库：把「怎么教 Claude 干活」变成可复用的零件",
+          "news": "2026-10-30，Anthropic 开源 anthropics/skills 仓库，内含文档、PDF、PPT、Excel 等生产级「技能」示例，采用 Apache 2.0 协议，可注册成 Claude 的能力。（出处 GitHub · 2026-10-30）",
+          "analysis": "拾光分析：这跟上一期开发者板块的「OpenAI Model Spec」是一条线上的两件事——都在解决同一个问题：光有聪明的模型不够，还得有办法把「聪明」变成「稳定可复用的能力」。Skills 可以理解成给 AI 写好的「标准作业流程（SOP）」：一份写文档的规范、一套处理 Excel 的步骤，打包成一个零件，谁都能拿来用、也能改。对开发者最大的意义是：AI 应用正在从「各家自己瞎摸」走向「有共享零件的生态」——就像乐高，零件标准化了，拼东西才快。想学 AI 的人，翻这个仓库是极好的「看高手怎么写 Prompt/流程」的教材。",
+          "layer": "",
+          "source": "出处：GitHub · 2026-10-30 · anthropics/skills",
+          "links": [
+            "https://github.com/anthropics/skills"
+          ]
+        },
+        {
+          "title": "Lightpanda：一个专为 AI 和自动化而生的「超省内存」无头浏览器",
+          "news": "2026-10-30，开源项目 Lightpanda 上 GitHub Trending，宣称内存占用仅约 123MB（Chrome 约 2GB）、5 秒跑 100 个页面，兼容 playwright、puppeteer，专为 AI Agent 与自动化设计。（出处 GitHub · 2026-10-30）",
+          "analysis": "拾光分析：为什么「浏览器」也成了 AI 圈的热点？因为AI 智能体要「上网办事」，浏览器就是它的手和眼——点网页、填表单、抓信息，全得靠浏览器。但普通浏览器是为「人」设计的，又重又慢，一个智能体同时开几十个页面就会把内存吃爆。Lightpanda 这类「专为 AI 瘦身」的浏览器，解决的就是「让 AI 的『手眼』更轻、更快、更省」。拾光想让你记住一个正在变硬的趋势：当 AI 开始替人类上网干活，连「浏览器」这种老工具都要为它重新设计一遍。这也是「AI 不只是软件，而是重新定义所有工具」的最新注脚。",
+          "layer": "",
+          "source": "出处：GitHub Trending · 2026-10-30 · lightpanda-io/browser",
+          "links": [
+            "https://github.com/lightpanda-io/browser"
+          ]
+        },
+        {
+          "title": "Cisco 给工程师「无限 AI 额度」，让他 24 个月重写公司 98% 的遗留代码",
+          "news": "2026-10-30，据报道 Cisco 给一位 27 岁工程师「无限 AI token」，目标是在 24 个月内用 AI 重写公司 98% 的遗留代码。（出处 Tom's Hardware · 2026-10-30）",
+          "analysis": "拾光分析：这条新闻是一面「照妖镜」，照出「AI 写代码」这件事真实的两面。积极面：几十年的老代码像堆积如山的旧账，靠人手一辈子清不完，AI 能 24 小时不停地把陈年老码翻新、翻译、补测试——这确实是 AI 编程最实在的用武之地。谨慎面：同一天的另一条新闻给出了警告——「AI 生成的代码仍频繁过不了安全检查，Claude 和 GPT-6 位居出错榜首」。所以「重写 98%」这种宏大目标，真正的成败不在「写得快不快」，而在「改写完的代码，靠不靠谱、有没有人复核」。拾光的清醒判断：AI 能极大加速「搬砖」，但「这堵墙承不承重」还得人来最后把关。对想学编程的人，这更是一条清醒提醒——用 AI 写码不是「不用学」，而是「把学的重点，从背语法，转到审逻辑、判对错」。",
+          "layer": "",
+          "source": "出处：Tom's Hardware · 2026-10-30 · 原文",
+          "links": [
+            "https://www.tomshardware.com/tech-industry/big-tech/cisco-gives-27-year-old-engineer-unlimited-ai-tokens-to-rewrite-98-percent-of-the-companys-legacy-code-in-24-months-president-plucks-former-startup-founder-telling-him-to-go-nuts"
+          ]
+        },
+        {
+          "title": "Cursor 插件市场混入「带后门的 Claude Code 扩展」，最多 5000 人被波及",
+          "news": "2026-10-30，Cursor 披露其插件市场中一款假冒/被植入后门的 Claude Code VS Code 扩展，可试图远程访问与窃取数据，最多影响约 5000 用户；同一供应链攻击还波及数千台设备的恶意 Claude 扩展。（出处 Cursor / Wired · 2026-10-30）",
+          "analysis": "拾光分析：这条新闻值得所有「已经用上 AI 编程工具」的人停下来看三秒，因为它揭开了 AI 生态一条最容易被忽视的裂缝：AI 工具越火，「假 AI 工具」就越值钱。套路其实很老：给一个热门插件换个真假难辨的名字（「Claude Code」够火、够多人装），塞进恶意代码，等急着用的人自己装上——这叫「供应链攻击」：你不是被黑客直接黑了，而是你亲自把一个伪装成「官方」的坏东西请进了门。拾光给你三条能立刻用的自保口诀：① 装任何 AI 插件/扩展前，核对官方来源（开发者名、下载量、评分对不对得上）；② 只从官方市场/官方仓库装，不点来路不明的「一键安装」链接；③ 对「要求更多权限」的插件多问一句「它凭什么需要读我这么多文件」。更深一层，拾光想点出这个词的意味：当全世界都抢着往 AI 生态里塞东西时，「信任」反而成了最稀缺的资源。谁能把「安全」做好，谁就能在 AI 工具的下半场赢。这也再次印证头条的主题——热闹越盛，越要学会「挑」和「辨」。",
+          "layer": "",
+          "source": "出处：Cursor / Wired · 2026-10-30 · Cursor 安全公告｜Wired",
+          "links": [
+            "https://cursor.com/blog/claude-code-extension-security-notice",
+            "https://www.wired.com/story/trojan-malware-targets-thousands-of-anthropic-claude-developer-systems"
+          ]
+        },
+        {
+          "title": "AI 写的代码，仍频繁过不了安全检查：Claude 和 GPT-6 出错最多",
+          "news": "2026-10-30，一项对比测试显示，AI 生成的代码仍频繁通过不了安全检查，其中 Claude 与 GPT-6 位居「出错榜首」。（出处 TechRadar · 2026-10-30）",
+          "analysis": "拾光分析：这条最好和上面的「Cisco 重写 98% 代码」一起读——一边是「让 AI 大干快上」，一边是「AI 的代码还常出错」，两者之间的张力，才是 AI 编程当下的真实状态。拾光不想把「AI 写代码不安全」说成危言耸听，而是要你抓住那个更有用的结论：AI 是很好的「初稿写手」，还不是合格的「终稿审稿人」。对正在用 AI 编程、或打算学编程的人，最该练的新能力不是「让 AI 写得更快」，而是「能发现 AI 写的代码哪里不对」——审查、测试、验证。这跟头条那张「验证清单」是同一个心法：相信工具的速度，但永远保留自己判断的最后一道关。",
+          "layer": "",
+          "source": "出处：TechRadar · 2026-10-30 · 原文",
+          "links": [
+            "https://www.techradar.com/pro/security/ai-generated-code-is-still-frequently-failing-security-checks-with-claude-and-gpt-6-topping-the-leader-board"
+          ]
+        }
+      ],
+      "videos": [
+        {
+          "url": "https://www.bilibili.com/video/BV1KMxY6TEmL",
+          "title": "视频4.4 投机解码：让一次 decode 步多吐几个 token · 上传 2026-10-30"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1oxMy6kE2e",
+          "title": "视频大模型凭空提速 2–3 倍，还零精度损失？投机解码讲透 · 上传 2026-08-08（教学向，长期可看）"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV19Bxv6WEWQ",
+          "title": "视频AI 泡沫要破了？一晚蒸发 8000 亿，显卡内存春天要到了？ · 上传 2026-10-30"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1oxMy6kE2e",
+          "title": "视频大模型凭空提速 2–3 倍，还零精度损失？投机解码讲透 · 上传 2026-08-08（教学向，长期可看）"
+        },
+        {
+          "url": "https://www.bilibili.com/video/BV1KMxY6TEmL",
+          "title": "视频4.4 投机解码：让一次 decode 步多吐几个 token · 上传 2026-10-30"
+        }
+      ],
+      "url": "https://zohnzou.github.io/shiguang/2026-10-31_第5期_AI视界.html"
     }
   ]
 }

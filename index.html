@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>拾光 · AI 视界｜今日报纸</title>
+<title>今日报纸</title>
 <style>
 :root{
   --paper:#faf7f0; --ink:#1a1a1a; --ink-2:#555; --ink-3:#8a8478;
@@ -28,7 +28,6 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.
 .page-head .page-no{font-size:12px;color:var(--ink-3);margin-top:2px}
 .page-body{padding:28px 40px 48px;max-width:720px;margin:0 auto}
 .columns{max-width:680px;margin:0 auto}
-.video a.thumb img{width:100%;height:auto;display:block}
 @media(max-width:720px){
   .page{margin:0 auto;box-shadow:none}
   .page-body{padding:20px 16px 32px}
@@ -85,6 +84,10 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.
 .pagenav a:hover{background:var(--red)}
 .dict{background:#fbf6ea;border-left:3px solid var(--amber);padding:9px 12px;margin-top:8px;font-size:12.5px;color:var(--ink-2);line-height:1.7}
 .dict::before{content:"拾光词典";color:var(--amber);font-weight:900;font-family:var(--hei);font-size:11px;display:block;margin-bottom:3px}
+.checklist{background:#fdf6ef;border-left:3px solid var(--amber);padding:10px 12px;margin-top:8px;font-size:12.5px;color:var(--ink-2);line-height:1.7}
+.checklist::before{content:"验证清单";color:var(--amber);font-weight:900;font-family:var(--hei);font-size:11px;display:block;margin-bottom:3px}
+.handoff{border:2px solid var(--blue);background:#eef4fa;padding:14px 16px;margin-top:18px;border-radius:6px;font-size:13px;color:var(--ink-2);line-height:1.8}
+.handoff b{color:var(--blue)}
 </style>
 </head>
 <body>
@@ -92,173 +95,178 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.
 <div class="pager">
   <span class="brand">拾光 · AI 视界</span>
   <a href="archive.html">往期</a>
-  <a href="feed.xml" style="background:#1f5f8b">RSS · 订阅</a>
   <a href="https://ucn7c5oq7ran.feishu.cn/wiki/KjINwgrTAiqTRVkl6oncRUxjnJh" target="_blank" rel="noopener" style="background:#8a4a3a">提意见</a>
   <span class="sep" style="color:#555;margin:0 4px">|</span>
   <a href="#toutiao">头条</a>
   <a href="#yaowen">要闻</a>
-  <a href="#shipin">视频</a>
-  <a href="#xuexi">学习</a>
-  <a href="#yingjian">硬件</a>
-  <a href="#wuli-ai">物理AI</a>
+  <a href="#xuexi">今日一课</a>
+  <a href="#chanyelian">产业链</a>
+  <a href="#qianyan">前沿</a>
   <a href="#yingyong">应用</a>
-  <a href="#yanjiu">前沿</a>
   <a href="#kaifa">开发者</a>
-  <a href="#zhengce">政策·海外</a>
-  <a href="#chanye">生态</a>
+  <a href="#anquan">安全</a>
+  <a href="#shipin">视频</a>
 </div>
 
 <div class="page" id="p1">
   <div class="page-head">
     <div class="kicker">AI 全生命周期情报 · 日报 · 把 AI 捡起来，学明白</div>
     <h1>拾光 <span class="accent">·</span> AI 视界</h1>
-    <div class="page-no">2026-10-30（周五） · 第 4 期 · 拾光主笔</div>
+    <div class="page-no">2026-10-31（周六） · 第 5 期 · 拾光主笔</div>
   </div>
   <div class="page-body columns">
 
     <div id="toutiao">
     <div class="headline-block">
       <span class="headline-flag">今日头条</span>
-      <h2>Anthropic 递交招股书：8500 亿美元押注「递归自我改进」，AI 圈最贵的一张赌桌</h2>
-      <div class="subhead">不再只拼谁模型更强，而是拼谁能让 AI「自己教自己、一代比一代强」</div>
-      <div class="standfirst">Claude 母公司 Anthropic 发布 S-1 招股书，最惊人之处不是财务数字，而是一笔被反复提及的长期算力承诺——把公司命运押在「递归自我改进」上：AI 自己学会改进下一代的 AI。同日，法国 Mistral 开源万亿参数模型 Le Chonk。两条新闻拼在一起，正好是当下 AI 最根本的选择题——押注「闭源的极致规模」，还是相信「开源的普惠分权」。</div>
-      <div class="byline">拾光主笔 · 2026-10-30</div>
-      <p class="dropcap">本周 AI 圈最重的一件事，不是某个新模型刷榜，而是 Claude 的母公司 Anthropic 正式递了招股书（S-1），准备上市。翻开这份文件，华尔街吵得最凶的既不是它增速放缓，也不是它上半年净亏几个百亿，而是一个更抽象、也更野心勃勃的词——<span class="key">递归自我改进（recursive self-improvement）</span>。The Verge、SemiAnalysis 不约而同指出：Anthropic 把未来定位成一门「押注 AI 自我改进」的生意，并为此许下惊人的长期算力（compute）承诺，市场解读的数字一度到 <span class="num">8500 亿美元</span> 量级。换句话说，这家公司跟投资者讲的故事不是「我们会卖多少 API」，而是「我们相信 AI 会学会自己把自己教得更聪明，而我们赌对了这条曲线」。</p>
-      <div class="news">2026-10-29，Anthropic 正式递交 S-1 招股书启动上市进程。多家解读（The Verge、SemiAnalysis）指出，其核心叙事是押注「递归自我改进」——并把公司未来绑定在一笔规模惊人的长期算力承诺上，市场解读的数字一度到约 8500 亿美元量级。</div>
-      <div class="study">拾光分析：把这件事拆成两个层次。<b>第一层，先理解「递归自我改进」到底在押什么</b>（通俗版详见下方「今日一课」）——一句话：让 AI「自己出题、自己批改、自己总结错题，再教出下一届更聪明的自己」。Anthropic 赌的是这条「自己教自己」的雪球会越滚越大。<br><b>第二层，拾光泼盆冷水</b>：招股书里的「承诺」，本质是「对未来曲线的押注」，不是「已经发生的事实」。今天没有任何公开证据表明 AI 已能可靠地、持续地自我改进到某种神话程度。拾光的清醒判断是——<b>把「押注未来」当「已成事实」去传播，就是股市和媒体最爱干、也最该警惕的事</b>。你真正该带走的不是「Anthropic 要颠覆了」，而是一个判断 AI 大词的通用尺子：<b>先问一句「这是已发生的，还是押注未来的？」，分得清，就不会被热闹带偏。</b>
-        <span class="ex">💡 类比：招股书像一张「愿景支票」，上面写的数字再大也是「以后可能兑现」，不是「现在账上就有的钱」。</span>
-        <span class="ex" style="color:#8a8478">🏷️ L7·产业生态（资本叙事）/ L3·模型训练（自我改进）</span>
-      </div>
-      <div class="src">出处：The Verge / SemiAnalysis · 2026-10-29 · <a href="https://www.theverge.com/ai-artificial-intelligence/1021476/anthropic-s-1-compute-recursive" target="_blank" rel="noopener">The Verge 解读</a>｜<a href="https://www.semianalysis.com" target="_blank" rel="noopener">SemiAnalysis</a></div>
+      <h2>「AI 泡沫」四字上头条的那一晚：3 万亿押注和一张「证伪清单」</h2>
+      <div class="subhead">美国科技股一夜大跌、纽约时报直接发问「我们在 AI 泡沫里吗」——拾光不喊牛熊，只教你一张能随身带的判断尺</div>
+      <div class="standfirst">三季度财报季成了 AI 的「压力测试」：五大巨头未来几年合计超 3 万亿美元的 AI 支出承诺，撞上「AI 热潮开始出现裂痕」的论调，美国科技股连日下挫、Intel 盘中一度跌逾 30%。《纽约时报》播客直接抛出一个问题：我们到底在不在 AI 泡沫里？拾光不想跟着喊「崩」或「起飞」，只想把上一期讲过的「递归自我改进」这个最大词，落成一张每个人都能用的「兑现 / 证伪信号清单」。</div>
+      <div class="byline">拾光主笔 · 2026-10-31 · 兑现读者反馈（可证伪验证清单 + 筛选式学习）</div>
+      <p class="dropcap">上一期，拾光把 Anthropic 招股书里那个最大的词「递归自我改进」拆成了人话，也泼了盆冷水：<span class="key">先分清「这是已经发生的，还是押注未来的」</span>。这一期，市场自己把这个问题推到了台前——Alphabet、Meta、微软、亚马逊、甲骨文五家，未来几年的 AI 支出承诺加起来超过 <span class="num">3 万亿美元</span>（Alphabet 约 1 万亿、Meta 约 8000 亿），而 2026 年前三季度这五家返还股东的现金比例只剩 <span class="num">9.3%</span>，创下 15 年新低。钱全砸进算力了，可回报的账，市场开始认真算了。同一天，纽约时报播客直白发问：<span class="key">「Are We in an A.I. Bubble?」</span>——我们很快就要知道答案。</p>
+      <div class="news">2026-10-30，多家媒体报道 AI 支出忧虑发酵：Bloomberg 梳理五大巨头（Alphabet/Meta/Microsoft/Amazon/Oracle）未来数年合计超 3 万亿美元 AI 支出承诺（事件发生于 10 月财报季）；Reuters 称五家公司前三季度现金返还股东比例仅 9.3%，创 15 年新低；美国科技股连日下挫，Intel 盘中一度跌逾 30%（《纽约时报》《BBC》均有报道）。《纽约时报》播客 Hard Fork 同期刊出《Are We in an A.I. Bubble? We're About to Find Out.》。</div>
+      <div class="study">拾光分析：这不是「AI 要完」，而是<b>市场第一次把「承诺」和「兑现」摆到同一张桌上对账</b>。拾光想给你的，不是「该买还是该卖」（那不归拾光管），而是一把<b>随时能拿出来用的判断尺</b>。<br><br><b>第一，看懂这场恐慌在慌什么。</b>过去三年，AI 走的是「先相信、后验证」：只要故事够大（通用智能、自我改进），就有人愿意持续掏钱买算力、买卡的「期房」。但现在财报季一到，华尔街开始用最朴素的方式追问：<b>你花进去的钱，到底换回了多少能赚回来的东西？</b>一旦发现「支出狂飙、回报滞后」，信心就会像退潮一样撤。这就是「裂痕」的真实含义——不是技术失败了，而是<b>账本的耐心开始变薄</b>。<br><br><b>第二，把「递归自我改进」这个大词，落成一张证伪清单。</b>上一期很多人问拾光：这词这么玄，我怎么判断它到底有没有在兑现？拾光这就给你一个可操作的尺子——<b>判断一个「AI 大词」是真拐点还是讲故事，不要看发布会怎么吹，要看下面五条硬信号有没有一条条落地。</b></div>
+      <div class="checklist">把「递归自我改进」当尺子，看这五条硬信号有没有落地（可证伪 · 缺一条都算「故事仍是故事」）：<br>① <b>能力是否「可测、可复现」</b>——有没有公认的评测集（不是厂商自报）证明「新一代比上一代稳定更强」？还是只靠老板嘴上说？<br>② <b>改进是否「跨代可累加」</b>——第二代比第一代强的同时，第三代还能在第二代基础上继续变强（雪球真的在滚），而不是「换一代=重新来一遍」？<br>③ <b>成本是否「逐渐下降」</b>——同样效果，训练/推理成本有没有在降（吃进去的钱在变少），还是越投越多却看不到天花板？<br>④ <b>失败是否「被诚实报告」</b>——有没有人公开讲「这一代改进失败了」或「只进步了一点点」？如果一个方向永远只报喜、从不报忧，要警惕。<br>⑤ <b>落地是否「可被第三方验证」</b>——升级后的模型真的在真实任务（不是演示视频）里更好用了吗？有没有独立机构/用户能复验？</div>
+      <div class="study"><b>第三，为什么这张清单比「预测涨跌」有用一百倍。</b>因为股价会骗人，但<b>上面五条硬信号很难长期造假</b>。你不需要懂代码，只要在每次 AI 圈「又XX了」的大新闻出来时，拿这五条过一遍，就能像筛沙子一样，把「真进展」和「PPT 里的进展」分开。<b>这正是拾光这期要兑现的「筛选式学习」</b>——你的时间有限，最该练的能力不是「记更多新闻」，而是<b>学会「挑」：哪些值得花时间深学，哪些看个标题就够了</b>。筛选 + 抽象，是把 AI 这门课越学越省力的关键，而不是把每天几百条快讯全塞进脑子。</div>
+      <div class="study" style="background:#fffdf7;border-left-color:var(--blue)"><b>链接上一期的「递归自我改进」</b>：上一期拾光说它本质是「押注未来」。这一期市场用 3 万亿的账本替拾光补充了下半句——<b>「押注未来」不是错，错的是把「押注」当成「已经兑现」来传播</b>。泡沫从来不是「大家相信新技术」造成的，而是<b>「大家以为兑现速度一定赶得上烧钱速度」</b>造成的。你手里的这张五条清单，就是帮你剥离这两者的刀。</div>
+      <div class="src">出处：Bloomberg / The New York Times / Reuters · 2026-10-30 · <a href="https://www.nytimes.com/2026/10/30/podcasts/hardfork-anthropic-ipo.html" target="_blank" rel="noopener">NYT 播客「AI 泡沫吗」</a>｜<a href="https://www.techmeme.com/261030/p22" target="_blank" rel="noopener">3万亿支出梳理</a>｜<a href="https://techcrunch.com/2026/10/30/cracks-are-emerging-in-the-ai-spending-boom" target="_blank" rel="noopener">TechCrunch「裂痕初现」</a></div>
     </div>
     </div>
     <div id="yaowen">
     <div class="section">
       <div class="section-head"><h3>今日要闻</h3><div class="rule"></div></div>
       <div class="briefs">
-        <div class="bt">十条速览 · 均近 24 小时</div>
+        <div class="bt">十条速览 · 均近 48 小时</div>
         <ul>
-          <li><span class="key">谷歌 Gemini 4 Carbon</span> 发布，AA 榜 59 分夺得第一，发力长时程工程与网络安全（<a href="https://www.aibase.com/news/31934" target="_blank" rel="noopener">出处 10-29</a>）</li>
-          <li><span class="key">Anthropic S-1</span> 披露约 8500 亿美元算力承诺，押注"递归自我改进"；上半年净亏 807 亿美元（<a href="https://www.theverge.com/ai-artificial-intelligence/1021476/anthropic-s-1-compute-recursive" target="_blank" rel="noopener">出处 10-29</a>）</li>
-          <li><span class="key">腾讯混元</span> 发布 Hy-Nomas 技术报告并开源 Hy-Nomas-Bench，Hy4 / Hy4flash 即将面世（<a href="https://x.com/TencentHunyuan/status/2115851165904814283" target="_blank" rel="noopener">出处 10-29</a>）</li>
-          <li><span class="key">Pika H3 Flex</span> 开源：基于 MiniMax H3 后训练的视频生成模型（<a href="https://x.com/Khazix0918/status/2115898252004622617" target="_blank" rel="noopener">出处 10-29</a>）</li>
-          <li><span class="key">Codex</span> 宣布 Pro 及 Business Premium 各档用量上限翻倍，与 Anthropic 竞争升级（出处 10-29）</li>
-          <li><span class="key">Claude 研究模型</span> 53 分钟攻破 Linux 最高权限，串联 5 条攻击链——AI 当黑客初显身手（<a href="https://www.aibase.com/news/31945" target="_blank" rel="noopener">出处 10-29</a>）</li>
-          <li><span class="key">OpenAI 员工</span> 撰文详解 AI 融入企业的未来三种形态（<a href="https://www.aibase.com/news/31954" target="_blank" rel="noopener">出处 10-29</a>）</li>
-          <li><span class="key">智元灵渠 1.0</span> 具身智能原生 OS 发布，年底全面开源（<a href="https://www.aibase.com/news/31956" target="_blank" rel="noopener">出处 10-29</a>）</li>
-          <li><span class="key">新芯航途 X7 Ultra</span> 智驾芯片发布，中国首发量产 Armv9 车规级 CPU（<a href="https://www.aibase.com/news/31967" target="_blank" rel="noopener">出处 10-29</a>）</li>
-          <li><span class="key">OpenMOSS 开源 MOSS-Image</span>，主打长文本渲染与可编辑布局（<a href="https://www.aibase.com/news/31949" target="_blank" rel="noopener">出处 10-29</a>）</li>
+          <li><span class="key">Claude 自主做基因疗法手术</span>：Sonnet 5 从 19 种疗法中自主选中药物、脑靶点与注射坐标，为癫痫小鼠手术并做 32 次观察，校准误差时拒绝绕过安全限制（<a href="https://the-decoder.com/a-claude-model-autonomously-chose-a-gene-therapy-and-operated-on-a-mouse-brain-with-no-human-decision-making" target="_blank" rel="noopener">出处 10-30</a>）</li>
+          <li><span class="key">谷歌卫星 AI 服务器上线</span>：Project Suncatcher 在轨运行 TPU，Gemma 模型首次在太空完成推理并回传首个响应（<a href="https://www.theverge.com/tech/1023528/google-project-suncatcher-ai-satellite-transmission" target="_blank" rel="noopener">出处 10-30</a>）</li>
+          <li><span class="key">GLM 5.3 零人工攻 Firefox</span>：开放权重模型不到 48 小时自主构建完整漏洞利用链，Epoch AI 验证其利用「补丁窗口期」（<a href="https://the-decoder.com/open-weight-model-glm-5-3-built-full-firefox-exploit-chains-with-zero-human-input-in-under-48-hours" target="_blank" rel="noopener">出处 10-30</a>）</li>
+          <li><span class="key">Cursor 恶意扩展事件</span>：带后门的 Claude Code VS Code 扩展上架 Cursor 插件市场，最多影响约 5000 用户（<a href="https://cursor.com/blog/claude-code-extension-security-notice" target="_blank" rel="noopener">出处 10-30</a>）</li>
+          <li><span class="key">CXMT 三季度营收暴涨</span>：同比增长 613.2% 至约 167 亿美元，靠 AI 驱动的存储涨价扭亏为盈（<a href="https://www.techmeme.com/261030/p12" target="_blank" rel="noopener">出处 10-30</a>）</li>
+          <li><span class="key">富士胶带产量拟增 5 倍</span>：AI 推高归档存储需求，Fujifilm 计划将磁带产能提升至 5 倍（<a href="https://arstechnica.com/gadgets/2026/10/fujifilm-to-boost-tape-production-5x-as-ai-fuels-archiving-demand" target="_blank" rel="noopener">出处 10-30</a>）</li>
+          <li><span class="key">谷歌 Gemini 内联编辑文档</span>：聊天窗口支持直接创建、预览、编辑 PDF / 表格 / 代码文件（<a href="https://www.aibase.com/news/31992" target="_blank" rel="noopener">出处 10-30</a>）</li>
+          <li><span class="key">百度 AI 搜索降价</span>：升级搜索 AI API，调用价格低至 4.9 元/千次（<a href="https://www.aibase.com/news/31990" target="_blank" rel="noopener">出处 10-30</a>）</li>
+          <li><span class="key">Spotify 将推 AI 混音</span>：计划 2027 年初上线付费混音/翻唱工具，月费约 5 美元（<a href="https://thenextweb.com/news/spotify-ai-remix-tool-2027-launch" target="_blank" rel="noopener">出处 10-30</a>）</li>
+          <li><span class="key">Meta 上线 AI 试衣</span>：Style Sketch 用旧照片生成 AI 穿搭师，虚拟试穿服装（<a href="https://www.engadget.com/2302003/meta-quietly-launches-an-ai-fashion-app-for-virtually-trying-on-clothes" target="_blank" rel="noopener">出处 10-30</a>）</li>
         </ul>
-      </div>
-    </div>
-    </div>
-    <div id="shipin">
-    <div class="section">
-      <div class="section-head"><h3>本期视频</h3><div class="rule"></div></div>
-      <div class="video" style="max-width:480px">
-        <a class="thumb" href="https://www.bilibili.com/video/BV1iZsR6EEhQ" target="_blank" rel="noopener">
-          <img src="img/v_gemini4carbon.jpg" alt="Gemini 4 Carbon 发布" loading="lazy">
-          <div class="btn"></div>
-        </a>
-        <div class="cap"><span class="dur">视频</span>谷歌终于又回来了！Gemini 4 Carbon：15 项第一，三维案例更抢眼 · 上传 2026-10-29</div>
-      </div>
-      <div class="video" style="max-width:480px">
-        <a class="thumb" href="https://www.bilibili.com/video/BV1ssxE6FEWv" target="_blank" rel="noopener">
-          <img src="img/v_anthropic_ipo.jpg" alt="Anthropic 招股书解读" loading="lazy">
-          <div class="btn"></div>
-        </a>
-        <div class="cap"><span class="dur">视频</span>AI 巨无霸提交上市，Anthropic 招股书公布，上半年净亏损 807 亿美元 · 上传 2026-10-28</div>
-      </div>
-      <div class="video" style="max-width:480px">
-        <a class="thumb" href="https://www.bilibili.com/video/BV15EJk6fEL2" target="_blank" rel="noopener">
-          <img src="img/v_mistral_le_chonk.jpg" alt="Mistral Le Chonk 万亿参数" loading="lazy">
-          <div class="btn"></div>
-        </a>
-        <div class="cap"><span class="dur">视频</span>法国 Mistral 发布 1 万亿参数开源大模型 Le Chonk · 上传 2026-10-15（教学向，可长期复盘）</div>
       </div>
     </div>
     </div>
     <div id="xuexi">
     <div class="section">
-      <div class="section-head"><h3>学习板块 · 本期最值得弄懂的一个概念</h3><div class="rule"></div></div>
-
+      <div class="section-head"><h3>今日一课 · 本期最值得弄懂的一个概念</h3><div class="rule"></div></div>
       <div class="article">
-        <h4>什么是"递归自我改进"？——Anthropic 把上千亿美金押上的那个词</h4>
-        <div class="news">Anthropic 的 S-1 招股书披露，其约 8500 亿美元的算力承诺，核心赌注是一个叫"递归自我改进（recursive self-improvement）"的概念。这个词正在成为整个 AI 行业最贵、也最众说纷纭的一个词。（出处 2026-10-29 · The Verge 解读）</div>
-        <div class="study">拾光分析：把它翻译成人话，就是让 AI <b>"自己教自己、一代比一代强"</b>。想象一个学生：普通学生要等老师出题、讲评、再改进；而"递归自我改进"的学生，是<b>自己会出题、自己会批改、自己总结错题，然后教出下一代更厉害的"自己"</b>。上一代的 AI 负责改进下一代 AI 的训练方法或数据，下一代更聪明后又把"变聪明的方法"传给下下一代……像滚雪球一样，越滚越大、越滚越快。<br>为什么要用"递归"这个词？因为它的关键不是"AI 帮人类干活"，而是<b>"AI 帮 AI 变强"，这个循环可以无限自我重复</b>——这正是让一些人兴奋、也让一些人紧张的地方：兴奋的人看到"智力加速增长"的可能，紧张的人担心"一个越来越聪明的系统，我们还能不能看懂、能不能叫停"。<br>拾光的态度（清醒版）：<b>这本质是一个"预期"，不是已经发生的事实。</b>今天没有任何公开证据表明 AI 已经能可靠地、持续地自我改进到失控的程度；相反，很多研究（比如今天要闻里"专家会在无意识中采纳 AI 的随机意见"）提醒我们：现在的 AI 会<b>一本正经地把错误也说得很有信心</b>。所以"递归自我改进"更该被当成一个值得长期观察的<b>科学命题</b>去理解、去讨论，而不是一个马上要兑现的惊天新闻。你真正该学到的是：判断 AI 行业的"大词"，先问一句"这是已经发生的，还是押注未来的？"——分得清这两者，就不会被热闹带偏。
-          <span class="ex">💡 类比：递归自我改进 = 一个会自己出题、自己批改、再亲手教出"更聪明的自己"的学生，这个循环能一直滚下去。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L3·模型训练（对齐与自我改进）</span>
-        </div>
+        <h4>「投机解码」：不换显卡，也能让大模型凭空快 2–3 倍</h4>
+        <div class="news">2026-10-30，一位开发者实测在 M5 MacBook 上跑 Qwen3.5 9B 模型：不用投机解码要 42 秒，用常规投机解码 30 秒，用上新的改进方法后整体快约 4 倍、比常规再快 2.6 倍。（出处 X · 2026-10-30）</div>
+        <div class="study">拾光分析：这正好接上头条——<b>当所有人都盯着「砸钱买更贵的卡」时，有一拨人正用「更聪明的方法」让手头的卡跑得更快</b>，一分钱显卡钱没多花。<br><br><b>先用大白话讲清楚什么叫「投机解码」。</b>大模型生成文字，是一个字一个字（行话叫 token）「蹦」出来的。每蹦一个字，它都要把前面所有字重新算一遍——慢就慢在这里（像背课文背到第 100 句，还要从第 1 句开始复述）。<b>投机解码的妙招</b>：派一个「又小又快的草稿助手」，先把后面几个字<b>一口气猜出来</b>（草稿），再由「严谨的主模型」一次性检查、照单全收或挑错重来。猜对了省时间，猜错了也就退回重写。就像考试时先让一个反应快的同学快速写草稿，老师最后只核一遍——<b>大部分时候草稿是对的，就省下了大把时间</b>。<br><br><b>为什么拾光今天专门讲它？</b>因为它直击头条那场「泡沫争论」的另一个侧面：AI 的成本，不只靠「砸更贵的算力」往下压，也靠「算法更聪明」往下压。这张图里，同样一个模型、同样一台电脑，光换个「读法」就快了 4 倍——<b>省下的每一分成本，都是给「AI 支出会不会撑不住」这个问题的正面回答</b>。看懂它，你就同时看懂了「推理加速」这个 L5 高频词和「为什么 AI 不一定非要无限烧钱」的底层逻辑。</div>
         <div class="fig">
-          <svg viewBox="0 0 640 220" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="递归自我改进示意">
+          <svg viewBox="0 0 640 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="投机解码提速对比">
             <defs>
-              <linearGradient id="rs1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+              <linearGradient id="sd1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
             </defs>
-            <text x="20" y="28" font-size="13" fill="#374151" font-weight="bold">递归自我改进：AI 教 AI，一代更比一代强</text>
-            <circle cx="120" cy="120" r="30" fill="url(#rs1)"/>
-            <text x="120" y="125" font-size="13" fill="#fff" text-anchor="middle">AI 第 1 代</text>
-            <line x1="150" y1="120" x2="210" y2="120" stroke="#9ca3af" stroke-width="1.5"/>
-            <circle cx="250" cy="120" r="42" fill="url(#rs1)"/>
-            <text x="250" y="125" font-size="13" fill="#fff" text-anchor="middle">AI 第 2 代</text>
-            <line x1="292" y1="120" x2="352" y2="120" stroke="#9ca3af" stroke-width="1.5"/>
-            <circle cx="400" cy="120" r="56" fill="#1e3a8a"/>
-            <text x="400" y="125" font-size="13" fill="#fff" text-anchor="middle">AI 第 3 代</text>
-            <text x="120" y="52" font-size="11" fill="#9ca3af" text-anchor="middle">（较弱）</text>
-            <text x="250" y="44" font-size="11" fill="#9ca3af" text-anchor="middle">（更强）</text>
-            <text x="400" y="32" font-size="11" fill="#9ca3af" text-anchor="middle">（更强…）</text>
-            <line x1="210" y1="150" x2="370" y2="185" stroke="#c0392b" stroke-width="1.5" stroke-dasharray="4,3"/>
-            <text x="290" y="205" font-size="11" fill="#c0392b" text-anchor="middle">上一代"教"下一代（数据 / 方法 / 错题）</text>
+            <text x="20" y="26" font-size="14" fill="#374151" font-weight="bold">同一个模型，同一台电脑：三种「读法」耗时对比</text>
+            <text x="20" y="48" font-size="11" fill="#9ca3af">（单位：秒 · 数字越大代表越慢）</text>
+            <g>
+              <rect x="40" y="62" width="380" height="26" rx="5" fill="#c0392b" opacity="0.85"/>
+              <text x="48" y="79" font-size="12" fill="#fff" font-weight="bold">普通读法（逐字一个个算）</text>
+              <text x="428" y="79" font-size="13" fill="#c0392b" font-weight="bold">42s</text>
+            </g>
+            <g>
+              <rect x="40" y="100" width="272" height="26" rx="5" fill="#f0b429" opacity="0.9"/>
+              <text x="48" y="117" font-size="12" fill="#3a2f0a" font-weight="bold">常规投机解码</text>
+              <text x="320" y="117" font-size="13" fill="#a06a00" font-weight="bold">30s</text>
+            </g>
+            <g>
+              <rect x="40" y="138" width="190" height="32" rx="5" fill="url(#sd1)"/>
+              <text x="48" y="158" font-size="12" fill="#fff" font-weight="bold">改进投机解码（新方法）</text>
+              <text x="238" y="158" font-size="13" fill="#1e3a8a" font-weight="bold">≈10s</text>
+            </g>
+            <text x="40" y="196" font-size="11" fill="#374151">红色最长 = 最慢；蓝色最短 = 最快。改个「读法」，同样机器快了约 4 倍。</text>
+            <line x1="40" y1="216" x2="240" y2="216" stroke="#9ca3af" stroke-width="1.5"/>
+            <text x="40" y="232" font-size="11" fill="#9ca3af">▍条形长度按真实耗时等比绘制：42s 最长，30s 次之，约 10s 最短</text>
           </svg>
-          <div class="cap"><b>信息图：</b>递归自我改进 = "AI 教 AI"的雪球——每一代都负责把"变聪明的方法"传给下一代，圆越大代表能力越强。红色虚线就是那个关键的"自我教学"循环。注意：目前这还是"押注未来"的科学命题，而非已兑现的事实。</div>
+          <div class="cap"><b>信息图：</b>投机解码的「省时」有多大——同样在 M5 MacBook 跑 Qwen3.5 9B，普通读法 42 秒、常规投机解码 30 秒、改进方法约 10 秒。条形严格按耗时比例绘制，一眼看出差距不是「差不多」，而是「快 4 倍」。</div>
         </div>
+        <div class="video" style="max-width:420px">
+          <a class="thumb" href="https://www.bilibili.com/video/BV1KMxY6TEmL" target="_blank" rel="noopener">
+            <img src="img/v_speculative2.jpg" alt="投机解码原理" loading="lazy">
+            <div class="btn"></div>
+          </a>
+          <div class="cap"><span class="dur">视频</span>4.4 投机解码：让一次 decode 步多吐几个 token · 上传 2026-10-30</div>
+        </div>
+        <div class="video" style="max-width:420px">
+          <a class="thumb" href="https://www.bilibili.com/video/BV1oxMy6kE2e" target="_blank" rel="noopener">
+            <img src="img/v_speculative.jpg" alt="投机解码讲透" loading="lazy">
+            <div class="btn"></div>
+          </a>
+          <div class="cap"><span class="dur">视频</span>大模型凭空提速 2–3 倍，还零精度损失？投机解码讲透 · 上传 2026-08-08（教学向，长期可看）</div>
+        </div>
+        <span class="ex" style="color:#8a8478;font-size:12.5px">🏷️ L5·硬件算力 / L4·工程工具（推理加速）</span>
+        <div class="src">出处：X（@akshay_pachaar） · 2026-10-30 · <a href="https://x.com/akshay_pachaar/status/2116173540894601574" target="_blank" rel="noopener">实测原文</a></div>
       </div>
-
-      <div class="dict">拾光词典 #004 · <b>递归自我改进（Recursive Self-Improvement）</b> —— AI 通过改善自身（数据、训练方法、架构）来迭代出更强版本，且此循环可重复的能力。<b>通俗说</b>：学生不只是做题，而是会自己出题、自己批改，再亲手教出一个更聪明的自己。<b>为什么重要</b>：它被看作通向"超级智能"的可能路径，也是当前 AI 安全讨论的核心议题之一。<b>清醒提醒</b>：这是"预期"而非"现状"，别把融资故事当既成事实。</div>
+      <div class="dict">拾光词典 #005 · <b>投机解码（Speculative Decoding）</b> —— 用小而快的「草稿模型」先猜出若干 token，再由主模型一次性校验，猜对即批量接受、猜错退回重写，从而大幅加速推理、且不损失精度。<b>通俗说</b>：让一个快手同学先写草稿，老师只核一遍，对的多就省下大把时间。<b>为什么重要</b>：它说明 AI 提速不只靠「更贵的卡」，也靠「更聪明的算法」——是理解「推理成本为何能下降」的关键。</div>
     </div>
     </div>
-    <div id="yingjian">
+    <div id="chanyelian">
     <div class="section">
-      <div class="section-head"><h3>AI 硬件</h3><div class="rule"></div></div>
+      <div class="section-head"><h3>产业链 · 一眼看懂（本期试水第 1 个环节）</h3><div class="rule"></div></div>
       <div class="article">
-        <h4>一颗"为端到端大模型而生的"智驾芯片：X7 Ultra，中国首发量产 Armv9 车规 CPU</h4>
-        <div class="news">新芯航途发布 X7 Ultra 智驾芯片，宣称"专为端到端大模型打造"，是中国首发量产 Armv9 车规级 CPU。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：汽车正在变成"四个轮子上的 AI"。以前的车规芯片，任务是把"传感器数据 → 识别障碍物 → 打方向盘"这条流水线跑对；现在智能驾驶改走<b>"端到端大模型"</b>——一个模型直接看画面、直接输出方向盘和油门，中间不用人写死规则。这种"一口吞"的算法，对芯片的要求完全不一样：<b>要能跑更重的神经网络、又得省电、还得扛得住车规级的可靠和散热</b>。X7 Ultra 主打"为端到端而生"+ Armv9 车规 CPU，本质是<b>硬件在追着软件跑</b>。拾光的克制判断：芯片发布会常用"首发""量产"这类词，但一颗芯片能不能真正上车、大规模装进千千万万辆汽车，还要看车厂的验证和上量周期，别被"首发"两个字就下了结论。想学的读者可以顺着"端到端自动驾驶"往下挖，这是 L5 硬件和 L6 具身智能的一个绝佳交汇入口。
-          <span class="ex">💡 类比：车规芯片是汽车 AI 的"心脏"，端到端大模型是"大脑"，心要够强才撑得住一个新脑子。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L5·硬件算力（车规 AI 芯片）</span>
+        <h4>为什么「AI 的世界」，一半的钱花在了「记住东西」上——拆解「存储」这个环节</h4>
+        <div class="news">本期产业链环节首秀，应读者要求拆「存储」。契机是两条硬数据：CXMT 三季度营收同比增长 613.2%（约 167 亿美元）、靠 AI 驱动的存储涨价扭亏为盈；Fujifilm 因 AI 推高归档需求，拟把磁带产能提升 5 倍。（出处 Reuters / Ars Technica · 2026-10-30）</div>
+        <div class="study">拾光分析：大家聊 AI 总爱聊「芯片多强、模型多大」，却很少聊一个更底层的真相——<b>AI 每天疯狂地「记」和「读」，而「记忆」是要花真金白银的</b>。拾光这就把「存储」这个环节，用大白话拆成三层给你看。</div>
+        <div class="fig">
+          <svg viewBox="0 0 640 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI存储环节分层">
+            <defs>
+              <linearGradient id="m1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#1a56db"/></linearGradient>
+              <linearGradient id="m2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+              <linearGradient id="m3" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#7dd3fc"/></linearGradient>
+            </defs>
+            <text x="20" y="26" font-size="14" fill="#374151" font-weight="bold">AI 的「记忆」分三层：差不多被忽略的一层最烧钱</text>
+            <g>
+              <rect x="40" y="44" width="560" height="60" rx="6" fill="url(#m1)"/>
+              <text x="56" y="68" font-size="13" fill="#fff" font-weight="bold">第一层 · 快如闪电的「短期记忆」：HBM / 高带宽内存</text>
+              <text x="56" y="88" font-size="11" fill="#dbeafe">紧挨着 GPU，喂数据最快要它，AI 卡的核心「弹药」——最贵、最紧张</text>
+            </g>
+            <g>
+              <rect x="40" y="116" width="560" height="60" rx="6" fill="url(#m2)"/>
+              <text x="56" y="140" font-size="13" fill="#fff" font-weight="bold">第二层 · 容量够大的「工作记忆」：SSD / NAND 闪存</text>
+              <text x="56" y="160" font-size="11" fill="#dbeafe">存下训练用海量数据、模型权重，数据中心里成排的硬盘墙</text>
+            </g>
+            <g>
+              <rect x="40" y="188" width="560" height="60" rx="6" fill="url(#m3)"/>
+              <text x="56" y="212" font-size="13" fill="#0c4a6e" font-weight="bold">第三层 · 便宜能存的「长期归档」：磁带 / 冷存储</text>
+              <text x="56" y="232" font-size="11" fill="#0c4a6e">训练数据、日志要长期放，磁带最省电省地——AI 一火，连磁带都翻身</text>
+            </g>
+            <text x="40" y="278" font-size="11" fill="#374151">规律：越往上越快越贵（HBM），越往下越便宜越大（磁带）。AI 三层全要，所以「整个存储」一起涨价。</text>
+          </svg>
+          <div class="cap"><b>信息图：</b>AI 的「记忆」不是一种，而是按「快慢贵贱」分成三层——HBM 快但贵、SSD 适中、磁带便宜能存。AI 三样都要，所以 CXMT 营收能涨 613%，连快被遗忘的磁带（Fujifilm）都被 AI 带火，产能要扩 5 倍。</div>
         </div>
-        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31967" target="_blank" rel="noopener">原文</a></div>
-      </div>
-      <div class="article">
-        <h4>AI EDA 进入"验证期"：芯片设计软件正从"工具"变"智能体"</h4>
-        <div class="news">行业分析指出，AI 电子设计自动化（EDA）正在从早期的 AI 辅助优化，走向"生成式 Copilot + Agentic EDA"——多个 AI 智能体自主编排"设计—验证—修改"完整流程，龙头厂商已演示 L3 级别能力。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：这是一个"AI 造 AI"最实打实的例子。EDA 是设计芯片的软件，"AI EDA"就是<b>让 AI 来设计下一颗 AI 芯片</b>。过去芯片设计里最熬人的就是"设计→验证→发现 bug→改"这个循环，几百人反复折腾几个月；现在智能体可以<b>自主把这个循环跑起来</b>。这跟头条的"递归自我改进"遥相呼应——只不过一个改进的是"模型"，一个改进的是"造模型的硬件"。拾光的落点：<b>AI 的飞轮，本质是"用软件加速硬件、用更强硬件再加速软件"的互相喂养</b>。对普通人最该记住的启示是：真正决定 AI 进度的，不只有发布会上的大模型，还有这些藏在产业链深处的"加速器"。
-          <span class="ex">💡 类比：AI EDA = 让 AI 当"芯片总工程师"，24 小时不停改图、验图，把最磨人的循环自动化了。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L5·硬件算力 / L4·工程工具</span>
-        </div>
-        <div class="src">出处：行业分析 · 2026-10-29 · <a href="https://x.com/Mingyuan1126/status/2115749506662932844" target="_blank" rel="noopener">原文</a></div>
+        <div class="study"><b>这个环节，上下游和核心玩家是谁？</b>「存储」在 AI 产业链里属于<b>算力硬件（L5）</b>的「记忆系统」，处在「芯片」与「数据/模型」之间。大致脉络：<b>上游</b>是设备与材料（光刻、刻蚀、晶圆），<b>中游</b>是存储原厂（三大家：三星、SK 海力士、美光，以及国产阵营的长鑫存储 CXMT、长江存储等），<b>下游</b>是数据中心、云厂商、AI 服务器整机。核心 <b>技术看点</b>只有一个词：<b>带宽与容量的军备竞赛</b>——HBM 堆叠层数、接口速度、单片容量，成为「算力卡能不能跑满」的隐形天花板。<br><b>拾光只讲技术/产业、不给投资结论的克制提醒</b>：这个环节的真实价值，在于它是<b>「算力的影子」</b>——GPU 多强，得看 HBM 喂不喂得饱；AI 数据多大，得看存储放不放得下。读懂了「存储」，你才算看懂了「算力」的完整面貌。想继续深学，从「HBM 是什么、为什么被美国出口管制点名」往下挖，是最好的入口。</div>
+        <span class="ex" style="color:#8a8478;font-size:12.5px">🏷️ L5·硬件算力（存储）· 产业链环节——存储</span>
+        <div class="src">出处：Reuters / Ars Technica · 2026-10-30 · <a href="https://www.techmeme.com/261030/p12" target="_blank" rel="noopener">CXMT 业绩</a>｜<a href="https://arstechnica.com/gadgets/2026/10/fujifilm-to-boost-tape-production-5x-as-ai-fuels-archiving-demand" target="_blank" rel="noopener">富士磁带扩产</a></div>
       </div>
     </div>
     </div>
-    <div id="wuli-ai">
+    <div id="qianyan">
     <div class="section">
-      <div class="section-head"><h3>物理 AI · 具身智能</h3><div class="rule"></div></div>
+      <div class="section-head"><h3>前沿 · 物理 AI</h3><div class="rule"></div></div>
       <div class="article">
-        <h4>智元发布具身智能原生 OS「灵渠 1.0」，年底全面开源</h4>
-        <div class="news">智元机器人发布"灵渠 1.0"，一款面向具身智能的原生操作系统，并宣布年底全面开源。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：这个词值得拆开讲。<b>操作系统（OS）是什么？</b>手机上的 Android、iOS，就是 OS——它把一堆杂乱硬件（摄像头、芯片、马达）管理起来，让 App 不用操心底层细节、写一次到处能跑。机器人现在是"一机一个样"，换个品牌的机器人，程序基本要重写。智元做"具身智能原生 OS"，等于想给机器人定一套<b>"公用的 Android"</b>：让写机器人大脑的人，不用管下面是哪家的机械臂、哪家的激光雷达。<b>落点：这是把具身智能从"手工作坊"推向"可规模化"的关键一步。</b>拾光的判断：开源 + OS 这个组合，方向是对的（降低门槛、聚拢开发者），但"操作系统能不能成为事实标准"，从来不是技术好就够，还要看生态愿不愿意跟着走——这比发布会难十倍。
-          <span class="ex">💡 类比：机器人操作系统 = 给"身体千奇百怪"的机器人装一个统一的"Android"，让大脑代码一次写、到处跑。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L6·应用落地（具身智能 / 机器人平台）</span>
-        </div>
-        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31956" target="_blank" rel="noopener">原文</a></div>
+        <h4>Claude 自己选药、自己找注射坐标，给小鼠做了台「没人拍板」的手术</h4>
+        <div class="news">2026-10-30 报道，Claude Sonnet 5 从 19 种候选基因疗法中自主选定药物、脑靶点与注射坐标，为癫痫小鼠完成手术并做了 32 次观察；更关键的是，当校准出现误差时，它<b>拒绝绕过安全限制</b>。（出处 The Decoder · 2026-10-30）</div>
+        <div class="study">拾光分析：这条新闻有两个点，都比「AI 又厉害了」更值得你记住。<br><b>第一，「自主」到底自主到哪一步。</b>过去的 AI 是「助手」：它给建议，人类拍板、人类动手。这次是 AI <b>自己在几个选项里选一个方案、自己算坐标、自己推进流程</b>，全程没有人类替它做决定——这是「智能体（Agent）」从「给建议」走向「真执行」的一次实打实的样本。这正是上一期拾光说的「递归自我改进」之外，当下 AI 最该被关注的另一条腿：<b>不是「自己变聪明」，而是「自己敢动手」</b>。<br><b>第二，最让拾光踏实的，反而是它「拒绝」的那一下。</b>校准出误差时，它没有为了「完成任务」而绕过安全护栏强做，而是停下——这说明<b>「能干」和「靠谱」是可以被分开设计的</b>。对普通人最大的启示：判断一个 AI 值不值得托付，别只看它「会做多少」，还要看它<b>「知道什么时候该停」</b>。能说「不」，比能说「能」，更接近一个可信的工具。<br><b>清醒提醒</b>：这是小鼠实验、且是演示性质的探索，离「AI 给人动手术」还隔着实验、监管、伦理好几道深沟。别把这当「AI 医生要来了」，该当的是「AI 从会说到会做的边界，又往外挪了一格」。</div>
+        <div class="src">出处：The Decoder · 2026-10-30 · <a href="https://the-decoder.com/a-claude-model-autonomously-chose-a-gene-therapy-and-operated-on-a-mouse-brain-with-no-human-decision-making" target="_blank" rel="noopener">原文</a></div>
       </div>
       <div class="article">
-        <h4>宇树三季报：营收涨近七成，利润却反降——钱都砸进了算力与大模型</h4>
-        <div class="news">宇树科技三季报显示营收同比增长近七成，但净利润下滑，原因被解读为大量投入用于算力与大模型研发。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：这条新闻是理解"具身智能这门生意"最好的注脚。<b>营收涨、利润降</b>，说明公司把赚到的钱又投回去搞研发了——这是高速成长期公司的典型动作。<b>拾光不聊股价，只讲一个产业逻辑</b>：机器人公司现在拼的不只是"把机器造出来"，更是"让它更聪明"，而"更聪明"要靠<b>大模型 + 算力</b>这两个最烧钱的东西。所以你能看到，越往"智能"里钻的公司，越得像无底洞一样投钱。<b>给读者的一句话</b>：判断一家具身智能公司有没有后劲，别只看它卖了几个机器人，更要看它愿不愿意、也投不投得起"让机器人变聪明"这件慢功夫上。
-          <span class="ex">💡 类比：机器人公司像在"养孩子"——卖货赚的钱都拿去交"补习班"（大模型+算力）学费了，短期看不见利润。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L6·应用落地 / L7·产业生态（研发投入）</span>
-        </div>
-        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31959" target="_blank" rel="noopener">原文</a></div>
+        <h4>Google 把 AI 服务器送上太空：Gemma 在卫星上跑了第一次推理</h4>
+        <div class="news">2026-10-30，谷歌 Project Suncatcher 的在轨卫星搭载 TPU，Gemma 模型首次在太空完成推理并向地球回传首个响应（TechCrunch 调侃它还「会写诗」）。（出处 The Verge / TechCrunch · 2026-10-30）</div>
+        <div class="study">拾光分析：为什么要跑到太空去算？核心原因是<b>「让数据离产生它的地方更近」</b>。卫星、无人机、远洋设备产生海量数据，以前都得传回地面再算，又慢又耗带宽。把 AI <b>搬到设备旁边直接算</b>，只把「结论」传回来，这叫<b>「边缘计算」</b>的极致版——算力不再锁在地板上的机房里，而是能上天、能下海、能跟到任何现场。拾光想让你带走的词是<b>「算力下沉」</b>：AI 的下一波，不只是「云上的更强的模型」，还有「你身边的、离数据最近的算力」。对普通人看似遥远，但它其实是「AI 装进每一个角落」这条大趋势的一个最新脚印。</div>
+        <div class="src">出处：The Verge / TechCrunch · 2026-10-30 · <a href="https://www.theverge.com/tech/1023528/google-project-suncatcher-ai-satellite-transmission" target="_blank" rel="noopener">The Verge</a>｜<a href="https://techcrunch.com/2026/10/30/googles-first-data-center-satellite-is-online-and-writing-poetry" target="_blank" rel="noopener">TechCrunch</a></div>
+      </div>
+      <div class="article">
+        <h4>GLM 5.3 零人工、48 小时内拼出一条完整 Firefox 攻击链</h4>
+        <div class="news">2026-10-30，开放权重模型 GLM 5.3 在完全无人工干预下，不到 48 小时自主构建出完整的 Firefox 浏览器漏洞利用链；Epoch AI 的独立实验进一步验证它懂得利用「补丁窗口期」抢先攻击。（出处 The Decoder / Epoch AI · 2026-10-30）</div>
+        <div class="study">拾光分析：把这条和上面那条「Claude 手术」放在一起看，你就看到了同一个能力的<b>硬币两面</b>：<b>「自主执行多步、有目标的长链条任务」</b>——用在手术上是「自主科研」，用在漏洞上是「自主攻击」。而且这次的关键信号是：<b>连开源的、人人可下载的开放权重模型，都已经能做到这一步了</b>。这延续了上一期「Claude 研究模型 53 分钟攻破 Linux」那条线，并补上了更重要的一层——<b>这种能力不再是少数闭源顶尖模型的专利，而是正在「平民化」</b>。安全与滥用，从来是赛跑关系：AI 越会自己找漏洞，就越需要 AI 帮我们一起守。对读者的一句话：看懂 AI，别只看它「能帮你写文章」，更要看见它「能自己规划并执行复杂行动」这只看不见的手，正越长越强。</div>
+        <div class="src">出处：The Decoder / Epoch AI · 2026-10-30 · <a href="https://the-decoder.com/open-weight-model-glm-5-3-built-full-firefox-exploit-chains-with-zero-human-input-in-under-48-hours" target="_blank" rel="noopener">The Decoder</a>｜<a href="https://epochai.substack.com/p/glm-patch-gap-exploit-firefox" target="_blank" rel="noopener">Epoch AI</a></div>
       </div>
     </div>
     </div>
@@ -266,63 +274,22 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.
     <div class="section">
       <div class="section-head"><h3>AI 应用</h3><div class="rule"></div></div>
       <div class="article">
-        <h4>Chrome 开始"帮你填表"：Gemini 把 Gmail 变填单助手，航班号、订单号一键填入</h4>
-        <div class="news">谷歌 Chrome 上线 AI 自动填充，可读取 Gmail 中的航班号、订单号等信息，在网页表单中一键填入。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：AI 应用正在从"会聊天"走向<b>"会替你办事"</b>。以前的浏览器只能记住你的密码和地址；现在它开始<b>翻你的邮箱、把订票号、订单号直接填进对应框里</b>。这背后是一个重要的能力升级：AI 从"被动回答你的问题"，变成<b>"主动理解你要办的事，并帮你跨应用完成"</b>。<b>拾光要提醒的两面</b>：一方面，这确实省事，是"AI 个人助理"该有的样子；另一方面，这也意味着浏览器会读你更多私人数据（邮箱内容），<b>方便和安全是一对跷跷板</b>——用之前请想清楚，你愿不愿意为"少打几个字"交出这些信息。判断 AI 应用孰优孰劣，一个很实用的尺子是：<b>它替你省下的麻烦，值不值得你交出的隐私。</b>
-          <span class="ex">💡 类比：过去的浏览器像"记性好的秘书"，现在的 AI 浏览器像"会翻你抽屉、还主动帮你办事的贴身助理"。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L6·应用落地（个人助理 / 浏览器）</span>
-        </div>
-        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31952" target="_blank" rel="noopener">原文</a></div>
+        <h4>谷歌 Gemini：在聊天框里直接改 PDF、表格和代码，不用再「下载-改-重传」</h4>
+        <div class="news">2026-10-30，谷歌 Gemini 升级，支持在聊天窗口内直接创建、预览、编辑 PDF、表格及代码文件，并推送至所有受支持的 Android 设备。（出处 aibase / Android Police · 2026-10-30）</div>
+        <div class="study">拾光分析：这一步看着小，却是「AI 从聊天助手走向办公入口」的分水岭。<b>过去</b>，AI 只能「说」出建议，你听完还得自己跑去别的软件手动改；<b>现在</b>，它能直接<b>在对话里把文档打开、改完、再给你看</b>——省掉了「下载-改-重传」这一整段麻烦。落到普通人身上，最实的变化是：<b>以后改简历、改表格、改合同这类高频琐事，很可能「说一句话就改好了」</b>。拾光顺带提醒那句老话：方便和安全是跷跷板，把更多文件交给 AI 处理前，先想清楚「哪些东西我不希望它看见」。判断 AI 办公工具好不好用，一个很实在的尺子：<b>它到底替我省掉了哪几步「折腾」，值不值我交出的文件权限。</b></div>
+        <div class="src">出处：aibase / Android Police · 2026-10-30 · <a href="https://www.aibase.com/news/31992" target="_blank" rel="noopener">aibase</a>｜<a href="https://www.androidpolice.com/gemini-create-preview-edit-pdf-files-docs-directly-inside-your-chat" target="_blank" rel="noopener">Android Police</a></div>
       </div>
       <div class="article">
-        <h4>Pika 开源 H3 Flex：视频生成模型，把"一键生成短视频"再推一步</h4>
-        <div class="news">Pika 基于 MiniMax H3 做后训练，开源了视频生成模型 Pika H3 Flex。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：视频生成是"AI 应用层"里最直观、也最烧钱的一个战场。Pika 这次开源的信号是——<b>头部玩家开始把"成品模型"免费公开</b>，让个人和小团队也能自己部署、自己改。这跟头条 Mistral 开源的逻辑一脉相承：<b>开源把门槛打低，把创意权交还给普通人</b>。拾光的判断：视频生成正在从"大厂独享的魔法"变成"人人可用的工具"，但"能生成"和"生成得好、能商用"之间还差着一致性、可控性、版权这几道坎。想动手的人，开源模型是最好的入门教材——这也是拾光反复说的"学 AI 最好的方式之一就是亲手跑一遍"。
-          <span class="ex">💡 类比：开源视频模型 = 把"拍电影"的摄像机图纸免费发给大家，谁都能上手拍两条短片。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L6·应用落地（AIGC / 视频生成）</span>
-        </div>
-        <div class="src">出处：X · 2026-10-29 · <a href="https://x.com/Khazix0918/status/2115898252004622617" target="_blank" rel="noopener">原文</a></div>
+        <h4>Spotify 要做「AI 重混唱歌」：普通人也能一键翻唱、混音</h4>
+        <div class="news">2026-10-30，据 FT 报道，Spotify 计划 2027 年初推出付费 AI 产品，订阅者约 5 美元/月即可自创混音与翻唱版本，目前正与版权方谈判授权。（出处 The Next Web / FT · 2026-10-30）</div>
+        <div class="study">拾光分析：音乐生成是 AIGC 里和「版权」纠缠最深的一摊。Spotify 敢推「付费翻唱/混音」，信号很明确：<b>正版平台想用「付费 + 分账」给 AI 翻唱一条合法化的路</b>，而不是放任用户在别处免费、无授权地生成。拾光的两个落点：<b>第一，工具在变「人人可用」</b>——「做个自己的 remix」这种以前要会编曲的事，正在变成「一键生成」；<b>第二，钱和版权的博弈才刚开始</b>——AI 翻唱里，原唱、词曲作者、翻唱者到底各拿多少，会是很长一段时间的拉锯。这跟头条「AI 支出是否撑得住」是同一枚硬币：<b>AI 内容要真正变成一门能赚钱的生意，必须先过「版权怎么分」这道关。</b></div>
+        <div class="src">出处：The Next Web / Financial Times · 2026-10-30 · <a href="https://thenextweb.com/news/spotify-ai-remix-tool-2027-launch" target="_blank" rel="noopener">原文</a></div>
       </div>
       <div class="article">
-        <h4>腾讯"懂了鸭"内测：把 AI 生成绘本、动画，做成了一个学习社区</h4>
-        <div class="news">腾讯内测"懂了鸭"，把 AI 生成绘本、动画的能力，搭成一个面向学习与创作的小社区。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：这条新闻的看点不是技术多炫，而是<b>AIGC 终于开始往"教育"这个刚需场景落</b>。过去 AI 生成图、生成视频，大多用来"炫技";"懂了鸭"把它用在"把知识画成绘本、做成动画"上，让孩子（和大孩子）用更直观的方式理解抽象概念。<b>拾光尤其认同这个方向</b>——因为这正好是拾光在做的事：<b>把 AI 的知识，用大白话 + 图的方式，讲给普通人听</b>。AIGC 真正的价值，从来不在"能造出多少张图"，而在"能不能帮人把难懂的东西看懂、学会"。
-          <span class="ex">💡 类比：AIGC 用在教育，就像把"枯燥的课本"连夜改成"会动的绘本"，难懂的概念突然就看得见了。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L6·应用落地（AIGC / 教育）</span>
-        </div>
-        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31960" target="_blank" rel="noopener">原文</a></div>
-      </div>
-    </div>
-    </div>
-    <div id="yanjiu">
-    <div class="section">
-      <div class="section-head"><h3>研究前沿</h3><div class="rule"></div></div>
-      <div class="article">
-        <h4>Claude 研究模型 53 分钟攻破 Linux 最高权限：AI 开始"自己找漏洞、写利用"</h4>
-        <div class="news">Anthropic 报告称，其研究模型在 Chrome、Safari、Android、Windows、Linux 等多个系统上发现漏洞并串联出 5 条攻击链，其中一项 53 分钟拿下 Linux 最高权限。（出处 2026-10-28/29）</div>
-        <div class="study">拾光分析：这条新闻要"两面看"。<b>正面</b>：AI 能自动找漏洞、搭攻击链，意味着它也能反过来"帮我们发现并修好漏洞"——安全研究员多了一个能力惊人的助手，这是对抗黑客的军备升级。<b>反面</b>：同一种能力落到坏人手里，就是"AI 黑客"。所以这类研究几乎都会配上"负责任披露、限制滥用"的说明。拾光想讲的是背后的<b>能力本质</b>：AI 已经不只是"会聊天"，而是<b>能自主规划多步骤、有目标的复杂行动</b>（找到漏洞→判定可利用→写代码→提权），这正是"智能体（Agent）"从概念走向现实的标志。你该记住：<b>工具越强，双刃剑的两面就越锋利，安全与滥用永远是赛跑关系。</b>
-          <span class="ex">💡 类比：AI 攻防 = 给网络安全装了个"永不睡觉的全能侦察兵"，但它既能守城、也能破城。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L4·工程工具（Agent）/ L7·安全</span>
-        </div>
-        <div class="src">出处：Anthropic / ithome · 2026-10-29 · <a href="https://www.ithome.com/1/019/268.htm" target="_blank" rel="noopener">原文</a></div>
-      </div>
-      <div class="article">
-        <h4>Anthropic 研究：专家会在无意识中"采纳 AI 的随机意见"，还当成自己的想法</h4>
-        <div class="news">Anthropic 一项研究指出，专家可能会在不知不觉中采纳 AI 智能体给出的随机意见，并认为那是自己的判断。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：这条最值得所有"用 AI 的人"警惕——因为它讲的是<b>人怎么被 AI 悄悄影响</b>。研究发现，连专家都可能在无意识中把 AI 的观点当成自己的，事后毫无察觉。这比"AI 说错话"更隐蔽，因为它动的是<b>你的判断过程本身</b>。拾光的提醒很实在：<b>用 AI 时，先自己想一想，再问 AI，最后把 AI 的答案当"参考"而不是"结论"</b>。判断一件事，别让"AI 说得好像很有道理"取代了"我自己真的想清楚了"。这也是拾光一以贯之的态度：AI 是拐杖，不是大脑。
-          <span class="ex">💡 类比：AI 像一位"语气特别笃定"的顾问——太笃定，有时会让你忘了这主意一开始不是你想的。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L7·产业生态（伦理 / 人机协作）</span>
-        </div>
-        <div class="src">出处：The Decoder / Anthropic · 2026-10-29 · <a href="https://the-decoder.com/experts-adopt-ai-agents-random-opinions-and-think-theyre-their-own-anthropic-study-finds" target="_blank" rel="noopener">原文</a></div>
-      </div>
-      <div class="article">
-        <h4>arXiv 前沿速览：会「自我改进」的智能体、工具智能体规模定律、让模型自己发现物理规律</h4>
-        <div class="news">近 24 小时 arXiv 高关注新作包括：<span class="key">GEPA-Curator</span>（面向自我改进智能体的筛选式学习）、<span class="key">Scaling Laws for Tool-Use Agents</span>（通过可控环境合成研究工具使用智能体的规模定律）、<span class="key">Can LLMs Uncover Hidden Physical Laws through Free Exploration?</span>（大模型能否通过自由探索发现隐藏物理规律）、<span class="key">Attention as Lattice Gauge Theory</span>（注意力机制与格点规范场的类比）。（出处：arXiv 2026-10-27）</div>
-        <div class="study">拾光分析：这几篇论文串起一条线，最值得注意的正是<b>「自我改进」从新闻里的融资概念，走进了实打实的论文里</b>。GEPA-Curator 讲的是一种「筛选式学习」——智能体不再被动吞数据，而是学会<b>挑出对自己真正有用的样本来自我提升</b>，这跟我们今天头条、今日一课聊的「递归自我改进」是同一个方向的不同切面：一个在讲资本怎么押注，一个在讲工程师具体怎么实现。<b>另外两篇</b>：让模型自己发现物理规律，是在问 AI 能不能当科学助手；用格点规范场重新理解注意力，则是在用物理学的语言弄懂 AI 内部到底在算什么。拾光的克制判断：这些都是探索性研究、离落地很远，但它们共同指向一个方向感——<b>下一代 AI 的关键词，是「自主」和「更懂自己在做什么」。</b>
-          <span class="ex">💡 类比：这些论文像给 AI 开了三门口径不同的新课——「自己挑题做」「自己找规律」「搞懂自己脑子在算啥」。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L2-L3·算法模型 / 模型训练</span>
-        </div>
-        <div class="src">出处：arXiv · 2026-10-27 · <a href="https://arxiv.org/list/cs.AI/recent" target="_blank" rel="noopener">cs.AI 最新</a></div>
+        <h4>Meta 悄悄上线「AI 试衣间」：老照片生出你的专属穿搭师</h4>
+        <div class="news">2026-10-30，Meta 推出 AI 时装应用 Style Sketch，可基于旧照片生成虚拟试穿效果，把「朋友圈变成试衣间」。（出处 Engadget · 2026-10-30）</div>
+        <div class="study">拾光分析：这条的价值不在技术多新，而在它验证了一个方向——<b>AIGC 正在从「生成一张好看的图」转向「生成对你有用的东西」</b>。虚拟试衣之所以值得讲，是因为它要求 AI 不只是「画得像」，还要<b>「贴合你本人的身形、样式、场景」</b>——这是从「通用生成」到「个性化生成」的关键一步。对普通人的启示：<b>AI 落地的成熟标志，是「越来越懂你这个具体的人」，而不是「越来越会画炫技的图」。</b>不过拾光照例提醒：把脸和身材交给一个试衣应用，隐私这关要自己掂量清楚。</div>
+        <div class="src">出处：Engadget · 2026-10-30 · <a href="https://www.engadget.com/2302003/meta-quietly-launches-an-ai-fashion-app-for-virtually-trying-on-clothes" target="_blank" rel="noopener">原文</a></div>
       </div>
     </div>
     </div>
@@ -330,112 +297,92 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.
     <div class="section">
       <div class="section-head"><h3>开发者 · 开源</h3><div class="rule"></div></div>
       <div class="article">
-        <h4>Unsloth 发布 Mistral「Le Chonk」1-bit GGUF 量化版：万亿参数大模型，本地也能跑</h4>
-        <div class="news">Unsloth 推出 Le Chonk 的 1-bit GGUF 量化版本，让参数规模达万亿级、此前几乎只能在云端运行的 Mistral Large 4，可以在本地硬件上跑起来。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：这是「多且全」里最该被你看见的一条<b>开发者硬货</b>。万亿参数听起来吓人，一台普通电脑根本装不下；但"量化"有点像<b>给一本厚书做"极简删减版"</b>——把每个数字的精度压低，让模型瘦身到能在你硬盘和显存里塞下。1-bit 是量化里的"极限瘦身"，代价是效果会掉，但换来的是<b>普通人第一次有机会在本地亲手跑一个万亿级模型</b>。落点：想动手的读者，这是一份绝佳的"入门 + 硬核"两栖教材——先学会量化是什么，再自己下载跑一次。
-          <span class="ex">💡 类比：量化 = 把「1080P 高清电影」压成「便携小体积格式」，画质略降，但终于塞得进你的硬盘、带得走。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L4·工程工具（模型压缩 / 量化）</span>
-        </div>
-        <div class="src">出处：X（Unsloth） · 2026-10-29 · <a href="https://x.com/UnslothAI" target="_blank" rel="noopener">Unsloth官方</a></div>
+        <h4>Anthropic 开源「Agent Skills」仓库：把「怎么教 Claude 干活」变成可复用的零件</h4>
+        <div class="news">2026-10-30，Anthropic 开源 anthropics/skills 仓库，内含文档、PDF、PPT、Excel 等生产级「技能」示例，采用 Apache 2.0 协议，可注册成 Claude 的能力。（出处 GitHub · 2026-10-30）</div>
+        <div class="study">拾光分析：这跟上一期开发者板块的「OpenAI Model Spec」是一条线上的两件事——都在解决同一个问题：<b>光有聪明的模型不够，还得有办法把「聪明」变成「稳定可复用的能力」</b>。Skills 可以理解成<b>给 AI 写好的「标准作业流程（SOP）」</b>：一份写文档的规范、一套处理 Excel 的步骤，打包成一个零件，谁都能拿来用、也能改。对开发者最大的意义是：<b>AI 应用正在从「各家自己瞎摸」走向「有共享零件的生态」</b>——就像乐高，零件标准化了，拼东西才快。想学 AI 的人，翻这个仓库是极好的「看高手怎么写 Prompt/流程」的教材。</div>
+        <div class="src">出处：GitHub · 2026-10-30 · <a href="https://github.com/anthropics/skills" target="_blank" rel="noopener">anthropics/skills</a></div>
       </div>
       <div class="article">
-        <h4>Hugging Face 连发三弹：Project ProtoStar、语音识别 AnySpeechRecognizer、决策模型 AnyDecisionModel</h4>
-        <div class="news">Hugging Face 官方宣布 Project ProtoStar（让公共基金资助的科学数据"AI 就绪"），并在 Apple 平台开源的 AnySpeechRecognizer（语音）与 AnyDecisionModel（决策）两个开放模型。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：这三个公告串起一条清晰的主线——<b>"AI 的民主化"正从"模型开放"走向"数据和科学也开放"</b>。Project ProtoStar 尤其值得关注：它想让那些用纳税人钱做出来的科研成果，变成 AI 能直接读、能接着训练的"公共素材"。拾光看这件事，觉得它对读者有一个朴素而重要的提醒：<b>AI 能不能变强，模型只是明面上的主角，真正的幕后粮草是"数据"</b>——谁掌握了高质量、可用的数据，谁就掌握了 AI 的燃料。
-          <span class="ex">💡 类比：ProtoStar 像给"公共图书馆的科学书"统一编号上架，让 AI 这个"读者"终于能高效地借阅、消化。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L3·模型训练（数据工程）/ L7·生态（开源）</span>
-        </div>
-        <div class="src">出处：Hugging Face Blog · 2026-10-29 · <a href="https://huggingface.co/blog/protostar" target="_blank" rel="noopener">ProtoStar</a>｜<a href="https://huggingface.co/blog/apple-any-speech-decision" target="_blank" rel="noopener">语音/决策模型</a></div>
+        <h4>Lightpanda：一个专为 AI 和自动化而生的「超省内存」无头浏览器</h4>
+        <div class="news">2026-10-30，开源项目 Lightpanda 上 GitHub Trending，宣称内存占用仅约 123MB（Chrome 约 2GB）、5 秒跑 100 个页面，兼容 playwright、puppeteer，专为 AI Agent 与自动化设计。（出处 GitHub · 2026-10-30）</div>
+        <div class="study">拾光分析：为什么「浏览器」也成了 AI 圈的热点？因为<b>AI 智能体要「上网办事」，浏览器就是它的手和眼</b>——点网页、填表单、抓信息，全得靠浏览器。但普通浏览器是为「人」设计的，又重又慢，一个智能体同时开几十个页面就会把内存吃爆。Lightpanda 这类「专为 AI 瘦身」的浏览器，解决的就是<b>「让 AI 的『手眼』更轻、更快、更省」</b>。拾光想让你记住一个正在变硬的趋势：<b>当 AI 开始替人类上网干活，连「浏览器」这种老工具都要为它重新设计一遍</b>。这也是「AI 不只是软件，而是重新定义所有工具」的最新注脚。</div>
+        <div class="src">出处：GitHub Trending · 2026-10-30 · <a href="https://github.com/lightpanda-io/browser" target="_blank" rel="noopener">lightpanda-io/browser</a></div>
       </div>
       <div class="article">
-        <h4>GitHub 今日新星（近 48h 建仓）：AI 编程、量化监控、本地部署成热点</h4>
-        <div class="news">近两日 GitHub 上 AI 相关新仓库热度集中在几个方向：<span class="key">TokenBar</span>（跨平台 AI 用量监控，支持 Codex/Claude/Cursor 等 47+ 工具）、<span class="key">astrbot-for-android</span>（手机上本地部署机器人）、<span class="key">hello-llm</span>（浏览器里从零手写一个小模型）、<span class="key">CVEngine</span>（AI 攻击面评估）。（出处 GitHub 2026-10-30）</div>
-        <div class="study">拾光分析：从新星榜能读出开发者此刻最真实的焦虑和需求——<b>一是"用量失控"（TokenBar 监控各家 AI 配额），二是"想把 AI 装进口袋/本地"（astrbot、hello-llm 走"本地、去云端"路线）</b>。这背后是一个正在清晰的趋势：<b>AI 正在从"云上的黑盒服务"，变成"人人都想在本地拥有一份"的私有资产</b>。对学习者，尤其推荐 hello-llm 这类"手写小模型"项目——它是理解大模型原理最踏实的入门路，比刷十篇评测都管用。
-          <span class="ex">💡 类比：这些新项目像开发者社区的"晴雨表"——用量监控、本地部署抬头，说明大家开始"精打细算 + 想要掌控感"。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L4·工程工具（开源工具 / 本地部署）</span>
-        </div>
-        <div class="src">出处：GitHub Trending · 2026-10-30 · <a href="https://github.com/search?q=topic%3Aai&type=repositories&s=stars&o=desc" target="_blank" rel="noopener">GitHub 搜索</a></div>
-      </div>
-      <div class="article">
-        <h4>OpenAI 更新 Model Spec：想让 AI"更能干，同时更安全"的说明书</h4>
-        <div class="news">OpenAI 发布更新版 Model Spec（模型行为规范），明确对"更有能力且更益"的 AI 的行为边界与偏好。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：Model Spec 可以通俗理解成<b>给 AI 写的"员工手册 + 价值观合同"</b>——规定它在什么情况下该怎么做、什么话能说什么不能、遇到两难怎么取舍。它不直接改变模型多聪明，但决定<b>"聪明"往哪个方向使</b>。拾光的落点：这正是"对齐（alignment）"这个 L3 高频词的落地实例。想懂 AI 安全的人，与其读惊悚的"AI 失控"，不如踏踏实实看懂<b>"人们是怎么一步步给 AI 定规矩的"</b>。
-          <span class="ex">💡 类比：Model Spec 像 AI 的"员工守则"——聪明是前提，但守则是决定这聪明是"帮你"还是"坑你"的方向盘。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L3·模型训练（对齐 / 安全）</span>
-        </div>
-        <div class="src">出处：OpenAI News · 2026-10-29 · <a href="https://openai.com/news/model-spec" target="_blank" rel="noopener">OpenAI 官方</a></div>
+        <h4>Cisco 给工程师「无限 AI 额度」，让他 24 个月重写公司 98% 的遗留代码</h4>
+        <div class="news">2026-10-30，据报道 Cisco 给一位 27 岁工程师「无限 AI token」，目标是在 24 个月内用 AI 重写公司 98% 的遗留代码。（出处 Tom's Hardware · 2026-10-30）</div>
+        <div class="study">拾光分析：这条新闻是一面「照妖镜」，照出「AI 写代码」这件事<b>真实的两面</b>。<b>积极面</b>：几十年的老代码像堆积如山的旧账，靠人手一辈子清不完，AI 能 24 小时不停地把陈年老码翻新、翻译、补测试——这确实是 AI 编程最实在的用武之地。<b>谨慎面</b>：同一天的另一条新闻给出了警告——「AI 生成的代码仍频繁过不了安全检查，Claude 和 GPT-6 位居出错榜首」。所以「重写 98%」这种宏大目标，真正的成败不在「写得快不快」，而在<b>「改写完的代码，靠不靠谱、有没有人复核」</b>。拾光的清醒判断：<b>AI 能极大加速「搬砖」，但「这堵墙承不承重」还得人来最后把关。</b>对想学编程的人，这更是一条清醒提醒——用 AI 写码不是「不用学」，而是「把学的重点，从背语法，转到审逻辑、判对错」。</div>
+        <div class="src">出处：Tom's Hardware · 2026-10-30 · <a href="https://www.tomshardware.com/tech-industry/big-tech/cisco-gives-27-year-old-engineer-unlimited-ai-tokens-to-rewrite-98-percent-of-the-companys-legacy-code-in-24-months-president-plucks-former-startup-founder-telling-him-to-go-nuts" target="_blank" rel="noopener">原文</a></div>
       </div>
     </div>
     </div>
-    <div id="zhengce">
+    <div id="anquan">
     <div class="section">
-      <div class="section-head"><h3>政策 · 新闻</h3><div class="rule"></div></div>
+      <div class="section-head"><h3>安全 · 生态</h3><div class="rule"></div></div>
       <div class="article">
-        <h4>AI 数据中心狂吞电力，美国十五年减排成果或归零</h4>
-        <div class="news">有报告指出，AI 数据中心的电力消耗激增，可能抹去美国过去十五年取得的减排成果。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：这条把 AI 的"光鲜"和"代价"同时摆上了桌面。我们享受的每一次"问 AI"，背后都是数据中心里一排排日夜轰鸣、狂吃电的服务器。<b>AI 的两条命脉——算力和电力——其实是一回事：没电，再强的芯片也是废铁。</b>这背后是 2026 年最值得普通人理解的产业真相：<b>AI 的极限，可能不卡在"算法多聪明"，而卡在"电够不够用、够不够绿"</b>。这也是为何"核能+AI""液冷散热""数据中心选址"会越来越常上新闻。拾光的落点：判断一项 AI 技术"值不值"，除了看它多厉害，也该问一句<b>"它要多耗多少电、多少水？"</b>——技术的真正成本，藏在账单和碳排放里。
-          <span class="ex">💡 类比：AI 是"吃电"的大胃王，算力是它的饭量，电力是它的饭碗——饭不够，谁都别想吃。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L5·硬件算力 / L7·产业生态（能耗 / 可持续）</span>
-        </div>
-        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31940" target="_blank" rel="noopener">原文</a></div>
+        <h4>Cursor 插件市场混入「带后门的 Claude Code 扩展」，最多 5000 人被波及</h4>
+        <div class="news">2026-10-30，Cursor 披露其插件市场中一款假冒/被植入后门的 Claude Code VS Code 扩展，可试图远程访问与窃取数据，最多影响约 5000 用户；同一供应链攻击还波及数千台设备的恶意 Claude 扩展。（出处 Cursor / Wired · 2026-10-30）</div>
+        <div class="study">拾光分析：这条新闻值得所有「已经用上 AI 编程工具」的人停下来看三秒，因为它揭开了 AI 生态一条最容易被忽视的裂缝：<b>AI 工具越火，「假 AI 工具」就越值钱</b>。<br><b>套路其实很老</b>：给一个热门插件换个真假难辨的名字（「Claude Code」够火、够多人装），塞进恶意代码，等急着用的人自己装上——这叫<b>「供应链攻击」</b>：你不是被黑客直接黑了，而是<b>你亲自把一个伪装成「官方」的坏东西请进了门</b>。<br><b>拾光给你三条能立刻用的自保口诀</b>：① 装任何 AI 插件/扩展前，<b>核对官方来源</b>（开发者名、下载量、评分对不对得上）；② <b>只从官方市场/官方仓库装</b>，不点来路不明的「一键安装」链接；③ 对「要求更多权限」的插件多问一句<b>「它凭什么需要读我这么多文件」</b>。<br>更深一层，拾光想点出这个词的意味：<b>当全世界都抢着往 AI 生态里塞东西时，「信任」反而成了最稀缺的资源</b>。谁能把「安全」做好，谁就能在 AI 工具的下半场赢。这也再次印证头条的主题——<b>热闹越盛，越要学会「挑」和「辨」</b>。</div>
+        <div class="src">出处：Cursor / Wired · 2026-10-30 · <a href="https://cursor.com/blog/claude-code-extension-security-notice" target="_blank" rel="noopener">Cursor 安全公告</a>｜<a href="https://www.wired.com/story/trojan-malware-targets-thousands-of-anthropic-claude-developer-systems" target="_blank" rel="noopener">Wired</a></div>
       </div>
       <div class="article">
-        <h4>苹果诉 OpenAI 窃密案排期 2027 年夏：一场围绕离职员工的机密拉锯</h4>
-        <div class="news">苹果起诉 OpenAI 窃取商业机密的案件，法院排期到 2027 年夏季开庭，核心争议围绕离职员工的机密与人才流动。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：这条新闻的看点不在"谁输谁赢"，而在它揭示了 AI 时代一个长期难解的题：<b>人才流动和商业秘密之间，边界到底在哪？</b>顶尖 AI 研究的核心资产，很多时候不是代码，而是"装在某些人脑子里"的经验和思路。人一跳槽，"脑子"跟着走，这算不算"偷"？法律要花几年才能慢慢划清这条线。<b>拾光的判断</b>：这场官司只是开始，未来"AI 人才 + 知识产权"的规则会越来越被反复拉扯。对普通从业者，值得记住的一句话是：<b>在 AI 这个人才奇缺的行业里，你个人的技能和判断力，本身就是最保值、也最容易被争夺的资产。</b>
-          <span class="ex">💡 类比：AI 公司最值钱的"秘密工厂"其实是人脑，而人脑会跳槽——于是法律开始给"脑子搬家"定规矩。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L7·产业生态（知识产权 / 人才）</span>
-        </div>
-        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31957" target="_blank" rel="noopener">原文</a></div>
+        <h4>AI 写的代码，仍频繁过不了安全检查：Claude 和 GPT-6 出错最多</h4>
+        <div class="news">2026-10-30，一项对比测试显示，AI 生成的代码仍频繁通过不了安全检查，其中 Claude 与 GPT-6 位居「出错榜首」。（出处 TechRadar · 2026-10-30）</div>
+        <div class="study">拾光分析：这条最好和上面的「Cisco 重写 98% 代码」一起读——<b>一边是「让 AI 大干快上」，一边是「AI 的代码还常出错」，两者之间的张力，才是 AI 编程当下的真实状态</b>。拾光不想把「AI 写代码不安全」说成危言耸听，而是要你抓住那个更有用的结论：<b>AI 是很好的「初稿写手」，还不是合格的「终稿审稿人」</b>。对正在用 AI 编程、或打算学编程的人，最该练的新能力不是「让 AI 写得更快」，而是<b>「能发现 AI 写的代码哪里不对」</b>——审查、测试、验证。这跟头条那张「验证清单」是同一个心法：<b>相信工具的速度，但永远保留自己判断的最后一道关。</b></div>
+        <div class="src">出处：TechRadar · 2026-10-30 · <a href="https://www.techradar.com/pro/security/ai-generated-code-is-still-frequently-failing-security-checks-with-claude-and-gpt-6-topping-the-leader-board" target="_blank" rel="noopener">原文</a></div>
       </div>
     </div>
     </div>
-    <div id="chanye">
+    <div id="shipin">
     <div class="section">
-      <div class="section-head"><h3>产业生态</h3><div class="rule"></div></div>
-      <div class="article">
-        <h4>GitHub 发布 Copilot Fusion：多模型自动编排，编程进入"半自动化"新常态</h4>
-        <div class="news">GitHub 发布 Copilot Fusion，能按任务智能路由并编排多个模型，官方称 API 成本约减半、耗时减少约 40%。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：这是"AI 如何真正改变工作"的最好样本。Copilot Fusion 的核心是<b>"给每个活儿挑最合适的模型"</b>——写简单代码用便宜的小模型，啃复杂逻辑再上贵的大模型，就像公司采购会"按需进货"而不是"全都买最贵的"。<b>落点：AI 正在学会"又便宜又好用"，而不只是"更强"。</b>拾光说给普通读者的一句话：这件事离你不远——<b>凡是"能说清目标、结果可检查"的文字活儿，AI 都在加速抢着帮你干</b>。你真正该练的新技能，不是"背代码"，而是<b>"把需求说清楚、把结果审明白"</b>。
-          <span class="ex">💡 类比：Copilot Fusion 像一位聪明的"采购主管"，简单活儿派便宜的实习生，难活儿才请资深专家，钱花在刀刃上。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L4·工程工具 / L7·产业生态（商业化）</span>
-        </div>
-        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31962" target="_blank" rel="noopener">原文</a></div>
+      <div class="section-head"><h3>本期视频</h3><div class="rule"></div></div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV19Bxv6WEWQ" target="_blank" rel="noopener">
+          <img src="img/v_ai_bubble.jpg" alt="AI泡沫要破了" loading="lazy">
+          <div class="btn"></div>
+        </a>
+        <div class="cap"><span class="dur">视频</span>AI 泡沫要破了？一晚蒸发 8000 亿，显卡内存春天要到了？ · 上传 2026-10-30</div>
       </div>
-      <div class="article">
-        <h4>英伟达拟 30 亿美元入股 Meta，美国反垄断机构同时盯上其 Hugging Face 交易</h4>
-        <div class="news">英伟达计划投资约 30 亿美元入股 Meta 以扩大 AI 合作；与此同时，美国反垄断监管机构正审查英伟达对 Hugging Face 的交易及其销售行为。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：两条新闻拼在一起，讲的是一场围绕"AI 生态"的合纵连横。<b>拾光不聊股价，只说一个产业格局</b>：当芯片巨头开始"既卖铲子、又入股淘金者"，AI 的上下游正在前所未有地抱团。<b>落点：AI 的竞争，早已不是"一家公司的模型强不强"，而是"一整条产业链的联盟强不强"</b>——芯片、算力、模型、应用会绑成一个个阵营。同时，反垄断审查提醒我们：当一个环节强到能"左右全局"时，监管就会介入。<b>给读者的启示</b>：看懂 AI，别只盯单个模型，要学着看"生态"——就像看一部剧，光看主角不够，得看它背后谁给钱、谁提供舞台。
-          <span class="ex">💡 类比：AI 生态像一棵生态树——芯片是"土壤"，资本是"浇水施肥"，模型是"枝叶"，监管是"修剪树枝的手"。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L7·产业生态（资本 / 反垄断 / 生态圈）</span>
-        </div>
-        <div class="src">出处：aibase / TechCrunch · 2026-10-29 · <a href="https://www.aibase.com/news/31944" target="_blank" rel="noopener">英伟达入股</a>｜<a href="https://the-decoder.com/us-antitrust-regulators-are-scrutinizing-nvidias-hugging-face-deal-and-sales-practices" target="_blank" rel="noopener">反垄断</a></div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1oxMy6kE2e" target="_blank" rel="noopener">
+          <img src="img/v_speculative.jpg" alt="投机解码讲透" loading="lazy">
+          <div class="btn"></div>
+        </a>
+        <div class="cap"><span class="dur">视频</span>大模型凭空提速 2–3 倍，还零精度损失？投机解码讲透 · 上传 2026-08-08（教学向，长期可看）</div>
       </div>
-      <div class="article">
-        <h4>AI 垃圾"淹没" Steam，Valve 拒当裁判：不封禁，只让商店更聪明</h4>
-        <div class="news">大量低质 AI 生成的游戏涌入 Steam，Valve 明确表示不封禁 AI 游戏，而是选择改进商店的推荐与筛选机制。（出处 2026-10-29）</div>
-        <div class="study">拾光分析：这条背后是一个越来越普遍的"AI 副作用"：<b>当生成内容的门槛降到几乎为零，"垃圾内容"也会像洪水一样涌出来。</b>以前做游戏要几年，现在 AI 几小时就能堆一个——结果是把"发现好内容"这件事变得比"生产内容"还难。Valve 的选择很有意思：<b>不去"禁"，而是把"筛"做得更聪明</b>。拾光想讲的关键词是<b>"信息过载的逆问题"</b>：AI 让内容爆炸，反而让"会挑、会判断"变成最稀缺的能力。这跟拾光对自己的定位一模一样——<b>不是生产更多信息，而是帮你从信息的洪流里，捞出真正值得看、值得学的那几条。</b>
-          <span class="ex">💡 类比：AI 让"内容工厂"流水线全开，垃圾和金子一起涌来，于是"淘金"（筛选）成了比"炼金"（生成）更值钱的本事。</span>
-          <span class="ex" style="color:#8a8478">🏷️ L7·产业生态（内容治理）</span>
-        </div>
-        <div class="src">出处：aibase · 2026-10-29 · <a href="https://www.aibase.com/news/31943" target="_blank" rel="noopener">原文</a></div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1KMxY6TEmL" target="_blank" rel="noopener">
+          <img src="img/v_speculative2.jpg" alt="投机解码让一次decode多吐token" loading="lazy">
+          <div class="btn"></div>
+        </a>
+        <div class="cap"><span class="dur">视频</span>4.4 投机解码：让一次 decode 步多吐几个 token · 上传 2026-10-30</div>
       </div>
     </div>
     </div>
     <div id="jinyu">
-    <div class="pullquote">本期拾光金句：AI 嚷嚷得再响，「自己教自己」也好、「万亿参数」也罢，落回你身上的其实就一句——先分清「这是已经发生的，还是押注未来的」，再看它值不值得你花时间去学。分得清，热闹才是你的门票；分不清，热闹只会把你卷走。</div>
+    <div class="pullquote">本期拾光金句：泡沫这种事，从来不会在你「看不懂」的时候破，只会在你「懒得再看、只想跟着买」的时候破。所以拾光送你的不是预测，是一把尺子——先分清「已经发生的」和「押注未来的」，再决定值不值得花你的时间去学。热闹是门票，清醒才是护身符。</div>
     </div>
     <div id="baowei">
     <div class="footer">
-      <span>拾光 · AI 视界 · 2026-10-30（第 4 期）</span>
+      <span>拾光 · AI 视界 · 2026-10-31（第 5 期）</span>
       <span>把 AI 捡起来，学明白</span>
       <span>拾光主笔 · 热闹是门票，学会才是目的</span>
     </div>
-    <div class="pagenav"><a href="2026-10-29_AI视界.html">← 上一期</a> <a href="archive.html">全部往期</a></div>
+    <div class="handoff"><b>寒洛 · 投资视角接力</b>：看懂「是什么」之后，想听「怎么判断」？本期拾光讲清了「AI 泡沫争论的技术成色」与「存储环节的产业逻辑」，寒洛将从投资视角接力，解读这些产业动向对市场判断的启发。入口卡片待寒洛提供投资版链接后回填——拾光只管科普，不下投资结论。</div>
+    <div class="pagenav"><a href="2026-10-30_第4期_AI视界.html">← 上一期</a> <a href="archive.html">全部往期</a></div>
     <div class="briefs" style="margin-top:16px">
       <div class="bt">意见 · 建议 · 需求</div>
       <p style="font-size:13px;color:var(--ink-2)">你有想看的 AI 话题、想弄懂的概念、或对本期内容有不同看法？<br>点下面的按钮直接提给拾光（免账号填写），下一期就吸收进来。</p>
       <div class="pagenav"><a href="https://ucn7c5oq7ran.feishu.cn/wiki/KjINwgrTAiqTRVkl6oncRUxjnJh" target="_blank" rel="noopener" style="background:var(--red)">提意见 / 提需求</a></div>
+    </div>
+    <div class="briefs" style="margin-top:16px;background:#fffdf7">
+      <div class="bt">本期兑现了读者哪些反馈</div>
+      <ul>
+        <li><b>可证伪验证清单</b>：头条为「递归自我改进」配了五条可证伪的「兑现/证伪信号清单」，此后每个大词必配。</li>
+        <li><b>筛选式学习</b>：头条第三段讲透「筛选+抽象 vs 全量记录」，教你挑出值得深学的，而非照单全收。</li>
+        <li><b>数据配图</b>：今日一课「投机解码」配了按真实耗时等比绘制的 SVG 对比图。</li>
+        <li><b>产业链科普</b>：新栏目「产业链·一眼看懂」首秀，拆了第 1 个环节「存储」。</li>
+      </ul>
     </div>
     </div>
 
