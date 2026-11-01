@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拾光 · AI 视界｜2026-11-01 · 第6期</title>
+<style>
+:root{
+  --paper:#faf7f0; --ink:#1a1a1a; --ink-2:#555; --ink-3:#8a8478;
+  --line:#d8d2c4; --red:#c0392b; --blue:#1f5f8b; --green:#2e7d32; --amber:#a06a00;
+  --bg-block:#f2eee3;
+  --hei:system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑','Noto Sans SC',sans-serif;
+  --serif:system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑','Noto Sans SC',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+.pager{position:sticky;top:0;z-index:999;background:var(--ink);color:#fff;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px;padding:8px 12px;font-family:var(--hei);font-size:13px}
+.pager .brand{color:#aaa;margin-right:6px;white-space:nowrap}
+.pager a{color:#fff;text-decoration:none;padding:4px 12px;border-radius:3px;background:#333;font-weight:700;white-space:nowrap}
+.pager a:hover{background:var(--red)}
+@media(max-width:720px){.pager{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.pager a{padding:4px 10px;font-size:12px}}
+.page{max-width:760px;margin:24px auto;background:var(--paper);box-shadow:0 4px 40px rgba(0,0,0,.18)}
+.page-head{border-bottom:3px double var(--ink);padding:24px 36px 16px;text-align:center;background:#fffdf7}
+.page-head .kicker{font-size:11px;letter-spacing:.3em;color:var(--ink-3)}
+.page-head h1{font-size:2.2em;font-weight:900;letter-spacing:.06em;font-family:var(--hei)}
+.page-head h1 .accent{color:var(--red)}
+.page-head .page-no{font-size:12px;color:var(--ink-3);margin-top:2px}
+.page-body{padding:28px 40px 48px;max-width:720px;margin:0 auto}
+.columns{max-width:680px;margin:0 auto}
+@media(max-width:720px){
+  .page{margin:0 auto;box-shadow:none}
+  .page-body{padding:20px 16px 32px}
+  .page-head{padding:16px 14px}
+  body{font-size:15px;line-height:1.75}
+}
+.headline-block{break-inside:avoid;margin-bottom:24px}
+.headline-flag{display:inline-block;background:var(--red);color:#fff;font-family:var(--hei);font-weight:800;font-size:11px;letter-spacing:.15em;padding:3px 12px;margin-bottom:8px}
+.headline-block h2{font-size:1.9em;font-weight:900;line-height:1.3;font-family:var(--hei);margin-bottom:6px}
+.headline-block .subhead{font-size:1.1em;color:var(--blue);font-weight:600;margin-bottom:8px}
+.headline-block .standfirst{font-size:14.5px;color:var(--ink-2);border-left:4px solid var(--red);padding-left:12px;margin-bottom:12px}
+.byline{font-size:11.5px;color:var(--ink-3);margin-bottom:10px}
+.dropcap::first-letter{font-size:3.2em;font-weight:900;float:left;line-height:.85;padding:4px 10px 0 0;color:var(--red);font-family:var(--hei)}
+.section{break-inside:avoid;margin:0 0 22px;border-top:2px solid var(--ink);padding-top:8px}
+.section-head{display:flex;align-items:baseline;margin-bottom:8px}
+.section-head h3{font-family:var(--hei);font-size:1.2em;font-weight:900;letter-spacing:.04em}
+.section-head .rule{flex:1;border-bottom:2px solid var(--line);margin-left:12px}
+.article{break-inside:avoid;margin-bottom:14px;padding-bottom:12px;border-bottom:1px dotted var(--line)}
+.article h4{font-family:var(--hei);font-size:1.05em;font-weight:800;line-height:1.4;margin-bottom:3px}
+.article h4 a{color:var(--ink);text-decoration:none}
+.article h4 a:hover{color:var(--blue)}
+.news{font-size:13.5px;color:var(--ink-2)}
+.news::before{content:"新闻 ";color:var(--red);font-weight:900;font-family:var(--hei);font-size:12px}
+.study{font-size:13px;color:var(--ink-2);background:#eef4ee;border-left:3px solid var(--green);padding:9px 12px;margin-top:6px;line-height:1.7}
+.study::before{content:"拾光分析 ";color:var(--green);font-weight:900;font-family:var(--hei);font-size:12px}
+.study .ex{display:block;margin-top:4px;color:#5a7a5a;font-size:12.5px}
+.src{font-size:11.5px;color:var(--ink-3);margin-top:4px}
+.src a{color:var(--blue);text-decoration:underline}
+.num{color:var(--red);font-weight:900;font-size:1.1em}
+.key{color:var(--blue);font-weight:700}
+.hot{color:var(--red);font-weight:800}
+.briefs{border:1px solid var(--line);background:var(--bg-block);padding:12px 16px;margin-bottom:16px;break-inside:avoid}
+.briefs .bt{font-family:var(--hei);font-weight:900;font-size:13px;color:var(--red);letter-spacing:.1em;margin-bottom:6px;border-bottom:2px solid var(--red);padding-bottom:4px}
+.briefs ul{list-style:none}
+.briefs li{font-size:13px;color:var(--ink-2);padding:5px 0;border-bottom:1px dotted var(--line)}
+.briefs li:last-child{border-bottom:none}
+.briefs li::before{content:"• ";color:var(--red);font-weight:900}
+.video{margin:14px 0;break-inside:avoid;border:1px solid var(--line);background:#fffdf7}
+.video a.thumb{position:relative;display:block;text-decoration:none}
+.video a.thumb img{width:100%;height:auto;display:block}
+.video .btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(192,57,43,.93);border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.video .btn::before{content:"";border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
+.video a.thumb:hover .btn{background:var(--red);transform:translate(-50%,-50%) scale(1.1)}
+.video .cap{padding:9px 13px;font-size:12.5px;color:var(--ink-2);font-family:var(--hei)}
+.video .cap .dur{display:inline-block;background:var(--ink);color:#fff;font-size:10px;padding:1px 7px;border-radius:3px;margin-right:7px}
+.pullquote{margin:14px 0;padding:12px 18px;font-size:1.1em;font-weight:700;color:var(--blue);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);text-align:center;font-family:var(--hei)}
+.fig{margin:22px 0;break-inside:avoid;background:#fffdf7;border-top:3px solid var(--ink);border-bottom:1px solid var(--line);padding:20px 18px 16px}
+.fig svg{width:100%;height:auto;display:block}
+.fig .cap{font-size:12px;color:var(--ink-3);text-align:left;margin-top:12px;line-height:1.6;padding-top:10px;border-top:1px solid var(--line)}
+.fig .cap b{color:var(--red)}
+.footer{margin-top:20px;padding-top:10px;border-top:3px double var(--ink);font-size:11.5px;color:var(--ink-3);text-align:center;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.pagenav{margin-top:24px;text-align:center;font-family:var(--hei)}
+.pagenav a{display:inline-block;margin:0 6px;padding:6px 18px;background:var(--ink);color:#fff;text-decoration:none;border-radius:3px;font-size:13px;font-weight:700}
+.pagenav a:hover{background:var(--red)}
+.dict{background:#fbf6ea;border-left:3px solid var(--amber);padding:9px 12px;margin-top:8px;font-size:12.5px;color:var(--ink-2);line-height:1.7}
+.dict::before{content:"拾光词典";color:var(--amber);font-weight:900;font-family:var(--hei);font-size:11px;display:block;margin-bottom:3px}
+.checklist{background:#fdf6ef;border-left:3px solid var(--amber);padding:10px 12px;margin-top:8px;font-size:12.5px;color:var(--ink-2);line-height:1.7}
+.checklist::before{content:"验证清单";color:var(--amber);font-weight:900;font-family:var(--hei);font-size:11px;display:block;margin-bottom:3px}
+.handoff{border:2px solid var(--blue);background:#eef4fa;padding:14px 16px;margin-top:18px;border-radius:6px;font-size:13px;color:var(--ink-2);line-height:1.8}
+.handoff b{color:var(--blue)}
+</style>
+</head>
+<body>
+
+<div class="pager">
+  <span class="brand">拾光 · AI 视界</span>
+  <a href="archive.html">往期</a>
+  <a href="https://ucn7c5oq7ran.feishu.cn/wiki/KjINwgrTAiqTRVkl6oncRUxjnJh" target="_blank" rel="noopener" style="background:#8a4a3a">提意见</a>
+  <span class="sep" style="color:#555;margin:0 4px">|</span>
+  <a href="#fengmian">封面</a>
+  <a href="#qianwen">千问</a>
+  <a href="#anquan">安全</a>
+  <a href="#huikan">回看</a>
+  <a href="#leida">雷达</a>
+  <a href="#shipin">视频</a>
+</div>
+
+<div class="page" id="p1">
+  <div class="page-head">
+    <div class="kicker">AI 全生命周期情报 · 期刊 · 把 AI 捡起来，学明白</div>
+    <h1>拾光 <span class="accent">·</span> AI 视界</h1>
+    <div class="page-no">2026-11-01（周日） · 第 6 期 · 拾光主笔</div>
+  </div>
+  <div class="page-body columns" id="bodyroot">
+
+    <div id="fengmian">
+    <div class="headline-block">
+      <span class="headline-flag">封面故事 · 本期主题</span>
+      <h2>AI 烧钱烧到要「担保」了，可同一晚，有人用 6G 显卡跑起了 35B 大模型</h2>
+      <div class="subhead">一边是 Anthropic 近 9000 亿美元隐性债务要 Nvidia 来担保，一边是开源社区把大模型塞进了几千块的显卡——「烧钱」和「降本」同天上演，这才是 AI 当下的真面目</div>
+      <div class="standfirst">一晚上出了三条新闻，指向同一个矛盾：Anthropic IPO 招股书披露近 9000 亿美元隐性债务、被评级机构预告要拿「垃圾级」；Nvidia 洽谈为 Anthropic 的数据中心做债务担保；OpenAI 新一轮融资从 300 亿目标缩水到只拿到 110 亿。资本开始算账了。可就在同一批新闻流里，一条开源实测让拾光眼睛一亮：有人在 6G/8G 显存的显卡上跑起了 35B 参数的大模型。这一期，拾光就把「AI 到底是不是非烧钱不可」这件事，掰开讲清楚。</div>
+      <div class="byline">拾光主笔 · 2026-11-01 · 兑现读者反馈（算法降本专题）</div>
+      <p class="dropcap">先别急着站队「泡沫」或「永动机」。这一晚真正值得你看懂的，是<span class="key">钱的流向在分叉</span>：一条流向「更贵的卡、更大的数据中心、更长的烧钱周期」，另一条流向「让手头现有的卡，跑出原来好几倍的活」。前者制造焦虑，后者才是普通人能抓住的东西。</p>
+      <div class="news">2026-10-30 至 10-31，三条产业新闻相继：①Anthropic IPO 招股文件披露，未来在服务器、建筑、电力上拟投入近 9000 亿美元债务，远超其资产负债表上 1175 亿负债、1120 亿现金的账面数字（彭博社）；②彭博/FT 报道 Anthropic 将被评级机构评「垃圾级」，上市后的信用前景受质疑；③Nvidia 洽谈为 Nscale 在西弗吉尼亚为 Anthropic 建的数据中心担保数十亿美元债务融资，首栋建筑已签 446 亿美元合同。另据报道，OpenAI 新一轮融资原定募资 300 亿美元，现仅获约 110 亿承诺、目标下调。（事件 10-30/31 发生，10-31 报道）</div>
+      <div class="study">拾光分析：这三条新闻连起来看，就一句话——<b>AI 圈的「军备竞赛」到了要「抵押未来」的阶段</b>。<br><br><b>先讲清楚「垃圾级」意味着什么。</b>信用评级就像给人打「还钱靠谱度」的分。拿高分，借钱利息低；拿「垃圾级」，说明债主觉得「这钱借出去可能收不回来」，于是要你付更高的利息、甚至不肯借。Anthropic 靠「未来收入」和「继续融资」来还这 9000 亿的账，可它的账本上，收入远盖不住这么大体量的开支——所以评级机构开始犯嘀咕。这跟拾光上一期讲的是一回事：<b>市场从「先相信再验证」，变成了「先对账再看要不要相信」</b>。<br><br><b>但拾光今天真正想给你的是另一面。</b>同一批新闻流里，藏着一条几乎没人当头条的消息：开源社区有人实测，用 <span class="num">6G/8G 显存</span>的显卡（几千块的消费级卡）就能跑起 <span class="num">35B 参数</span>的大模型。这意味着什么？<b>AI 的成本，不是一条只会往上走的直线</b>。除了「砸钱买更贵的卡」这条腿，还有一条同样硬的腿叫「算法降本」——量化、蒸馏、投机解码、MoE 稀疏化……这些技术让同一个模型，用更少的显存、更少的算力、更少的钱就跑得动。拾光把这条腿叫 <b>「算法腿」</b>，把「买卡堆算力」叫 <b>「硬件腿」</b>。</div>
+      <div class="fig">
+        <svg viewBox="0 0 640 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI降本的两条腿">
+          <defs>
+            <linearGradient id="g_a" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c0392b"/><stop offset="1" stop-color="#e67e22"/></linearGradient>
+            <linearGradient id="g_b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+          </defs>
+          <text x="20" y="26" font-size="14" fill="#374151" font-weight="bold">AI 降本的两条腿：都在变强，但「算法腿」被聊得太少</text>
+          <g>
+            <rect x="40" y="48" width="560" height="72" rx="6" fill="url(#g_a)"/>
+            <text x="56" y="72" font-size="13" fill="#fff" font-weight="bold">硬件腿（买更贵的卡、堆更多算力）</text>
+            <text x="56" y="93" font-size="11" fill="#fee2e2">大家天天聊的这条：GPU 越堆越多、数据中心越建越大、钱越烧越猛 → 制造焦虑</text>
+            <text x="56" y="110" font-size="11" fill="#fff">代价：资本开支飙升（巨头年 7400 亿美元），债务压力上来</text>
+          </g>
+          <g>
+            <rect x="40" y="132" width="560" height="72" rx="6" fill="url(#g_b)"/>
+            <text x="56" y="156" font-size="13" fill="#fff" font-weight="bold">算法腿（让手头的卡跑出更多活）</text>
+            <text x="56" y="177" font-size="11" fill="#dbeafe">被忽略的这条：量化 / 蒸馏 / 投机解码 / MoE 稀疏，同样效果省下显存与算力</text>
+            <text x="56" y="194" font-size="11" fill="#fff">实证：6G/8G 显存跑 35B 大模型，几十倍降本，普通人也能用</text>
+          </g>
+          <text x="40" y="228" font-size="11" fill="#374151">真相：AI 不一定非要无限烧钱，「算法腿」每进一步，都在给「泡沫会不会破」这个问题加分。</text>
+        </svg>
+        <div class="cap"><b>信息图：</b>AI 降本有两条腿。红的是「硬件腿」（买更贵的卡），蓝的是被严重低估的「算法腿」（量化/蒸馏/投机解码/MoE 稀疏，让现有卡跑出好几倍的活）。同一天，红腿在上头条（9000 亿债务），蓝腿在角落悄悄发生（6G 显卡跑 35B 模型）。</div>
+      </div>
+      <div class="study"><b>「算法腿」到底能省多少？这里有条最清醒的实话。</b>拾光不吹「零成本跑大模型」，因为每个降本手段都有代价——<b>省显存，往往要牺牲一点精度、多一点延迟、或牺牲一点通用性</b>。量化把模型的「小数点」压粗（省内存），代价是答案可能没那么细腻；蒸馏让小模型「模仿」大模型（跑得快），代价是小模型没那么「懂全科」；投机解码（上期讲过）靠「先猜再验」提速，代价是多了一点工程复杂度。<b>看清楚这三者的「省」和「代价」，你就不会被任何「某某技术让成本腰斩」的标题带跑。</b>这正是拾光想让你带走的核心认知：<b>AI 降本不是「免费的午餐」，而是一场「用什么代价换什么收益」的记账</b>——能把这本账算清楚的人，才不会在「泡沫」和「永动机」两个极端之间来回荡。</div>
+      <span class="ex" style="color:#8a8478;font-size:12.5px">L3·模型训练 / L4·工程工具 / L5·硬件算力（算法降本 vs 硬件堆料）</span>
+      <div class="src">出处：Bloomberg / 彭博社 / TechCrunch / FT · 事件 2026-10-30/31 · 报道 10-31 · <a href="https://www.ithome.com/1/020/444.htm" target="_blank" rel="noopener">Anthropic 9000 亿债务</a>｜<a href="https://techcrunch.com/2026/10/30/nvidia-weighs-playing-the-cosigner-for-nscales-ai-data-center-in-west-virginia" target="_blank" rel="noopener">Nvidia 担保</a>｜<a href="https://techcrunch.com/2026/10/31/openai-reportedly-lowers-funding-target-for-new-round" target="_blank" rel="noopener">OpenAI 融资缩水</a></div>
+    </div>
+    </div>
+
+    <div id="qianwen">
+    <div class="section">
+      <div class="section-head"><h3>国行 iPhone 的 AI，终于来了</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>阿里巴巴千问要进 Apple 智能了：11 月 4 日开始测试，12 月随 iOS 27.3 上线</h4>
+        <div class="news">2026-10-31，阿里巴巴与 Apple 宣布合作，把千问（Qwen）集成进 Apple 智能（Apple Intelligence）。中国区的 iPhone 用户将能在 Siri、写作工具、视觉智能里直接调用千问的文本理解、图像理解与内容生成能力。功能 11 月 4 日起随 iOS 开发者 Beta 开放测试，12 月 iOS 27.3 正式版推出时上线；用户可自主选择是否开通，且请求与回复不用于模型训练。（出处 千问官方公众号 · 2026-10-31）</div>
+        <div class="study">拾光分析：这条新闻对国内 iPhone 用户来说，是等了好久的一个「终于」。<b>先讲清楚背景</b>：Apple 智能（Apple Intelligence）是苹果自家的 AI 能力，但出于合规和语言适配，它在国内一直「缺一块本地化的聪明大脑」。这次苹果选了<b>阿里巴巴的千问</b>来做这块大脑——<b>相当于 iPhone 的 AI 里，装进了一个国产大模型的「心脏」</b>。<br><br><b>为什么值得你注意？</b>三个点。第一，<b>「国产大模型」第一次站到了全球顶流硬件的 AI 入口上</b>——以前大家觉得国产模型是「追赶者」，这次它成了苹果在中国区的「合作者」，这本身就是中国 AI 产业一个标志性的脚印。第二，<b>「不用于训练」这句话很关键</b>——苹果一向把隐私当卖点，这次明确说你的请求不会喂给模型训练，是在安抚对隐私敏感的国内用户，也划了一条「数据怎么用」的底线。第三，<b>落点很实</b>——Siri 变聪明、写作工具能帮你写、看图的「视觉智能」能看懂画面，这些不是 PPT，是 12 月就能按到的功能。<br><br><b>清醒提醒</b>：别把「合作」误读成「苹果放弃了自研」或「国产模型全面超越」。苹果在全球其他市场仍在推自己的方案，这次是「中国区用一个本地化最强的伙伴」的务实选择。但不可否认，<b>「能被苹果选中」，本身就是对千问工程能力的一次实打实的背书</b>。（这个视频解说见下方「本期视频」区）</div>
+        <span class="ex" style="color:#8a8478;font-size:12.5px">L6·应用落地 / L7·产业生态（国产大模型 + 硬件入口）</span>
+        <div class="src">出处：千问公众号（阿里）· 2026-10-31 · <a href="https://mp.weixin.qq.com/s?__biz=MzYzNDE5MDEwMQ%3D%3D&mid=2247489416&idx=1&sn=9525f61df8086fcd6fe4d4183da068de" target="_blank" rel="noopener">千问官宣原文</a></div>
+      </div>
+    </div>
+    </div>
+
+    <div id="anquan">
+    <div class="section">
+      <div class="section-head"><h3>AI 安全的「黑色十月」</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>九个 AI 开发者平台一个月里接连「出事」：最老套的招，打穿了最火热的生态</h4>
+        <div class="news">2026-10-30，云安全公司 Wiz 发布报告《AI 开发者平台的黑色十月》，梳理 10 月内至少九个 AI 开发者平台披露的安全事件，包括 Fireworks AI、Lightning AI、Railway、Warp、OpenCode 等，多起报告指向凭据窃取、「Agent 群攻（agent swarm）」攻击，以及以「蒸馏」为目的的数据窃取。（出处 Wiz · 2026-10-30）</div>
+        <div class="study">拾光分析：这条新闻和上一条「千问进苹果」放在一起，正好构成 AI 圈当下的<b>正反两面</b>：一边是使劲往前冲、把 AI 塞进所有人的手机；一边是 AI 开发者平台正在被当成「肥肉」盯上。<br><br><b>先搞懂「黑色十月」里那几个词。</b>「凭据窃取」就是偷你的账号密码（API 密钥），拿到就能冒充你调用别人的算力、盗你的数据。「Agent 群攻」更值得说：<b>现在 AI 智能体（Agent）能自己上网办事，攻击者就派一群「假 Agent」像蜂群一样去打一个目标</b>——以前要人手一个个试，现在 AI 能自动、批量、24 小时地试。「以蒸馏为目的的窃取」最狠：<b>偷你的数据、你的模型输出，回来「蒸馏」一个山寨版的你</b>，等于把你的本事白嫖走。<br><br><b>为什么这条值得所有「已经在用 AI 工具」的人记住？</b>因为它点破一个反直觉的事实：<b>AI 越火，「攻击 AI」就越是一门赚钱的生意</b>。攻击者不看热闹，他们看的是「哪里有值钱的数据、有算力、有漏洞」。开发者平台正堆满这三样，于是就成了靶子。拾光给你的不是恐慌，是一条朴素的判断：<b>下一个被攻击的，未必是没上新闻的小平台，而可能是你正用来干活的某个「AI 工具」</b>。所以那条老规矩比任何时候都重要——只在官方来源装东西、别把密钥往不明网站贴、定期换密钥。</div>
+        <span class="ex" style="color:#8a8478;font-size:12.5px">L6·应用落地 / L7·产业生态（AI 安全）</span>
+        <div class="src">出处：Wiz Research · 2026-10-30 · <a href="https://www.wiz.io/blog/black-october-for-ai-developer-platforms" target="_blank" rel="noopener">Wiz 报告原文</a></div>
+      </div>
+      <div class="article">
+        <h4>「假 Claude Code 扩展」混进 Cursor 市场：5000 人差点亲手把后门请进门</h4>
+        <div class="news">2026-10-30/31，Anthropic 确认：有人利用 Cursor 插件市场的权限，发布了一个「被篡改」的 Claude Code VS Code 扩展（Anthropic 并未构建或发布它），可尝试远程访问、窃取数据，最多影响约 5000 用户，同一供应链攻击还波及数千台设备的恶意 Claude 扩展；该后门扩展上架了约 12 小时被下架。（出处 Cursor / Ars Technica / Wired · 2026-10-30）</div>
+        <div class="study">拾光分析：这是「黑色十月」里最典型的一例，值得单独拆给你看，因为<b>它的套路老得不能再老，却精准打中了 AI 时代的新命门</b>。<br><br><b>套路就三步</b>：① 挑一个最火的插件名（「Claude Code」够火、够多人装）；② 塞进恶意代码；③ 上架到官方市场，等急着用的开发者自己来装。这叫<b>「供应链攻击」</b>——你不是被黑客直接黑了，而是<b>你亲手把一个「伪装成官方」的坏东西请进了门</b>。它比直接攻击更可怕，因为它是「合法的入口 + 假的身份」的组合，人很难靠肉眼分辨。<br><br><b>为什么 AI 时代它更危险？</b>两个原因。第一，<b>AI 开发者的工作流高度依赖插件市场</b>（Cursor、VS Code、各种 Agent 工具），这些市场现在是「半开放的货架」，上架审核跟不上爆炸式增长；第二，<b>装了后，你的代码、密钥、项目文件全在它的眼皮底下</b>，等于把家门钥匙给了小偷。拾光送你三条能立刻用的自保口诀：① 装任何插件前<b>核对官方发布者</b>（开发者名、下载量、评分对不对得上）；② <b>只从官方市场/官方仓库装</b>，不点来路不明的「一键安装」链接；③ 对要求更多权限的插件多问一句<b>「它凭什么要读我这么多文件」</b>。</div>
+        <span class="ex" style="color:#8a8478;font-size:12.5px">L6·应用落地 / L7·产业生态（供应链安全）</span>
+        <div class="src">出处：Cursor / Ars Technica / Wired · 2026-10-30 · <a href="https://cursor.com/blog/claude-code-extension-security-notice" target="_blank" rel="noopener">Cursor 公告</a>｜<a href="https://arstechnica.com/security/2026/10/anthropic-vs-code-extension-on-cursor-backdoored-for-nearly-12-hours" target="_blank" rel="noopener">Ars Technica</a></div>
+      </div>
+    </div>
+    </div>
+
+    <div id="huikan">
+    <div class="section">
+      <div class="section-head"><h3>往期回看 · 上次的说法，兑现了吗</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>「递归自我改进」这个大词，这几天有了第一条「可验证的进展」</h4>
+        <div class="news">拾光在第 4、5 期反复拿「递归自我改进」当例子，教读者「别把融资故事当既成事实」。这几天，Anthropic IPO 招股书把它列为核心战略，市场却反过来用「9000 亿债务」和「垃圾级评级」给它泼了盆冷水——一个声称要「自我改进出超级智能」的公司，账本上却先被打了「还钱不靠谱」的分。（出处 彭博社 / FT · 2026-10-30）</div>
+        <div class="study">拾光分析：这就是「技术进展跟踪」这个新栏目的第一课——<b>看一个大词，别停在「它多厉害」，要追「它兑现到了哪一步」</b>。拾光在第 5 期给过一张「五条可证伪信号清单」，我们拿这五条过一遍「递归自我改进」的现状：<br>① <b>能力可测可复现？</b>——目前还没有公认的第三方评测证明「新一代稳定更强」，更多是招股书里的愿景表述；<br>② <b>改进跨代累加？</b>——未见公开证据；<br>③ <b>成本逐渐下降？</b>——恰恰相反，这一期头条讲的 9000 亿债务说明，它现在还在「越烧越贵」的阶段；<br>④ <b>失败被诚实报告？</b>——公开报喜多、报忧少；<br>⑤ <b>第三方可验证？</b>——尚缺独立复验。<br><br><b>结论很清醒</b>：五条里，目前条数上「兑现」的还很少，说明「递归自我改进」这个方向<b>依然是「押注未来」，不是「已成事实」</b>。但这不等于否定它——技术跟踪的意义，是让你每一次看到它上头条时，都能心里有数：<b>它现在到底走到清单的哪一条了</b>。这就是「跟踪」的价值，也是拾光给你承诺的、能长期用下去的方法。</div>
+        <div class="checklist">「技术进展跟踪」怎么看一个大词（往期回看栏目 · 长期复用）：把它放进这张五条清单里过一遍，每次上头条就更新一次它的「进度条」。① 能力可测可复现？② 改进跨代累加？③ 成本在下降还是越烧越贵？④ 失败会不会被诚实报告？⑤ 有第三方独立复验吗？——五条里兑现越少，越要把它当「故事」而非「事实」。</div>
+        <span class="ex" style="color:#8a8478;font-size:12.5px">L2·算法模型 / L7·产业生态（技术进展跟踪）</span>
+        <div class="src">出处：第 4/5 期拾光分析 + 彭博社 · 2026-10-30 · <a href="archive.html" target="_blank" rel="noopener">往期回顾</a></div>
+      </div>
+    </div>
+    </div>
+
+    <div id="leida">
+    <div class="section">
+      <div class="section-head"><h3>快讯雷达 · 一并扫过</h3><div class="rule"></div></div>
+      <div class="briefs">
+        <div class="bt">七条速览 · 均近 48 小时</div>
+        <ul>
+          <li><span class="key">Figma 发布 Weave 创作平台</span>：用「节点化工作流」把图像/视频的生成与编辑连成可复用流程，可打包成 Weave tool 让团队一键运行，社区工具发布已上线（<a href="https://www.figma.com/blog/the-tldr-on-figma-weave" target="_blank" rel="noopener">出处 10-31</a>）</li>
+          <li><span class="key">Meta 搭伙傅利叶做人形机器人</span>：据 The Information，Meta 三个月内与国内傅利叶（Fourier）造出人形机器人原型，正做第二台，但 Meta 称暂无售卖计划（<a href="https://www.techmeme.com/261031/p10" target="_blank" rel="noopener">出处 10-31</a>）</li>
+          <li><span class="key">Google DeepMind 用卫星+AI 做全球森林地图</span>：借卫星数据与 AI 生成全球森林地图，服务生态监测与碳核算（<a href="https://the-decoder.com/google-deepmind-creates-a-global-map-of-forests-with-satellite-data-and-ai" target="_blank" rel="noopener">出处 10-31</a>）</li>
+          <li><span class="key">Anthropic 阻止 Claude 逆向/复刻游戏</span>：用户反馈 Claude 被新增规则禁止重制视频游戏，Anthropic 确认是为规避版权风险（<a href="https://www.gamedeveloper.com/programming/anthropic-appears-to-have-ordered-ai-tool-claude-to-stop-remaking-video-games" target="_blank" rel="noopener">出处 10-31</a>）</li>
+          <li><span class="key">PsiQuantum 发布 8×8 硅光光路开关</span>：把量子光子学积累的硅光平台用于 AI 数据中心网络，光互连再进一步（<a href="https://x.com/industillusion/status/2116443234280865924" target="_blank" rel="noopener">出处 10-31</a>）</li>
+          <li><span class="key">Agent Sandbox 成「新算力形态」</span>：InfoQ 报道每天上千万次沙箱创建，Agent 执行环境正在成为与推理、训练并列的新算力消耗点，腾讯云×英特尔共推 Agentic AI 执行底座（<a href="https://www.infoq.cn/video/4qjamMQLVIoZvytUQwpI" target="_blank" rel="noopener">出处 10-31</a>）</li>
+          <li><span class="key">OpenAI 计划用 Daybreak Blue 安全会话数据训练</span>：11 月 29 日起，即便用户关闭训练，也会用其会话数据训练，遭反弹后补了一个单独退出选项（<a href="https://the-decoder.com/openai-plans-to-train-models-on-daybreak-blue-cybersecurity-session-data-that-was-previously-off-limits" target="_blank" rel="noopener">出处 10-31</a>）</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <div id="shipin">
+    <div class="section">
+      <div class="section-head"><h3>本期视频</h3><div class="rule"></div></div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1H1xB6jEr1" target="_blank" rel="noopener">
+          <img src="img/v1_anthropic_ipo.jpg" alt="Anthropic巨亏上市IPO招股书拆解" loading="lazy">
+          <div class="btn"></div>
+        </a>
+        <div class="cap"><span class="dur">视频</span>Anthropic 巨亏上市，IPO 招股书拆解 · 上传 2026-10-31</div>
+      </div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1S6xk6KEib" target="_blank" rel="noopener">
+          <img src="img/v2_qianwen_apple.jpg" alt="苹果官宣阿里千问接入Apple智能" loading="lazy">
+          <div class="btn"></div>
+        </a>
+        <div class="cap"><span class="dur">视频</span>国行iPhone AI短板补齐：苹果官宣阿里千问接入Apple智能 · 上传 2026-10-31</div>
+      </div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV122xk6wEk2" target="_blank" rel="noopener">
+          <img src="img/v3_gpu_moe.jpg" alt="6G8G显卡畅跑35B大模型" loading="lazy">
+          <div class="btn"></div>
+        </a>
+        <div class="cap"><span class="dur">视频</span>6/8G显卡畅跑35B大模型！KVMem × PolyStrata，Qwen 35B MoE 实测 · 上传 2026-10-31</div>
+      </div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1uLxr6eEUV" target="_blank" rel="noopener">
+          <img src="img/v4_damosi.jpg" alt="大摩科技闭门会AI软件教育行业观点" loading="lazy">
+          <div class="btn"></div>
+        </a>
+        <div class="cap"><span class="dur">视频</span>大摩科技闭门会：AI、软件和教育行业最新观点 · 上传 2026-10-30</div>
+      </div>
+      <div class="dict">拾光词典 #006 · <b>MoE 稀疏化（Mixture of Experts）</b> —— 把一个大模型拆成很多个「专家」，每次问题只唤醒其中少数几个相关的专家来算，而不是让整个模型全部开工。<b>通俗说</b>：一家医院有 100 个科室，但你挂了心内科的号，就只有心内科医生来给你看病，其他科室该休息休息——省人、省电、还看得快。<b>为什么重要</b>：它是「算法腿」里最能打的降本手段之一，能让千亿参数的大模型，用更少的显存和算力跑起来（本期视频里 6G/8G 显卡跑 35B 模型就是它发力的样子），是理解「AI 为什么能越做越大、却不用等比例地越烧越贵」的关键。</div>
+    </div>
+    </div>
+
+    <div id="jinyu">
+    <div class="pullquote">本期拾光金句：AI 圈最热闹的那条新闻，往往在讲「烧了多少钱」；而真正藏得住未来的那条，常常在讲「省下了多少钱」。热闹是门票，学会看「省钱」的路子，才是目的。</div>
+    </div>
+    <div id="baowei">
+    <div class="footer">
+      <span>拾光 · AI 视界 · 2026-11-01（第 6 期）</span>
+      <span>把 AI 捡起来，学明白</span>
+      <span>拾光主笔 · 热闹是门票，学会才是目的</span>
+    </div>
+    <div class="handoff"><b>寒洛 · 投资视角接力</b>：看懂「是什么」之后，想听「怎么判断」？本期拾光讲清了「AI 烧钱 vs 算法降本」的技术成色与「存储/算力」的产业逻辑，寒洛将从投资视角接力解读这些产业动向对市场判断的启发。入口链接待寒洛提供后回填（<a href="https://zohnzou.github.io/hanluo/relay/投资版接力_第5期_2026-10-31.html" target="_blank" rel="noopener">上期投资版接力暂链</a>）——拾光只管科普，不下投资结论。</div>
+    <div class="pagenav"><a href="2026-10-31_第5期_AI视界.html">← 上一期</a> <a href="archive.html">全部往期</a></div>
+    <div class="briefs" style="margin-top:16px">
+      <div class="bt">意见 · 建议 · 需求</div>
+      <p style="font-size:13px;color:var(--ink-2)">你有想看的 AI 话题、想弄懂的概念、或对本期内容有不同看法？<br>点下面的按钮直接提给拾光（免账号填写），下一期就吸收进来。</p>
+      <div class="pagenav"><a href="https://ucn7c5oq7ran.feishu.cn/wiki/KjINwgrTAiqTRVkl6oncRUxjnJh" target="_blank" rel="noopener" style="background:var(--red)">提意见 / 提需求</a></div>
+    </div>
+    <div class="briefs" style="margin-top:16px;background:#fffdf7">
+      <div class="bt">本期兑现了读者哪些反馈</div>
+      <ul>
+        <li><b>算法降本专题（#18/#21）</b>：头条《AI 不一定非要无限烧钱》讲透「硬件腿 vs 算法腿」，拆解量化/蒸馏/投机解码/MoE 各自的「省」与「代价」。</li>
+        <li><b>技术进展跟踪（#22）</b>：新栏目「往期回看」首条，用五条可证伪信号清单追「递归自我改进」的最新兑现情况。</li>
+        <li><b>存储缺关键数字（#16）</b>：本期产业视角带入「巨头年 7400 亿美元资本开支」「6G/8G 显存跑 35B」等量化数字（完整存储产业链量化专期见第 7 期）。</li>
+        <li><b>投资版链接回填（#24）</b>：寒洛接力卡片已挂上期投资版链接（发布即定稿，第 5 期不回改）。</li>
+      </ul>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
