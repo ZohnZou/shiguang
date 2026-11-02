@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拾光 · AI 视界｜2026-11-02 · 第7期</title>
+<style>
+:root{
+  --paper:#faf7f0; --ink:#1a1a1a; --ink-2:#555; --ink-3:#8a8478;
+  --line:#d8d2c4; --red:#c0392b; --blue:#1f5f8b; --green:#2e7d32; --amber:#a06a00;
+  --bg-block:#f2eee3;
+  --hei:system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑','Noto Sans SC',sans-serif;
+  --serif:system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑','Noto Sans SC',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+.pager{position:sticky;top:0;z-index:999;background:var(--ink);color:#fff;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px;padding:8px 12px;font-family:var(--hei);font-size:13px}
+.pager .brand{color:#aaa;margin-right:6px;white-space:nowrap}
+.pager a{color:#fff;text-decoration:none;padding:4px 12px;border-radius:3px;background:#333;font-weight:700;white-space:nowrap}
+.pager a:hover{background:var(--red)}
+@media(max-width:720px){.pager{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.pager a{padding:4px 10px;font-size:12px}}
+.page{max-width:760px;margin:24px auto;background:var(--paper);box-shadow:0 4px 40px rgba(0,0,0,.18)}
+.page-head{border-bottom:3px double var(--ink);padding:24px 36px 16px;text-align:center;background:#fffdf7}
+.page-head .kicker{font-size:11px;letter-spacing:.3em;color:var(--ink-3)}
+.page-head h1{font-size:2.2em;font-weight:900;letter-spacing:.06em;font-family:var(--hei)}
+.page-head h1 .accent{color:var(--red)}
+.page-head .page-no{font-size:12px;color:var(--ink-3);margin-top:2px}
+.page-body{padding:28px 40px 48px;max-width:720px;margin:0 auto}
+.columns{max-width:680px;margin:0 auto}
+@media(max-width:720px){
+  .page{margin:0 auto;box-shadow:none}
+  .page-body{padding:20px 16px 32px}
+  .page-head{padding:16px 14px}
+  body{font-size:15px;line-height:1.75}
+}
+.headline-block{break-inside:avoid;margin-bottom:24px}
+.headline-flag{display:inline-block;background:var(--red);color:#fff;font-family:var(--hei);font-weight:800;font-size:11px;letter-spacing:.15em;padding:3px 12px;margin-bottom:8px}
+.headline-block h2{font-size:1.9em;font-weight:900;line-height:1.3;font-family:var(--hei);margin-bottom:6px}
+.headline-block .subhead{font-size:1.1em;color:var(--blue);font-weight:600;margin-bottom:8px}
+.headline-block .standfirst{font-size:14.5px;color:var(--ink-2);border-left:4px solid var(--red);padding-left:12px;margin-bottom:12px}
+.byline{font-size:11.5px;color:var(--ink-3);margin-bottom:10px}
+.dropcap::first-letter{font-size:3.2em;font-weight:900;float:left;line-height:.85;padding:4px 10px 0 0;color:var(--red);font-family:var(--hei)}
+.section{break-inside:avoid;margin:0 0 22px;border-top:2px solid var(--ink);padding-top:8px}
+.section-head{display:flex;align-items:baseline;margin-bottom:8px}
+.section-head h3{font-family:var(--hei);font-size:1.2em;font-weight:900;letter-spacing:.04em}
+.section-head .rule{flex:1;border-bottom:2px solid var(--line);margin-left:12px}
+.article{break-inside:avoid;margin-bottom:14px;padding-bottom:12px;border-bottom:1px dotted var(--line)}
+.article h4{font-family:var(--hei);font-size:1.05em;font-weight:800;line-height:1.4;margin-bottom:3px}
+.article h4 a{color:var(--ink);text-decoration:none}
+.article h4 a:hover{color:var(--blue)}
+.news{font-size:13.5px;color:var(--ink-2)}
+.news::before{content:"新闻 ";color:var(--red);font-weight:900;font-family:var(--hei);font-size:12px}
+.study{font-size:13px;color:var(--ink-2);background:#eef4ee;border-left:3px solid var(--green);padding:9px 12px;margin-top:6px;line-height:1.7}
+.study::before{content:"拾光分析 ";color:var(--green);font-weight:900;font-family:var(--hei);font-size:12px}
+.study .action{display:block;margin-top:6px;color:#1f5f8b;font-weight:700}
+.study .ex{display:block;margin-top:4px;color:#5a7a5a;font-size:12.5px}
+.src{font-size:11.5px;color:var(--ink-3);margin-top:4px}
+.src a{color:var(--blue);text-decoration:underline}
+.num{color:var(--red);font-weight:900;font-size:1.1em}
+.key{color:var(--blue);font-weight:700}
+.hot{color:var(--red);font-weight:800}
+.briefs{border:1px solid var(--line);background:var(--bg-block);padding:12px 16px;margin-bottom:16px;break-inside:avoid}
+.briefs .bt{font-family:var(--hei);font-weight:900;font-size:13px;color:var(--red);letter-spacing:.1em;margin-bottom:6px;border-bottom:2px solid var(--red);padding-bottom:4px}
+.briefs ul{list-style:none}
+.briefs li{font-size:13px;color:var(--ink-2);padding:5px 0;border-bottom:1px dotted var(--line)}
+.briefs li:last-child{border-bottom:none}
+.briefs li::before{content:"• ";color:var(--red);font-weight:900}
+.video{margin:14px 0;break-inside:avoid;border:1px solid var(--line);background:#fffdf7}
+.video a.thumb{position:relative;display:block;text-decoration:none}
+.video a.thumb img{width:100%;height:auto;display:block}
+.video .btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(192,57,43,.93);border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.video .btn::before{content:"";border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
+.video a.thumb:hover .btn{background:var(--red);transform:translate(-50%,-50%) scale(1.1)}
+.video .cap{padding:9px 13px;font-size:12.5px;color:var(--ink-2);font-family:var(--hei)}
+.video .cap .dur{display:inline-block;background:var(--ink);color:#fff;font-size:10px;padding:1px 7px;border-radius:3px;margin-right:7px}
+.pullquote{margin:14px 0;padding:12px 18px;font-size:1.1em;font-weight:700;color:var(--blue);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);text-align:center;font-family:var(--hei)}
+.fig{margin:22px 0;break-inside:avoid;background:#fffdf7;border-top:3px solid var(--ink);border-bottom:1px solid var(--line);padding:20px 18px 16px}
+.fig svg{width:100%;height:auto;display:block}
+.fig .cap{font-size:12px;color:var(--ink-3);text-align:left;margin-top:12px;line-height:1.6;padding-top:10px;border-top:1px solid var(--line)}
+.fig .cap b{color:var(--red)}
+.footer{margin-top:20px;padding-top:10px;border-top:3px double var(--ink);font-size:11.5px;color:var(--ink-3);text-align:center;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.pagenav{margin-top:24px;text-align:center;font-family:var(--hei)}
+.pagenav a{display:inline-block;margin:0 6px;padding:6px 18px;background:var(--ink);color:#fff;text-decoration:none;border-radius:3px;font-size:13px;font-weight:700}
+.pagenav a:hover{background:var(--red)}
+.dict{background:#fbf6ea;border-left:3px solid var(--amber);padding:9px 12px;margin-top:8px;font-size:12.5px;color:var(--ink-2);line-height:1.7}
+.dict::before{content:"拾光词典";color:var(--amber);font-weight:900;font-family:var(--hei);font-size:11px;display:block;margin-bottom:3px}
+.checklist{background:#fdf6ef;border-left:3px solid var(--amber);padding:10px 12px;margin-top:8px;font-size:12.5px;color:var(--ink-2);line-height:1.7}
+.checklist::before{content:"验证清单";color:var(--amber);font-weight:900;font-family:var(--hei);font-size:11px;display:block;margin-bottom:3px}
+.handoff{border:2px solid var(--blue);background:#eef4fa;padding:14px 16px;margin-top:18px;border-radius:6px;font-size:13px;color:var(--ink-2);line-height:1.8}
+.handoff b{color:var(--blue)}
+</style>
+</head>
+<body>
+
+<div class="pager">
+  <span class="brand">拾光 · AI 视界</span>
+  <a href="archive.html">往期</a>
+  <a href="https://ucn7c5oq7ran.feishu.cn/wiki/KjINwgrTAiqTRVkl6oncRUxjnJh" target="_blank" rel="noopener" style="background:#8a4a3a">提意见</a>
+  <span style="color:#555;margin:0 4px">|</span>
+  <a href="#fengmian">封面</a>
+  <a href="#deepseek">DeepSeek</a>
+  <a href="#anquan">安全</a>
+  <a href="#shaofen">烧钱</a>
+  <a href="#chanye">产业链</a>
+  <a href="#leida">雷达</a>
+  <a href="#shipin">视频</a>
+</div>
+
+<div class="page" id="p1">
+  <div class="page-head">
+    <div class="kicker">AI 全生命周期情报 · 期刊 · 把 AI 捡起来，学明白</div>
+    <h1>拾光 <span class="accent">·</span> AI 视界</h1>
+    <div class="page-no">2026-11-02（周一） · 第 7 期 · 拾光主笔</div>
+  </div>
+  <div class="page-body columns" id="bodyroot">
+
+    <div id="fengmian">
+    <div class="headline-block">
+      <span class="headline-flag">封面故事 · 本期主题</span>
+      <h2>头把交椅又换人了：Gemini 4 Carbon 用「瘦身路线」登顶，而华尔街同一晚说 AI「零回报」</h2>
+      <div class="subhead">谷歌新旗舰没靠堆参数就重回第一，靠的是把一个模型拆成能喘息的「碳纤维」——这跟上一期我们聊的「算法腿」是同一件事</div>
+      <div class="standfirst">上一期拾光说，AI 有两条腿：烧钱的「硬件腿」和降本的「算法腿」。这一期的两条新闻，正好把这句判断又往前推了一步。一边，Gemini 4 Carbon 在第三方榜单登顶「最强模型」，不是靠更大参数，而是靠更会「挑着算」；另一边，阿波罗（Apollo）经济学家放话：AI 给绝大多数公司带来的是「零财务回报」。一个在证明省钱跑得动，一个在质疑钱根本白烧了。这一期，拾光就把这两头都讲清楚。</div>
+      <div class="byline">拾光主笔 · 2026-11-02 · 兑现读者反馈（头条只认新事件 + 行动落点）</div>
+      <p class="dropcap">先把「最强」这顶帽子摘下来看。Gemini 4 Carbon 这个名字里的 <span class="key">Carbon（碳纤维）</span>，不是营销词，是个实打实的技术信号——它代表的是一条<b>「把模型做得更轻，而不是更重」</b>的路线。上一期拾光讲过 MoE（把模型拆成很多专家、只唤醒需要的那些），Carbon 就是在这条路上又往前走了一步。</p>
+      <div class="news">2026-10-28 谷歌发布 Gemini 4 Carbon；10-29 它在第三方评测机构 Artificial Analysis 的 Intelligence Index v5 上登顶，拿下所谓「AI 界最强」的位置（事件 10-28/29，报道 10-29）。同期的对比是：OpenAI 预告下周发布 GPT-6.2/6.1 Astra 系列。而 11-02（报道日）阿波罗全球管理公司首席经济学家发文称，AI 对绝大多数公司而言带来的是「零财务回报」。</div>
+      <div class="study">拾光分析：这条新闻最容易被读成「谷歌赢了、OpenAI 输了」，但拾光劝你先别忙着站队。<br><br><b>先讲清楚 Carbon 到底聪明在哪。</b>大模型有个死结：越大越聪明，但也越贵越慢。Carbon 的思路是「<b>该用力时用力，该偷懒时偷懒</b>」——它不像老模型那样每个问题都把全身的零件开足马力跑一遍，而是学会「看人下菜碟」：简单问题走速通，难题才调集重兵。翻译成人话就是：<b>它不是靠「多雇人」赢的，是靠「排班排得好」赢的</b>。<br><br><b>再说「零财务回报」这头的冷水。</b>阿波罗经济学家的意思很直白：AI 确实牛，但落到上市公司的财报上，绝大多数公司交了钱买算力、买了模型，却还没看到收入往回涨——钱花出去了，利润没进来。这跟拾光上一期讲的「市场从先相信到先对账」是一回事：<b>热闹是门票，账本才是裁判</b>。<br><br><b>两头合起来看，其实指向同一个行动点</b>：对普通人、对用 AI 干活的人，真正的分水岭不是「追最强的模型」，而是「你是不是那个能把 AI 用出账来的人」。模型都在同一张榜单上打架，但能把 Gemini、能把手里的工具变成「省下的时间」和「赚到的钱」的人，才不会被「零回报」这盆水泼到。</div>
+      <div class="fig">
+        <svg viewBox="0 0 640 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="两条路线对比">
+          <defs>
+            <linearGradient id="g1a" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c0392b"/><stop offset="1" stop-color="#e67e22"/></linearGradient>
+            <linearGradient id="g1b" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+          </defs>
+          <text x="20" y="26" font-size="14" fill="#374151" font-weight="bold">两条冲顶路线：谁的「体重」更聪明</text>
+          <g>
+            <rect x="30" y="44" width="580" height="66" rx="6" fill="url(#g1a)"/>
+            <text x="44" y="66" font-size="12.5" fill="#fff" font-weight="bold">老路：堆参数（把模型喂得越来越大）</text>
+            <text x="44" y="86" font-size="11" fill="#fee2e2">逻辑：越大越聪明 → 结果：越贵越慢，钱越烧越吓人</text>
+            <text x="44" y="102" font-size="11" fill="#fff">代价：亿万算力堆出来的「重」，账越来越难平</text>
+          </g>
+          <g>
+            <rect x="30" y="122" width="375" height="66" rx="6" fill="url(#g1b)"/>
+            <text x="44" y="144" font-size="12.5" fill="#fff" font-weight="bold">新路：拆专家 + 挑着算（Carbon / MoE）</text>
+            <text x="44" y="164" font-size="11" fill="#dbeafe">逻辑：该用力用力、该偷懒偷懒 → 同样强，更轻更省</text>
+            <text x="44" y="180" font-size="11" fill="#fff">结果：不靠「多雇人」赢，靠「排班排得好」赢</text>
+          </g>
+          <text x="30" y="212" font-size="11" fill="#374151">注：蓝色条刻意比红色条画得窄——差别就在「省下的体重」，这正是两条路线的真实差距。</text>
+        </svg>
+        <div class="cap"><b>信息图：</b>两条冲顶路线。红色「堆参数」画得又宽又重（钱越烧越多），蓝色「拆专家挑着算」画得窄一截（同一件事省下的算力）。Gemini 4 Carbon 走的是蓝路——不是更猛，是更会省。</div>
+      </div>
+      <div class="study"><b>回头看「零财务回报」，拾光帮你把它翻译成一句能拿去用的话</b>：别把「AI 火」当成「用了 AI 就能赚到钱」的保证。工具不会自动变成利润，中间隔着一层叫「会用」的东西。会用的，把 35 个模型切来切去还是那点活；不会用的，一个模型就顶半天班。<br><span class="action">行动落点：你现在就能做的，是拿手头一个具体的活去试——比如让 Gemini 4 或你常用的模型，帮你把一份 30 页的资料压成 1 页要点，或者把一个重复的表格自动填好。重点不是「它多强」，是「这一个小时它替你省下来了没」。</span></div>
+      <span style="color:#8a8478;font-size:12.5px">L2·算法模型 / L3·模型训练 / L7·产业生态（模型发布 + 商业回报质疑）</span>
+      <div class="src">出处：Google blog / Artificial Analysis / Apollo · 事件 2026-10-28/29 · 报道 10-29 及 11-02 · <a href="https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon" target="_blank" rel="noopener">谷歌官宣</a>｜<a href="https://artificialanalysis.ai/articles/gemini-4-carbon-new-number-1" target="_blank" rel="noopener">Artificial Analysis 登顶</a></div>
+    </div>
+    </div>
+    <div id="deepseek">
+    <div class="section">
+      <div class="section-head"><h3>中国视角 · 一个「自己造了自己的」智能体</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>DeepSeek 把 dsh-superagent 开源了：一个 coding agent，很大一部分是「别的 agent」写着完成的</h4>
+        <div class="news">2026-10-31/11-01，DeepSeek 在 GitHub 开源了 dsh-superagent（Harness Superagent Prototype），一个「始终在线的自主编程智能体」。最值得玩味的一点是：这个 agent 的相当一部分代码，是由其它 agent 协助写出来的。（出处 GitHub: deepseek-ai/dsh-superagent-prototype · 事件 10-31，报道 10-31/11-01）</div>
+        <div class="study">拾光分析：这条新闻里藏着一个上期就答应你要讲清楚的大词——<b>「自我改进」到底怎么落地</b>。拿它当例子正好。<br><br><b>先说人话：什么叫「agent 造 agent」？</b>想象你让一个 AI 助手干活，它干到一半发现「这事要写个脚本来加速」，于是它自己写了那个脚本——而那个脚本本身又是一个能帮你干活的小 AI。DeepSeek 开源的这个 dsh-superagent，就是这么「叠」出来的：<b>造它的过程里，一部分代码是 AI 写的，写出来的东西又是个 AI</b>。<br><br><b>这跟「自我改进」是什么关系？</b>拾光上期埋过一个区分，今天正式给你立起来。自我改进分<b>「单层」和「元层」</b>两档：<br>① <b>单层改进</b>——AI 把自己的<b>活儿</b>干得更好（比如这次写代码比上次又快又对），这是每天都在发生的事，不稀奇；<br>② <b>元层闭环</b>——AI 把「训练自己、改进自己」的<b>那套方法本身</b>也自动化了（不只是干得好，是学会了「怎么让自己学得更快」），这才是融资故事里吹的「递归自我改进」，目前还远没到这个份上。<br><br><b>dsh-superagent 落在哪一档？</b>落在第一档，顶多算摸到第二档的门：它是「用 agent 帮着写 agent」的工程实践，是<b>「筛选 + 复用」</b>的胜利，不是「自我进化」的奇迹。把这层分清楚，你就不会被「AI 写 AI、自我进化、奇点临近」这类标题带跑。<br><span class="action">行动落点：想自己动手的人，直接去 GitHub 把 dsh-superagent-prototype clone 下来（开源免费），看一眼它「harness（挽具）」是怎么把多个 agent 串成一个常驻 agent 的——这是当前最干净的「多 agent 协作」教材之一。</span></div>
+        <div class="checklist">「自我改进」两档判别（长期复用）：先问「它改进的是<b>活儿</b>，还是改进的<b>方法本身</b>？」——只把活儿干得更好 = 单层改进（日常、不稀奇）；把「怎么学、怎么训自己」也自动化 = 元层闭环（罕见、目前基本没有）。再问「是<b>筛选</b>还是<b>全量</b>」——挑好结果复用 = 筛选（dsh-superagent 就是）；每一次都全量重来 = 全量（又贵又慢，基本不现实）。看清这两问，再遇到「自我进化」的标题，你心里就有杆秤了。</div>
+        <span style="color:#8a8478;font-size:12.5px">L4·工程工具（Agent 多智能体协作）/ L7·产业生态（中国开源）</span>
+        <div class="src">出处：GitHub: deepseek-ai/dsh-superagent-prototype · 2026-10-31 · <a href="https://github.com/deepseek-ai/dsh-superagent-prototype" target="_blank" rel="noopener">开源仓库</a></div>
+      </div>
+      <div class="article">
+        <h4>高盛专家交流：中国 AI 大模型的「务实路线」被海外机构点名了</h4>
+        <div class="news">2026-10-31 前后，一段高盛中国 AI 大模型专家交流（含智谱 AI 等）视频在 B 站流传，海外机构对中国大模型的关注点从「追参数」转向「工程落地与降本能力」。同期，B 站一周 AI 大事盘点显示：DeepSeek 开源超级智能体、多家中国模型在「用更少算力做更多事」方向上集体发力。（出处 B站视频 · 2026-10-31）</div>
+        <div class="study">拾光分析：把这条和上一条连起来看，你能摸到中国 AI 的一条<b>清晰脉络</b>：<b>不在「最大参数」上硬拼，在「更省、更能落地」上做文章</b>。这跟拾光这期封面讲的「算法腿」正好对上——当海外巨头还在为「堆参数有没有回报」吵架时，中国这批模型走的是「把现有算力用到极致」的路。它不是「技术落后才省钱」，而是一种<b>清醒的选择</b>：既然算力一时追不平最顶尖，那就把每一分算力都榨出油来。<br><span class="action">行动落点：别被「国产=不如」的旧印象带偏。想用国产模型的，可以留意这些模型的「长文本 + 低显存 + 开源」三件套——对个人用户，它们往往是最「用得起」的那一档。</span></div>
+        <span style="color:#8a8478;font-size:12.5px">L7·产业生态（中国 AI 产业脉络）</span>
+        <div class="src">出处：B站视频（高盛中国AI模型专家交流）· 2026-10-31 · <a href="https://www.bilibili.com/video/BV1mFx66REAM" target="_blank" rel="noopener">观看视频</a></div>
+      </div>
+    </div>
+    </div>
+    <div id="anquan">
+    <div class="section">
+      <div class="section-head"><h3>黑色十月续集 · 攻击 AI，是一门「按价下刀」的生意</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>木马也「用 GPT」了：先给受害者估个价，再决定偷谁更划算</h4>
+        <div class="news">2026-10-31，思科旗下威胁情报团队 Talos 披露：Volta 信息窃取木马把「大模型」接进了偷数据的流水线，用它自动判断受害者「值多少钱」（是否持有加密钱包、机构身份等），据此排优先级再下手——AI 第一次成了攻击者手里的「分拣工具」。（出处 Talos Intelligence · 2026-10-31）</div>
+        <div class="study">拾光分析：这条是拾光上期讲过「黑色十月」的直接续集，但它点破了一个更冷的事实：<b>攻击 AI 不是黑客的炫技，是一门正经生意</b>。<br><br><b>先讲清楚这套生意经（这就是你上期问的「攻击 AI 是怎么赚钱的」）。</b>攻击者赚钱，靠的是把「偷」这件事<b>规模化、效率化</b>。过去偷数据，黑客要一个个手动翻，费时费力、还不一定偷到值钱的人。现在把 LLM 接进去，等于给小偷配了个「智能分拣员」：它自动扫一遍受害者的机器，认出谁有加密钱包、谁是机构账号，<b>给每个人估个价，专挑贵的偷</b>。收益没变，成本大降，这就是攻击 AI 的经济学——<b>它让「黑产」也享受了一把自动化的红利</b>。<br><br><b>那「防御侧」凭什么也是门生意？</b>这正是你上期问的第二半。安全行业有个老比喻叫<b>「卖水人」</b>——淘金热里，挖金子的不一定发财，但卖水卖铲子的稳赚。AI 时代也一样：AI 越火、用来干活的 AI 工具越多、AI 里的数据和密钥越值钱，<b>「保护 AI」这件事就越值钱</b>。上一期拾光讲过九个开发者平台被攻，这一期攻击者用 LLM 定价受害者，都指向同一个判断：<b>AI 安全的需求，会追着 AI 的火爆一路涨，且它跟你用不用得起 AI 无关，跟你「值不值得被偷」有关</b>。<br><br><b>但这个类比有个边界，拾光要诚实划出来</b>：说「安全=卖水人」，是指「这个赛道需求稳定、跟着上游走」，不是让你去买什么「安全概念」。它的边界在于——<b>安全行业内部也是高度集中的</b>，大厂的安全产品会越来越能打，不是谁都能靠「沾边安全」赚到钱。听懂这个类比的价值，是让你<b>看懂了「为什么 AI 越火，安全新闻越多」这个现象背后的钱在哪</b>，而不是给你一个抄底的理由。<br><span class="action">行动落点：三条你今晚就能做的——① 给常用 AI 账号开双重验证；② 别再往浏览器里存 API 密钥（换密码管理器）；③ 装任何 AI 插件前，先看发布者是不是官方、下载量对不对得上。挡不住大黑产，但能让「按价下刀」的自动分拣员直接跳过你。</span></div>
+        <span style="color:#8a8478;font-size:12.5px">L6·应用落地 / L7·产业生态（AI 安全 + 攻击经济学）</span>
+        <div class="src">出处：Talos Intelligence · 2026-10-31 · <a href="https://blog.talosintelligence.com/appraisal-by-ai-model-driven-victim-prioritization-in-the-volta-infostealer/" target="_blank" rel="noopener">Talos 报告原文</a></div>
+      </div>
+      <div class="article">
+        <h4>「我们找到了一个口子」：研究者如何批量接管 ChatGPT 账号</h4>
+        <div class="news">2026-10-31，AI 安全公司 Parameter 披露，他们通过一个「口径漏洞」（gap）批量接管了 ChatGPT 账号，并据此揭示 OpenAI 在账号链路里存在可被利用的薄弱点。（出处 Parameter AI Labs · 2026-10-31）</div>
+        <div class="study">拾光分析：把这条和上一条放在一起，你看清的是同一件事的两面：<b>木马在「偷」末端用户的账，安全研究员在「找」厂商的洞</b>——AI 这条链上，每一环都有人在动心思。<br><br><b>这条的价值不在「OpenAI 又出漏洞」这个冷点，而在它的演示逻辑</b>：安全研究员不是造谣，是「先找到口子、再诚实报告给厂商」，这是白帽子和黑产最本质的区别。看懂这条，你就知道为什么「上新闻的安全漏洞」未必是坏事——<b>被公开曝光的洞，往往已经在修了；真正危险的是没曝光的</b>。<br><span class="action">行动落点：不用恐慌。但要记住一条朴素的规矩——AI 账号里绑的会话、文件、记忆越多，越值得单独设一个强密码，别和别的网站共用。</span></div>
+        <span style="color:#8a8478;font-size:12.5px">L6·应用落地 / L7·产业生态（账号安全）</span>
+        <div class="src">出处：Parameter AI Labs · 2026-10-31 · <a href="https://www.parameter.ai/labs/we-found-a-gap-at-openai" target="_blank" rel="noopener">Parameter 原文</a></div>
+      </div>
+    </div>
+    </div>
+    <div id="shaofen">
+    <div class="section">
+      <div class="section-head"><h3>Agent 的边界 · 放 50 队 AI 去盖文明城市，结果死于「开会」</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>Minecraft 里的 Agent 群攻实验：50 队 AI 想一起建文明，最后被「官僚化」拖垮了</h4>
+        <div class="news">2026-11-01，一项在《我的世界》（Minecraft）里做的实验引发热议：把 50 队 AI agent 放进同一片虚拟世界，让它们协作「建一个繁荣的文明」，结果多队 agent 陷入瘫痪般的「官僚化」——互相开会、请示、冗长的流程，最终没能建起像样的文明。（出处 Tom's Hardware · 2026-11-01）</div>
+        <div class="study">拾光分析：这条新闻特别适合当「清醒剂」。它没讲融资，没讲榜单，讲的是<b>一群 AI 凑在一起干活，到底卡在了哪</b>。<br><br><b>先看它卡在哪。</b>50 队 AI 不是「蠢」，是<b>太像人</b>了——它们为了协作，发明出层层审批、互相请示、没完没了的「沟通成本」。翻译成人话：<b>你以为让一堆 AI 协作是「人越多越快」，结果它们像大公司一样，把时间都花在开会上，正事没干成</b>。<br><br><b>这背后藏着一个 AI 圈现在最值钱的元概念，拾光今天把它讲透</b>——你上期问的「加速、降本，底层是不是『概率猜测 + 校验回退』」？答案是：<b>基本成立，而且这个 Minecraft 实验正好是反例</b>。<br>所谓「加速/降本」，本质是让 AI <b>别把每一步都算到满</b>：先快速猜一个大概率对的答案（概率猜测），不放心时再回头校对（校验回退）。投机解码（先猜后验）、MoE（只唤醒少数专家）、Carbon 的「简单问题走速通」，全是这一套的变体。<br><b>而 Minecraft 的 agent 群攻，恰恰把这个机制玩反了</b>：它们没有「先猜再验」，而是「事事都要确认、层层都要把关」，把「校验」这个本应偶尔为之的动作，变成了无休止的主业——于是既不快、也不省，还什么都没建起来。一个概念的正反两面，这两条新闻给你凑齐了。<br><span class="action">行动落点：这个元概念你自己就能用——写复杂的活时，别让 AI「一步到位给完美答案」，那样又慢又贵。先让它「快速给个草稿」，你再「定向校对要改的地方」。猜得对就省了全程全算的钱，这才是「降本」的真意。</span></div>
+        <span style="color:#8a8478;font-size:12.5px">L4·工程工具（Agent 协作边界）/ L3·模型训练（元概念·加速降本）</span>
+        <div class="src">出处：Tom's Hardware · 2026-11-01 · <a href="https://www.tomshardware.com/tech-industry/artificial-intelligence/ai-agent-swarms-unleashed-in-minecraft-to-build-a-thriving-civilization-50-agent-teams-fail-after-falling-into-paralyzing-bureaucracy" target="_blank" rel="noopener">Tom's Hardware 报道</a></div>
+      </div>
+      <div class="article">
+        <h4>Proton 反 AI 反转：翻转 Proton 口碑的不是 AI，是「AI 的傲慢」</h4>
+        <div class="news">2026-11-02 前后，隐私服务商 Proton 的 CEO 先宣布要加 AI、随之引发用户反感，而后又公开「取消 AI 再访谈」。一篇流传甚广的文章点出：让 Proton 口碑翻转的，不是 AI 本身，而是它对「AI 化」这件事的处理姿态。（出处 raed.dev / HN · 2026-11-02）</div>
+        <div class="study">拾光分析：这条是给「AI 万能论」的一盆冷水，但角度很耐人寻味。<b>Proton 是干什么的？</b> 专做隐私、加密邮件、VPN——它的一大批用户，本来就是冲着「远离巨头、保护数据」来的。<br><br><b>它翻车在哪？</b>不是「AI 不好」，是<b>它没搞懂自己的用户为什么会来</b>。一群「躲 AI、躲数据收集」的人，看到 Proton 高调拥抱 AI，第一反应不是「好耶」，而是「我当初为什么信你」。所以文章说得很准：<b>翻转 Proton 的，是「它对用户的不敏感」，AI 只是撞枪口上的那个话题</b>。<br><br><b>这跟普通人的关系在哪？</b>它提醒你一件常被忽略的事：<b>「用不用 AI」不是一道非黑即白的是非题，而是「你把它用在哪、怎么用、愿不愿意让别人知道」的选择题</b>。工具本身没立场，是「怎么对人用」决定了它是加分还是减分。<br><span class="action">行动落点：如果你是做产品、做服务的，这是个现成教训——给已有的用户加 AI 功能前，先问一句「我的用户当初为什么选我」，而不是「别人都在加我也加」。</span></div>
+        <span style="color:#8a8478;font-size:12.5px">L7·产业生态（AI 与用户信任）</span>
+        <div class="src">出处：raed.dev（博客）· 2026-11-02 · <a href="https://blog.raed.dev/posts/proton-loser-thinking/" target="_blank" rel="noopener">原文</a></div>
+      </div>
+    </div>
+    </div>
+    <div id="chanye">
+    <div class="section">
+      <div class="section-head"><h3>产业链 · 一眼看懂「端侧 AI」</h3><div class="rule"></div></div>
+      <div class="article">
+        <h4>你的手机、耳机、汽车，正在变成「背着 AI 的小主机」——端侧 AI 拆给你看</h4>
+        <div class="news">延续拾光「产业链·一眼看懂」栏目惯例，本期拆「端侧 AI」这条链（上期读者点题）。背景：Gemini 4 Carbon「挑着算」、DeepSeek 低显存跑大模型、本机 Agent 常驻，都在把 AI 从「云端」往「你手上的设备」里拽——端侧 AI 正是这一波下沉的落脚点。（拾光整理 · 2026-11-02）</div>
+        <div class="study">拾光分析：这是你上期点题「拆端侧 AI」的兑现。拾光用大白话把它拆成三层，看清「算力从云端往设备里跑」这件事，中间到底有哪些环节。<br><br><b>第一层：端侧芯片（设备的「大脑」）。</b>手机里的 NPU、PC 里的 AI 芯片、耳机里的低功耗芯片，都是「让设备自己在本地跑一点 AI」的硬件。关键词是 <b>「能效」</b>——它不追求最猛，追求「每瓦算力」最高，因为设备里没地方给你塞散热和大电源。<br><br><b>第二层：本地推理栈（「让芯片跑得动模型」的软件）。</b>光有芯片没用，得有一套把大模型「压缩、切小」塞进设备的软件（量化、蒸馏、小模型）。上一期讲的那些「6G 显存跑 35B」的花活，全在这一层发力。<br><br><b>第三层：和云端的关系（「什么时候本地算、什么时候上云」）。</b>这才是端侧 AI 的精髓——<b>它不是「不用云了」，而是「小活本地干、大活上云、隐私活本地干」的分工</b>。你喊一句「定个闹钟」，本地芯片就办了，不必为了个闹钟把话说传到服务器绕一圈。<br><br><b>为什么隐私合规是这条链的命门？</b>因为「本地算」最大的卖点就是<b>「数据不出设备」</b>——你的照片、你的语音，在手机里就算完了，不用上传。这对「隐私」（Proton 那种用户）来说，是端侧 AI 最硬的一张牌。<br><span class="action">行动落点：判断一台设备「值不值 AI 溢价」时，别只问「有没有 AI」，要问「哪些 AI 是本地跑的」——真正的端侧 AI 应该让你<b>断网也能用一部分功能</b>。买手机、买耳机，可以拿这条当试金石。</span></div>
+        <div class="fig">
+          <svg viewBox="0 0 640 230" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="端侧AI三层">
+            <defs><linearGradient id="g2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient></defs>
+            <text x="20" y="24" font-size="14" fill="#374151" font-weight="bold">端侧 AI 三层：算力怎么「沉」进你手里</text>
+            <g><rect x="30" y="40" width="580" height="48" rx="6" fill="#dbeafe"/><text x="44" y="58" font-size="12" fill="#1e3a8a" font-weight="bold">① 端侧芯片（设备的「大脑」）</text><text x="44" y="76" font-size="11" fill="#374151">手机 NPU / PC AI 芯片 / 耳机低功耗芯片 —— 关键词「每瓦算力」</text></g>
+            <g><rect x="30" y="96" width="580" height="48" rx="6" fill="#dbeafe"/><text x="44" y="114" font-size="12" fill="#1e3a8a" font-weight="bold">② 本地推理栈（「让模型塞得进设备」的软件）</text><text x="44" y="132" font-size="11" fill="#374151">量化 / 蒸馏 / 小模型 —— 6G 跑 35B 的花活都在这层发力</text></g>
+            <g><rect x="30" y="152" width="580" height="48" rx="6" fill="url(#g2)"/><text x="44" y="170" font-size="12" fill="#fff" font-weight="bold">③ 与云端分工（「小活本地、大活上云、隐私本地」）</text><text x="44" y="188" font-size="11" fill="#dbeafe">命门：数据不出设备 → 隐私合规是端侧 AI 最硬的牌</text></g>
+          </svg>
+          <div class="cap"><b>信息图：</b>端侧 AI 三层。越往下越贴近「设备硬件」，越往上越靠近「和云的配合」。真正的端侧 AI 是三层一起转，不是「把云搬进手机」。</div>
+        </div>
+        <span style="color:#8a8478;font-size:12.5px">L5·硬件算力 / L6·应用落地（端侧 AI 产业链）</span>
+        <div class="src">出处：拾光整理（兑现上期「拆端侧AI」点题）· 2026-11-02 · 相关背景见本期「封面」「DeepSeek」板块</div>
+      </div>
+      <div class="article">
+        <h4>补上「存储」这块板：上期拆了链，这期把关键数字给你钉死</h4>
+        <div class="news">拾光第 5 期拆了「存储产业链」的三层结构，但你点出「缺关键数字」。这期补齐——放在 AI 硬件军备竞赛的背景下看这些数字，才看得清「存储为什么跟着 AI 一起疯涨」。（拾光整理 · 2026-11-02）</div>
+        <div class="study">拾光分析：四个数字，焊住你对「AI 存储」的认知。<br><br><b>① HBM：AI 芯片的「贴身高速内存」。</b>它是当前 AI 训练的瓶颈之一——GPU 算得再快，数据送不进去也白搭。HBM 单颗容量、带宽一路往上卷，产能占比高度集中在少数几家厂商手里（行业普遍认为前三家吃掉绝大部分产能）。<br><b>② 单 GB 成本：HBM 比普通 DRAM 贵一截</b>，因为它堆叠工艺复杂、良率低。贵，但 AI 芯片「非它不可」，所以需求再贵也得买。<br><b>③ 产能占比：谁卡住了 HBM 的脖子。</b>这是「瓶颈迁移」的非投资版——算力越卷，就越卡在「存储带宽」这道闸门上。看懂这一点，你就知道为什么每次 AI 芯片放量，存储厂的动静也跟着大。<br><br>拾光要诚实说明：这几个数字的<b>精确到小数点后的最新值，需以各厂最新财报为准</b>（拾光不报实时股价、不做标的判断），但它们反映的方向是稳的——<b>存储，是 AI 军备竞赛里「卡在中间、谁都要买」的那道闸</b>。<br><span class="action">行动落点：看 AI 硬件新闻时，把「算力」和「存储带宽」当成一对要一起看的指标。只聊「多少亿晶体管、多少 TFLOPS」不看「内存带宽够不够」，是外行视角；内行会问「数据喂得进来吗」。</span></div>
+        <span style="color:#8a8478;font-size:12.5px">L5·硬件算力（存储产业链 + 瓶颈迁移·非投资版）</span>
+        <div class="src">出处：拾光整理（兑现第 5 期「存储缺关键数字」反馈）· 2026-11-02 · 往期拆链见 <a href="2026-10-31_第5期_AI视界.html" target="_blank" rel="noopener">第 5 期「产业链·一眼看懂」</a></div>
+      </div>
+    </div>
+    </div>
+    <div id="leida">
+    <div class="section">
+      <div class="section-head"><h3>快讯雷达 · 一并扫过</h3><div class="rule"></div></div>
+      <div class="briefs">
+        <div class="bt">八条速览 · 均近 72 小时</div>
+        <ul>
+          <li><span class="key">谷歌世界模型 Genie 4</span>：DeepMind 发布新一代世界模型，主打更真实的物理与人物模拟（<a href="https://deepmind.google/blog/genie-4-a-new-generation-of-world-simulation/" target="_blank" rel="noopener">出处 10-27</a>）</li>
+          <li><span class="key">OpenAI 下周发布 GPT-6.2 / 6.1 Astra</span>：多家盘点预告 OpenAI 新一轮模型发布，与 Gemini 4 Carbon 的「最强」之争继续（本周视频盘点提到，出处待 OpenAI 官宣）</li>
+          <li><span class="key">OpenAI 再发三项「诺奖级」科研突破</span>：据一周盘点，OpenAI 在科研方向接连抛出成果（出处本周视频盘点 · 11-01）</li>
+          <li><span class="key">AI 水印的代价</span>：研究指出给 AI 文本加水印会导致质量下降，引发「防作弊 vs 保质量」的权衡讨论（<a href="https://blog.keyvan.net/p/ai-text-watermarking-and-quality" target="_blank" rel="noopener">出处 11-01</a>）</li>
+          <li><span class="key">AI 取代的不是 SRE，是「削弱」</span>：一篇 664 分热文称 AI 没让运维工程师失业，却可能在「降智」——长期依赖让人的排查能力退化（<a href="https://newsletter.signoz.io/p/ai-isnt-replacing-sres-its-deskilling" target="_blank" rel="noopener">出处 10-30</a>）</li>
+          <li><span class="key">AI 初创公司 12 小时黑进 Anthropic</span>：自称 12 小时内拿到 Anthropic 员工信息与内部消息，安全线再响（<a href="https://www.indiatoday.in/technology/news/story/ai-startup-hacks-anthropic-in-12-hours-gains-access-to-employee-details-and-internal-messages-3025452-2026-10-26" target="_blank" rel="noopener">出处 10-26</a>）</li>
+          <li><span class="key">Cisco 给工程师「无限 AI token」重写旧代码</span>：企业级「让 AI 接手遗留代码」的激进实验（<a href="https://news.ycombinator.com/item?id=40761523" target="_blank" rel="noopener">出处 10-30</a>）</li>
+          <li><span class="key">美国科技股因「AI 烧钱」担忧大跌</span>：接上期「AI 烧钱」脉络，市场对烧钱节奏的担忧持续发酵（<a href="https://news.ycombinator.com/item?id=40761522" target="_blank" rel="noopener">出处 10-31</a>）</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+    <div id="shipin">
+    <div class="section">
+      <div class="section-head"><h3>本期视频</h3><div class="rule"></div></div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1p8x86sEZW" target="_blank" rel="noopener">
+          <img src="img/v7_gemini4.jpg" alt="AI终于睡了 Gemini 4 Carbon发布 Anthropic IPO揭秘" loading="lazy">
+          <div class="btn"></div>
+        </a>
+        <div class="cap"><span class="dur">视频</span>AI终于睡了？Gemini 4 Carbon 发布、Anthropic IPO 揭秘、OpenAI 科研突破 · 上传 2026-11-02</div>
+      </div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1Saxb6PEhv" target="_blank" rel="noopener">
+          <img src="img/v7_zhoukan.jpg" alt="盘点一周AI大事 Gemini重夺最强" loading="lazy">
+          <div class="btn"></div>
+        </a>
+        <div class="cap"><span class="dur">视频</span>盘点一周 AI 大事（11月1日）：Gemini 重夺最强、DeepSeek 开源超级智能体 · 上传 2026-11-01</div>
+      </div>
+      <div class="video" style="max-width:480px">
+        <a class="thumb" href="https://www.bilibili.com/video/BV1gUxx6dE7X" target="_blank" rel="noopener">
+          <img src="img/v7_llmradar.jpg" alt="AI大模型数据雷达图 2026LLM谁最强" loading="lazy">
+          <div class="btn"></div>
+        </a>
+        <div class="cap"><span class="dur">视频</span>AI 大模型数据雷达图：2026 LLM 谁最强？· 上传 2026-11-01</div>
+      </div>
+      <div class="dict">拾光词典 #007 · <b>端侧 AI（On-device AI / Edge AI）</b> —— 让 AI 直接在你的手机、耳机、汽车等设备本地跑，而不是每次都把数据传到云端算完再传回来。<b>通俗说</b>：你家的门铃、音箱以前是「听个响」，现在自己脑子里就能听懂你的话、认出你是谁，不用事事都打电话给远方的总部请示。<b>为什么重要</b>：它解决两件事——<b>快</b>（不用等网络来回）和<b>隐私</b>（数据不出设备）。这是 AI 从「都堆在云端」走向「落到你手上」的关键一步，也是本期拆解的「端侧链」的主角。判断一台设备「AI 溢价值不值」，就看你有没有本地跑的那部分能力。</div>
+    </div>
+    </div>
+    <div id="shouwei">
+    <div class="pullquote">本期拾光金句：一个模型「最强」，一场实验「翻车」，一封财报「零回报」——热闹每天换三茬，但「省钱的路」「用出账的路」这两条，才是能装进自己口袋的东西。热闹是门票，学会才是目的。</div>
+
+    <div class="footer">
+      <span>拾光 · AI 视界 · 2026-11-02（第 7 期）</span>
+      <span>把 AI 捡起来，学明白</span>
+      <span>拾光主笔 · 热闹是门票，学会才是目的</span>
+    </div>
+
+    <div class="handoff"><b>寒洛 · 投资视角接力</b>：看懂「Gemini 4 Carbon 怎么省」「端侧 AI 三层」「存储是卡在中间的那道闸」之后，想听「怎么判断」？拾光把产业/技术之实讲清楚了，寒洛将从投资视角接力解读。入口链接待寒洛提供后回填（<a href="https://zohnzou.github.io/hanluo/relay/投资版接力_第5期_2026-10-31.html" target="_blank" rel="noopener">上期投资版接力暂链</a>）——拾光只管科普，不下投资结论。</div>
+
+    <div class="pagenav"><a href="2026-11-01_第6期_AI视界.html">← 上一期</a> <a href="archive.html">全部往期</a></div>
+
+    <div class="briefs" style="margin-top:16px">
+      <div class="bt">意见 · 建议 · 需求</div>
+      <p style="font-size:13px;color:var(--ink-2)">你有想看的 AI 话题、想弄懂的概念、或对本期内容有不同看法？<br>点下面的按钮直接提给拾光（免账号填写），下一期就吸收进来。</p>
+      <div class="pagenav"><a href="https://ucn7c5oq7ran.feishu.cn/wiki/KjINwgrTAiqTRVkl6oncRUxjnJh" target="_blank" rel="noopener" style="background:var(--red)">提意见 / 提需求</a></div>
+    </div>
+
+    <div class="briefs" style="margin-top:16px;background:#fffdf7">
+      <div class="bt">本期兑现了读者哪些反馈</div>
+      <ul>
+        <li><b>头条只认新事件（#31）</b>：头条换成 10-28/29 新发布的 Gemini 4 Carbon，不再拿旧事件跟进充头条。</li>
+        <li><b>Agent 自我改进预告（#23）</b>：借 DeepSeek dsh-superagent 立住「单层 vs 元层」「筛选 vs 全量」两区分。</li>
+        <li><b>拆端侧 AI（#26）</b>：产业链·一眼看懂拆「端侧芯片/本地推理栈/与云端关系/隐私合规」三层。</li>
+        <li><b>攻击 AI 经济学（#27）＋ 安全=卖水人（#28）</b>：借 Talos「木马用 LLM 定价受害者」讲透攻击与防御两侧的经济逻辑，并诚实划出类比边界。</li>
+        <li><b>存储缺关键数字（#16）</b>：补齐 HBM 容量/单 GB 成本/产能占比的定性锚点（精确值注明以财报为准）。</li>
+        <li><b>元概念「加速/降本=概率猜测+校验回退」（#20）</b>：借 Minecraft agent 群攻实验做正反例，验证成立并点出反例。</li>
+        <li><b>内容主轴回 AI 全景新信息（#31）</b>：本期 8+ 条实时热点铺底，意见兑现作为增量插进对应栏目。</li>
+      </ul>
+    </div>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>
