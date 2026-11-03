@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拾光 · AI 视界｜第八期 · 满版样例</title>
+<style>
+:root{
+  --paper:#faf7f0; --ink:#1a1a1a; --ink-2:#555; --ink-3:#8a8478;
+  --line:#d8d2c4; --red:#c0392b; --blue:#1f5f8b; --green:#2e7d32; --amber:#a06a00;
+  --bg-block:#f2eee3;
+  --hei:system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑','Noto Sans SC',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+
+/* 封面 */
+.cover-hero{position:relative;width:100%;overflow:hidden}
+.cover-hero img{width:100%;display:block}
+.cover-hero .brandbar{position:absolute;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:16px 20px;color:#fff;text-shadow:0 1px 6px rgba(0,0,0,.55)}
+.cover-hero .brandbar .logo{font-size:20px;font-weight:900;letter-spacing:2px}
+.cover-hero .brandbar .meta{font-size:12px;letter-spacing:1px;opacity:.92}
+.cover-hero .cover-text{position:absolute;left:0;right:0;bottom:0;padding:26px 24px 14px;background:linear-gradient(to top,rgba(0,0,0,.88),rgba(0,0,0,.3),transparent);color:#fff}
+.cover-hero .cover-text .flag{display:inline-block;background:var(--red);color:#fff;font-weight:800;font-size:11px;letter-spacing:.15em;padding:3px 10px;margin-bottom:8px}
+.cover-hero .cover-text h2{font-size:1.75em;font-weight:900;line-height:1.28;margin-bottom:6px}
+.cover-hero .cover-text .dek{font-size:13.5px;color:#e8e2d8;line-height:1.6}
+
+/* 封面爆点标题栏（黑底白字三列） */
+.burstbar{background:#000;padding:12px 0;border-top:3px solid var(--red);border-bottom:1px solid #333}
+.burstbar .inner{display:flex;max-width:720px;margin:0 auto}
+.burstbar .burst{flex:1;padding:2px 18px;font-size:13px;font-weight:700;color:#fff;line-height:1.5;text-align:center}
+.burstbar .burst:nth-child(2){border-left:1px solid #444;border-right:1px solid #444}
+.burstbar .burst .dot{color:var(--red);font-size:15px;vertical-align:middle;margin-right:4px}
+
+.page{max-width:760px;margin:0 auto;background:var(--paper);box-shadow:0 4px 40px rgba(0,0,0,.18)}
+.page-body{padding:28px 40px 48px;max-width:720px;margin:0 auto}
+@media(max-width:720px){.page{margin:0;box-shadow:none}.page-body{padding:20px 16px 32px}body{font-size:15px;line-height:1.75}.cover-hero .cover-text h2{font-size:1.3em}.burstbar .burst{font-size:11.5px;padding:2px 8px}}
+
+/* 栏目牌头 */
+.section{break-inside:avoid;margin:0 0 28px;border-top:2px solid var(--ink);padding-top:12px}
+.section-head{display:flex;align-items:center;margin-bottom:10px}
+.section-head .no{width:34px;height:34px;border-radius:8px;background:var(--red);color:#fff;font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;margin-right:10px;flex:none;font-family:Georgia,serif}
+.section-head .cn{font-size:1.25em;font-weight:900;letter-spacing:.02em}
+.section-head .en{font-size:10.5px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase;margin-left:8px;align-self:flex-end;padding-bottom:3px}
+.section-head .rule{flex:1;border-bottom:2px solid var(--line);margin-left:12px;align-self:flex-end;margin-bottom:6px}
+
+/* 红框金句 */
+.goldline{border:2px solid var(--red);background:#fff9f2;padding:14px 18px;margin:0 0 16px;font-size:1.05em;font-weight:700;color:var(--red);line-height:1.6;border-radius:4px;text-align:center}
+
+/* 内容元素 */
+.article{margin-bottom:16px;padding-bottom:14px;border-bottom:1px dotted var(--line)}
+.article:last-child{border-bottom:none;margin-bottom:0;padding-bottom:0}
+.article h4{font-size:1.02em;font-weight:800;line-height:1.45;margin-bottom:4px}
+.news{font-size:13.5px;color:var(--ink-2)}
+.news::before{content:"新闻 ";color:var(--red);font-weight:900;font-size:12px}
+.study{font-size:13px;color:var(--ink-2);background:#eef4ee;border-left:3px solid var(--green);padding:10px 13px;margin-top:8px;line-height:1.7}
+.study::before{content:"拾光分析 ";color:var(--green);font-weight:900;font-size:12px}
+.study .action{display:block;margin-top:6px;color:var(--blue);font-weight:700}
+.src{font-size:11.5px;color:var(--ink-3);margin-top:4px}
+.src a{color:var(--blue);text-decoration:underline}
+.num{color:var(--red);font-weight:900}
+.key{color:var(--blue);font-weight:700}
+.briefs{border:1px solid var(--line);background:var(--bg-block);padding:12px 16px;margin-bottom:14px}
+.briefs ul{list-style:none}
+.briefs li{font-size:13px;color:var(--ink-2);padding:5px 0;border-bottom:1px dotted var(--line)}
+.briefs li:last-child{border-bottom:none}
+.briefs li::before{content:"• ";color:var(--red);font-weight:900}
+.briefs li b{color:var(--ink)}
+.fig{margin:16px 0;background:#fffdf7;border-top:2px solid var(--ink);border-bottom:1px solid var(--line);padding:18px 16px 14px}
+.fig svg{width:100%;height:auto;display:block}
+.fig .cap{font-size:12px;color:var(--ink-3);text-align:left;margin-top:10px;line-height:1.6;padding-top:10px;border-top:1px solid var(--line)}
+.fig .cap b{color:var(--red)}
+.dict{background:#fbf6ea;border-left:3px solid var(--amber);padding:10px 13px;margin-top:8px;font-size:12.5px;color:var(--ink-2);line-height:1.7}
+.dict::before{content:"拾光词典";color:var(--amber);font-weight:900;font-size:11px;display:block;margin-bottom:3px}
+.try-box{border:1.5px solid var(--blue);background:#eef4fa;border-radius:6px;padding:16px 18px;margin-top:6px;font-size:13.5px;color:var(--ink-2);line-height:1.85}
+.try-box .step{display:block;margin:8px 0}
+.try-box .step b{color:var(--blue)}
+.try-box .warn{display:block;margin-top:12px;color:var(--red);font-weight:700;border-top:1px dashed #c8d6e5;padding-top:10px}
+.mini-tag{display:inline-block;font-size:10px;font-weight:700;letter-spacing:1px;color:#fff;background:var(--blue);padding:1px 7px;border-radius:2px;margin-right:6px;vertical-align:1px}
+.pullquote{margin:18px 0;padding:14px 18px;font-size:1.05em;font-weight:700;color:var(--blue);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);text-align:center;line-height:1.7}
+.footer{margin-top:20px;padding-top:10px;border-top:3px double var(--ink);font-size:11.5px;color:var(--ink-3);text-align:center;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.dropcap::first-letter{font-size:3.2em;font-weight:900;float:left;line-height:.85;padding:4px 10px 0 0;color:var(--red)}
+</style>
+</head>
+<body>
+
+<div class="page">
+
+  <!-- 封面 -->
+  <div class="cover-hero">
+    <img src="__COVER__" alt="封面主视觉">
+    <div class="brandbar">
+      <span class="logo">拾光 · AI 视界</span>
+      <span class="meta">第 8 期 · 把 AI 捡起来，学明白</span>
+    </div>
+    <div class="cover-text">
+      <span class="flag">封面故事 · 本期主题</span>
+      <h2>算法省钱，还是硬件烧钱？<br>AI 的两条腿，正在分岔</h2>
+      <div class="dek">Gemini 4 Carbon 靠「瘦身」登顶，华尔街同一晚说 AI「零回报」——一条证明省钱跑得动，一条质疑钱白烧了。</div>
+    </div>
+  </div>
+  <!-- 封面爆点标题栏 -->
+  <div class="burstbar">
+    <div class="inner">
+      <div class="burst"><span class="dot">●</span>DeepSeek 开源「自己造自己」的 agent</div>
+      <div class="burst"><span class="dot">●</span>四家厂商 Token 价三个月跌 28%</div>
+      <div class="burst"><span class="dot">●</span>木马也用上 GPT，按价下刀</div>
+    </div>
+  </div>
+
+  <div class="page-body">
+
+    <!-- 01 AI 速览 -->
+    <div class="section">
+      <div class="section-head"><div class="no">01</div><div class="cn">AI 速览</div><div class="en">today's brief</div><div class="rule"></div></div>
+      <div class="goldline">「最强」这顶帽子，一夜之间人人都能戴。真正值钱的，是「这一小时它替你省了没」。</div>
+      <div class="briefs">
+        <ul>
+          <li><b>Gemini 4 Carbon</b>：AA 榜单登顶「最强模型」，靠「窄进窄出」省钱路线。</li>
+          <li><b>OpenAI GPT-6.1 Terra</b>：砍到 $1/$5，较前代腰斩。</li>
+          <li><b>DeepSeek dsh-superagent</b>：开源「自己造自己」的编程 agent。</li>
+          <li><b>四家 Token 均价</b>：三个月跌 28%，DeepSeek 跌 63% 最猛。</li>
+          <li><b>思科 Talos</b>：木马接进大模型，给受害者「按价下刀」。</li>
+          <li><b>Minecraft agent</b>：50 队 AI 建筑，死于「开会官僚化」。</li>
+          <li><b>Proton 反 AI</b>：翻车的不是 AI，是「AI 的傲慢」。</li>
+          <li><b>Anthropic S-1</b>：算力承诺 $518B 首次公开。</li>
+          <li><b>OpenAI 融资</b>：$30B 目标不到一半（186pt HN）。</li>
+          <li><b>美股科技股</b>：因 AI 烧钱担忧大跌。</li>
+        </ul>
+      </div>
+    </div>
+
+__BODY__
+
+    <div class="pullquote">一个模型「最强」，一场实验「翻车」，一封财报「零回报」——热闹每天换三茬，但「省钱的路」「用出账的路」这两条，才是能装进自己口袋的东西。热闹是门票，学会才是目的。</div>
+
+    <div class="footer">
+      <span>拾光 · AI 视界 · 第八期（满版样例）</span>
+      <span>把 AI 捡起来，学明白</span>
+      <span>拾光主笔 · 热闹是门票，学会才是目的</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拾光 · AI 视界｜样例 · 复刻第7期效果</title>
+<style>
+:root{
+  --paper:#faf7f0; --ink:#1a1a1a; --ink-2:#555; --ink-3:#8a8478;
+  --line:#d8d2c4; --red:#c0392b; --blue:#1f5f8b; --green:#2e7d32; --amber:#a06a00;
+  --bg-block:#f2eee3;
+  --hei:system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑','Noto Sans SC',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+.pager{position:sticky;top:0;z-index:999;background:var(--ink);color:#fff;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px;padding:8px 12px;font-size:13px}
+.pager .brand{color:#aaa;margin-right:6px;white-space:nowrap}
+.pager a{color:#fff;text-decoration:none;padding:4px 12px;border-radius:3px;background:#333;font-weight:700;white-space:nowrap}
+.pager a:hover{background:var(--red)}
+@media(max-width:720px){.pager{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.pager a{padding:4px 10px;font-size:12px}}
+.page{max-width:760px;margin:24px auto;background:var(--paper);box-shadow:0 4px 40px rgba(0,0,0,.18)}
+.page-head{border-bottom:3px double var(--ink);padding:24px 36px 16px;text-align:center;background:#fffdf7}
+.page-head .kicker{font-size:11px;letter-spacing:.3em;color:var(--ink-3)}
+.page-head h1{font-size:2.2em;font-weight:900;letter-spacing:.06em}
+.page-head h1 .accent{color:var(--red)}
+.page-head .page-no{font-size:12px;color:var(--ink-3);margin-top:2px}
+.page-body{padding:28px 40px 48px;max-width:720px;margin:0 auto}
+@media(max-width:720px){.page{margin:0 auto;box-shadow:none}.page-body{padding:20px 16px 32px}.page-head{padding:16px 14px}body{font-size:15px;line-height:1.75}}
+.headline-block{break-inside:avoid;margin-bottom:24px}
+.headline-flag{display:inline-block;background:var(--red);color:#fff;font-weight:800;font-size:11px;letter-spacing:.15em;padding:3px 12px;margin-bottom:8px}
+.headline-block h2{font-size:1.9em;font-weight:900;line-height:1.3;margin-bottom:6px}
+.headline-block .subhead{font-size:1.1em;color:var(--blue);font-weight:600;margin-bottom:8px}
+.headline-block .standfirst{font-size:14.5px;color:var(--ink-2);border-left:4px solid var(--red);padding-left:12px;margin-bottom:12px}
+.byline{font-size:11.5px;color:var(--ink-3);margin-bottom:10px}
+.dropcap::first-letter{font-size:3.2em;font-weight:900;float:left;line-height:.85;padding:4px 10px 0 0;color:var(--red)}
+.section{break-inside:avoid;margin:0 0 22px;border-top:2px solid var(--ink);padding-top:8px}
+.section-head{display:flex;align-items:baseline;margin-bottom:8px}
+.section-head h3{font-size:1.2em;font-weight:900;letter-spacing:.04em}
+.section-head .rule{flex:1;border-bottom:2px solid var(--line);margin-left:12px}
+.article{break-inside:avoid;margin-bottom:14px;padding-bottom:12px;border-bottom:1px dotted var(--line)}
+.article h4{font-size:1.05em;font-weight:800;line-height:1.4;margin-bottom:3px}
+.article h4 a{color:var(--ink);text-decoration:none}
+.article h4 a:hover{color:var(--blue)}
+.news{font-size:13.5px;color:var(--ink-2)}
+.news::before{content:"新闻 ";color:var(--red);font-weight:900;font-size:12px}
+.study{font-size:13px;color:var(--ink-2);background:#eef4ee;border-left:3px solid var(--green);padding:9px 12px;margin-top:6px;line-height:1.7}
+.study::before{content:"拾光分析 ";color:var(--green);font-weight:900;font-size:12px}
+.study .action{display:block;margin-top:6px;color:var(--blue);font-weight:700}
+.study .ex{display:block;margin-top:4px;color:#5a7a5a;font-size:12.5px}
+.src{font-size:11.5px;color:var(--ink-3);margin-top:4px}
+.src a{color:var(--blue);text-decoration:underline}
+.num{color:var(--red);font-weight:900;font-size:1.1em}
+.key{color:var(--blue);font-weight:700}
+.hot{color:var(--red);font-weight:800}
+.briefs{border:1px solid var(--line);background:var(--bg-block);padding:12px 16px;margin-bottom:16px;break-inside:avoid}
+.briefs .bt{font-weight:900;font-size:13px;color:var(--red);letter-spacing:.1em;margin-bottom:6px;border-bottom:2px solid var(--red);padding-bottom:4px}
+.briefs ul{list-style:none}
+.briefs li{font-size:13px;color:var(--ink-2);padding:5px 0;border-bottom:1px dotted var(--line)}
+.briefs li:last-child{border-bottom:none}
+.briefs li::before{content:"• ";color:var(--red);font-weight:900}
+.video{margin:14px 0;break-inside:avoid;border:1px solid var(--line);background:#fffdf7}
+.video a.thumb{position:relative;display:block;text-decoration:none}
+.video a.thumb img{width:100%;height:auto;display:block}
+.video .btn{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:60px;height:60px;background:rgba(192,57,43,.93);border-radius:50%;display:flex;align-items:center;justify-content:center;pointer-events:none}
+.video .btn::before{content:"";border-left:20px solid #fff;border-top:12px solid transparent;border-bottom:12px solid transparent;margin-left:5px}
+.video a.thumb:hover .btn{background:var(--red);transform:translate(-50%,-50%) scale(1.1)}
+.video .cap{padding:9px 13px;font-size:12.5px;color:var(--ink-2)}
+.video .cap .dur{display:inline-block;background:var(--ink);color:#fff;font-size:10px;padding:1px 7px;border-radius:3px;margin-right:7px}
+.pullquote{margin:14px 0;padding:12px 18px;font-size:1.1em;font-weight:700;color:var(--blue);border-top:2px solid var(--ink);border-bottom:2px solid var(--ink);text-align:center}
+.fig{margin:22px 0;break-inside:avoid;background:#fffdf7;border-top:3px solid var(--ink);border-bottom:1px solid var(--line);padding:20px 18px 16px}
+.fig svg{width:100%;height:auto;display:block}
+.fig .cap{font-size:12px;color:var(--ink-3);text-align:left;margin-top:12px;line-height:1.6;padding-top:10px;border-top:1px solid var(--line)}
+.fig .cap b{color:var(--red)}
+.footer{margin-top:20px;padding-top:10px;border-top:3px double var(--ink);font-size:11.5px;color:var(--ink-3);text-align:center;display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px}
+.pagenav{margin-top:24px;text-align:center}
+.pagenav a{display:inline-block;margin:0 6px;padding:6px 18px;background:var(--ink);color:#fff;text-decoration:none;border-radius:3px;font-size:13px;font-weight:700}
+.pagenav a:hover{background:var(--red)}
+.dict{background:#fbf6ea;border-left:3px solid var(--amber);padding:9px 12px;margin-top:8px;font-size:12.5px;color:var(--ink-2);line-height:1.7}
+.dict::before{content:"拾光词典";color:var(--amber);font-weight:900;font-size:11px;display:block;margin-bottom:3px}
+.checklist{background:#fdf6ef;border-left:3px solid var(--amber);padding:10px 12px;margin-top:8px;font-size:12.5px;color:var(--ink-2);line-height:1.7}
+.checklist::before{content:"验证清单";color:var(--amber);font-weight:900;font-size:11px;display:block;margin-bottom:3px}
+</style>
+</head>
+<body>
+
+<div class="pager">
+  <span class="brand">拾光 · AI 视界</span>
+  <a href="archive.html">往期</a>
+  <a href="#cover">封面故事</a>
+  <a href="#news">AI速览</a>
+  <a href="#lesson">拾光一课</a>
+  <a href="#chart">数据一图</a>
+  <a href="#take">拾光立场</a>
+  <a href="#try">这周能用上</a>
+</div>
+
+<div class="page">
+  <div class="page-head">
+    <div class="kicker">AI 全生命周期情报 · 期刊 · 把 AI 捡起来，学明白</div>
+    <h1>拾光 <span class="accent">·</span> AI 视界</h1>
+    <div class="page-no">样例（复刻第7期效果） · 拾光主笔</div>
+  </div>
+
+  <div class="page-body">
+
+    <div id="cover">
+    <div class="headline-block">
+      <span class="headline-flag">封面故事 · 本期主题</span>
+      <h2>算法省钱，还是硬件烧钱？AI 的两条腿，正在分岔</h2>
+      <div class="subhead">Gemini 4 Carbon 靠「瘦身」登顶：不靠堆参数，靠把模型拆成能喘息的「碳纤维」——这条「算法腿」与华尔街「AI 零回报」的质疑，是同一件事的两面</div>
+      <div class="standfirst">一个在证明「省钱跑得动」，一个在质疑「钱根本白烧了」。这一期，拾光把 AI 的「两条腿」都讲清楚，并告诉你：真正的分水岭，从来不是「追最强的模型」，而是「你是不是那个能把 AI 用出账来的人」。</div>
+      <div class="byline">拾光主笔 · 2026-11-02</div>
+      <p class="dropcap">先把「最强」这顶帽子摘下来看。Gemini 4 Carbon 这个名字里的 <span class="key">Carbon（碳纤维）</span>，不是营销词，是个实打实的技术信号——它代表的是一条<b>「把模型做得更轻，而不是更重」</b>的路线。</p>
+      <div class="news">2026-10-28 谷歌发布 Gemini 4 Carbon；10-29 它在第三方评测机构 Artificial Analysis 的 Intelligence Index v5 上登顶，拿下「AI 界最强」的位置（事件 10-28/29，报道 10-29）。而 11-02，阿波罗全球管理公司首席经济学家发文称，AI 对绝大多数公司而言带来的是「零财务回报」。</div>
+      <div class="study"><b>先讲清楚 Carbon 到底聪明在哪。</b>大模型有个死结：越大越聪明，但也越贵越慢。Carbon 的思路是「<b>该用力时用力，该偷懒时偷懒</b>」——它不像老模型那样每个问题都把全身零件开足马力跑一遍，而是学会「看人下菜碟」：简单问题走速通，难题才调集重兵。翻译成人话就是：<b>它不是靠「多雇人」赢的，是靠「排班排得好」赢的</b>。<br><br><b>再说「零财务回报」这头的冷水。</b>阿波罗经济学家的意思很直白：AI 确实牛，但落到上市公司的财报上，绝大多数公司交了钱买算力、买了模型，却还没看到收入往回涨——<b>钱花出去了，利润没进来</b>。<br><span class="action">行动落点：你可现在就能做——拿手头一个具体的活去试，比如让 Gemini 4 帮你把一份 30 页资料压成 1 页要点。重点不是「它多强」，是「这一个小时它替你省下来了没」。</span></div>
+      <div class="fig">
+        <svg viewBox="0 0 640 250" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="两条路线对比">
+          <defs>
+            <linearGradient id="ga" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c0392b"/><stop offset="1" stop-color="#e67e22"/></linearGradient>
+            <linearGradient id="gb" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+          </defs>
+          <text x="20" y="26" font-size="14" fill="#374151" font-weight="bold">两条冲顶路线：谁的「体重」更聪明</text>
+          <g>
+            <rect x="30" y="44" width="580" height="66" rx="6" fill="url(#ga)"/>
+            <text x="44" y="66" font-size="12.5" fill="#fff" font-weight="bold">老路：堆参数（把模型喂得越来越大）</text>
+            <text x="44" y="86" font-size="11" fill="#fee2e2">逻辑：越大越聪明 → 结果：越贵越慢，钱越烧越吓人</text>
+            <text x="44" y="102" font-size="11" fill="#fff">代价：亿万算力堆出来的「重」，账越来越难平</text>
+          </g>
+          <g>
+            <rect x="30" y="122" width="375" height="66" rx="6" fill="url(#gb)"/>
+            <text x="44" y="144" font-size="12.5" fill="#fff" font-weight="bold">新路：拆专家 + 挑着算（Carbon / MoE）</text>
+            <text x="44" y="164" font-size="11" fill="#dbeafe">逻辑：该用力用力、该偷懒偷懒 → 同样强，更轻更省</text>
+            <text x="44" y="180" font-size="11" fill="#fff">结果：不靠「多雇人」赢，靠「排班排得好」赢</text>
+          </g>
+          <text x="30" y="212" font-size="11" fill="#374151">注：蓝色条刻意比红色条画得窄——差别就在「省下的体重」。</text>
+        </svg>
+        <div class="cap"><b>信息图：</b>两条冲顶路线。红色「堆参数」画得又宽又重，蓝色「拆专家挑着算」画得窄一截——Gemini 4 Carbon 走的是蓝路：不是更猛，是更会省。</div>
+      </div>
+      <div class="src">出处：Google blog / Artificial Analysis / Apollo · 事件 2026-10-28/29 · 报道 10-29 及 11-02</div>
+    </div>
+    </div>
+
+    <div id="news">
+    <div class="section">
+      <div class="section-head"><h3>AI 速览 · 八条，近 72 小时</h3><div class="rule"></div></div>
+      <div class="briefs">
+        <ul>
+          <li><span class="key">OpenAI GPT-6.1 Terra</span>：砍到 $1/$5，较前代腰斩（AI 应用降本）</li>
+          <li><span class="key">DeepSeek dsh-superagent</span>：开源「自己造自己」的编程 agent</li>
+          <li><span class="key">四家 Token 均价</span>：三个月跌 28%，DeepSeek 跌 63% 最猛</li>
+          <li><span class="key">思科 Talos</span>：木马接进大模型，给受害者「按价下刀」</li>
+          <li><span class="key">Minecraft agent</span>：50 队 AI 建筑，死于「开会官僚化」</li>
+          <li><span class="key">Proton 反 AI</span>：翻车的不是 AI，是「AI 的傲慢」</li>
+          <li><span class="key">Anthropic S-1</span>：算力承诺 $518B 首次公开</li>
+          <li><span class="key">AI 初创 12 小时黑进 Anthropic</span>：安全线再响</li>
+        </ul>
+      </div>
+    </div>
+    </div>
+
+    <div id="lesson">
+    <div class="section">
+      <div class="section-head"><h3>拾光一课 · 「加速降本」的底层，是「先猜后验」</h3><div class="rule"></div></div>
+      <div class="article">
+        <div class="news">所谓「加速/降本」，本质是让 AI <b>别把每一步都算到满</b>：先快速猜一个大概率对的答案（概率猜测），不放心时再回头校对（校验回退）。投机解码（先猜后验）、MoE（只唤醒少数专家）、Carbon 的「简单问题走速通」，全是这一套的变体。</div>
+        <div class="study"><b>反面教材就摆在这期的 Minecraft 实验里。</b>50 队 AI 一起建文明，结果没建起来——它们不是「蠢」，是<b>太像人</b>了：为了协作，发明出层层审批、互相请示。它们没有「先猜再验」，而是「事事都要确认」，把「校验」这个本应偶尔为之的动作，变成了无休止的主业——于是既不快、也不省。<br><span class="action">行动落点：写复杂的活时，别让 AI「一步到位给完美答案」。先让它「快速给个草稿」，你再「定向校对要改的地方」。猜得对就省了全程全算的钱，这才是「降本」的真意。</span></div>
+        <div class="dict">拾光词典 #009 · <b>概率猜测 + 校验回退</b> —— 「加速降本」这条技术路线的统一元概念。通俗说：能干粗活的先快速猜一个大概对的，拿不准再回头细看，而不是每步都算到满分。它一手催生了投机解码、MoE、Carbon 这些省钱的招。</div>
+      </div>
+    </div>
+    </div>
+
+    <div id="chart">
+    <div class="section">
+      <div class="section-head"><h3>数据一图 · 四家厂商 Token 均价 · 三个月走势</h3><div class="rule"></div></div>
+      <div class="fig">
+        <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="四家厂商Token价格走势">
+          <defs>
+            <linearGradient id="area" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a56db" stop-opacity=".22"/><stop offset="1" stop-color="#1a56db" stop-opacity="0"/></linearGradient>
+          </defs>
+          <text x="20" y="24" font-size="10.5" letter-spacing="2.5" font-weight="bold" fill="#9ca3af">TOKEN 均价 · 三个月走势</text>
+          <line x1="20" y1="36" x2="620" y2="36" stroke="#e5e7eb" stroke-width="1"/>
+          <g stroke="#f0f0f0" stroke-width="1">
+            <line x1="20" y1="60" x2="620" y2="60"/><line x1="20" y1="100" x2="620" y2="100"/>
+            <line x1="20" y1="140" x2="620" y2="140"/><line x1="20" y1="180" x2="620" y2="180"/>
+          </g>
+          <!-- DeepSeek -63% 最陡 -->
+          <path d="M40,60 L200,105 L420,160 L610,205" fill="none" stroke="#c0392b" stroke-width="3" stroke-linecap="round"/>
+          <!-- OpenAI -30% -->
+          <path d="M40,70 L200,90 L420,120 L610,150" fill="none" stroke="#1a56db" stroke-width="3" stroke-linecap="round"/>
+          <!-- Anthropic -43% -->
+          <path d="M40,75 L200,100 L420,135 L610,172" fill="none" stroke="#e67e22" stroke-width="3" stroke-linecap="round"/>
+          <!-- Google +2.6% 基本持平 -->
+          <path d="M40,140 L200,138 L420,140 L610,136" fill="none" stroke="#2e7d32" stroke-width="3" stroke-linecap="round"/>
+          <g font-size="11" fill="#9ca3af" text-anchor="middle">
+            <text x="40" y="226">7月</text><text x="200" y="226">8月</text><text x="420" y="226">9月</text><text x="610" y="226">10月</text>
+          </g>
+        </svg>
+        <div class="cap"><b>数据图：</b>四家厂商 Token 均价三个月走势。DeepSeek（红线）跌 63% 最陡，OpenAI（蓝线）跌 30%，Anthropic（橙线）跌 43%，Google（绿线）基本持平 +2.6%。<br>数据源：二手转述（行业公开榜单整理）· 日期：2026-11-02 · 口径：三个月环比。</div>
+      </div>
+    </div>
+    </div>
+
+    <div id="take">
+    <div class="section">
+      <div class="section-head"><h3>拾光立场 · 木马也用上 GPT：攻击 AI，是一门「按价下刀」的生意</h3><div class="rule"></div></div>
+      <div class="article">
+        <div class="news">2026-10-31，思科 Talos 披露：Volta 信息窃取木马把大模型接进偷数据的流水线，自动判断受害者「值多少钱」（是否持有加密钱包、机构身份），据此排优先级再下手。</div>
+        <div class="study"><b>这条点破一个更冷的事实：攻击 AI 不是黑客炫技，是一门正经生意。</b>攻击者赚钱，靠的是把「偷」这件事规模化、效率化。把 LLM 接进去，等于给小偷配了个「智能分拣员」：自动扫一遍，给每个人估个价，专挑贵的偷——<b>收益没变，成本大降，这就是攻击 AI 的经济学</b>。<br><span class="action">行动落点：三条今晚就能做——① 给常用 AI 账号开双重验证；② 别再往浏览器里存 API 密钥；③ 装 AI 插件前先看发布者是不是官方。</span></div>
+      </div>
+    </div>
+    </div>
+
+    <div id="try">
+    <div class="section">
+      <div class="section-head"><h3>这周能用上 · 3 步，让 AI 帮你把 30 页资料压成 1 页</h3><div class="rule"></div></div>
+      <div class="article">
+        <div class="news">把一摞资料扔给 AI，让它「提炼要点、只留干货」，是普通人本周最容易上手、收益最直接的一个 AI 用法。三步，零门槛。</div>
+        <div class="study"><b>第 1 步</b>：把 30 页资料（PDF/网页/文档）整体丢给支持长文本的模型。<br><b>第 2 步</b>：给它一句明确的指令：「把这 30 页压缩成 1 页要点，只保留结论、关键数字、下一步动作，不要任何废话。」<br><b>第 3 步</b>：拿返回的 1 页，对着原资料「快速扫一遍有没有漏重点」，有漏的让它补，没有就直接用。<br><span class="action">行动落点：别再纠结「哪个模型最强」，改问「这件事用哪个最划算」——压资料这种活，最便宜的模型往往就够了。</span></div>
+      </div>
+    </div>
+    </div>
+
+    <div class="pullquote">本期拾光金句：一个模型「最强」，一场实验「翻车」，一封财报「零回报」——热闹每天换三茬，但「省钱的路」「用出账的路」这两条，才是能装进自己口袋的东西。热闹是门票，学会才是目的。</div>
+
+    <div class="footer">
+      <span>拾光 · AI 视界 · 样例</span>
+      <span>把 AI 捡起来，学明白</span>
+      <span>拾光主笔 · 热闹是门票，学会才是目的</span>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

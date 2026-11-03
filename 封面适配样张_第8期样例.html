@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>拾光 · AI 视界｜封面适配样张</title>
+<style>
+:root{
+  --paper:#faf7f0; --ink:#1a1a1a; --ink-2:#555; --ink-3:#8a8478;
+  --line:#d8d2c4; --red:#c0392b; --blue:#1f5f8b; --amber:#a06a00;
+  --hei:system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','Noto Sans SC',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+
+/* ============ 封面 ============ */
+.cover{
+  position:relative;
+  width:100%;
+  overflow:hidden;
+  background:#0a0d18;
+}
+.cover .cover-img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+}
+/* PC：横版 16:9 封面 */
+.cover{height:460px}
+/* 封面上的标题叠层 */
+.cover-overlay{
+  position:absolute;
+  left:0; right:0; top:0; bottom:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding:28px 36px;
+  background:linear-gradient(to top, rgba(0,0,0,.72) 0%, rgba(0,0,0,.25) 45%, rgba(0,0,0,0) 70%);
+  color:#fff;
+}
+.cover-overlay .kicker{
+  font-size:12px; letter-spacing:.3em; color:#e8c56a; font-weight:600; margin-bottom:8px;
+}
+.cover-overlay h1{
+  font-size:2.3em; font-weight:900; line-height:1.2; letter-spacing:.02em;
+  text-shadow:0 2px 20px rgba(0,0,0,.6);
+}
+.cover-overlay .sub{
+  font-size:15px; color:#e6e6e6; margin-top:10px; max-width:560px; line-height:1.6;
+}
+.cover-overlay .tagline{
+  margin-top:14px; font-size:12px; color:#caa34a; letter-spacing:.12em; font-weight:600;
+}
+
+/* ============ 正文（单栏通读） ============ */
+.page{max-width:760px;margin:24px auto;background:var(--paper);box-shadow:0 4px 40px rgba(0,0,0,.15)}
+.page-body{padding:32px 40px 48px;max-width:680px;margin:0 auto}
+.headline-block{margin-bottom:22px}
+.headline-flag{display:inline-block;background:var(--red);color:#fff;font-weight:800;font-size:11px;letter-spacing:.15em;padding:3px 12px;margin-bottom:8px}
+.headline-block h2{font-size:1.8em;font-weight:900;line-height:1.3;margin-bottom:8px}
+.headline-block .standfirst{font-size:15px;color:var(--ink-2);border-left:4px solid var(--red);padding-left:12px;margin-bottom:14px}
+.dropcap::first-letter{font-size:3em;font-weight:900;float:left;line-height:.85;padding:4px 10px 0 0;color:var(--red)}
+.study{font-size:14px;color:var(--ink-2);background:#eef4ee;border-left:3px solid #2e7d32;padding:12px 14px;margin-top:8px;line-height:1.75}
+.study::before{content:"拾光分析 ";color:#2e7d32;font-weight:900;font-size:12px}
+.study .action{display:block;margin-top:8px;color:var(--blue);font-weight:700}
+.fig{margin:20px 0;background:#fffdf7;border-top:3px solid var(--ink);border-bottom:1px solid var(--line);padding:18px}
+.fig svg{width:100%;height:auto;display:block}
+.fig .cap{font-size:12px;color:var(--ink-3);margin-top:10px;border-top:1px solid var(--line);padding-top:8px;line-height:1.6}
+.footer{margin-top:24px;padding-top:12px;border-top:3px double var(--ink);font-size:11.5px;color:var(--ink-3);text-align:center}
+
+/* ============ 手机适配 ============ */
+@media(max-width:720px){
+  /* 手机：封面裁成竖版 3:4，更高 */
+  .cover{height:520px}
+  .cover-overlay{padding:22px 20px;justify-content:flex-end}
+  .cover-overlay .kicker{font-size:11px}
+  .cover-overlay h1{font-size:1.55em}
+  .cover-overlay .sub{font-size:13px}
+  .cover-overlay .tagline{font-size:11px}
+  .page{box-shadow:none}
+  .page-body{padding:22px 18px 32px}
+  .headline-block h2{font-size:1.45em}
+  body{font-size:15px;line-height:1.75}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 封面（响应式裁切） ============ -->
+<div class="cover">
+  <img class="cover-img" src="img/cover_token.jpg" alt="Token 降价潮封面">
+  <div class="cover-overlay">
+    <div class="kicker">拾光 · AI 视界 · 封面故事</div>
+    <h1>大模型价格雪崩：从「比谁强」到「比谁便宜」</h1>
+    <div class="sub">四家厂商三个月均价跌掉 28%，DeepSeek 一个月砍去 43%。当「最强」这顶帽子人人都能戴，真正的战场已经悄悄换到了「每完成一件任务，你花多少钱」。</div>
+    <div class="tagline">2026-11-02 · 第 8 期 · 热闹是门票，学会才是目的</div>
+  </div>
+</div>
+
+<!-- ============ 正文（单栏） ============ -->
+<div class="page">
+  <div class="page-body">
+    <div class="headline-block">
+      <span class="headline-flag">封面故事</span>
+      <h2>头把交椅又换人了，但这次赢的不是「更强」，是「更省」</h2>
+      <div class="standfirst">Gemini 4 Carbon 靠「瘦身路线」登顶榜单，同一晚华尔街却说 AI「零回报」。两条新闻合起来，指向同一个字：账。</div>
+      <p class="dropcap">先把「最强」这顶帽子摘下来看。Gemini 4 Carbon 这个名字里的 <b>Carbon（碳纤维）</b>不是营销词，是个实打实的技术信号——它代表一条「把模型做得更轻、而不是更重」的路线。</p>
+      <p>而价格这条线，比榜单更狠。四家厂商的平均 token 价，三个月从 $0.72 跌到 $0.52，跌掉 28%。DeepSeek 一个月砍 43%，OpenAI 砍 30%，只有 Google 一家逆势在涨——因为它把旗舰和走量两种定价分开了。</p>
+      <div class="study">拾光分析：这场降价潮的真相不在「谁便宜」，在「<b>定价逻辑分叉了</b>」——旗舰模型要维持身价、走量模型拼性价比，两条线从此分开跑。对普通人来说，这意味着「用最贵的」和「用得起的」第一次可以同时成立。<span class="action">行动落点：别再盯着「哪个模型最强」，改问「我这件事，用哪个模型最划算」。一张 30 页资料压成 1 页，用 $1 档的 Terra 和 $4 档的 Opus，结果可能差不了多少，价格差四倍。</span></div>
+    </div>
+
+    <div class="fig">
+      <svg viewBox="0 0 640 260" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="四家厂商token价格三个月走势">
+        <defs>
+          <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/>
+          </linearGradient>
+        </defs>
+        <text x="20" y="26" font-size="14" fill="#374151" font-weight="bold">四家厂商 Token 均价 · 三个月走势（示意）</text>
+        <!-- 坐标 -->
+        <line x1="50" y1="220" x2="610" y2="220" stroke="#9ca3af" stroke-width="1"/>
+        <line x1="50" y1="40" x2="50" y2="220" stroke="#9ca3af" stroke-width="1"/>
+        <text x="50" y="240" font-size="11" fill="#374151">7月</text>
+        <text x="280" y="240" font-size="11" fill="#374151">8月</text>
+        <text x="580" y="240" font-size="11" fill="#374151">10月</text>
+        <!-- 四家走势（示意，体现"下降"和"唯一上涨"） -->
+        <polyline points="50,150 180,135 320,120 460,105 600,88" fill="none" stroke="#c0392b" stroke-width="2.5"/>
+        <polyline points="50,160 180,155 320,148 460,140 600,130" fill="none" stroke="#1a56db" stroke-width="2.5"/>
+        <polyline points="50,170 180,166 320,160 460,154 600,145" fill="none" stroke="#2e7d32" stroke-width="2.5"/>
+        <polyline points="50,130 180,122 320,114 460,104 600,96" fill="none" stroke="#a06a00" stroke-width="2.5" stroke-dasharray="5 4"/>
+        <!-- 图例 -->
+        <g font-size="11">
+          <rect x="80" y="200" width="12" height="12" fill="#c0392b"/><text x="96" y="210" fill="#374151">OpenAI -30%</text>
+          <rect x="200" y="200" width="12" height="12" fill="#1a56db"/><text x="216" y="210" fill="#374151">Anthropic -43%</text>
+          <rect x="340" y="200" width="12" height="12" fill="#2e7d32"/><text x="356" y="210" fill="#374151">DeepSeek -63%</text>
+          <rect x="470" y="200" width="12" height="12" fill="#a06a00"/><text x="486" y="210" fill="#374151">Google +2.6%（唯一涨）</text>
+        </g>
+      </svg>
+      <div class="cap"><b>数据图：</b>四家厂商 token 均价三个月走势（示意，非精确刻度）。三条主流线一路下探，只有 Google 逆势微涨——「旗舰定价」与「走量定价」正在分道扬镳。数据源：开源证券 AI 算力看板 OTPI 指数。</div>
+    </div>
+
+    <div class="footer">
+      拾光 · AI 视界 · 封面适配样张 · 单栏 · PC/手机双端响应式
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
