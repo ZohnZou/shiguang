@@ -134,6 +134,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
           <li><span class="key">MicroDuck 机器鸭</span>：黄仁勋展示，社区已开源复现（具身）。</li>
           <li><span class="key">中国 AI 出口管制</span>：商务部 48 号公告，首个前沿 AI 出口管制。</li>
           <li><span class="key">HBM 市占率</span>：海力士约 5 成、三星约三成、美光约一成。</li>
+          <li><span class="key">英伟达 OOI</span>：下一代 CPO——把光引擎直接焊上 GPU 硅中介层，功耗再降 3.5 倍（研究原型）。</li>
           <li><span class="key">Subvocal</span>：不出声就能跟电脑说话的黑科技（510 points）。</li>
         </ul>
       </div>
@@ -245,10 +246,61 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
       </div>
     </div>
 
-    <!-- 05 数据一图（兑现 #32 HBM 数字） -->
+    <!-- 05 硬件·算力（兑现 OOI 头条级深度分析） -->
     <div class="section">
       <div class="section-head">
         <div class="no">05</div>
+        <div class="cn">硬件 · 算力</div>
+        <div class="en">silicon &amp; compute</div>
+        <div class="rule"></div>
+      </div>
+      <div class="article">
+        <h4>英伟达的下一张牌「OOI」：把光直接焊到 GPU 的心脏上</h4>
+        <div class="news">2026-10-13，英伟达在 SEMICON West 2026（旧金山）发布光互连原型技术「OOI」（Optics-on-Interposer，中介层上集成光学）：把驱动光信号的光引擎，从有机封装基板直接搬到承载 GPU 的硅中介层上。它不是已经量产的产品，是一次「把光的接力棒再往芯片内核里塞一步」的技术原型。</div>
+        <div class="study"><b>一句话先讲清楚 OOI 是什么：</b>AI 芯片之间要高速传数据，铜线到顶了，得换光。但「光」和「电」是两套语言，中间得有个「光电转换站」把它俩翻译互通。OOI 干的事，就是把这个转换站，从离芯片老远的基板上，搬到紧贴着 GPU 的硅中介层上。<br><br><b>为什么要这么干？三个实打实的好处：</b><span class="num">① 功耗降 3.5 倍</span>（官方口径「3.5x less power」）；<span class="num">② 把有机基板从电信号路径里「拿掉」</span>——芯片到光源之间的铜更短、走线更细，带宽密度直接拉高；<span class="num">③ 单根光纤吃下 256 Gb/s</span>（靠 8 个波长的 DWDM 密集波分复用，8×32Gb/s 叠在一根纤上）。<br><br><b>拾光最看重的一句诚实提醒：</b>这还<span class="key">只是研究阶段的原型，没有商业化时间表</span>。别一看到「英伟达」「3.5 倍功耗」就脑补成「下一代显卡快来了」——它不是量产利好，是方向预告。三大难还没解决：<b>散热</b>（最棘手，光元件对温度敏感，还得跟几百瓦的 GPU 共封装）、<b>制造良率</b>、<b>可维修性</b>。光器件焊进芯片封装里，坏了你怎么换？这是它离落地还远的根本原因。<br><span class="action">行动落点：不用现在就去学「怎么投资光模块」，那是另一码事。你可以带走的是这条判断——「光进铜退」是 AI 算力往下走的确定方向，OOI 是这个方向上「更激进的一步」。记住这个词，下次看到 CPO、光模块、硅光引擎这些词，就能串起来了。</span></div>
+        <div class="dict">拾光词典 #011 · <b>OOI（Optics-on-Interposer，中介层上集成光学）</b> —— 把「光电转换站」从离 GPU 较远的封装基板，搬到紧贴 GPU 的硅中介层上，让光离算力核心最近。是 CPO（把光引擎放交换芯片旁）这个「光互连内移」路线的再往下一步。</div>
+        <div class="fig">
+          <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+            <defs>
+              <linearGradient id="o1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+              <linearGradient id="o2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c0392b"/><stop offset="1" stop-color="#e67e22"/></linearGradient>
+            </defs>
+            <text x="20" y="22" font-size="13" fill="#374151" font-weight="bold">「光进铜退」演进：光电转换站离 GPU 越来越近</text>
+            <!-- 阶段1 传统 -->
+            <g>
+              <rect x="30" y="44" width="620" height="42" rx="6" fill="none" stroke="#9ca3af" stroke-width="1.5"/>
+              <text x="46" y="62" font-size="12" fill="#555" font-weight="bold">传统方案 · 电信号跑远路</text>
+              <text x="46" y="79" font-size="10.5" fill="#8a8478">转换站离芯片老远，损耗 ~22dB</text>
+            </g>
+            <!-- 阶段2 CPO -->
+            <g>
+              <rect x="30" y="100" width="620" height="42" rx="6" fill="none" stroke="#1a56db" stroke-width="1.5"/>
+              <text x="46" y="118" font-size="12" fill="#1a56db" font-weight="bold">CPO · 光引擎搬到交换芯片旁</text>
+              <text x="46" y="135" font-size="10.5" fill="#555">损耗压到 ~4dB，但电信号仍穿两层介质</text>
+            </g>
+            <!-- 阶段3 OOI -->
+            <g>
+              <rect x="30" y="156" width="620" height="56" rx="6" fill="url(#o2)"/>
+              <text x="46" y="176" font-size="13" fill="#fff" font-weight="bold">OOI · 光引擎直接上 GPU 硅中介层（下一代）</text>
+              <text x="46" y="193" font-size="10.5" fill="#fee2e2">不绕有机基板，功耗再降 3.5x，单纤 256Gb/s</text>
+              <text x="46" y="206" font-size="10.5" fill="#fee2e2">研究阶段 · 尚未商业化</text>
+            </g>
+            <!-- 结论 -->
+            <text x="30" y="242" font-size="12" fill="#374151" font-weight="bold">拾光的判断：</text>
+            <text x="118" y="242" font-size="12" fill="#c0392b" font-weight="bold">「光进铜退」是确定方向，OOI 是这条路上更激进的一步——但仍是研究原型，不是量产利好。</text>
+            <text x="30" y="272" font-size="10.5" fill="#8a8478">数据源：英伟达 SEMICON West 2026 发布 + TrendForce 2026-10-22 报道 · 口径：功耗/带宽为官方与媒体披露的原型指标</text>
+          </svg>
+          <div class="cap"><b>信息图：</b>光互连「内移」三阶段——传统方案转换站离芯片最远、损耗最大；CPO 搬到交换芯片旁；OOI 进一步直接焊上 GPU 的硅中介层。越内移，光离算力核心越近、铜跑得越短、功耗越低。</div>
+        </div>
+        <div class="study"><b>它到底利好什么？拾光把产业链条给你捋直：</b>最直接受益的是「光互连内移」这条路本身——硅光引擎、先进封装（能把光器件和芯片做进同一个中介层）、以及整套「光进铜退」的上游设备。至于<span class="key">对 CPO / PCB / CCL 三个环节的影响，是拾光自己顺着「有机基板被移出信号路径」这个事实做的产业推导，搜不到现成报道，只能标一句「拾光推导、非已证实结论」</span>，你可以当思路看、别当定论抄：<br><br>· <b>对 CPO</b>：OOI 不是来取代 CPO 的，是 CPO 的下一代接棒者——CPO 先量产、OOI 后续跟上，同一条「光内移」路线上的更激进一步。<br>· <b>对 PCB</b>：光引擎上了中介层，芯片侧那些「超高速电互连的铜走线」会被缩短、内移，传统高多层高速 PCB 里「最贵最难做的那段高速部分」有一块被光分流了；但 PCB 不会消失，低频部分照旧。<br>· <b>对 CCL（覆铜板）</b>：CCL 是 PCB 的基材，如果超高速电信号真被光互连大量分流，那「超低损耗高端 CCL」的增量需求逻辑会受影响——<span class="key">这是三点里最关键、也最需要谨慎的一点，务必当「拾光的推测」看</span>，因为整个 OOI 还没量产，谈「分流市场」为时过早。</div>
+        <div class="src">出处：英伟达 SEMICON West 2026 发布（事件 2026-10-13）· TrendForce 报道 2026-10-22 · shattered.io《NVIDIA Optics-on-Interposer: 3.5x Less Power》（可直连，二手转述口径）· <a href="https://www.trendforce.com/news/2026/10/22/nvidia-unveils-next-gen-cpo-prototype-with-optics-on-silicon-interposer/" target="_blank" rel="noopener">TrendForce 链接</a></div>
+      </div>
+    </div>
+
+    <!-- 06 数据一图（兑现 #32 HBM 数字） -->
+    <div class="section">
+      <div class="section-head">
+        <div class="no">06</div>
         <div class="cn">数据一图</div>
         <div class="en">by the numbers</div>
         <div class="rule"></div>
@@ -281,10 +333,10 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
       <div class="news" style="margin-top:6px">兑现读者反馈 #32：此前用「行业普遍认为」这种模糊表述，本期废除，改为可核查的「约五成 / 约三成 / 约一成」区间 + 标注「以财报为准」。</div>
     </div>
 
-    <!-- 06 拾光立场 -->
+    <!-- 07 拾光立场 -->
     <div class="section">
       <div class="section-head">
-        <div class="no">06</div>
+        <div class="no">07</div>
         <div class="cn">拾光立场</div>
         <div class="en">shiguang's take</div>
         <div class="rule"></div>
@@ -296,10 +348,10 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
       </div>
     </div>
 
-    <!-- 07 这周能用上 -->
+    <!-- 08 这周能用上 -->
     <div class="section">
       <div class="section-head">
-        <div class="no">07</div>
+        <div class="no">08</div>
         <div class="cn">这周能用上</div>
         <div class="en">try this week</div>
         <div class="rule"></div>
