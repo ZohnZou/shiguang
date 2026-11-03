@@ -14,6 +14,12 @@
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
 body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85;font-size:16px;-webkit-font-smoothing:antialiased}
+.pager{position:sticky;top:0;z-index:999;background:var(--ink);color:#fff;display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:4px;padding:8px 12px;font-family:var(--hei);font-size:13px}
+.pager .brand{color:#aaa;margin-right:6px;white-space:nowrap}
+.pager a{color:#fff;text-decoration:none;padding:4px 12px;border-radius:3px;background:#333;font-weight:700;white-space:nowrap}
+.pager a:hover{background:var(--red)}
+@media(max-width:720px){.pager{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.pager a{padding:4px 10px;font-size:12px}}
+
 
 /* 封面大图 */
 .cover-hero{position:relative;width:100%;overflow:hidden}
@@ -99,6 +105,21 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 </head>
 <body>
 
+<div class="pager">
+  <span class="brand">拾光 · AI 视界</span>
+  <a href="archive.html">往期</a>
+  <a href="https://ucn7c5oq7ran.feishu.cn/wiki/KjINwgrTAiqTRVkl6oncRUxjnJh" target="_blank" rel="noopener" style="background:#8a4a3a">提意见</a>
+  <span style="color:#555;margin:0 4px">|</span>
+  <a href="#ai-sulan">速览</a>
+  <a href="#fengmian">封面</a>
+  <a href="#dongshou">动手</a>
+  <a href="#chanye">产业链</a>
+  <a href="#yingjian">硬件</a>
+  <a href="#shuju">数据</a>
+  <a href="#lichang">立场</a>
+  <a href="#zhou">用上</a>
+</div>
+
 <div class="page">
 
   <div class="cover-hero">
@@ -117,7 +138,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
   <div class="page-body">
 
     <!-- 01 AI 速览 -->
-    <div class="section">
+    <div class="section" id="ai-sulan">
       <div class="section-head">
         <div class="no">01</div>
         <div class="cn">AI 速览</div>
@@ -141,7 +162,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     </div>
 
     <!-- 02 封面故事 -->
-    <div class="section">
+    <div class="section" id="fengmian">
       <div class="section-head">
         <div class="no">02</div>
         <div class="cn">封面故事</div>
@@ -178,7 +199,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     </div>
 
     <!-- 03 AI 动手了（应用层 · 兑现 #38） -->
-    <div class="section">
+    <div class="section" id="dongshou">
       <div class="section-head">
         <div class="no">03</div>
         <div class="cn">AI 动手了</div>
@@ -209,7 +230,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     </div>
 
     <!-- 04 产业链 · 一眼看懂（兑现 #19 边缘计算） -->
-    <div class="section">
+    <div class="section" id="chanye">
       <div class="section-head">
         <div class="no">04</div>
         <div class="cn">产业链 · 一眼看懂</div>
@@ -247,7 +268,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     </div>
 
     <!-- 05 硬件·算力（兑现 OOI 头条级深度分析） -->
-    <div class="section">
+    <div class="section" id="yingjian">
       <div class="section-head">
         <div class="no">05</div>
         <div class="cn">硬件 · 算力</div>
@@ -298,7 +319,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     </div>
 
     <!-- 06 数据一图（兑现 #32 HBM 数字） -->
-    <div class="section">
+    <div class="section" id="shuju">
       <div class="section-head">
         <div class="no">06</div>
         <div class="cn">数据一图</div>
@@ -334,7 +355,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     </div>
 
     <!-- 07 拾光立场 -->
-    <div class="section">
+    <div class="section" id="lichang">
       <div class="section-head">
         <div class="no">07</div>
         <div class="cn">拾光立场</div>
@@ -349,7 +370,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     </div>
 
     <!-- 08 这周能用上 -->
-    <div class="section">
+    <div class="section" id="zhou">
       <div class="section-head">
         <div class="no">08</div>
         <div class="cn">这周能用上</div>
