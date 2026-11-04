@@ -7,6 +7,13 @@ GitHub部署说明书.html
 学电脑报行动表.md
 对标电脑报_差距诊断.html
 对标电脑报_文笔庖丁解牛.html
+对标电脑报_改版规划.md
+对标电脑报_质量红线与评分卡.html
+期刊工作总览.md
+期刊全生命周期工作流.md
+次日方案缓存.md
+邹苏煜要求清单.md
+期刊工作入口.md
 gen_feed.py
 gen_rss.py
 .DS_Store
@@ -17,3 +24,8 @@ gen_rss.py
 第8期满版_骨架.html
 第八期样例.html
 封面适配样张_第8期样例.html
+
+build_issue.py
+issue_template.css
+本期片段/
+img/cover_v9.jpg
