@@ -348,7 +348,75 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>一图看懂「政策风险如何传导到 AI」：五层链条，每一层都标好了「已发生」还是「在推演」</h4>
         <div class="news">本期封面故事拆解的「AI 政策风险传导路径」，可以浓缩成一张五层链条图，帮助读者一眼看清：一场政治事件，是怎样一层层传导到 AI 的业务和估值的。</div>
-        <div class="study">「政治影响 AI」这句话太抽象，很多人get不到「具体怎么影响」。把它拆成一条五层链，就清楚了。链条从上往下，是「一个政治层面的变化 → 最终砸到 AI 公司头上」的完整路径：<br><br><b>第一层：关税。</b> 政治事件（如选举、贸易政策转向）先改变关税。→ 数据中心要进口的芯片、光模块、电力设备变贵。<b>【已发生】</b><br><br><b>第二层：利率。</b> 政治影响财政与货币环境，利率上升。→ AI 公司借债扩张的成本变高，烧钱项目先被砍。<b>【已发生且持续】</b><br><br><b>第三层：反垄断。</b> 政治格局改变监管倾向。→ 巨头「先烧钱抢市场」的打法被立法规制。<b>【已发生，落点待定】</b><br><br><b>第四层：出口管制。</b> 政治决定「芯片/算力能不能卖到某些市场」。→ 相关收入这块直接受影响。<b>【已发生】</b><br><br><b>第五层：数据监管。</b> 政治推动数据合规收紧。→ 训练数据使用受限，合规成本上升、进度变慢。<b>【部分已发生、细则在推演】</b><br><br><b>怎么用这张图：</b> 以后看任何一条「AI 大新闻」，先判断它落在这五层的哪一层，再判断它是「已发生的事实」还是「还在推演的假设」。这样你就不会把「推演」当「定论」，也不会在别人恐慌或狂欢时被带走。<br><br><b>关键提醒：</b> 这张图的每一层，都是「压力方向」的示意，不是「精确预测」。它的价值在于「帮你看清传导路径」，不是「帮你算命」。判断时要诚实区分「已发生」和「推演」，这正是拾光一直坚持的「不把假设当事实」。<br><br><b><span class="action">行动落点：</b> 收藏这张「五层传导图」作为你的「AI 政策解码器」。下次遇到 AI 政策新闻，套进去：是哪一层？已发生还是推演？两个问题答完，你就比 90% 的读者看得更透。</span><br>&gt;</div>
+        <div class="fig">
+        <svg viewBox="0 0 640 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="AI政策风险五层传导路径图">
+          <defs>
+            <linearGradient id="lc1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+            <linearGradient id="lc2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c0392b"/><stop offset="1" stop-color="#e67e22"/></linearGradient>
+            <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 z" fill="#9ca3af"/></marker>
+          </defs>
+          <text x="20" y="28" font-size="15" fill="#1a1a1a" font-weight="bold">AI 政策风险五层传导 · 自上而下，从「政治变化」一路砸到「AI 业务与估值」</text>
+          <text x="20" y="48" font-size="12" fill="#6b7280">读法：每一层左边是「传导环节」，右边色块是「这一层已经发生（实）还是仍在推演（虚）」。</text>
+
+          <!-- 第一层 关税 -->
+          <g>
+            <rect x="20" y="66" width="600" height="66" rx="8" fill="#eef4ff" stroke="#1a56db" stroke-width="1.5"/>
+            <text x="38" y="94" font-size="14" fill="#1a56db" font-weight="bold">第一层 · 关税</text>
+            <text x="38" y="116" font-size="12" fill="#374151">选举 / 贸易政策转向 → 数据中心要进口的芯片、光模块、电力设备变贵</text>
+            <rect x="516" y="78" width="90" height="26" rx="13" fill="url(#lc1)"/>
+            <text x="561" y="95" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">已发生</text>
+          </g>
+          <path d="M320 132 L320 150" stroke="#9ca3af" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+          <!-- 第二层 利率 -->
+          <g>
+            <rect x="20" y="150" width="600" height="66" rx="8" fill="#eef4ff" stroke="#1a56db" stroke-width="1.5"/>
+            <text x="38" y="178" font-size="14" fill="#1a56db" font-weight="bold">第二层 · 利率</text>
+            <text x="38" y="200" font-size="12" fill="#374151">政治影响财政与货币环境，利率上升 → 借债扩张成本变高，烧钱项目先被砍</text>
+            <rect x="494" y="162" width="112" height="26" rx="13" fill="url(#lc1)"/>
+            <text x="550" y="179" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">已发生且持续</text>
+          </g>
+          <path d="M320 216 L320 234" stroke="#9ca3af" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+          <!-- 第三层 反垄断 -->
+          <g>
+            <rect x="20" y="234" width="600" height="66" rx="8" fill="#fef2f2" stroke="#c0392b" stroke-width="1.5"/>
+            <text x="38" y="262" font-size="14" fill="#c0392b" font-weight="bold">第三层 · 反垄断</text>
+            <text x="38" y="284" font-size="12" fill="#374151">政治格局改变监管倾向 → 巨头「先烧钱抢市场」的打法被立法规制</text>
+            <rect x="492" y="246" width="114" height="26" rx="13" fill="url(#lc2)"/>
+            <text x="549" y="263" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">已发生·落点待定</text>
+          </g>
+          <path d="M320 300 L320 318" stroke="#9ca3af" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+          <!-- 第四层 出口管制 -->
+          <g>
+            <rect x="20" y="318" width="600" height="66" rx="8" fill="#eef4ff" stroke="#1a56db" stroke-width="1.5"/>
+            <text x="38" y="346" font-size="14" fill="#1a56db" font-weight="bold">第四层 · 出口管制</text>
+            <text x="38" y="368" font-size="12" fill="#374151">政治决定「芯片 / 算力能不能卖到某些市场」→ 相关收入直接受影响</text>
+            <rect x="516" y="330" width="90" height="26" rx="13" fill="url(#lc1)"/>
+            <text x="561" y="347" font-size="12" fill="#ffffff" font-weight="bold" text-anchor="middle">已发生</text>
+          </g>
+          <path d="M320 384 L320 402" stroke="#9ca3af" stroke-width="2" fill="none" marker-end="url(#arr)"/>
+
+          <!-- 第五层 数据监管 -->
+          <g>
+            <rect x="20" y="402" width="600" height="78" rx="8" fill="#fdf6f0" stroke="#d97706" stroke-width="1.5"/>
+            <text x="38" y="430" font-size="14" fill="#b45309" font-weight="bold">第五层 · 数据监管</text>
+            <text x="38" y="452" font-size="12" fill="#374151">政治推动数据合规收紧 → 训练数据使用受限，合规成本上升、进度变慢</text>
+            <rect x="470" y="414" width="136" height="26" rx="13" fill="none" stroke="#d97706" stroke-width="2" stroke-dasharray="5 3"/>
+            <text x="538" y="431" font-size="12" fill="#b45309" font-weight="bold" text-anchor="middle">部分已发生·细则推演</text>
+          </g>
+
+          <!-- 底部结论条 -->
+          <g>
+            <rect x="20" y="500" width="600" height="44" rx="8" fill="#1a1a1a"/>
+            <text x="38" y="520" font-size="13" fill="#faf8f2" font-weight="bold">怎么用：看任何一条「AI 大新闻」，先问两层——它落在这五层的哪一层？是「已发生」还是「在推演」？</text>
+            <text x="38" y="538" font-size="12" fill="#c9c6bd">两个问题答完，你就不会把「推演」当「定论」。</text>
+          </g>
+        </svg>
+        <div class="cap"><b>数据图：</b>AI 政策风险五层传导路径。自上而下的箭头代表「压力方向」的示意，不是精确预测；每一层右侧的色块标明这一层「已发生（实色）」还是「仍在推演（虚线）」。它帮你把「政治影响 AI」这句抽象的话，落成一条可套用的判断题。<br>出处：拾光整理 · 2026-11-05 · 结合本期封面故事「选举泼醒 AI 梦」五层传导拆解。</div>
+        </div>
+        <div class="study"><b>关键提醒：</b> 这张图的每一层，都是「压力方向」的示意，不是「精确预测」。它的价值在于「帮你看清传导路径」，不是「帮你算命」。判断时要诚实区分「已发生」和「推演」，这正是拾光一直坚持的「不把假设当事实」。<br><br><b><span class="action">行动落点：</b> 收藏这张「五层传导图」作为你的「AI 政策解码器」。下次遇到 AI 政策新闻，套进去：是哪一层？已发生还是推演？两个问题答完，你就比 90% 的读者看得更透。</span></div>
         <div class="src">出处：拾光整理 · 2026-11-05</div>
         </div>
     </div>
