@@ -122,7 +122,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 
 
 /* 听期刊播放条（sticky 顶部） */
-.audio-bar{position:sticky;top:0;z-index:60;background:#1a1a1a;border-bottom:1px solid #333;box-shadow:0 2px 8px rgba(0,0,0,.3);}
+.audio-bar{position:sticky;top:48px;z-index:1000;background:#1a1a1a;border-bottom:1px solid #333;box-shadow:0 2px 8px rgba(0,0,0,.3);}
 .audio-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 16px;}
 .audio-btn{flex-shrink:0;background:#8a4a3a;color:#fff;border:none;border-radius:18px;padding:8px 16px;font-size:14px;cursor:pointer;font-family:inherit;white-space:nowrap;}
 .audio-btn:hover{background:#a05a48;}
@@ -130,7 +130,8 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 .audio-title{color:#ccc;font-size:12px;}
 .audio-seek{width:100%;cursor:pointer;accent-color:#8a4a3a;}
 .audio-time{color:#999;font-size:12px;flex-shrink:0;font-variant-numeric:tabular-nums;}
-@media (max-width:640px){
+@media (max-width:720px){
+  .audio-bar{top:42px;}
   .audio-inner{gap:8px;padding:8px 10px;}
   .audio-btn{padding:7px 12px;font-size:13px;}
   .audio-title{font-size:11px;}
