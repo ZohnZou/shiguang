@@ -37,3 +37,5 @@ img/cover_v14.jpg
 img/cover_v15.jpg
 img/image_001.jpg
 publish.py
+tts_issue.py
+inject_audio_bar.py
