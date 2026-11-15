@@ -269,7 +269,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     if(a.paused){a.play().catch(function(){});btn.textContent='⏸ 暂停';}
     else{a.pause();btn.textContent='🔊 听本期';}
   };
-  window.seekAudio=function(v){if(a.duration){a.currentTime=a.duration*(v/100);}
+  window.seekAudio=function(v){if(a.duration){a.currentTime=a.duration*(v/100);}}
   a.addEventListener('loadedmetadata',function(){tm.textContent='00:00 / '+fmt(a.duration);});
   a.addEventListener('timeupdate',function(){
     if(a.duration){seek.value=(a.currentTime/a.duration)*100;tm.textContent=fmt(a.currentTime)+' / '+fmt(a.duration);}
