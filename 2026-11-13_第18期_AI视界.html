@@ -11,7 +11,7 @@
   --paper:#faf7f0; --ink:#1a1a1a; --ink-2:#555; --ink-3:#8a8478;
   --line:#d8d2c4; --red:#c0392b; --blue:#1f5f8b; --green:#2e7d32; --amber:#a06a00;
   --bg-block:#f2eee3;
-  --hei:system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑','Noto Sans SC',sans-serif;
+  --hei:'Microsoft YaHei','微软雅黑','PingFang SC','Hiragino Sans GB','Noto Sans SC',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -57,7 +57,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 .section-head .no{
   width:34px;height:34px;border-radius:8px;background:var(--red);color:#fff;
   font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;
-  margin-right:10px;flex:none;font-family:Georgia,serif;
+  margin-right:10px;flex:none;font-family:var(--hei);
 }
 .section-head .cn{font-size:1.25em;font-weight:900;letter-spacing:.02em}
 .section-head .en{font-size:10.5px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase;margin-left:8px;align-self:flex-end;padding-bottom:3px}
@@ -311,7 +311,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>两层熔断到底怎么用？把「何时必须停方向」落成一张能对着勾的清单</h4>
         <div class="news">上一期只用概念讲了「动作级 / 目标级」两层熔断，这一期直接把它变成可操作的判断清单——哪些任务必须上「目标级审查」，以及「什么时候必须把方向叫停」。这套判断不发论文，但比论文更该早点用起来，因为 Agent 开始替人做「做完不回头」的活时，缺这道闸就是事故。（事件为读者续问，报道 2026-11-12）</div>
-        <div class="study"><b>是什么：两层熔断 = Agent 干活时设两道会自动跳闸的开关。</b><br><br>- 第一道（动作级）：管「这一步对不对」。操作越界、格式错、数值超范围，当场停，不让错误往下游传。<br>- 第二道（目标级）：管「整个方向对不对」。不盯着单步，而是定期抬头看：我们一开始定的那个目标，现在还成立吗？<br><br><b>为什么现在必须有一张清单，而不是一句概念：</b> 因为「目标级熔断」最容易在嘴上认同、在代码里消失。写单步校验的人多，写「目标还对不对」的人少——前者有明确的错误码，后者要对抗「惯性」。清单的价值，就是把「对抗惯性」变成一件「到了某个点就强制抬头」的事。<br><br><b>怎么理解（打比方）：目标级审查不是「挑错」，是「过安检」。</b> 动作级熔断是车间里的质检员，一个螺丝没拧紧就拦下返工；目标级审查是出门前看一眼地图——你车技再好、开得再快，方向错了，开得越远越难回头。质检员拦的是「次品」，地图拦的是「南辕北辙」。<br><br><b>可操作清单（对着勾）：</b><br><br>一、哪些任务必须上「目标级审查」（不能只靠动作级）：<br>- 后果不可逆的（发了钱、删了数据、对外发了话、改了线上配置）；<br>- 影响范围会扩散的（一个决定会被复制到几百个下游任务）；<br>- 目标本身是由人含糊表述、可被多种方式解读的（「帮我优化」到底是优化速度、成本还是质量，Agent 会自作主张）。<br><br>二、何时必须「停方向」——三类信号，中一条就停：<br>1. <b>后果不可逆</b>：下一步动作做了就收不回来，且没有回滚手段；<br>2. <b>影响范围不可控</b>：这一步的影响面你算不清、数不到边界；<br>3. <b>目标本身存疑</b>：回头审自己时发现，当初定的目标现在看是错的、或者根本不是真需求。<br><br><b><span class="action">行动落点：</b> 搭 Agent 时，别只写「出错就报错」，而是给「目标级」单独设一个检查点——每完成一定工作量（或每过一个固定时间），强制它输出一句「我现在的目标是什么、我这一路有没有偏」。偏了就地停，不要等做完。这张清单你可以直接抄进你下一个 Agent 项目的评审单里。</span><br><svg viewBox="0 0 680 250" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：两层熔断 = Agent 干活时设两道会自动跳闸的开关。</b><br><br>- 第一道（动作级）：管「这一步对不对」。操作越界、格式错、数值超范围，当场停，不让错误往下游传。<br>- 第二道（目标级）：管「整个方向对不对」。不盯着单步，而是定期抬头看：我们一开始定的那个目标，现在还成立吗？<br><br><b>为什么现在必须有一张清单，而不是一句概念：</b> 因为「目标级熔断」最容易在嘴上认同、在代码里消失。写单步校验的人多，写「目标还对不对」的人少——前者有明确的错误码，后者要对抗「惯性」。清单的价值，就是把「对抗惯性」变成一件「到了某个点就强制抬头」的事。<br><br><b>怎么理解（打比方）：目标级审查不是「挑错」，是「过安检」。</b> 动作级熔断是车间里的质检员，一个螺丝没拧紧就拦下返工；目标级审查是出门前看一眼地图——你车技再好、开得再快，方向错了，开得越远越难回头。质检员拦的是「次品」，地图拦的是「南辕北辙」。<br><br><b>可操作清单（对着勾）：</b><br><br>一、哪些任务必须上「目标级审查」（不能只靠动作级）：<br>- 后果不可逆的（发了钱、删了数据、对外发了话、改了线上配置）；<br>- 影响范围会扩散的（一个决定会被复制到几百个下游任务）；<br>- 目标本身是由人含糊表述、可被多种方式解读的（「帮我优化」到底是优化速度、成本还是质量，Agent 会自作主张）。<br><br>二、何时必须「停方向」——三类信号，中一条就停：<br>1. <b>后果不可逆</b>：下一步动作做了就收不回来，且没有回滚手段；<br>2. <b>影响范围不可控</b>：这一步的影响面你算不清、数不到边界；<br>3. <b>目标本身存疑</b>：回头审自己时发现，当初定的目标现在看是错的、或者根本不是真需求。<br><br><b><span class="action">行动落点：</b> 搭 Agent 时，别只写「出错就报错」，而是给「目标级」单独设一个检查点——每完成一定工作量（或每过一个固定时间），强制它输出一句「我现在的目标是什么、我这一路有没有偏」。偏了就地停，不要等做完。这张清单你可以直接抄进你下一个 Agent 项目的评审单里。</span><br><svg viewBox="0 0 680 250" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="WA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#1a56db"/></linearGradient>
   </defs>
@@ -341,7 +341,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>一张图分清「动作级」和「目标级」两层熔断：护栏挡的位置不一样</h4>
         <div class="news">本期「Agent 自我改进」专题的核心是一张能看清「两层熔断」的图——很多人分不清「动作级」和「目标级」到底差在哪，画成一张自上而下的分层图就清楚了。（事件为专题配图，报道 2026-11-12）</div>
-        <div class="study"><b>是什么：两层熔断在位置上到底差在哪？</b> 一张纵向分层图讲清楚——下面是「动作级」（管单步操作对不对），上面是「目标级」（管整体方向对不对）。<br><br><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：两层熔断在位置上到底差在哪？</b> 一张纵向分层图讲清楚——下面是「动作级」（管单步操作对不对），上面是「目标级」（管整体方向对不对）。<br><br><svg viewBox="0 0 680 300" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="TB" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#1a56db"/>
@@ -375,7 +375,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>「决策模型」成了新浪潮：谷歌 Gemini Decision 之后，这条赛道在抢什么</h4>
         <div class="news">谷歌带着 Gemini Decision 加入「决策模型」这一波——一次给上千个问题打分。这不是孤立动作，OpenAI、Anthropic 也都在往「让模型专司判断」的方向布局。一个新品类正在形成：**生成模型之外，又长出「决策模型」**。（事件 2026-11 发布，报道 2026-11-11）</div>
-        <div class="study"><b>是什么：决策模型和生成模型差在哪？</b> 生成模型产出内容（写一段话、画一张图），决策模型产出判断（这个候选行不行、这几条怎么排序）。前者要「创造力」，后者要「判断力」。<br><br><b>为什么值得注意：</b> 因为它更接近企业的钱。企业真正每天在做的，大量是「判断」——审单、打分、筛选、风控。谁能把「判断」做得又快又准又便宜，谁就切进了利润最实的环节。<br><br><b>怎么理解（打比方）：</b> 生成模型是「会写字的」，决策模型是「会打分的裁判」。写字的人很多，但企业里最缺的、也最值钱的，往往是那个「一秒判上千份、还不带情绪」的裁判。<br><br><b><span class="action">行动落点：</b> 如果你是做审核、质检、打分、风控这类工作的人，「决策模型」是你该重点盯的新工具——它可能先于「生成模型」进入你的工作流。但记住本期的核心提醒：它做「快判」强，做「不可逆的重大决策」仍需人把最后一道关（目标级熔断）。</span><br><svg viewBox="0 0 680 230" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：决策模型和生成模型差在哪？</b> 生成模型产出内容（写一段话、画一张图），决策模型产出判断（这个候选行不行、这几条怎么排序）。前者要「创造力」，后者要「判断力」。<br><br><b>为什么值得注意：</b> 因为它更接近企业的钱。企业真正每天在做的，大量是「判断」——审单、打分、筛选、风控。谁能把「判断」做得又快又准又便宜，谁就切进了利润最实的环节。<br><br><b>怎么理解（打比方）：</b> 生成模型是「会写字的」，决策模型是「会打分的裁判」。写字的人很多，但企业里最缺的、也最值钱的，往往是那个「一秒判上千份、还不带情绪」的裁判。<br><br><b><span class="action">行动落点：</b> 如果你是做审核、质检、打分、风控这类工作的人，「决策模型」是你该重点盯的新工具——它可能先于「生成模型」进入你的工作流。但记住本期的核心提醒：它做「快判」强，做「不可逆的重大决策」仍需人把最后一道关（目标级熔断）。</span><br><svg viewBox="0 0 680 230" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="YA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#1a56db"/></linearGradient>
     <linearGradient id="YB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
@@ -407,7 +407,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>「单层/元层」和「动作级/目标级」是不是一回事？我的判断：不是一回事，是一套闸的两个闸位</h4>
         <div class="news">有人把一个挂了很久的疑问摆到台面——第 7 期讲的「单层/元层闭环」，和第 17 期讲的「动作级/目标级熔断」，到底是不是同一件事的两套说法？这个问题值得认真回答，因为它决定了我们对「Agent 自我改进」到底该用哪套脑子去理解。（事件为读者续问，报道 2026-11-12）</div>
-        <div class="study"><b>是什么：先把两对概念拆开摆平。</b><br><br>- 「单层 / 元层」说的是<b>闭环的层级</b>：单层是「只顾眼前这一步的循环」，元层是「跳出来看全局的循环」。<br>- 「动作级 / 目标级」说的是<b>熔断挡的对象</b>：动作级挡「单步操作」，目标级挡「整体目标」。<br><br><b>为什么会有「是不是一回事」的疑问：</b> 因为两对概念都指向同一个朴素直觉——「既要管细节，又要管大局」，于是容易被当成「换了个说法」。但这是误读。它们不是同义词，是「位置重叠」。<br><br><b>怎么理解（打比方 + 亮判断）：我的判断——不是一回事，是一套闸的两个闸位。</b><br><br>把 Agent 想象成一条流水线。这条线上有两道闸：<br>- 第一道闸装在「动作出口」，哪个动作不对，当场拦下——这是「动作级熔断」，也是「单层闭环」在干活的地方；<br>- 第二道闸装在「目标入口」，整个方向对不对，定期抬头审——这是「目标级熔断」，也是「元层闭环」在干活的地方。<br><br>所以说「单层/元层」和「动作级/目标级」<b>不是同一件事的两套说法</b>，而是「同一套护栏的两个闸位」：一个管「做错事」，一个管「做错方向」。它们高度对齐、能互相印证，但换一个词不换一个闸位。<br><br><b>边界在哪（验证成立 + 划清边界，缺一不可）：</b><br><br>- 成立的部分：单层闭环保「做错事」、元层闭环保「做错方向」，这个对齐是成立的，概念能互相翻译。<br>- 但要划清的边界：两者维度不同。「单层/元层」描述的是<b>结构层级</b>（有没有跳出当下的循环），「动作级/目标级」描述的是<b>作用对象</b>（挡的是动作还是目标）。你可以有一个「单层闭环」却在做「目标级」的判断（比如它只在一个小循环里反复审视目标），也可以有个「元层闭环」却只在盯「动作级」的细节。二者对齐是「常见情况」，不是「必然等于」。<br><br><b><span class="action">行动落点：别再把这两对词当同义词背。</b> 理解 Agent 自我改进时，脑子里装这个框架：一句话说清「闸位」——单层/动作级 = 护栏挡在「做错事」上，元层/目标级 = 护栏挡在「做错方向」上。下次看到有人混用这两对词，你就能接一句：它们不是一回事，是一套闸的两个闸位。</span><br><svg viewBox="0 0 680 250" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：先把两对概念拆开摆平。</b><br><br>- 「单层 / 元层」说的是<b>闭环的层级</b>：单层是「只顾眼前这一步的循环」，元层是「跳出来看全局的循环」。<br>- 「动作级 / 目标级」说的是<b>熔断挡的对象</b>：动作级挡「单步操作」，目标级挡「整体目标」。<br><br><b>为什么会有「是不是一回事」的疑问：</b> 因为两对概念都指向同一个朴素直觉——「既要管细节，又要管大局」，于是容易被当成「换了个说法」。但这是误读。它们不是同义词，是「位置重叠」。<br><br><b>怎么理解（打比方 + 亮判断）：我的判断——不是一回事，是一套闸的两个闸位。</b><br><br>把 Agent 想象成一条流水线。这条线上有两道闸：<br>- 第一道闸装在「动作出口」，哪个动作不对，当场拦下——这是「动作级熔断」，也是「单层闭环」在干活的地方；<br>- 第二道闸装在「目标入口」，整个方向对不对，定期抬头审——这是「目标级熔断」，也是「元层闭环」在干活的地方。<br><br>所以说「单层/元层」和「动作级/目标级」<b>不是同一件事的两套说法</b>，而是「同一套护栏的两个闸位」：一个管「做错事」，一个管「做错方向」。它们高度对齐、能互相印证，但换一个词不换一个闸位。<br><br><b>边界在哪（验证成立 + 划清边界，缺一不可）：</b><br><br>- 成立的部分：单层闭环保「做错事」、元层闭环保「做错方向」，这个对齐是成立的，概念能互相翻译。<br>- 但要划清的边界：两者维度不同。「单层/元层」描述的是<b>结构层级</b>（有没有跳出当下的循环），「动作级/目标级」描述的是<b>作用对象</b>（挡的是动作还是目标）。你可以有一个「单层闭环」却在做「目标级」的判断（比如它只在一个小循环里反复审视目标），也可以有个「元层闭环」却只在盯「动作级」的细节。二者对齐是「常见情况」，不是「必然等于」。<br><br><b><span class="action">行动落点：别再把这两对词当同义词背。</b> 理解 Agent 自我改进时，脑子里装这个框架：一句话说清「闸位」——单层/动作级 = 护栏挡在「做错事」上，元层/目标级 = 护栏挡在「做错方向」上。下次看到有人混用这两对词，你就能接一句：它们不是一回事，是一套闸的两个闸位。</span><br><svg viewBox="0 0 680 250" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="ZA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#1a56db"/></linearGradient>
     <linearGradient id="ZB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
@@ -470,7 +470,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>一张图记住「国产大模型四档位」：不是一条跑道，是四个摊位</h4>
         <div class="news">把「国产大模型四档位坐标系」画成一张图，比记文字快得多——四个并排的档位，各自对应一类能力和一类场景，一看就知道「谁在抢什么位置」。（事件为专题配图，报道 2026-11-12）</div>
-        <div class="study"><b>是什么：四档位不是「第一名到第四名」，是四个不同的摊位。</b> 用一张横向四列图表达，避免「必分高下」的误读。<br><br><svg viewBox="0 0 680 230" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：四档位不是「第一名到第四名」，是四个不同的摊位。</b> 用一张横向四列图表达，避免「必分高下」的误读。<br><br><svg viewBox="0 0 680 230" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="G1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#1a56db"/></linearGradient>
     <linearGradient id="G2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
@@ -478,7 +478,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
   <text x="20" y="24" font-size="10.5" letter-spacing="2.5" font-weight="bold" fill="#9ca3af">国产大模型 · 四档位常设坐标系</text>
   <line x1="20" y1="34" x2="660" y2="34" stroke="#e5e7eb" stroke-width="1"/>
   <!-- 四列 -->
-  <g font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <g font-family="'Microsoft YaHei','PingFang SC',sans-serif">
     <rect x="20" y="50" width="150" height="70" rx="8" fill="url(#G1)"/>
     <text x="95" y="78" font-size="14" font-weight="bold" fill="#ffffff" text-anchor="middle">旗舰</text>
     <text x="95" y="100" font-size="10.5" fill="#dbeafe" text-anchor="middle">综合能力天花板</text>
@@ -515,7 +515,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>英国 AI 芯片新星 Fractile 估值飙到 70 亿美元，Anthropic 也押了钱：挑战英伟达的又一张牌</h4>
         <div class="news">英国 AI 芯片公司 Fractile 拿下 **7.2 亿美元**融资，估值冲上 **70 亿美元**，Anthropic 也参与了投资。这家公司主攻的是「推理芯片」——专门优化大模型「用起来」阶段的算力，而不是「训练」阶段。同一天，Anthropic 还公开说「AI 正在侵蚀英伟达 CUDA 的领先地位」，把 AMD 芯片切换时间从几个月压到三天。（事件 2026-11 披露，报道 2026-11-11）</div>
-        <div class="study"><b>是什么：Fractile 押的是什么位置？</b> 英伟达的强项是「训练」，把模型教聪明；Fractile 押的是「推理」，让教好的模型在真正服务用户时跑得又快又省。这是两条不同的赛道，训练是「造发动机」，推理是「跑运输」。<br><br><b>为什么值得注意：</b> 当大模型进入「大规模落地服务」阶段，推理成本成了最痛的账。谁能在推理芯片上把成本打下来，谁就切到英伟达帝国最肥的一块腹地。Anthropic 投资它，不是为了「不买英伟达」，是为了「手里多一张砍价的牌」。<br><br><b>怎么理解（打比方）：</b> 英伟达像「唯一的高速公路收费站」，训练和推理的车都要过。现在有人专门修一条「货车专用道」给跑推理的用，收费更低。Anthropic 投这条专用道，是要让高速公路收费站「降降过路费」。<br><br><b><span class="action">行动落点：</b> 普通读者不必记 Fractile 这个名字，但要记住一个方向——<b>「推理芯片」会是接下来一年 AI 硬件最大的变量</b>。它决定你以后用 AI 贵不贵。看到「某某推理芯片融资/流片」的消息，多留一个心眼：这可能是「AI 服务降费」的前兆。</span><br><svg viewBox="0 0 680 240" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：Fractile 押的是什么位置？</b> 英伟达的强项是「训练」，把模型教聪明；Fractile 押的是「推理」，让教好的模型在真正服务用户时跑得又快又省。这是两条不同的赛道，训练是「造发动机」，推理是「跑运输」。<br><br><b>为什么值得注意：</b> 当大模型进入「大规模落地服务」阶段，推理成本成了最痛的账。谁能在推理芯片上把成本打下来，谁就切到英伟达帝国最肥的一块腹地。Anthropic 投资它，不是为了「不买英伟达」，是为了「手里多一张砍价的牌」。<br><br><b>怎么理解（打比方）：</b> 英伟达像「唯一的高速公路收费站」，训练和推理的车都要过。现在有人专门修一条「货车专用道」给跑推理的用，收费更低。Anthropic 投这条专用道，是要让高速公路收费站「降降过路费」。<br><br><b><span class="action">行动落点：</b> 普通读者不必记 Fractile 这个名字，但要记住一个方向——<b>「推理芯片」会是接下来一年 AI 硬件最大的变量</b>。它决定你以后用 AI 贵不贵。看到「某某推理芯片融资/流片」的消息，多留一个心眼：这可能是「AI 服务降费」的前兆。</span><br><svg viewBox="0 0 680 240" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="XA" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#1a56db"/></linearGradient>
     <linearGradient id="XB" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
@@ -601,7 +601,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>用「三层框架」看 AI 这盘棋：技术层 / 应用层 / 生态层，钱正在往哪一层集中</h4>
         <div class="news">本期用「三层框架」（技术层/应用层/生态层）这把常设尺子，量一量当下 AI 的钱在往哪流——结论是：技术层在「抢着收」，应用层在「抢着活」，生态层在「抢着定规则」。（事件为框架应用，报道 2026-11-12）</div>
-        <div class="study"><b>是什么：三层框架是什么？</b> 技术层（模型/算力/芯片，造的）、应用层（落到具体场景、用的）、生态层（政策/资本/开源/标准，管「场子」的）。三层各自有各自的活法和钱法。<br><br><b>本次量出来的判断：</b> 技术层（OpenAI 营收破百亿、创始人套现）进入「收割期」；应用层（豆包开第三方、律所重构流程）进入「拼成本拼落地期」；生态层（澳提案、儿童安全）进入「定规则期」。三层节奏不同，不能拿一把尺子量。<br><br><b>怎么理解（打比方）：</b> 技术层是「卖水的」（淘金热里最稳），应用层是「淘金的」（拼谁先淘到），生态层是「立牌的」（定谁能在哪挖）。淘金热到了这个阶段，卖水的开始数钱，淘金的开始拼锄头便宜，立牌的开始立规矩。<br><br><svg viewBox="0 0 680 240" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：三层框架是什么？</b> 技术层（模型/算力/芯片，造的）、应用层（落到具体场景、用的）、生态层（政策/资本/开源/标准，管「场子」的）。三层各自有各自的活法和钱法。<br><br><b>本次量出来的判断：</b> 技术层（OpenAI 营收破百亿、创始人套现）进入「收割期」；应用层（豆包开第三方、律所重构流程）进入「拼成本拼落地期」；生态层（澳提案、儿童安全）进入「定规则期」。三层节奏不同，不能拿一把尺子量。<br><br><b>怎么理解（打比方）：</b> 技术层是「卖水的」（淘金热里最稳），应用层是「淘金的」（拼谁先淘到），生态层是「立牌的」（定谁能在哪挖）。淘金热到了这个阶段，卖水的开始数钱，淘金的开始拼锄头便宜，立牌的开始立规矩。<br><br><svg viewBox="0 0 680 240" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="L1" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1e3a8a"/><stop offset="1" stop-color="#1a56db"/></linearGradient>
     <linearGradient id="L2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
@@ -634,7 +634,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>一张图看懂「抢着收」：OpenAI 单季营收破百亿，环比近 50% 是什么斜率</h4>
         <div class="news">这一天最该「画成图」的数字，是 OpenAI 营收的单季斜率。三季度营收 **100 亿美元**、环比增长近 **50%**——这个「近五成」，比那个「百亿」更能说明 AI 头部公司此刻的状态：收入在追着烧钱的速度跑。（事件 2026-11-10~11 披露，报道 2026-11-11）</div>
-        <div class="study"><b>是什么：把营收的增长速度画出来，比单看一个数字更清楚。</b> 下面是 OpenAI 最近几个季度营收的走势示意（单位：亿美元，口径为媒体披露的环比增速折算，用于呈现「加速」这个趋势，非精确审计值）。<br><br><svg viewBox="0 0 680 260" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：把营收的增长速度画出来，比单看一个数字更清楚。</b> 下面是 OpenAI 最近几个季度营收的走势示意（单位：亿美元，口径为媒体披露的环比增速折算，用于呈现「加速」这个趋势，非精确审计值）。<br><br><svg viewBox="0 0 680 260" width="100%" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="AREA" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#1a56db" stop-opacity="0.22"/>

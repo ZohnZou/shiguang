@@ -10,7 +10,7 @@
   --paper:#faf7f0; --ink:#1a1a1a; --ink-2:#555; --ink-3:#8a8478;
   --line:#d8d2c4; --red:#c0392b; --blue:#1f5f8b; --green:#2e7d32; --amber:#a06a00;
   --bg-block:#f2eee3;
-  --hei:system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑','Noto Sans SC',sans-serif;
+  --hei:'Microsoft YaHei','微软雅黑','PingFang SC','Hiragino Sans GB','Noto Sans SC',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -56,7 +56,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 .section-head .no{
   width:34px;height:34px;border-radius:8px;background:var(--red);color:#fff;
   font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;
-  margin-right:10px;flex:none;font-family:Georgia,serif;
+  margin-right:10px;flex:none;font-family:var(--hei);
 }
 .section-head .cn{font-size:1.25em;font-weight:900;letter-spacing:.02em}
 .section-head .en{font-size:10.5px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase;margin-left:8px;align-self:flex-end;padding-bottom:3px}
@@ -165,7 +165,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>上游吃肉、下游喝汤？我们用 20 家公司的真财报，把「利润向上游集中」这条线验了一遍</h4>
         <div class="news">过去一个月，我们的期刊反复在讲 AI 硬件的一条判断——钱正在从「中游组装」往「芯片和材料的上游」跑。这只是推断，还是已经在财报上兑现了？我们用 A 股 20 家 PCB（印制电路板）产业链公司的 2026 年三季报（2026Q3）做了一次真金白银的验证：上游 10 家基材公司（做铜箔、玻纤布、覆铜板这些最源头的材料）归母净利润同比均值约 **1196%**；下游 10 家板厂（把材料焊成电路板再卖给服务器厂）同期净利润同比均值只有约 **167%**——相差整整 7 倍。判断基本坐实，但也不是铁板一块，中间有几个「喝汤也喝饱了」的反例值得单独说清楚。（事件：2026Q3 财报季 · 报道：2026-11-02）</div>
-        <div class="study"><b>是什么：一句话，一条「谁离芯片越近，谁吃到的肉越肥」的利润分水岭。</b><br><br>AI 服务器爆发，最先缺的不是「会焊接的工人」，是「源头那几样稀缺材料」——超低损耗的覆铜板、精度到微米级的铜箔、比头发还细的玻纤纱。这些东西全世界产能有限，需求一爆发就涨价，涨价的每一分钱都直接进了上游公司口袋。而下游板厂是「买材料来加工」的，材料涨了它得照单全收，售价却很难同比例涨上去，于是「营收在涨、利润在缩」。<br><br><b>为什么：缺的是「稀缺的原料」，不是「普通的加工」。</b><br><br>打个比方：淘金热的时候，真正稳赚的往往不是挖金子的人，是卖铲子和牛仔布的。AI 算力这波，卖「覆铜板」的就是卖铲子的。为什么板厂赚不到这个钱？因为焊板子这件事，能做的人多，产能不缺；而「超低损耗板材」这件事，全世界就几家能做，产能卡死。上游稀缺、下游过剩，钱自然往稀缺的地方流。<br><br><b>怎么理解：看两个最扎眼的对比。</b><br><br>- 上游嘉元科技（铜箔）净利润同比 <b>+4264%</b>、华正新材 <b>+3045%</b>、宏昌电子 <b>+2545%</b>——注意这些是「百分之几千」，不是「百分之几十」。<br>- 下游胜宏科技，营收还涨了 34%，净利润却 <b>-52%</b>（增收不增利）；鹏鼎控股营收 +14%、净利 -0.87%。赚钱的代价被上游吃掉了。<br><br>先把最核心的对比摊成一张图——上游和下游，两个阵营的利润增速，是一道肉眼可见的断崖：<br><br><svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：一句话，一条「谁离芯片越近，谁吃到的肉越肥」的利润分水岭。</b><br><br>AI 服务器爆发，最先缺的不是「会焊接的工人」，是「源头那几样稀缺材料」——超低损耗的覆铜板、精度到微米级的铜箔、比头发还细的玻纤纱。这些东西全世界产能有限，需求一爆发就涨价，涨价的每一分钱都直接进了上游公司口袋。而下游板厂是「买材料来加工」的，材料涨了它得照单全收，售价却很难同比例涨上去，于是「营收在涨、利润在缩」。<br><br><b>为什么：缺的是「稀缺的原料」，不是「普通的加工」。</b><br><br>打个比方：淘金热的时候，真正稳赚的往往不是挖金子的人，是卖铲子和牛仔布的。AI 算力这波，卖「覆铜板」的就是卖铲子的。为什么板厂赚不到这个钱？因为焊板子这件事，能做的人多，产能不缺；而「超低损耗板材」这件事，全世界就几家能做，产能卡死。上游稀缺、下游过剩，钱自然往稀缺的地方流。<br><br><b>怎么理解：看两个最扎眼的对比。</b><br><br>- 上游嘉元科技（铜箔）净利润同比 <b>+4264%</b>、华正新材 <b>+3045%</b>、宏昌电子 <b>+2545%</b>——注意这些是「百分之几千」，不是「百分之几十」。<br>- 下游胜宏科技，营收还涨了 34%，净利润却 <b>-52%</b>（增收不增利）；鹏鼎控股营收 +14%、净利 -0.87%。赚钱的代价被上游吃掉了。<br><br>先把最核心的对比摊成一张图——上游和下游，两个阵营的利润增速，是一道肉眼可见的断崖：<br><br><svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="cUp" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
     <linearGradient id="cDn" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9ca3af"/><stop offset="1" stop-color="#cbd5e1"/></linearGradient>
@@ -230,7 +230,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>一张图看清「AI 硬件的钱流到哪」：上游均值 1196%，下游只有 167%</h4>
         <div class="news">把 20 家 PCB 产业链公司 2026 年三季报摊开看，「钱在往上游富集」不是一句情绪判断，是一组能画出来的数字。上游基材 10 家净利润同比均值 **1196%**，下游板厂 10 家均值 **167%**，差了 7 倍。但同样在下游，沪电股份 +161%、深南电路 +94% 又提醒我们：这板子不是铁板一块。（事件：2026Q3 财报 · 报道：2026-11-02）</div>
-        <div class="study">这条判断，我们连续三期在追，今天终于能落到一张真图、一波真数字上。核心结论一句话：<b>AI 硬件的钱，在往「源头材料」和「稀缺环节」跑，而不是均匀摊给整条链。</b><br><br>用一张图把 20 家公司的净利润同比增速摊开，你会看到一条清晰的下坡线——从上游 4000% 量级的暴增，一路跌到下游板厂几十个百分点甚至负数的「增收不增利」。<br><br><svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study">这条判断，我们连续三期在追，今天终于能落到一张真图、一波真数字上。核心结论一句话：<b>AI 硬件的钱，在往「源头材料」和「稀缺环节」跑，而不是均匀摊给整条链。</b><br><br>用一张图把 20 家公司的净利润同比增速摊开，你会看到一条清晰的下坡线——从上游 4000% 量级的暴增，一路跌到下游板厂几十个百分点甚至负数的「增收不增利」。<br><br><svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="up" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/>
@@ -274,7 +274,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>「上游吃肉」别学成「上游永远赢」：三个反例，帮你看清这条规律的边界</h4>
         <div class="news">这一期我们验证了「利润向上游集中」，但必须同时看清它的边界——否则容易把一条「多数时候成立」的规律，学成一条「永远成立」的死教条。三个反例，划清边界。（拾光整理 · 2026-11-07）</div>
-        <div class="study"><b>是什么：规律有用，是因为它有边界，不是因为它无敌。</b><br><br>「谁稀缺谁吃肉」在多数情况成立，但反例恰恰是它最有价值的部分——反例告诉你「什么时候这条规律会失效」，让你不会误用。<br><br><b>三个反例（都是真数据）：</b><br><br><svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：规律有用，是因为它有边界，不是因为它无敌。</b><br><br>「谁稀缺谁吃肉」在多数情况成立，但反例恰恰是它最有价值的部分——反例告诉你「什么时候这条规律会失效」，让你不会误用。<br><br><b>三个反例（都是真数据）：</b><br><br><svg viewBox="0 0 680 260" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="b1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
   </defs>
@@ -308,7 +308,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>光通信下一代有 7 个方案在抢同一班车，「光离芯片多近」是唯一主线</h4>
         <div class="news">AI 算力越堆越大，数据在芯片之间跑来跑去，铜线已经撞墙（单通道逼近 200G 就到物理极限），「光进铜退」成了绕不开的路。但光怎么接进芯片，业内居然同时冒出 **7 个方案**——3.2T PLO、XPO、NPO、CPO、MicroLED、USFP、OOI。这是光通信史上「方案最多」的一次，本质是一条线：**让光离芯片越来越近**。（事件：2026 年下半年各方案纷纷定档 · 报道：2026-11-03）</div>
-        <div class="study"><b>是什么：7 个名词看着吓人，其实都是「光模块离芯片有多近」的 7 个档位。</b><br><br>把光信号接到芯片边上的方式，可以从「离得远」到「离得近」排成一列。离得越近，光在铜线里跑的距离越短，功耗越低、速度越快，但工艺越难、良率越难。这 7 个方案，就是这一条光谱上的 7 个刻度。<br><br><b>为什么：逼到这一步，是铜线先交的枪。</b><br><br>芯片之间传数据，以前靠铜线（可插拔光模块把光转电、电再走铜线）。可现在带宽需求涨太快，铜线每升高一档速率，信号的损耗和发热就指数级长。到 200G 单通道，铜线基本到头了。唯一的解法就是「光走得更靠前」——让光直接进到芯片附近，甚至进芯片封装里，把铜线那段减到最短。<br><br><b>怎么理解：一张图把 7 个方案按「离芯片距离」排开。</b><br><br><svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：7 个名词看着吓人，其实都是「光模块离芯片有多近」的 7 个档位。</b><br><br>把光信号接到芯片边上的方式，可以从「离得远」到「离得近」排成一列。离得越近，光在铜线里跑的距离越短，功耗越低、速度越快，但工艺越难、良率越难。这 7 个方案，就是这一条光谱上的 7 个刻度。<br><br><b>为什么：逼到这一步，是铜线先交的枪。</b><br><br>芯片之间传数据，以前靠铜线（可插拔光模块把光转电、电再走铜线）。可现在带宽需求涨太快，铜线每升高一档速率，信号的损耗和发热就指数级长。到 200G 单通道，铜线基本到头了。唯一的解法就是「光走得更靠前」——让光直接进到芯片附近，甚至进芯片封装里，把铜线那段减到最短。<br><br><b>怎么理解：一张图把 7 个方案按「离芯片距离」排开。</b><br><br><svg viewBox="0 0 680 360" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="heat" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#1a56db"/>
@@ -370,7 +370,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>涨价怎么从「一炉铜箔」传到「你买的服务器」？一张时间表讲清传导链</h4>
         <div class="news">上游的嘉元科技净利润涨了 4264%，可你没买铜箔啊，这钱最后谁掏？答案是——**涨价像多米诺骨牌，从源头一路推到终端，每一环都在「滞后」地往下传**。建滔积层板年内已经第 8 轮调价，中国巨石明确说「2027 供给增量难匹配需求，紧平衡至少延续到 2027 上半年」。这条传导链，值得拆开看。（事件：2026 年内多次调价 · 报道：2026-11-02）</div>
-        <div class="study"><b>是什么：涨价不是一蹴而就，是一节一节往下压的「时差接力」。</b><br><br>AI 服务器要海量高密度 PCB，PCB 要高端覆铜板，覆铜板要超薄电子布和铜箔，铜箔要玻纤纱和纯铜。最源头的东西（玻纤、铜）一涨，它先吃一波利润；过一两个月，中间商才「敢」把涨价往下传；再往后，板厂硬着头皮涨价，服务器厂承受；最后才是终端（数据中心、AI 服务订阅价）慢慢体现。<br><br><b>为什么会有「时差」：因为每一环都有库存和合同锁价。</b><br><br>下游板厂手里通常锁着几个月的前置订单价，上游突然涨价，它不能马上转嫁给下一家，得先自己扛。扛不住、库存也吃完了，才轮到下一轮涨价谈判。所以涨价的传播永远「上游快、下游慢、终端最后」。<br><br><b>怎么理解：一张「涨价传导时间表」看清节奏。</b><br><br><svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：涨价不是一蹴而就，是一节一节往下压的「时差接力」。</b><br><br>AI 服务器要海量高密度 PCB，PCB 要高端覆铜板，覆铜板要超薄电子布和铜箔，铜箔要玻纤纱和纯铜。最源头的东西（玻纤、铜）一涨，它先吃一波利润；过一两个月，中间商才「敢」把涨价往下传；再往后，板厂硬着头皮涨价，服务器厂承受；最后才是终端（数据中心、AI 服务订阅价）慢慢体现。<br><br><b>为什么会有「时差」：因为每一环都有库存和合同锁价。</b><br><br>下游板厂手里通常锁着几个月的前置订单价，上游突然涨价，它不能马上转嫁给下一家，得先自己扛。扛不住、库存也吃完了，才轮到下一轮涨价谈判。所以涨价的传播永远「上游快、下游慢、终端最后」。<br><br><b>怎么理解：一张「涨价传导时间表」看清节奏。</b><br><br><svg viewBox="0 0 680 340" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="c1" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#1a56db"/></linearGradient>
   </defs>
@@ -407,7 +407,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>一张图看懂：机器人学「抓方块」，为什么非要在虚拟世界里刷题</h4>
         <div class="news">ToyBlocks 这类受控虚拟环境，解决的是机器人学习「刷题成本」的问题。用一张「虚实对比」的图，能一眼看懂它为什么是具身智能的关键基建。（报道：2026-11-07）</div>
-        <div class="study"><b>是什么：机器人练一个动作，两条路的成本差距是天壤之别。</b><br><br>真机上练：要一台真的机械臂、要有人看着、试错一次几分钟、摔了要修。虚拟里练：一套仿真软件，可以并行开几百个环境，一秒试错无数次，练烂了也不心疼。图里拉开这两条路的差距。<br><br><svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：机器人练一个动作，两条路的成本差距是天壤之别。</b><br><br>真机上练：要一台真的机械臂、要有人看着、试错一次几分钟、摔了要修。虚拟里练：一套仿真软件，可以并行开几百个环境，一秒试错无数次，练烂了也不心疼。图里拉开这两条路的差距。<br><br><svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="a1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#9ca3af"/><stop offset="1" stop-color="#cbd5e1"/></linearGradient>
     <linearGradient id="a2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
@@ -431,7 +431,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>光通信「离芯片多近」四档递进图：从可插拔到 OOI，一张图记住主线</h4>
         <div class="news">光互连 7 个方案看着乱，本质是「光离芯片从远到近」的四档递进：可插拔 → 板载 → 共封装 → 中介层。把这四档画成一张「距离递减、功耗递减、难度递增」的图，整条线就清楚了。（拾光整理 · 2026-11-07）</div>
-        <div class="study"><b>是什么：一条「光越来越靠近芯片」的单向进阶线。</b><br><br>光每往前推一档，铜线就短一截，功耗和延迟就少一截，但封装工艺越来越难、良率越来越难保证。这张图用「离芯片距离」做横轴，把 7 个方案归进四档。<br><br><svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：一条「光越来越靠近芯片」的单向进阶线。</b><br><br>光每往前推一档，铜线就短一截，功耗和延迟就少一截，但封装工艺越来越难、良率越来越难保证。这张图用「离芯片距离」做横轴，把 7 个方案归进四档。<br><br><svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="px" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#1a56db"/></linearGradient>
   </defs>
@@ -504,7 +504,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>铜线为什么「撞墙」？一张图看懂「光进铜退」到底在退什么</h4>
         <div class="news">光互连的加速演进，根源是铜线在高速传输上的物理极限到了。用一张图看清「铜和光」在 AI 算力里的角色切换，就懂了为什么全行业都在往光上押注。（拾光整理 · 2026-11-07）</div>
-        <div class="study"><b>是什么：芯片之间传数据，有两条路——铜线（便宜但会衰减）和光（快但贵）。</b><br><br>短距离、低速，铜线够用又便宜；但 AI 集群越来越大、速率越来越高，铜线每升一档，信号衰减、发热就指数级恶化。到了单通道 200G 这一档，铜线基本「跑不动了」，只能让光「顶上去」。<br><br><b>为什么是「进」和「退」：不是铜被淘汰，是铜的「势力范围」在往里缩。</b><br><br>铜不会消失，芯片内部、极短距离还是它。但「芯片之间、机柜之间」这些中等距离的高速传输，正一寸一寸让给光。所谓「光进铜退」，就是这条「光能跑的边界」不断往芯片方向推进。<br><br><svg viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><b>是什么：芯片之间传数据，有两条路——铜线（便宜但会衰减）和光（快但贵）。</b><br><br>短距离、低速，铜线够用又便宜；但 AI 集群越来越大、速率越来越高，铜线每升一档，信号衰减、发热就指数级恶化。到了单通道 200G 这一档，铜线基本「跑不动了」，只能让光「顶上去」。<br><br><b>为什么是「进」和「退」：不是铜被淘汰，是铜的「势力范围」在往里缩。</b><br><br>铜不会消失，芯片内部、极短距离还是它。但「芯片之间、机柜之间」这些中等距离的高速传输，正一寸一寸让给光。所谓「光进铜退」，就是这条「光能跑的边界」不断往芯片方向推进。<br><br><svg viewBox="0 0 680 280" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="dop" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#d97706"/><stop offset="1" stop-color="#fbbf24"/></linearGradient>
     <linearGradient id="dol" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>

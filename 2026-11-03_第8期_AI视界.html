@@ -9,7 +9,7 @@
   --paper:#faf7f0; --ink:#1a1a1a; --ink-2:#555; --ink-3:#8a8478;
   --line:#d8d2c4; --red:#c0392b; --blue:#1f5f8b; --green:#2e7d32; --amber:#a06a00;
   --bg-block:#f2eee3;
-  --hei:system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑','Noto Sans SC',sans-serif;
+  --hei:'Microsoft YaHei','微软雅黑','PingFang SC','Hiragino Sans GB','Noto Sans SC',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -55,7 +55,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 .section-head .no{
   width:34px;height:34px;border-radius:8px;background:var(--red);color:#fff;
   font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;
-  margin-right:10px;flex:none;font-family:Georgia,serif;
+  margin-right:10px;flex:none;font-family:var(--hei);
 }
 .section-head .cn{font-size:1.25em;font-weight:900;letter-spacing:.02em}
 .section-head .en{font-size:10.5px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase;margin-left:8px;align-self:flex-end;padding-bottom:3px}
@@ -282,7 +282,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="study"><b>一句话先讲清楚 OOI 是什么：</b>AI 芯片之间要高速传数据，铜线到顶了，得换光。但「光」和「电」是两套语言，中间得有个「光电转换站」把它俩翻译互通。OOI 干的事，就是把这个转换站，从离芯片老远的基板上，搬到紧贴着 GPU 的硅中介层上。<br><br><b>为什么要这么干？三个实打实的好处：</b><span class="num">① 功耗降 3.5 倍</span>（官方口径「3.5x less power」）；<span class="num">② 把有机基板从电信号路径里「拿掉」</span>——芯片到光源之间的铜更短、走线更细，带宽密度直接拉高；<span class="num">③ 单根光纤吃下 256 Gb/s</span>（靠 8 个波长的 DWDM 密集波分复用，8×32Gb/s 叠在一根纤上）。<br><br><b>拾光最看重的一句诚实提醒：</b>这还<span class="key">只是研究阶段的原型，没有商业化时间表</span>。别一看到「英伟达」「3.5 倍功耗」就脑补成「下一代显卡快来了」——它不是量产利好，是方向预告。三大难还没解决：<b>散热</b>（最棘手，光元件对温度敏感，还得跟几百瓦的 GPU 共封装）、<b>制造良率</b>、<b>可维修性</b>。光器件焊进芯片封装里，坏了你怎么换？这是它离落地还远的根本原因。<br><span class="action">行动落点：不用现在就去学「怎么投资光模块」，那是另一码事。你可以带走的是这条判断——「光进铜退」是 AI 算力往下走的确定方向，OOI 是这个方向上「更激进的一步」。记住这个词，下次看到 CPO、光模块、硅光引擎这些词，就能串起来了。</span></div>
         <div class="dict">拾光词典 #011 · <b>OOI（Optics-on-Interposer，中介层上集成光学）</b> —— 把「光电转换站」从离 GPU 较远的封装基板，搬到紧贴 GPU 的硅中介层上，让光离算力核心最近。是 CPO（把光引擎放交换芯片旁）这个「光互连内移」路线的再往下一步。</div>
         <div class="fig">
-          <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,'PingFang SC','Microsoft YaHei',sans-serif">
+          <svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="system-ui,-apple-system,'Microsoft YaHei','PingFang SC',sans-serif">
             <defs>
               <linearGradient id="o1" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1a56db"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
               <linearGradient id="o2" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#c0392b"/><stop offset="1" stop-color="#e67e22"/></linearGradient>

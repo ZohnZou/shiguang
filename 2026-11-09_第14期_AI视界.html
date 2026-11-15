@@ -10,7 +10,7 @@
   --paper:#faf7f0; --ink:#1a1a1a; --ink-2:#555; --ink-3:#8a8478;
   --line:#d8d2c4; --red:#c0392b; --blue:#1f5f8b; --green:#2e7d32; --amber:#a06a00;
   --bg-block:#f2eee3;
-  --hei:system-ui,-apple-system,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','微软雅黑','Noto Sans SC',sans-serif;
+  --hei:'Microsoft YaHei','微软雅黑','PingFang SC','Hiragino Sans GB','Noto Sans SC',sans-serif;
 }
 *{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth}
@@ -56,7 +56,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 .section-head .no{
   width:34px;height:34px;border-radius:8px;background:var(--red);color:#fff;
   font-size:15px;font-weight:800;display:flex;align-items:center;justify-content:center;
-  margin-right:10px;flex:none;font-family:Georgia,serif;
+  margin-right:10px;flex:none;font-family:var(--hei);
 }
 .section-head .cn{font-size:1.25em;font-weight:900;letter-spacing:.02em}
 .section-head .en{font-size:10.5px;letter-spacing:.2em;color:var(--ink-3);text-transform:uppercase;margin-left:8px;align-self:flex-end;padding-bottom:3px}
@@ -171,7 +171,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>光通信「换挡期」来了：可插拔的黄金期，被硬生生砍短了两年</h4>
         <div class="news">2026 年 11 月，光通信行业的下一代路线图像被谁按了快进键——原本预计 2029 年才商用的 NPO（板载光学），被 Lumentum CEO Michael Hurlston 在专访里直接说成「提前到 2027 年底」。这意味着什么？意味着沿用了几十年、成熟到不能再熟的「可插拔光模块」这条老路，它的黄金期被硬生生砍短了约两年。消息来自 Gazettabyte 对 Lumentum 的专访，发布于 2026 年 11 月的产业拆解（jiuge 公众号转译），事件发生在 Marvell 宣布收购 Lumentum 之前不久。</div>
-        <div class="study">先说一句大白话：光模块是「把电信号变成光、再变回电」的那个小盒子，插在交换机和显卡之间。AI 训练集群里，成千上万个 GPU 要互相传数据，电信号在铜线里跑不远，<b>得靠光来跑</b>。数据传得越凶，光信号就得离芯片越近——近一米、近一厘米、近到贴在芯片上。<br><br>这里有一个反常识的点，值得你先记住：<b>「近」这个字，是整个光通信行业未来五年所有矛盾的根源。</b> 光离芯片越近，能省的电越多、延迟越低、带宽越大，但工艺难度是几何级往上翻。所以「越近越难」不是一句形容词，是一条物理定律——每一档换挡，都是从「成熟可靠但不给力」往「给力但还造不好」挪一步。<br><br>光通信的换挡，就卡在四档上：<br><br><b>第一档，可插拔模块（今天的主流）。</b> 一个独立的小铁盒，坏了就拔下来换，维护性最好、良率高、产业链最成熟。缺点是电信号得先跑完一整段 PCB 铜线才到光模块，路程远、功耗高。今天 800G、1.6T 的可插拔模块就是这档，它养活了整个光模块行业。<br><br><b>第二档，NPO（Near-Packaged Optics，板载光学）。</b> 光引擎直接焊在交换机主板上、贴着芯片放，省掉了那段长铜线。好处是功耗降一截、延迟降一截；代价是维护性变差——坏了不能再「拔下来换一个」，得整块板子返修，良率也更难做。这档原定 2029 年才商用，现在被说提前到 2027 年底。<br><br><b>第三档，CPO（Co-Packaged Optics，共封装光学）。</b> 光引擎和交换芯片封到同一个基板/封装里，距离进一步缩短。电信号几乎不跑 PCB，功耗和延迟再降一大截。但制造难度陡升：芯片和光引擎要一起封装、一起测，一个环节废了全废，维护性几乎归零（坏了就是整颗换）。<br><br><b>第四档，OOI（Optics-on-Interposer，中介层上光学）。</b> 光直接做在硅中介层里，离芯片最近、损耗最低。这是英伟达在 2026 年 SEMICON West 上展示的下一代技术，还在很早期。<br><br>把四档摆一起，规律一目了然：<br><br><svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study">先说一句大白话：光模块是「把电信号变成光、再变回电」的那个小盒子，插在交换机和显卡之间。AI 训练集群里，成千上万个 GPU 要互相传数据，电信号在铜线里跑不远，<b>得靠光来跑</b>。数据传得越凶，光信号就得离芯片越近——近一米、近一厘米、近到贴在芯片上。<br><br>这里有一个反常识的点，值得你先记住：<b>「近」这个字，是整个光通信行业未来五年所有矛盾的根源。</b> 光离芯片越近，能省的电越多、延迟越低、带宽越大，但工艺难度是几何级往上翻。所以「越近越难」不是一句形容词，是一条物理定律——每一档换挡，都是从「成熟可靠但不给力」往「给力但还造不好」挪一步。<br><br>光通信的换挡，就卡在四档上：<br><br><b>第一档，可插拔模块（今天的主流）。</b> 一个独立的小铁盒，坏了就拔下来换，维护性最好、良率高、产业链最成熟。缺点是电信号得先跑完一整段 PCB 铜线才到光模块，路程远、功耗高。今天 800G、1.6T 的可插拔模块就是这档，它养活了整个光模块行业。<br><br><b>第二档，NPO（Near-Packaged Optics，板载光学）。</b> 光引擎直接焊在交换机主板上、贴着芯片放，省掉了那段长铜线。好处是功耗降一截、延迟降一截；代价是维护性变差——坏了不能再「拔下来换一个」，得整块板子返修，良率也更难做。这档原定 2029 年才商用，现在被说提前到 2027 年底。<br><br><b>第三档，CPO（Co-Packaged Optics，共封装光学）。</b> 光引擎和交换芯片封到同一个基板/封装里，距离进一步缩短。电信号几乎不跑 PCB，功耗和延迟再降一大截。但制造难度陡升：芯片和光引擎要一起封装、一起测，一个环节废了全废，维护性几乎归零（坏了就是整颗换）。<br><br><b>第四档，OOI（Optics-on-Interposer，中介层上光学）。</b> 光直接做在硅中介层里，离芯片最近、损耗最低。这是英伟达在 2026 年 SEMICON West 上展示的下一代技术，还在很早期。<br><br>把四档摆一起，规律一目了然：<br><br><svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#1a56db"/>
@@ -248,7 +248,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>光通信的「7 个方案」大爆发，藏着一个最被低估的信号：DSP 可能不再是必需品</h4>
         <div class="news">素材库④-补的「7 方案」递归梳理里，有一条关键判断被反复提及：下一代光通信的 7 个方案（3.2T PLO、XPO、NPO、CPO、MicroLED、USFP、OOI）里，Marvell 的 DSP（数字信号处理器）只在 3 个方案里用得上（3.2T PLO/XPO/USFP），而 NPO/CPO/MicroLED/OOI 这几个「越靠近芯片」的方案，基本用不到 DSP。信息来源是 Gazettabyte 对 Lumentum 的专访（2026-11）。</div>
-        <div class="study">先解释 DSP 是什么、为什么这条判断重要。光信号在光纤里跑一段距离后会衰减、变形，DSP 就是那个「把变了形的信号重新还原」的芯片。过去的可插拔模块时代，DSP 是光模块里绝对的核心之一——几乎每个高速模块里都得放一颗，Marvell 也因此是行业里的「小而美」赢家。<br><br>但现在这条判断在说一件反直觉的事：<b>光离芯片越近（NPO/CPO/OOI），信号跑的距离越短、变形越小，DSP 这个「还原信号的救火队员」就越派不上用场。</b> 换句话说，「越近越难」的换挡，不光在逼着模块公司改变，也在<b>悄悄地让 DSP 这种「上一代的必需品」地位变弱。</b><br><br><svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study">先解释 DSP 是什么、为什么这条判断重要。光信号在光纤里跑一段距离后会衰减、变形，DSP 就是那个「把变了形的信号重新还原」的芯片。过去的可插拔模块时代，DSP 是光模块里绝对的核心之一——几乎每个高速模块里都得放一颗，Marvell 也因此是行业里的「小而美」赢家。<br><br>但现在这条判断在说一件反直觉的事：<b>光离芯片越近（NPO/CPO/OOI），信号跑的距离越短、变形越小，DSP 这个「还原信号的救火队员」就越派不上用场。</b> 换句话说，「越近越难」的换挡，不光在逼着模块公司改变，也在<b>悄悄地让 DSP 这种「上一代的必需品」地位变弱。</b><br><br><svg viewBox="0 0 680 300" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="d7" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#1a56db"/>
@@ -291,7 +291,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>「缺的是芯片，不是模块」：200G EML 只有两家能做，这才是光通信真正的卡点</h4>
         <div class="news">延续光通信换挡期主线，专访里最硬的一条供给端数据是——**EML（电吸收调制激光器）与泵浦激光器的出货量，比需求低了「三成以上」**。缺的是芯片，不是模块；而且 200G EML 目前只有 Lumentum 和博通两家能做。信息来源 Gazettabyte 专访（2026-11）。</div>
-        <div class="study">这条是本册「越近越难」在供给端最实的注脚，值得单独拎出来讲透。<br><br>先解释 EML 是什么。激光器是把电变成光的核心器件，EML 是其中一种「把调制功能也集成进去」的高端激光器，专门用在高速长距离传输上。200G EML 指的是「单颗能跑 200G 速率」的这类激光器——是下一代（1.6T 以上）光模块的心脏。<br><br>「出货比需求低三成」+「只有两家能做」，合起来的意思是：<b>下游模块厂再能造盒、再有产能，卡在心脏那颗芯片上，造不出就是造不出。</b> 这跟我们普通人的直觉相反——我们总以为「造的难点在组装」，其实真正的瓶颈，往往在上游那颗「吃工艺、难扩产」的核心器件。<br><br><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study">这条是本册「越近越难」在供给端最实的注脚，值得单独拎出来讲透。<br><br>先解释 EML 是什么。激光器是把电变成光的核心器件，EML 是其中一种「把调制功能也集成进去」的高端激光器，专门用在高速长距离传输上。200G EML 指的是「单颗能跑 200G 速率」的这类激光器——是下一代（1.6T 以上）光模块的心脏。<br><br>「出货比需求低三成」+「只有两家能做」，合起来的意思是：<b>下游模块厂再能造盒、再有产能，卡在心脏那颗芯片上，造不出就是造不出。</b> 这跟我们普通人的直觉相反——我们总以为「造的难点在组装」，其实真正的瓶颈，往往在上游那颗「吃工艺、难扩产」的核心器件。<br><br><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <text x="20" y="24" font-size="10.5" letter-spacing="2.5" font-weight="bold" fill="#9ca3af">激光器芯片 · 出货 vs 需求</text>
   <line x1="20" y1="34" x2="660" y2="34" stroke="#e5e7eb" stroke-width="1"/>
   <text x="60" y="64" font-size="12" fill="#374151" font-weight="bold">需求（100%）</text>
@@ -314,7 +314,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>「谁稀缺谁吃肉」这次有了升级版：先分清「产能型稀缺」还是「技术型稀缺」</h4>
         <div class="news">本期拾光立场条验证的「稀缺→传导→吃肉/扛」三步法，最后留下一个关键区分——稀缺分「产能型」和「技术型」两种，两者对应完全不同的结局。这里把这个区分单独展开讲透（拾光整理，2026-11-09，接读者反馈的三步法验证）。</div>
-        <div class="study">这是本期三步法里最值得单独记住的一点，因为它能直接改变你的判断质量。<br><br><b>产能型稀缺</b>：现在供不应求，但「别人学得会、扩得出来」，只是需要时间。典型如某些封装产能、某些标准器件——今天缺，两年后产能一上来，稀缺就消失了，吃肉的人会被稀释。这类稀缺的「保质期」短。<br><br><b>技术型稀缺</b>：别人「学不会、造不出」，不是时间问题，是壁垒问题。典型如 200G EML（只有两家能做）、某些顶级光刻工艺——扩产没用，因为别人根本不会。这类稀缺的「保质期」长，甚至越拉越长。<br><br>这两种稀缺，对应着完全不同的「吃肉」前景：<b>产能型的肉，会随着扩产被别人分走；技术型的肉，越吃越稳。</b> 很多人看到「某环节很赚钱、供不应求」就冲进去，却分不清它是「临时的产能挤兑」还是「长期的技术壁垒」，结果吃了个「快被分完的肉」。<br><br><svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study">这是本期三步法里最值得单独记住的一点，因为它能直接改变你的判断质量。<br><br><b>产能型稀缺</b>：现在供不应求，但「别人学得会、扩得出来」，只是需要时间。典型如某些封装产能、某些标准器件——今天缺，两年后产能一上来，稀缺就消失了，吃肉的人会被稀释。这类稀缺的「保质期」短。<br><br><b>技术型稀缺</b>：别人「学不会、造不出」，不是时间问题，是壁垒问题。典型如 200G EML（只有两家能做）、某些顶级光刻工艺——扩产没用，因为别人根本不会。这类稀缺的「保质期」长，甚至越拉越长。<br><br>这两种稀缺，对应着完全不同的「吃肉」前景：<b>产能型的肉，会随着扩产被别人分走；技术型的肉，越吃越稳。</b> 很多人看到「某环节很赚钱、供不应求」就冲进去，却分不清它是「临时的产能挤兑」还是「长期的技术壁垒」，结果吃了个「快被分完的肉」。<br><br><svg viewBox="0 0 680 220" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <text x="20" y="24" font-size="10.5" letter-spacing="2.5" font-weight="bold" fill="#9ca3af">稀缺分两型 · 结局完全不同</text>
   <line x1="20" y1="34" x2="660" y2="34" stroke="#e5e7eb" stroke-width="1"/>
   <rect x="30" y="52" width="300" height="120" rx="10" fill="#fef9f0" stroke="#f0d9a8" stroke-width="1"/>
@@ -343,7 +343,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>三步看透 AI 硬件链谁赚钱：「稀缺 → 传导 → 吃肉/扛」</h4>
         <div class="news">上一期我们验证了「上游吃肉、下游喝汤、涨价长周期」这三段判断，读者（读者反馈）马上追了一问：能不能把这个规律，提炼成一个可复用的三步判断框架——先问「谁稀缺」，再问「涨价传到哪」，最后问「谁吃肉谁扛成本」？这一期，我们就用上一期已经跑过的上下游利润数据，把这三步套一遍，看它到底灵不灵、在哪儿会失灵。</div>
-        <div class="study">先讲清楚这个三步法到底怎么用。它是把「AI 硬件链谁赚钱」这个复杂问题，拆成三问：<br><br><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study">先讲清楚这个三步法到底怎么用。它是把「AI 硬件链谁赚钱」这个复杂问题，拆成三问：<br><br><svg viewBox="0 0 680 200" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="s1" x1="0" y1="0" x2="1" y2="0">
       <stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#1a56db"/>
@@ -410,7 +410,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>一图看懂 Sim2Real：仿真里练满分，真机为什么会扑街？gap 卡在这三处</h4>
         <div class="news">本期物理AI深挖条已经把「仿真练会≠真机会干」的 Sim2Real gap 拆成了三大成因（物理太理想 / 传感器非上帝视角 / 接触难精确仿真）。这里用一张示意图，把「gap 到底卡在哪、怎么缩小」压成一眼能看懂的图。这是具身智能「从 demo 到量产」的底层命题，配合本期 Sim2Real 深挖读。</div>
-        <div class="study"><svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><svg viewBox="0 0 680 400" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="sim" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#1a56db"/>
@@ -457,7 +457,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>一图看懂：光通信「换挡期」的四档，越往右越省电、也越难造</h4>
         <div class="news">本期封面故事和产业链条，已经把光互连四档（可插拔 → NPO 板载 → CPO 共封装 → OOI 中介层）的功耗、延迟、良率、维护性、商用时间梳理成了一张对比表。这里用一张纵向传导图，把「越近越省电、越近越难造」这条主线，压成一眼能看懂的图。数据口径来自 Gazettabyte 对 Lumentum CEO 的专访（2026-11 报道），时间表为计划值、非承诺值。</div>
-        <div class="study"><svg viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study"><svg viewBox="0 0 680 420" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <defs>
     <linearGradient id="dg" x1="0" y1="0" x2="0" y2="1">
       <stop offset="0" stop-color="#0ea5e9"/><stop offset="1" stop-color="#1a56db"/>
@@ -567,7 +567,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
         <div class="article">
         <h4>AI 编程助手真实世界大考：四分之三的任务，还得靠人类来收拾残局</h4>
         <div class="news">The Decoder 引述一项真实世界测试报道，AI 编码代理（coding agents）在将近四分之三的任务里，仍然需要人类动手清理、修正它产出的结果。换句话说，这轮「AI 能自己写代码了」的乐观情绪，被一份实测数据泼了盆冷静的水（报道 2026-11-07）。</div>
-        <div class="study">先把现状说清楚：过去一年多，AI 写代码能力进步神速——从「补几行」到「能接一个 issue 从头改」。于是有了「coding agent」这个概念：给它一个任务，它自己读代码、改代码、跑测试、交 PR，全程不用人。听起来美好，但实测出来，<b>「全程不用人」这件事，目前还远远做不到。</b><br><br><svg viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <div class="study">先把现状说清楚：过去一年多，AI 写代码能力进步神速——从「补几行」到「能接一个 issue 从头改」。于是有了「coding agent」这个概念：给它一个任务，它自己读代码、改代码、跑测试、交 PR，全程不用人。听起来美好，但实测出来，<b>「全程不用人」这件事，目前还远远做不到。</b><br><br><svg viewBox="0 0 680 240" xmlns="http://www.w3.org/2000/svg" font-family="'Microsoft YaHei','PingFang SC',sans-serif">
   <text x="20" y="24" font-size="10.5" letter-spacing="2.5" font-weight="bold" fill="#9ca3af">AI 代理真实任务 · 需人工清理的比例</text>
   <line x1="20" y1="34" x2="660" y2="34" stroke="#e5e7eb" stroke-width="1"/>
   <rect x="60" y="60" width="540" height="40" rx="8" fill="#f0f0f0"/>
