@@ -246,7 +246,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     </div>
     <span class="audio-time" id="audioTime">00:00 / 00:00</span>
   </div>
-  <audio id="audioPlayer" src="audio/第20期_AI视界.mp3" preload="none"></audio>
+  <audio id="audioPlayer" src="audio/第20期_AI视界.mp3" preload="auto"></audio>
 </div>
 <script>
 (function(){
@@ -255,8 +255,18 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
   var seek=document.getElementById('audioSeek');
   var tm=document.getElementById('audioTime');
   function fmt(s){var m=Math.floor(s/60),r=Math.floor(s%60);return (m<10?'0':'')+m+':'+(r<10?'0':'')+r;}
+  function ready(){return a.readyState>=3;}  // HAVE_FUTURE_DATA，能开播
   window.toggleAudio=function(){
-    if(a.paused){a.play();btn.textContent='⏸ 暂停';}
+    if(!ready()){btn.textContent='⏳ 加载中…';btn.disabled=true;
+      var t=setInterval(function(){
+        if(ready()||a.error){clearInterval(t);btn.disabled=false;
+          if(a.error){btn.textContent='🔊 听本期（加载失败）';return;}
+          a.play().catch(function(){});btn.textContent='⏸ 暂停';}
+      },300);
+      setTimeout(function(){clearInterval(t);btn.disabled=false;
+        if(!ready()&&a.paused){btn.textContent='🔊 听本期';}},5000);
+      return;}
+    if(a.paused){a.play().catch(function(){});btn.textContent='⏸ 暂停';}
     else{a.pause();btn.textContent='🔊 听本期';}
   };
   window.seekAudio=function(v){if(a.duration){a.currentTime=a.duration*(v/100);}
