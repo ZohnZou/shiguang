@@ -272,6 +272,8 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
   
 }
 
+
+
 /* ====AUDIO-INJECT:CSS-START==== */
 /* 听期刊播放条（sticky，位于 pager 下方；z-index 必须大于 pager 的 999） */
 .audio-bar{position:sticky;top:48px;z-index:1000;background:#1a1a1a;border-bottom:1px solid #333;box-shadow:0 2px 8px rgba(0,0,0,.3);}
@@ -321,6 +323,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
   <a href="#anquan">安全</a>
   <a href="#yingyong">应用</a>
 </div>
+
 
 
 
@@ -413,15 +416,24 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
       // article 无段落，整条轻高亮（用 current 类复用底色）
       resolved.el.classList.add('current');
     }
-    // 滚动：只在目标不在可视区时滚
-    var r = resolved.el.getBoundingClientRect();
+    // 滚动：让当前段落「开头」对齐到 sticky 播放条下方（精确停靠，不被遮挡）
+    // 关键：不用 scrollIntoView（受 scroll-margin 影响、停靠位置模糊），
+    // 改用手动计算目标 Y：段落顶部文档坐标 - 播放条高度 - 余量，
+    // 这样段落开头正好停在播放条下方，眼睛能稳定看清「正在读哪段」。
+    var rect = resolved.el.getBoundingClientRect();
     var vh = window.innerHeight || document.documentElement.clientHeight;
-    var inView = (r.top >= 110 && r.bottom <= vh);
-    if(!inView){
+    // sticky 层高度：pager + audio-bar，移动端更矮。用实际测量最稳。
+    var barEl = document.getElementById('audioBar');
+    var stickyH = barEl ? barEl.offsetHeight : 0;
+    var pagerEl = document.querySelector('.pager');
+    if(pagerEl) stickyH += pagerEl.offsetHeight;
+    var targetTop = rect.top + (window.pageYOffset || window.scrollY) - stickyH - 12;  // 12px 余量
+    // 只需在段落开头不在可视区顶部附近时才滚（避免频繁跳动）
+    if(rect.top < stickyH + 4 || rect.top > vh * 0.5){
       try {
-        resolved.el.scrollIntoView({behavior:'smooth', block:'start'});
+        window.scrollTo({top: targetTop, behavior: 'smooth'});
       } catch(e) {
-        resolved.el.scrollIntoView();
+        window.scrollTo(0, targetTop);
       }
     }
   }
