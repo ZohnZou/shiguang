@@ -69,3 +69,5 @@ upgrade_timeline_to_sentence.py
 wrap_paragraphs.py
 __pycache__/
 *.pyc
+
+inject_nav.py
