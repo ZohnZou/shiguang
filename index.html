@@ -305,6 +305,8 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 .search-results .sr-empty{padding:20px;color:#777;font-size:12px;text-align:center;}
 /* ====SEARCH-INJECT:CSS-END==== */
 
+
+
 /* ====AUDIO-INJECT:CSS-START==== */
 /* 听期刊播放条（sticky，位于 pager 下方；z-index 必须大于 pager 的 999） */
 .audio-bar{position:sticky;top:48px;z-index:1000;background:#1a1a1a;border-bottom:1px solid #333;box-shadow:0 2px 8px rgba(0,0,0,.3);}
@@ -469,6 +471,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 })();
 </script>
 
+
 <div class="audio-bar" id="audioBar">
   <div class="audio-inner">
     <button class="audio-btn" id="audioPlayBtn" onclick="toggleAudio()" aria-label="播放/暂停">🔊 听本期</button>
@@ -608,19 +611,24 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     var keyToStart={};
     TIMELINE.forEach(function(it){ keyToStart[it.sort+':'+it.paraIndex]=it.start; });
     document.addEventListener('click',function(ev){
-      var t=ev.target;
-      if(t.closest && t.closest('.audio-bar')) return;   // 点播放条不算
-      // 超链接独立放行：点 <a href> 就是要点它跳转/打开，绝不该被当成「点段落跳朗读」。
-      // 否则正文里的出处链接、外链会跟朗读跳转冲突（既打开链接又触发朗读）。
-      if(t.closest && t.closest('a[href]')) return;
-      var para=t.closest?t.closest('.para[data-para]'):null;
+      // Element 归一化：ev.target 可能是 <a> 里的文字节点（尤其长 URL 换行时），
+      // 文字节点没有 closest 方法，必须先归一到父元素，否则下面的 .closest 判断会漏。
+      var t = ev.target;
+      if(t && t.nodeType === 3) t = t.parentElement;   // 文字节点 → 父元素
+      if(!t || !t.closest) return;
+      // 点「超链接 / 播放条」一律放行，绝不触发朗读跳转——链接就该跳/打开，播放条就该控制播放。
+      // 这是 2026-11-19 邹苏煜反馈「点超链接变成了朗读，没跳到对的链接」的根治：
+      // 之前只排除 <a[href]>，但漏了「文字节点 target」和「链接包在其它结构里」的边界，
+      // 现在统一：只要点击落点往上能找到 <a> 或 .audio-bar，就直接 return，不碰播放。
+      if(t.closest('a, .audio-bar')) return;
+      var para=t.closest('.para[data-para]');
       var key=null;
       if(para){
         var art=para.closest('.article[data-sort]')||para.closest('.briefs li[data-sort]');
         if(!art) return;
         key=art.getAttribute('data-sort')+':'+para.getAttribute('data-para');
       } else {
-        var li=t.closest?t.closest('.briefs li[data-sort]'):null;
+        var li=t.closest('.briefs li[data-sort]');
         if(!li) return;
         key=li.getAttribute('data-sort')+':0';
       }
