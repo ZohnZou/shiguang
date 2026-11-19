@@ -274,6 +274,8 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 
 
 
+
+
 /* ====AUDIO-INJECT:CSS-START==== */
 /* 听期刊播放条（sticky，位于 pager 下方；z-index 必须大于 pager 的 999） */
 .audio-bar{position:sticky;top:48px;z-index:1000;background:#1a1a1a;border-bottom:1px solid #333;box-shadow:0 2px 8px rgba(0,0,0,.3);}
@@ -323,6 +325,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
   <a href="#anquan">安全</a>
   <a href="#yingyong">应用</a>
 </div>
+
 
 
 
@@ -406,32 +409,29 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     if(prevPara) prevPara.classList.remove('current');
     var prevPlay = document.querySelector('.briefs li.playing');
     if(prevPlay) prevPlay.classList.remove('playing');
-    if(resolved.el === resolved.container && resolved.el.classList.contains('para')){
-      // 段落级高亮
-      resolved.el.classList.add('current');
-    } else if(resolved.el.tagName === 'LI'){
-      // 快讯整条高亮
+    // 高亮：段落 .para 加 .current，快讯 li 加 .playing
+    if(resolved.el.tagName === 'LI'){
       resolved.el.classList.add('playing');
     } else {
-      // article 无段落，整条轻高亮（用 current 类复用底色）
       resolved.el.classList.add('current');
     }
-    // 滚动：让当前段落「开头」对齐到 sticky 播放条下方（精确停靠，不被遮挡）
-    // 关键：不用 scrollIntoView（受 scroll-margin 影响、停靠位置模糊），
-    // 改用手动计算目标 Y：段落顶部文档坐标 - 播放条高度 - 余量，
-    // 这样段落开头正好停在播放条下方，眼睛能稳定看清「正在读哪段」。
+    // 滚动：每次段落切换，把当前段落「开头」精确对齐到播放条下方。
+    // 三个关键修正（2026-11-19 邹苏煜反馈「跳不下去 + 不停在黄色段头部」）：
+    //   1. 用 behavior:'auto'（即时），不用 'smooth'——smooth 动画在新段落触发时会被打断、
+    //      多个动画互相打架，表现为「跳不下去」。
+    //   2. 去掉「可视区内就不滚」的模糊阈值——它会让段落停在视口中间而非头部。
+    //      改为：段落顶部没贴到播放条下方时，一律精确滚过去。
+    //   3. sticky 高度（pager+audioBar）实测，段落头部落点 = stickyH + 12px 余量。
     var rect = resolved.el.getBoundingClientRect();
-    var vh = window.innerHeight || document.documentElement.clientHeight;
-    // sticky 层高度：pager + audio-bar，移动端更矮。用实际测量最稳。
     var barEl = document.getElementById('audioBar');
     var stickyH = barEl ? barEl.offsetHeight : 0;
     var pagerEl = document.querySelector('.pager');
     if(pagerEl) stickyH += pagerEl.offsetHeight;
-    var targetTop = rect.top + (window.pageYOffset || window.scrollY) - stickyH - 12;  // 12px 余量
-    // 只需在段落开头不在可视区顶部附近时才滚（避免频繁跳动）
-    if(rect.top < stickyH + 4 || rect.top > vh * 0.5){
+    var targetTop = rect.top + (window.pageYOffset || window.scrollY) - stickyH - 12;
+    // 只要段落头部没对齐到目标位置（误差 > 8px），就即时滚过去
+    if(Math.abs(rect.top - (stickyH + 12)) > 8){
       try {
-        window.scrollTo({top: targetTop, behavior: 'smooth'});
+        window.scrollTo({top: targetTop, behavior: 'auto'});
       } catch(e) {
         window.scrollTo(0, targetTop);
       }
