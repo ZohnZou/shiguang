@@ -66,5 +66,6 @@ img/cover_v24.jpg
 backfill_data_sort.py
 
 upgrade_timeline_to_sentence.py
+wrap_paragraphs.py
 __pycache__/
 *.pyc
