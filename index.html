@@ -276,6 +276,8 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 
 
 
+
+
 /* ====AUDIO-INJECT:CSS-START==== */
 /* 听期刊播放条（sticky，位于 pager 下方；z-index 必须大于 pager 的 999） */
 .audio-bar{position:sticky;top:48px;z-index:1000;background:#1a1a1a;border-bottom:1px solid #333;box-shadow:0 2px 8px rgba(0,0,0,.3);}
@@ -286,6 +288,12 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 .audio-title{color:#ccc;font-size:12px;}
 .audio-seek{width:100%;cursor:pointer;accent-color:#8a4a3a;}
 .audio-time{color:#999;font-size:12px;flex-shrink:0;font-variant-numeric:tabular-nums;}
+.audio-rate{flex-shrink:0;background:transparent;color:#b8b0a0;border:1px solid #555;border-radius:14px;padding:4px 10px;font-size:12px;cursor:pointer;font-family:inherit;white-space:nowrap;line-height:1.4;}
+.audio-rate:hover{color:#fff;border-color:#8a4a3a;}
+/* 段落可点击跳转：悬停给个轻微提示（跟读时点哪段从哪段开始听） */
+.para{cursor:pointer;}
+.para:hover{opacity:.85;}
+.briefs li{cursor:pointer;}
 /* 段落级声画同步：正在朗读的段落高亮（荧光黄，与淡绿分析底强对比，一眼看清读哪段） */
 .para.current{background:#ffeb3b !important;border-radius:2px;padding:1px 0;transition:background .3s ease;}
 /* 快讯条目（无段落）回退片段级高亮 */
@@ -331,6 +339,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 
 
 
+
 <div class="audio-bar" id="audioBar">
   <div class="audio-inner">
     <button class="audio-btn" id="audioPlayBtn" onclick="toggleAudio()" aria-label="播放/暂停">🔊 听本期</button>
@@ -338,6 +347,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
       <span class="audio-title" id="audioTitle">第 24 期 · 电台主播朗读</span>
       <input type="range" class="audio-seek" id="audioSeek" min="0" max="100" value="0" step="0.1" oninput="seekAudio(this.value)" />
     </div>
+    <button class="audio-rate" id="audioRate" onclick="toggleRate()" aria-label="倍速">1x</button>
     <span class="audio-time" id="audioTime">00:00 / 00:00</span>
   </div>
   <audio id="audioPlayer" src="audio/第24期_AI视界.mp3" preload="auto"></audio>
@@ -348,6 +358,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
   var btn=document.getElementById('audioPlayBtn');
   var seek=document.getElementById('audioSeek');
   var tm=document.getElementById('audioTime');
+  var rateBtn=document.getElementById('audioRate');
   // 时间轴：段落级（每项带 sort/paraIndex/start/end 字段，按 start 升序）
   var TIMELINE = [{"sort": 1, "paraIndex": 0, "start": 10.6, "end": 42.22}, {"sort": 1, "paraIndex": 1, "start": 42.22, "end": 51.22}, {"sort": 1, "paraIndex": 2, "start": 51.22, "end": 75.14}, {"sort": 1, "paraIndex": 3, "start": 75.14, "end": 95.37}, {"sort": 1, "paraIndex": 4, "start": 95.37, "end": 130.21}, {"sort": 1, "paraIndex": 5, "start": 130.21, "end": 156.7}, {"sort": 1, "paraIndex": 6, "start": 156.7, "end": 189.29}, {"sort": 2, "paraIndex": 0, "start": 199.53, "end": 238.86}, {"sort": 2, "paraIndex": 1, "start": 238.86, "end": 254.04}, {"sort": 2, "paraIndex": 2, "start": 254.04, "end": 256.6}, {"sort": 2, "paraIndex": 3, "start": 256.6, "end": 274.71}, {"sort": 2, "paraIndex": 4, "start": 274.71, "end": 288.43}, {"sort": 2, "paraIndex": 5, "start": 288.43, "end": 318.07}, {"sort": 2, "paraIndex": 6, "start": 318.07, "end": 354.1}, {"sort": 2, "paraIndex": 7, "start": 354.1, "end": 380.26}, {"sort": 2, "paraIndex": 8, "start": 380.26, "end": 410.44}, {"sort": 3, "paraIndex": 0, "start": 419.54, "end": 455.16}, {"sort": 3, "paraIndex": 1, "start": 455.16, "end": 471.42}, {"sort": 3, "paraIndex": 2, "start": 471.42, "end": 505.5}, {"sort": 3, "paraIndex": 3, "start": 505.5, "end": 515.76}, {"sort": 3, "paraIndex": 4, "start": 515.76, "end": 543.63}, {"sort": 3, "paraIndex": 5, "start": 543.63, "end": 562.41}, {"sort": 3, "paraIndex": 6, "start": 562.41, "end": 585.64}, {"sort": 3, "paraIndex": 7, "start": 585.64, "end": 610.62}, {"sort": 3, "paraIndex": 8, "start": 610.62, "end": 646.24}, {"sort": 4, "paraIndex": 0, "start": 656.22, "end": 689.81}, {"sort": 4, "paraIndex": 1, "start": 689.81, "end": 697.29}, {"sort": 4, "paraIndex": 2, "start": 697.29, "end": 732.61}, {"sort": 4, "paraIndex": 3, "start": 732.61, "end": 738.94}, {"sort": 4, "paraIndex": 4, "start": 738.94, "end": 767.16}, {"sort": 4, "paraIndex": 5, "start": 767.16, "end": 797.1}, {"sort": 4, "paraIndex": 6, "start": 797.1, "end": 828.57}, {"sort": 4, "paraIndex": 7, "start": 828.57, "end": 863.89}, {"sort": 5, "paraIndex": 0, "start": 871.71, "end": 897.79}, {"sort": 5, "paraIndex": 1, "start": 897.79, "end": 911.94}, {"sort": 5, "paraIndex": 2, "start": 911.94, "end": 928.52}, {"sort": 5, "paraIndex": 3, "start": 928.52, "end": 930.38}, {"sort": 5, "paraIndex": 4, "start": 930.38, "end": 947.89}, {"sort": 5, "paraIndex": 5, "start": 947.89, "end": 965.77}, {"sort": 5, "paraIndex": 6, "start": 965.77, "end": 987.19}, {"sort": 5, "paraIndex": 7, "start": 987.19, "end": 1005.81}, {"sort": 5, "paraIndex": 8, "start": 1005.81, "end": 1034.68}, {"sort": 6, "paraIndex": 0, "start": 1044.98, "end": 1076.48}, {"sort": 6, "paraIndex": 1, "start": 1076.48, "end": 1086.01}, {"sort": 6, "paraIndex": 2, "start": 1086.01, "end": 1116.73}, {"sort": 6, "paraIndex": 3, "start": 1116.73, "end": 1147.45}, {"sort": 6, "paraIndex": 4, "start": 1147.45, "end": 1176.42}, {"sort": 6, "paraIndex": 5, "start": 1176.42, "end": 1214.14}, {"sort": 7, "paraIndex": 0, "start": 1223.9, "end": 1248.74}, {"sort": 7, "paraIndex": 1, "start": 1248.74, "end": 1261.75}, {"sort": 7, "paraIndex": 2, "start": 1261.75, "end": 1287.79}, {"sort": 7, "paraIndex": 3, "start": 1287.79, "end": 1311.08}, {"sort": 7, "paraIndex": 4, "start": 1311.08, "end": 1327.69}, {"sort": 7, "paraIndex": 5, "start": 1327.69, "end": 1369.48}, {"sort": 8, "paraIndex": 0, "start": 1377.93, "end": 1403.48}, {"sort": 8, "paraIndex": 1, "start": 1403.48, "end": 1411.21}, {"sort": 8, "paraIndex": 2, "start": 1411.21, "end": 1424.17}, {"sort": 8, "paraIndex": 3, "start": 1424.17, "end": 1445.39}, {"sort": 8, "paraIndex": 4, "start": 1445.39, "end": 1470.76}, {"sort": 8, "paraIndex": 5, "start": 1470.76, "end": 1498.1}, {"sort": 9, "paraIndex": 0, "start": 1507.78, "end": 1528.63}, {"sort": 9, "paraIndex": 1, "start": 1528.63, "end": 1532.24}, {"sort": 9, "paraIndex": 2, "start": 1532.24, "end": 1566.54}, {"sort": 9, "paraIndex": 3, "start": 1566.54, "end": 1591.66}, {"sort": 9, "paraIndex": 4, "start": 1591.66, "end": 1617.59}, {"sort": 10, "paraIndex": 0, "start": 1626.41, "end": 1639.29}, {"sort": 10, "paraIndex": 1, "start": 1639.29, "end": 1654.72}, {"sort": 10, "paraIndex": 2, "start": 1654.72, "end": 1679.13}, {"sort": 10, "paraIndex": 3, "start": 1679.13, "end": 1693.71}, {"sort": 10, "paraIndex": 4, "start": 1693.71, "end": 1726.6}, {"sort": 11, "paraIndex": 0, "start": 1735.43, "end": 1762.42}, {"sort": 11, "paraIndex": 1, "start": 1762.42, "end": 1769.2}, {"sort": 11, "paraIndex": 2, "start": 1769.2, "end": 1801.46}, {"sort": 11, "paraIndex": 3, "start": 1801.46, "end": 1824.37}, {"sort": 11, "paraIndex": 4, "start": 1824.37, "end": 1857.64}, {"sort": 12, "paraIndex": 0, "start": 1864.79, "end": 1882.66}, {"sort": 12, "paraIndex": 1, "start": 1882.66, "end": 1888.18}, {"sort": 12, "paraIndex": 2, "start": 1888.18, "end": 1905.72}, {"sort": 12, "paraIndex": 3, "start": 1905.72, "end": 1924.89}, {"sort": 12, "paraIndex": 4, "start": 1924.89, "end": 1949.42}, {"sort": 12, "paraIndex": 5, "start": 1949.42, "end": 1975.25}, {"sort": 13, "paraIndex": 0, "start": 1984.47, "end": 2001.04}, {"sort": 13, "paraIndex": 1, "start": 2001.04, "end": 2014.02}, {"sort": 13, "paraIndex": 2, "start": 2014.02, "end": 2038.24}, {"sort": 13, "paraIndex": 3, "start": 2038.24, "end": 2056.38}, {"sort": 13, "paraIndex": 4, "start": 2056.38, "end": 2087.17}, {"sort": 14, "paraIndex": 0, "start": 2096.77, "end": 2120.23}, {"sort": 14, "paraIndex": 1, "start": 2120.23, "end": 2125.03}, {"sort": 14, "paraIndex": 2, "start": 2125.03, "end": 2145.48}, {"sort": 14, "paraIndex": 3, "start": 2145.48, "end": 2151.17}, {"sort": 14, "paraIndex": 4, "start": 2151.17, "end": 2166.81}, {"sort": 14, "paraIndex": 5, "start": 2166.81, "end": 2188.14}, {"sort": 14, "paraIndex": 6, "start": 2188.14, "end": 2227.25}, {"sort": 15, "paraIndex": 0, "start": 2236.43, "end": 2258.59}, {"sort": 15, "paraIndex": 1, "start": 2258.59, "end": 2268.63}, {"sort": 15, "paraIndex": 2, "start": 2268.63, "end": 2294.26}, {"sort": 15, "paraIndex": 3, "start": 2294.26, "end": 2318.5}, {"sort": 15, "paraIndex": 4, "start": 2318.5, "end": 2348.28}, {"sort": 16, "paraIndex": 0, "start": 2356.3, "end": 2377.92}, {"sort": 16, "paraIndex": 1, "start": 2377.92, "end": 2388.2}, {"sort": 16, "paraIndex": 2, "start": 2388.2, "end": 2415.39}, {"sort": 16, "paraIndex": 3, "start": 2415.39, "end": 2436.66}, {"sort": 16, "paraIndex": 4, "start": 2436.66, "end": 2473.27}, {"sort": 17, "paraIndex": 0, "start": 2482.22, "end": 2503.45}, {"sort": 17, "paraIndex": 1, "start": 2503.45, "end": 2513.9}, {"sort": 17, "paraIndex": 2, "start": 2513.9, "end": 2531.31}, {"sort": 17, "paraIndex": 3, "start": 2531.31, "end": 2554.19}, {"sort": 17, "paraIndex": 4, "start": 2554.19, "end": 2574.59}, {"sort": 17, "paraIndex": 5, "start": 2574.59, "end": 2600.46}, {"sort": 18, "paraIndex": 0, "start": 2608.42, "end": 2632.97}, {"sort": 18, "paraIndex": 1, "start": 2632.97, "end": 2645.77}, {"sort": 18, "paraIndex": 2, "start": 2645.77, "end": 2674.48}, {"sort": 18, "paraIndex": 3, "start": 2674.48, "end": 2696.1}, {"sort": 18, "paraIndex": 4, "start": 2696.1, "end": 2728.44}, {"sort": 19, "paraIndex": 0, "start": 2736.13, "end": 2752.21}, {"sort": 19, "paraIndex": 1, "start": 2752.21, "end": 2763.57}, {"sort": 19, "paraIndex": 2, "start": 2763.57, "end": 2786.65}, {"sort": 19, "paraIndex": 3, "start": 2786.65, "end": 2807.1}, {"sort": 19, "paraIndex": 4, "start": 2807.1, "end": 2846.95}, {"sort": 20, "paraIndex": 0, "start": 2857.64, "end": 2872.94}, {"sort": 20, "paraIndex": 1, "start": 2872.94, "end": 2884.29}, {"sort": 20, "paraIndex": 2, "start": 2884.29, "end": 2915.05}, {"sort": 20, "paraIndex": 3, "start": 2915.05, "end": 2941.37}, {"sort": 20, "paraIndex": 4, "start": 2941.37, "end": 2971.15}, {"sort": 21, "paraIndex": 0, "start": 2981.04, "end": 3003.42}, {"sort": 21, "paraIndex": 1, "start": 3003.42, "end": 3014.87}, {"sort": 21, "paraIndex": 2, "start": 3014.87, "end": 3040.9}, {"sort": 21, "paraIndex": 3, "start": 3040.9, "end": 3056.34}, {"sort": 21, "paraIndex": 4, "start": 3056.34, "end": 3091.39}, {"sort": 22, "paraIndex": 0, "start": 3100.21, "end": 3107.34}, {"sort": 23, "paraIndex": 0, "start": 3112.24, "end": 3120.35}, {"sort": 24, "paraIndex": 0, "start": 3126.91, "end": 3141.19}, {"sort": 25, "paraIndex": 0, "start": 3147.38, "end": 3159.07}, {"sort": 26, "paraIndex": 0, "start": 3165.9, "end": 3174.12}, {"sort": 27, "paraIndex": 0, "start": 3182.61, "end": 3199.25}, {"sort": 28, "paraIndex": 0, "start": 3205.24, "end": 3216.03}, {"sort": 29, "paraIndex": 0, "start": 3222.17, "end": 3231.09}, {"sort": 30, "paraIndex": 0, "start": 3240.21, "end": 3251.5}, {"sort": 31, "paraIndex": 0, "start": 3258.82, "end": 3271.08}, {"sort": 32, "paraIndex": 0, "start": 3277.92, "end": 3290.05}, {"sort": 33, "paraIndex": 0, "start": 3297.82, "end": 3308.31}, {"sort": 34, "paraIndex": 0, "start": 3315.22, "end": 3326.95}, {"sort": 35, "paraIndex": 0, "start": 3333.46, "end": 3343.05}, {"sort": 36, "paraIndex": 0, "start": 3351.27, "end": 3373.58}, {"sort": 36, "paraIndex": 1, "start": 3373.58, "end": 3381.96}, {"sort": 36, "paraIndex": 2, "start": 3381.96, "end": 3406.12}, {"sort": 36, "paraIndex": 3, "start": 3406.12, "end": 3434.8}, {"sort": 36, "paraIndex": 4, "start": 3434.8, "end": 3447.21}, {"sort": 36, "paraIndex": 5, "start": 3447.21, "end": 3481.93}, {"sort": 37, "paraIndex": 0, "start": 3492.39, "end": 3518.13}, {"sort": 37, "paraIndex": 1, "start": 3518.13, "end": 3523.96}, {"sort": 37, "paraIndex": 2, "start": 3523.96, "end": 3546.95}, {"sort": 37, "paraIndex": 3, "start": 3546.95, "end": 3569.76}, {"sort": 37, "paraIndex": 4, "start": 3569.76, "end": 3591.21}, {"sort": 37, "paraIndex": 5, "start": 3591.21, "end": 3622.26}, {"sort": 38, "paraIndex": 0, "start": 3630.78, "end": 3647.81}, {"sort": 38, "paraIndex": 1, "start": 3647.81, "end": 3656.48}, {"sort": 38, "paraIndex": 2, "start": 3656.48, "end": 3674.82}, {"sort": 38, "paraIndex": 3, "start": 3674.82, "end": 3694.31}, {"sort": 38, "paraIndex": 4, "start": 3694.31, "end": 3716.25}, {"sort": 38, "paraIndex": 5, "start": 3716.25, "end": 3744.91}, {"sort": 39, "paraIndex": 0, "start": 3754.96, "end": 3773.79}, {"sort": 39, "paraIndex": 1, "start": 3773.79, "end": 3781.15}, {"sort": 39, "paraIndex": 2, "start": 3781.15, "end": 3807.88}, {"sort": 39, "paraIndex": 3, "start": 3807.88, "end": 3827.08}, {"sort": 39, "paraIndex": 4, "start": 3827.08, "end": 3861.88}, {"sort": 40, "paraIndex": 0, "start": 3871.83, "end": 3893.64}, {"sort": 40, "paraIndex": 1, "start": 3893.64, "end": 3903.59}, {"sort": 40, "paraIndex": 2, "start": 3903.59, "end": 3921.39}, {"sort": 40, "paraIndex": 3, "start": 3921.39, "end": 3953.85}, {"sort": 40, "paraIndex": 4, "start": 3953.85, "end": 3983.34}, {"sort": 41, "paraIndex": 0, "start": 3993.04, "end": 4012.26}, {"sort": 41, "paraIndex": 1, "start": 4012.26, "end": 4038.01}, {"sort": 41, "paraIndex": 2, "start": 4038.01, "end": 4046.03}, {"sort": 41, "paraIndex": 3, "start": 4046.03, "end": 4064.5}, {"sort": 41, "paraIndex": 4, "start": 4064.5, "end": 4087.82}, {"sort": 41, "paraIndex": 5, "start": 4087.82, "end": 4112.82}, {"sort": 41, "paraIndex": 6, "start": 4112.82, "end": 4148.83}, {"sort": 42, "paraIndex": 0, "start": 4156.54, "end": 4165.63}, {"sort": 43, "paraIndex": 0, "start": 4173.55, "end": 4185.07}, {"sort": 44, "paraIndex": 0, "start": 4190.65, "end": 4205.05}];
   var currentKey = null;   // 当前高亮定位键 sort:paraIndex（去重用）
@@ -368,6 +379,17 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     else{a.pause();btn.textContent='🔊 听本期';}
   };
   window.seekAudio=function(v){if(a.duration){a.currentTime=a.duration*(v/100);}}
+
+  // 倍速：循环 1x → 1.25x → 1.5x → 2x。
+  // 关键：倍速只改「每秒吃掉多少音频内容」，不改 currentTime 的真实秒数，
+  // 所以跟阅（时间轴按真实秒）与倍速能共存，互不干扰。
+  var RATES=[1,1.25,1.5,2];
+  function rateLabel(r){return (r%1===0?r.toFixed(0):r.toFixed(2).replace(/\.?0+$/,''))+'x';}
+  window.toggleRate=function(){
+    var cur=a.playbackRate||1, i=RATES.indexOf(cur);
+    var nxt=RATES[(i<0?0:i+1)%RATES.length];
+    a.playbackRate=nxt; if(rateBtn) rateBtn.textContent=rateLabel(nxt);
+  };
 
   // 根据当前播放秒，二分找时间轴里落在哪一段落
   function paraAtTime(t){
@@ -451,6 +473,32 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     var q = document.querySelector('.briefs li.playing');
     if(q) q.classList.remove('playing');
   });
+
+  // 点击段落跳转：点正文某段 → 从该段对应音频时间开始播（复用同一套时间轴，反向映射）
+  if(TIMELINE.length){
+    var keyToStart={};
+    TIMELINE.forEach(function(it){ keyToStart[it.sort+':'+it.paraIndex]=it.start; });
+    document.addEventListener('click',function(ev){
+      var t=ev.target;
+      if(t.closest && t.closest('.audio-bar')) return;   // 点播放条不算
+      var para=t.closest?t.closest('.para[data-para]'):null;
+      var key=null;
+      if(para){
+        var art=para.closest('.article[data-sort]')||para.closest('.briefs li[data-sort]');
+        if(!art) return;
+        key=art.getAttribute('data-sort')+':'+para.getAttribute('data-para');
+      } else {
+        var li=t.closest?t.closest('.briefs li[data-sort]'):null;
+        if(!li) return;
+        key=li.getAttribute('data-sort')+':0';
+      }
+      var st=keyToStart[key];
+      if(st===undefined) return;
+      if(!ready()) return;
+      a.currentTime=st; syncToTime(st);
+      if(a.paused){ a.play().catch(function(){}); btn.textContent='⏸ 暂停'; }
+    });
+  }
 })();
 </script>
 <div class="page">
