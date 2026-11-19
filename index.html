@@ -246,6 +246,31 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
   .audio-btn{padding:7px 12px;font-size:13px;}
   .audio-title{font-size:11px;}
 }
+
+/* 听期刊播放条（sticky，位于 pager 下方；z-index 必须大于 pager 的 999，否则被导航条盖住） */
+.audio-bar{position:sticky;top:48px;z-index:1000;background:#1a1a1a;border-bottom:1px solid #333;box-shadow:0 2px 8px rgba(0,0,0,.3);}
+.audio-inner{max-width:860px;margin:0 auto;display:flex;align-items:center;gap:12px;padding:10px 16px;}
+.audio-btn{flex-shrink:0;background:#8a4a3a;color:#fff;border:none;border-radius:18px;padding:8px 16px;font-size:14px;cursor:pointer;font-family:inherit;white-space:nowrap;}
+.audio-btn:hover{background:#a05a48;}
+.audio-meta{flex:1;display:flex;flex-direction:column;gap:4px;min-width:0;}
+.audio-title{color:#ccc;font-size:12px;}
+.audio-seek{width:100%;cursor:pointer;accent-color:#8a4a3a;}
+.audio-time{color:#999;font-size:12px;flex-shrink:0;font-variant-numeric:tabular-nums;}
+/* 声画同步：正在朗读的条目高亮 */
+.article.playing,.briefs li.playing{background:#fff8e6 !important;border-left:3px solid #8a4a3a !important;transition:background .4s ease;}
+/* 声画同步滚动留白：scrollIntoView 时让目标条目停在 sticky 播放条+pager 下方，别被盖住 */
+/* pager 48px + audio-bar 63px ≈ 111px，再多留 12px 余量 = 123px */
+[data-sort]{scroll-margin-top:123px;}
+@media (max-width:720px){
+  /* 移动端 pager 42px + audio-bar 约 57px ≈ 99px，留 110px 余量 */
+  [data-sort]{scroll-margin-top:110px;}
+}
+@media (max-width:720px){
+  .audio-bar{top:42px;}
+  .audio-inner{gap:8px;padding:8px 10px;}
+  .audio-btn{padding:7px 12px;font-size:13px;}
+  .audio-title{font-size:11px;}
+}
 </style>
 </head>
 <body>
@@ -269,6 +294,7 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
   <a href="#anquan">安全</a>
   <a href="#yingyong">应用</a>
 </div>
+
 
 
 <div class="audio-bar" id="audioBar">
@@ -337,11 +363,18 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     var prev = document.querySelector('.article.playing,.briefs li.playing');
     if(prev) prev.classList.remove('playing');
     el.classList.add('playing');
-    // 平滑滚动到该条目上方（留出 sticky 播放条 + pager 的高度）
-    try {
-      el.scrollIntoView({behavior:'smooth', block:'start'});
-    } catch(e) {
-      el.scrollIntoView();  // 老浏览器兜底
+    // 只在条目不在可视区时滚动，且留足 sticky 层余量（scroll-margin-top 已设），
+    // 避免「每条短快讯都强制滚一次」造成的抖动感
+    var r = el.getBoundingClientRect();
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    // 可视区上沿 = sticky(pager+audio-bar) ≈ 123px，下沿 = vh
+    var inView = (r.top >= 110 && r.bottom <= vh);
+    if(!inView){
+      try {
+        el.scrollIntoView({behavior:'smooth', block:'start'});
+      } catch(e) {
+        el.scrollIntoView();  // 老浏览器兜底
+      }
     }
   }
 
