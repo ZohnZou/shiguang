@@ -71,3 +71,5 @@ __pycache__/
 *.pyc
 
 inject_nav.py
+
+para_align.py
