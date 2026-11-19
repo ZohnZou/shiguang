@@ -283,6 +283,28 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 
 
 
+
+
+
+
+
+
+/* ====SEARCH-INJECT:CSS-START==== */
+.search-fab{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;background:#8a4a3a;color:#fff;border:none;font-size:18px;cursor:pointer;z-index:1200;box-shadow:0 4px 16px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;transition:transform .15s ease;}
+.search-fab:hover{transform:scale(1.06);}
+.search-panel{position:fixed;right:18px;bottom:74px;width:340px;max-width:calc(100vw - 36px);max-height:70vh;background:#1a1a1a;border:1px solid #333;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.6);z-index:1200;display:none;overflow-y:auto;padding:14px;}
+.search-panel.open{display:block;}
+.search-panel input{width:100%;padding:10px 14px;background:#141414;border:1px solid #3a3a3a;border-radius:22px;color:#eee;font-size:14px;font-family:inherit;outline:none;box-sizing:border-box;}
+.search-panel input:focus{border-color:#8a4a3a;}
+.search-results{margin-top:12px;}
+.search-results .sr-item{display:block;padding:10px 2px;border-bottom:1px solid #262626;color:#ccc;text-decoration:none;font-size:13px;line-height:1.5;}
+.search-results .sr-item:hover{background:#222;}
+.search-results .sr-item .sr-title{color:#eee;font-weight:600;font-size:13px;}
+.search-results .sr-item .sr-meta{color:#888;font-size:11px;margin-top:3px;}
+.search-results .sr-item .sr-snippet{color:#9a9a9a;font-size:12px;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.search-results .sr-empty{padding:20px;color:#777;font-size:12px;text-align:center;}
+/* ====SEARCH-INJECT:CSS-END==== */
+
 /* ====AUDIO-INJECT:CSS-START==== */
 /* 听期刊播放条（sticky，位于 pager 下方；z-index 必须大于 pager 的 999） */
 .audio-bar{position:sticky;top:48px;z-index:1000;background:#1a1a1a;border-bottom:1px solid #333;box-shadow:0 2px 8px rgba(0,0,0,.3);}
@@ -315,26 +337,6 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
   .audio-title{font-size:11px;}
 }
 /* ====AUDIO-INJECT:CSS-END==== */
-
-
-
-
-
-/* ====SEARCH-INJECT:CSS-START==== */
-.search-fab{position:fixed;right:18px;bottom:18px;width:46px;height:46px;border-radius:50%;background:#8a4a3a;color:#fff;border:none;font-size:18px;cursor:pointer;z-index:1200;box-shadow:0 4px 16px rgba(0,0,0,.5);display:flex;align-items:center;justify-content:center;transition:transform .15s ease;}
-.search-fab:hover{transform:scale(1.06);}
-.search-panel{position:fixed;right:18px;bottom:74px;width:340px;max-width:calc(100vw - 36px);max-height:70vh;background:#1a1a1a;border:1px solid #333;border-radius:14px;box-shadow:0 12px 40px rgba(0,0,0,.6);z-index:1200;display:none;overflow-y:auto;padding:14px;}
-.search-panel.open{display:block;}
-.search-panel input{width:100%;padding:10px 14px;background:#141414;border:1px solid #3a3a3a;border-radius:22px;color:#eee;font-size:14px;font-family:inherit;outline:none;box-sizing:border-box;}
-.search-panel input:focus{border-color:#8a4a3a;}
-.search-results{margin-top:12px;}
-.search-results .sr-item{display:block;padding:10px 2px;border-bottom:1px solid #262626;color:#ccc;text-decoration:none;font-size:13px;line-height:1.5;}
-.search-results .sr-item:hover{background:#222;}
-.search-results .sr-item .sr-title{color:#eee;font-weight:600;font-size:13px;}
-.search-results .sr-item .sr-meta{color:#888;font-size:11px;margin-top:3px;}
-.search-results .sr-item .sr-snippet{color:#9a9a9a;font-size:12px;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
-.search-results .sr-empty{padding:20px;color:#777;font-size:12px;text-align:center;}
-/* ====SEARCH-INJECT:CSS-END==== */
 </style>
 </head>
 <body>
@@ -364,6 +366,108 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
 
 
 
+
+
+
+
+<!-- 全文站内搜索 -->
+<button class="search-fab" id="searchFab" onclick="toggleSearch()" aria-label="搜索">🔍</button>
+<div class="search-panel" id="searchPanel">
+  <input type="text" id="searchInput" placeholder="搜索往期内容，如「光模块」" autocomplete="off" />
+  <div class="search-results" id="searchResults"></div>
+</div>
+<script>
+(function() {
+  function init() {
+    var panel = document.getElementById('searchPanel');
+    var fab = document.getElementById('searchFab');
+    var input = document.getElementById('searchInput');
+    var results = document.getElementById('searchResults');
+    window.toggleSearch = function() {
+      panel.classList.toggle('open');
+      if (panel.classList.contains('open')) input.focus();
+    };
+    function close() { panel.classList.remove('open'); }
+
+    var flatIndex = null;
+    function loadIndex(cb) {
+      if (flatIndex) { cb(flatIndex); return; }
+      fetch('feed.json').then(function(r) { return r.json(); }).then(function(d) {
+        var idx = [];
+        (d && d.issues ? d.issues : []).forEach(function(issue) {
+          (issue.articles || []).forEach(function(art) {
+            idx.push({
+              issue: issue.issue, date: issue.date,
+              title: art.title || '', news: art.news || '',
+              analysis: art.analysis || '', source: art.source || '',
+              url: issue.url || ''
+            });
+          });
+        });
+        flatIndex = idx; cb(idx);
+      }).catch(function() { flatIndex = []; cb([]); });
+    }
+    function highlight(text, kw) {
+      var i = text.toLowerCase().indexOf(kw.toLowerCase());
+      if (i < 0) return text.slice(0, 120);
+      var s = Math.max(0, i - 30), e = Math.min(text.length, i + kw.length + 60);
+      var seg = (s > 0 ? '…' : '') + text.slice(s, e) + (e < text.length ? '…' : '');
+      seg = seg.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      var j = seg.toLowerCase().indexOf(kw.toLowerCase());
+      if (j >= 0) seg = seg.slice(0, j) + '<mark>' + seg.slice(j, j + kw.length) + '</mark>' + seg.slice(j + kw.length);
+      return seg;
+    }
+    var timer = null;
+    input.addEventListener('input', function() {
+      var q = input.value.trim();
+      if (timer) clearTimeout(timer);
+      if (!q) { results.innerHTML = ''; return; }
+      timer = setTimeout(function() {
+        loadIndex(function(idx) {
+          if (!idx.length) {
+            results.innerHTML = '<div class="sr-empty">未加载到内容数据（feed.json）</div>';
+            return;
+          }
+          var ql = q.toLowerCase(), hits = [];
+          idx.forEach(function(it) {
+            if ((it.title + ' ' + it.news + ' ' + it.analysis).toLowerCase().indexOf(ql) >= 0) hits.push(it);
+          });
+          hits.sort(function(a, b) {
+            var at = a.title.toLowerCase().indexOf(ql) >= 0 ? 0 : 1;
+            var bt = b.title.toLowerCase().indexOf(ql) >= 0 ? 0 : 1;
+            if (at !== bt) return at - bt;
+            return b.issue - a.issue;
+          });
+          hits = hits.slice(0, 30);
+          if (!hits.length) {
+            results.innerHTML = '<div class="sr-empty">没有找到「' + q.replace(/</g, '&lt;') + '」相关的内容</div>';
+          } else {
+            results.innerHTML = hits.map(function(it) {
+              var snippet = highlight(it.news || it.analysis || '', q);
+              return '<a class="sr-item" href="' + it.url + '">' +
+                '<div class="sr-title">' + it.title.replace(/</g, '&lt;') + '</div>' +
+                '<div class="sr-meta">第 ' + it.issue + ' 期 · ' + it.date + ' · ' + it.source.replace(/</g, '&lt;') + '</div>' +
+                '<div class="sr-snippet">' + snippet + '</div>' +
+                '</a>';
+            }).join('');
+          }
+        });
+      }, 250);
+    });
+    document.addEventListener('click', function(e) {
+      if (panel.classList.contains('open') && !panel.contains(e.target) && e.target !== fab) close();
+    });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') close();
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 
 <div class="audio-bar" id="audioBar">
   <div class="audio-inner">
@@ -506,6 +610,9 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
     document.addEventListener('click',function(ev){
       var t=ev.target;
       if(t.closest && t.closest('.audio-bar')) return;   // 点播放条不算
+      // 超链接独立放行：点 <a href> 就是要点它跳转/打开，绝不该被当成「点段落跳朗读」。
+      // 否则正文里的出处链接、外链会跟朗读跳转冲突（既打开链接又触发朗读）。
+      if(t.closest && t.closest('a[href]')) return;
       var para=t.closest?t.closest('.para[data-para]'):null;
       var key=null;
       if(para){
@@ -526,107 +633,6 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.85
   }
 })();
 </script>
-
-
-<!-- 全文站内搜索 -->
-<button class="search-fab" id="searchFab" onclick="toggleSearch()" aria-label="搜索">🔍</button>
-<div class="search-panel" id="searchPanel">
-  <input type="text" id="searchInput" placeholder="搜索往期内容，如「光模块」" autocomplete="off" />
-  <div class="search-results" id="searchResults"></div>
-</div>
-<script>
-(function() {
-  function init() {
-    var panel = document.getElementById('searchPanel');
-    var fab = document.getElementById('searchFab');
-    var input = document.getElementById('searchInput');
-    var results = document.getElementById('searchResults');
-    window.toggleSearch = function() {
-      panel.classList.toggle('open');
-      if (panel.classList.contains('open')) input.focus();
-    };
-    function close() { panel.classList.remove('open'); }
-
-    var flatIndex = null;
-    function loadIndex(cb) {
-      if (flatIndex) { cb(flatIndex); return; }
-      fetch('feed.json').then(function(r) { return r.json(); }).then(function(d) {
-        var idx = [];
-        (d && d.issues ? d.issues : []).forEach(function(issue) {
-          (issue.articles || []).forEach(function(art) {
-            idx.push({
-              issue: issue.issue, date: issue.date,
-              title: art.title || '', news: art.news || '',
-              analysis: art.analysis || '', source: art.source || '',
-              url: issue.url || ''
-            });
-          });
-        });
-        flatIndex = idx; cb(idx);
-      }).catch(function() { flatIndex = []; cb([]); });
-    }
-    function highlight(text, kw) {
-      var i = text.toLowerCase().indexOf(kw.toLowerCase());
-      if (i < 0) return text.slice(0, 120);
-      var s = Math.max(0, i - 30), e = Math.min(text.length, i + kw.length + 60);
-      var seg = (s > 0 ? '…' : '') + text.slice(s, e) + (e < text.length ? '…' : '');
-      seg = seg.replace(/</g, '&lt;').replace(/>/g, '&gt;');
-      var j = seg.toLowerCase().indexOf(kw.toLowerCase());
-      if (j >= 0) seg = seg.slice(0, j) + '<mark>' + seg.slice(j, j + kw.length) + '</mark>' + seg.slice(j + kw.length);
-      return seg;
-    }
-    var timer = null;
-    input.addEventListener('input', function() {
-      var q = input.value.trim();
-      if (timer) clearTimeout(timer);
-      if (!q) { results.innerHTML = ''; return; }
-      timer = setTimeout(function() {
-        loadIndex(function(idx) {
-          if (!idx.length) {
-            results.innerHTML = '<div class="sr-empty">未加载到内容数据（feed.json）</div>';
-            return;
-          }
-          var ql = q.toLowerCase(), hits = [];
-          idx.forEach(function(it) {
-            if ((it.title + ' ' + it.news + ' ' + it.analysis).toLowerCase().indexOf(ql) >= 0) hits.push(it);
-          });
-          hits.sort(function(a, b) {
-            var at = a.title.toLowerCase().indexOf(ql) >= 0 ? 0 : 1;
-            var bt = b.title.toLowerCase().indexOf(ql) >= 0 ? 0 : 1;
-            if (at !== bt) return at - bt;
-            return b.issue - a.issue;
-          });
-          hits = hits.slice(0, 30);
-          if (!hits.length) {
-            results.innerHTML = '<div class="sr-empty">没有找到「' + q.replace(/</g, '&lt;') + '」相关的内容</div>';
-          } else {
-            results.innerHTML = hits.map(function(it) {
-              var snippet = highlight(it.news || it.analysis || '', q);
-              return '<a class="sr-item" href="' + it.url + '">' +
-                '<div class="sr-title">' + it.title.replace(/</g, '&lt;') + '</div>' +
-                '<div class="sr-meta">第 ' + it.issue + ' 期 · ' + it.date + ' · ' + it.source.replace(/</g, '&lt;') + '</div>' +
-                '<div class="sr-snippet">' + snippet + '</div>' +
-                '</a>';
-            }).join('');
-          }
-        });
-      }, 250);
-    });
-    document.addEventListener('click', function(e) {
-      if (panel.classList.contains('open') && !panel.contains(e.target) && e.target !== fab) close();
-    });
-    document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') close();
-    });
-  }
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', init);
-  } else {
-    init();
-  }
-})();
-</script>
-
 <div class="page">
   <div class="cover-hero">
     <div class="brandbar">
