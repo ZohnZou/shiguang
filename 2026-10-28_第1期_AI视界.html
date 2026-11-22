@@ -19,14 +19,15 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--serif);line-height:1.
 .pager .brand{color:#aaa;margin-right:6px;white-space:nowrap}
 .pager a{color:#fff;text-decoration:none;padding:4px 12px;border-radius:3px;background:#333;font-weight:700;white-space:nowrap}
 .pager a:hover{background:var(--red)}
+@media(max-width:1024px){.page{width:calc(100vw - 32px)}.page-body{padding:28px 32px 44px}}
 @media(max-width:720px){.pager{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;-webkit-overflow-scrolling:touch}.pager a{padding:4px 10px;font-size:12px}}
-.page{max-width:760px;margin:24px auto;background:var(--paper);box-shadow:0 4px 40px rgba(0,0,0,.18)}
+.page{width:min(1280px, calc(100vw - 48px));margin:24px auto;background:var(--paper);box-shadow:0 4px 40px rgba(0,0,0,.18)}
 .page-head{border-bottom:3px double var(--ink);padding:24px 36px 16px;text-align:center;background:#fffdf7}
 .page-head .kicker{font-size:11px;letter-spacing:.3em;color:var(--ink-3)}
 .page-head h1{font-size:2.2em;font-weight:900;letter-spacing:.06em;font-family:var(--hei)}
 .page-head h1 .accent{color:var(--red)}
 .page-head .page-no{font-size:12px;color:var(--ink-3);margin-top:2px}
-.page-body{padding:28px 40px 48px;max-width:720px;margin:0 auto}
+.page-body{padding:32px 52px 56px;max-width:1120px;margin:0 auto}
 /* 单栏通栏阅读：PC 不做左右分栏，视线自上而下顺读 */
 .columns{max-width:680px;margin:0 auto}
 .video a.thumb img{width:100%;height:auto;display:block}
