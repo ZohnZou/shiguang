@@ -31,6 +31,15 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;
 .issue-card .tag{display:inline-block;background:#f2eee3;border:1px solid var(--line);font-size:11px;color:var(--ink-2);padding:2px 9px;border-radius:3px;margin-right:6px;margin-bottom:4px}
 .footer{margin-top:8px;padding:14px 20px;border-top:3px double var(--ink);font-size:12px;color:var(--ink-3);text-align:center}
 .footer a{color:var(--blue);font-weight:700;text-decoration:none;border-bottom:1px solid var(--blue)}
+/* ====SEARCH==== */
+.search-bar{background:#1a1a1a;border-bottom:3px solid #8a4a3a;}
+.search-inner{max-width:720px;margin:0 auto;display:flex;align-items:center;gap:0;padding:10px 16px;}
+.search-inner .search-icon{flex-shrink:0;width:38px;height:38px;background:#8a4a3a;color:#fff;border:none;border-radius:8px 0 0 8px;font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
+.search-inner input{flex:1;height:38px;padding:0 14px;background:#fff;border:1px solid #8a4a3a;border-left:none;border-radius:0 8px 8px 0;color:#1a1a1a;font-size:15px;font-family:inherit;outline:none;box-sizing:border-box;min-width:0;}
+.search-inner input::placeholder{color:#9a9388;}
+.search-hint{max-width:720px;margin:0 auto;padding:0 16px 12px;color:#8a8478;font-size:12px;text-align:center;}
+.no-hit{display:none;}
+@media(max-width:720px){.search-inner{padding-left:10px;padding-right:10px}}
 @media(max-width:1024px){.page{width:calc(100vw - 32px)}.page-body{padding:28px 32px 44px}}
 @media(max-width:720px){
   .page{width:100%;margin:0;min-height:100vh}
@@ -50,6 +59,14 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;
     <a class="back" href="index.html">← 回今日报纸</a>
     <a class="back" href="feed.xml">RSS 订阅</a>
     <a class="back" href="feed.json">JSON 源（程序化阅读）</a>
+  </div>
+
+  <div class="search-bar">
+    <div class="search-inner">
+      <button class="search-icon" aria-label="搜索" onclick="document.getElementById('archiveSearch').focus()">🔍</button>
+      <input type="text" id="archiveSearch" placeholder="搜索往期期刊，如「英伟达」「光模块」「泡沫」" autocomplete="off" />
+    </div>
+    <div class="search-hint">按标题、摘要、关键词标签实时筛选</div>
   </div>
 
   <div class="list">
@@ -263,5 +280,37 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;
 
   <div class="footer">拾光 · AI 视界 · 拾光主笔 · <a href="index.html">今日报纸</a></div>
 </div>
+<script>
+(function() {
+  function init() {
+    var input = document.getElementById('archiveSearch');
+    if (!input) return;
+    var cards = Array.prototype.slice.call(document.querySelectorAll('.issue-card'));
+    function filter() {
+      var q = input.value.trim().toLowerCase();
+      var hitCount = 0;
+      cards.forEach(function(card) {
+        var text = (card.textContent || '').toLowerCase();
+        var hit = !q || text.indexOf(q) >= 0;
+        card.classList.toggle('no-hit', !hit);
+        if (hit) hitCount++;
+      });
+      var hasResults = document.querySelector('.search-hint');
+      if (hasResults) {
+        hasResults.textContent = q ? ('找到 ' + hitCount + ' 期匹配「' + input.value.trim() + '」') : '按标题、摘要、关键词标签实时筛选';
+      }
+    }
+    input.addEventListener('input', function() { filter(); });
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') { input.value = ''; filter(); input.blur(); }
+    });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
+</script>
 </body>
 </html>
