@@ -37,9 +37,16 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;
 .search-inner .search-icon{flex-shrink:0;width:38px;height:38px;background:#8a4a3a;color:#fff;border:none;border-radius:8px 0 0 8px;font-size:16px;display:flex;align-items:center;justify-content:center;cursor:pointer;}
 .search-inner input{flex:1;height:38px;padding:0 14px;background:#fff;border:1px solid #8a4a3a;border-left:none;border-radius:0 8px 8px 0;color:#1a1a1a;font-size:15px;font-family:inherit;outline:none;box-sizing:border-box;min-width:0;}
 .search-inner input::placeholder{color:#9a9388;}
-.search-hint{max-width:720px;margin:0 auto;padding:0 16px 12px;color:#8a8478;font-size:12px;text-align:center;}
+.search-results{max-width:720px;margin:0 auto;padding:0 16px 12px;max-height:50vh;overflow-y:auto;background:#1a1a1a;}
+.search-results .sr-item{display:block;padding:10px 14px;border-bottom:1px solid #2c2c2c;color:#ccc;text-decoration:none;font-size:13px;line-height:1.5;background:#141414;border-radius:6px;margin-bottom:6px;}
+.search-results .sr-item:hover{background:#222;}
+.search-results .sr-item .sr-title{color:#f0ece2;font-weight:600;font-size:13px;}
+.search-results .sr-item .sr-meta{color:#9a9388;font-size:11px;margin-top:3px;}
+.search-results .sr-item .sr-snippet{color:#c9c3b8;font-size:12px;margin-top:4px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;}
+.search-results .sr-empty{padding:16px;color:#8a8478;font-size:13px;text-align:center;}
+.search-results mark{background:#ffeb3b;color:#1a1a1a;padding:0 2px;border-radius:2px;}
 .no-hit{display:none;}
-@media(max-width:720px){.search-inner{padding-left:10px;padding-right:10px}}
+@media(max-width:720px){.search-inner,.search-results{padding-left:10px;padding-right:10px}}
 @media(max-width:1024px){.page{width:calc(100vw - 32px)}.page-body{padding:28px 32px 44px}}
 @media(max-width:720px){
   .page{width:100%;margin:0;min-height:100vh}
@@ -63,10 +70,10 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;
 
   <div class="search-bar">
     <div class="search-inner">
-      <button class="search-icon" aria-label="搜索" onclick="document.getElementById('archiveSearch').focus()">🔍</button>
-      <input type="text" id="archiveSearch" placeholder="搜索往期期刊，如「英伟达」「光模块」「泡沫」" autocomplete="off" />
+      <button class="search-icon" aria-label="搜索" onclick="document.getElementById('searchInput').focus()">🔍</button>
+      <input type="text" id="searchInput" placeholder="搜索往期内容，如「光模块」「英伟达」" autocomplete="off" />
     </div>
-    <div class="search-hint">按标题、摘要、关键词标签实时筛选</div>
+    <div class="search-results" id="searchResults"></div>
   </div>
 
   <div class="list">
@@ -283,26 +290,89 @@ body{background:#e3dfd2;color:var(--ink);font-family:var(--hei);line-height:1.7;
 <script>
 (function() {
   function init() {
-    var input = document.getElementById('archiveSearch');
+    var results = document.getElementById('searchResults');
+    var input = document.getElementById('searchInput');
     if (!input) return;
+
+    // 卡片就地过滤（辅助：输入时同步收缩下方卡片列表）
     var cards = Array.prototype.slice.call(document.querySelectorAll('.issue-card'));
-    function filter() {
-      var q = input.value.trim().toLowerCase();
-      var hitCount = 0;
+    function filterCards(q) {
+      var ql = q.toLowerCase();
       cards.forEach(function(card) {
         var text = (card.textContent || '').toLowerCase();
-        var hit = !q || text.indexOf(q) >= 0;
-        card.classList.toggle('no-hit', !hit);
-        if (hit) hitCount++;
+        card.classList.toggle('no-hit', ql !== '' && text.indexOf(ql) < 0);
       });
-      var hasResults = document.querySelector('.search-hint');
-      if (hasResults) {
-        hasResults.textContent = q ? ('找到 ' + hitCount + ' 期匹配「' + input.value.trim() + '」') : '按标题、摘要、关键词标签实时筛选';
-      }
     }
-    input.addEventListener('input', function() { filter(); });
+
+    var flatIndex = null;
+    function loadIndex(cb) {
+      if (flatIndex) { cb(flatIndex); return; }
+      fetch('feed.json').then(function(r) { return r.json(); }).then(function(d) {
+        var idx = [];
+        (d && d.issues ? d.issues : []).forEach(function(issue) {
+          (issue.articles || []).forEach(function(art) {
+            idx.push({
+              issue: issue.issue, date: issue.date,
+              title: art.title || '', news: art.news || '',
+              analysis: art.analysis || '', source: art.source || '',
+              url: issue.url || ''
+            });
+          });
+        });
+        flatIndex = idx; cb(idx);
+      }).catch(function() { flatIndex = []; cb([]); });
+    }
+    function highlight(text, kw) {
+      var i = text.toLowerCase().indexOf(kw.toLowerCase());
+      if (i < 0) return text.slice(0, 120);
+      var s = Math.max(0, i - 30), e = Math.min(text.length, i + kw.length + 60);
+      var seg = (s > 0 ? '…' : '') + text.slice(s, e) + (e < text.length ? '…' : '');
+      seg = seg.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+      var j = seg.toLowerCase().indexOf(kw.toLowerCase());
+      if (j >= 0) seg = seg.slice(0, j) + '<mark>' + seg.slice(j, j + kw.length) + '</mark>' + seg.slice(j + kw.length);
+      return seg;
+    }
+    var timer = null;
+    input.addEventListener('input', function() {
+      var q = input.value.trim();
+      filterCards(q);
+      var ql = q.toLowerCase();
+      if (timer) clearTimeout(timer);
+      if (!q) { results.innerHTML = ''; return; }
+      timer = setTimeout(function() {
+        loadIndex(function(idx) {
+          if (!idx.length) {
+            results.innerHTML = '<div class="sr-empty">未加载到内容数据（feed.json）</div>';
+            return;
+          }
+          var hits = [];
+          idx.forEach(function(it) {
+            if ((it.title + ' ' + it.news + ' ' + it.analysis).toLowerCase().indexOf(ql) >= 0) hits.push(it);
+          });
+          hits.sort(function(a, b) {
+            var at = a.title.toLowerCase().indexOf(ql) >= 0 ? 0 : 1;
+            var bt = b.title.toLowerCase().indexOf(ql) >= 0 ? 0 : 1;
+            if (at !== bt) return at - bt;
+            return b.issue - a.issue;
+          });
+          hits = hits.slice(0, 30);
+          if (!hits.length) {
+            results.innerHTML = '<div class="sr-empty">没有找到「' + q.replace(/</g, '&lt;') + '」相关的内容</div>';
+          } else {
+            results.innerHTML = hits.map(function(it) {
+              var snippet = highlight(it.news || it.analysis || '', q);
+              return '<a class="sr-item" href="' + it.url + '">' +
+                '<div class="sr-title">' + it.title.replace(/</g, '&lt;') + '</div>' +
+                '<div class="sr-meta">第 ' + it.issue + ' 期 · ' + it.date + ' · ' + it.source.replace(/</g, '&lt;') + '</div>' +
+                '<div class="sr-snippet">' + snippet + '</div>' +
+                '</a>';
+            }).join('');
+          }
+        });
+      }, 250);
+    });
     document.addEventListener('keydown', function(e) {
-      if (e.key === 'Escape') { input.value = ''; filter(); input.blur(); }
+      if (e.key === 'Escape') { results.innerHTML = ''; input.value = ''; filterCards(''); input.blur(); }
     });
   }
   if (document.readyState === 'loading') {
